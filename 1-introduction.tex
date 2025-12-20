@@ -1,0 +1,240 @@
+\section{Introduction}
+\label{sec:introduction}
+
+The purpose of this course is to transition from high-school mathematics to university mathematics, and give precise definitions of ideas that have perhaps been met before. We also give rigorous proofs to statements, and we ask foundational questions in mathematics (usually in the framework of number systems and sets).
+
+
+We first build the basic ideas of the foundation of a logic system.
+
+\begin{definition}[Axioms, Statement, Proof]
+    Mathematicians start with agreed assumptions called \emph{axioms}. These are foundational to a system and could be interpreted as definitions of a system.
+
+    A \emph{statement} is a mathematical statement which could have a true/false value.
+
+    A \emph{proof} is a sequence of true statements without logical gaps, establishing some conclusion.
+\end{definition}
+
+We would like to prove statements because:
+\begin{itemize}
+    \item We want to know they are true.
+    \item We want to gain insight into why they are true.
+    \item The proof might itself be cool.
+\end{itemize}
+
+We also introduce some number systems.
+
+\begin{definition}[\(\NN\), \(\ZZ\), \(\QQ\) (Informally)]
+    Informally,
+    \begin{itemize}
+        \item \(\NN\) is the set of \emph{natural numbers}
+        \[
+            \NN = \brce{1, 2, 3, \ldots}.
+        \]
+        \item \(\ZZ\) is the set of \emph{integers}
+        \[
+            \ZZ = \brce{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots}.
+        \]
+        \item \(\QQ\) is the set of \emph{rational numbers}, which are all fractions of the form \(\frac{a}{b}\) where \(a, b \in \ZZ\) and \(b \neq 0\). Equivalently,
+        \[
+            \QQ = \set{\frac{a}{b}}{a, b \in \ZZ, b \neq 0}.
+        \]
+    \end{itemize}
+\end{definition}
+
+Ancient Greeks view numbers as geometric objects, as in \autoref{fig:greek-viewpoint-numbers}.
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Greek's Viewpoint on Numbers}
+    \label{fig:greek-viewpoint-numbers}
+\end{figure}
+
+However, from our perspective, to show that \(x = \sqrt{2}\) exists, we have to construct a \emph{larger number system} (which turns out to be \(\RR\)), and prove that
+\[
+    \exists x \in \RR: x^2 = 2.
+\]
+
+\(x = \sqrt{2}\) is an example of an \emph{algebraic number}, since it is the root of some polynomial with integer coefficients. There are also non-algebraic numbers in \(\RR\) which are called \emph{transcendental}, e.g. \(\pi\) and \(e\). The existence of such number is not proved until 1844 (Liouville).
+
+\subsection{Proofs and Non-Proofs}
+\label{sec:proofs-non-proofs}
+
+In this section we give examples of proofs and examples of incorrect proofs.
+
+\begin{claim}
+    For all positive integers \(n \in \NN\), \(n^3 - n\) is always a multiple of \(3\).
+\end{claim}
+
+\begin{proof}
+    For any positive integer \(n \in \NN\), we have
+    \[
+        n^3 - n = n \para{n^2 - 1} = \para{n - 1} n \para{n + 1}.
+    \]
+
+    One of the \(3\) consecutive integers must be a multiple of \(3\), and hence so is their product.
+\end{proof}
+
+\begin{claim}
+    For any positive integer \(n \in \NN\), if \(n^2\) is even, then so is \(n\).
+\end{claim}
+
+\begin{proof}[(Non-proof)]
+    Given a positive integer \(n \in \NN\) which is even, we can write \(n = 2k\) for some positive integer \(k \in \NN\).
+
+    Hence, \(n^2 = \para{2k}^2 = 2 \para{2k^2}\) which is even.
+\end{proof}
+
+We did not show the statement itself -- we showed the \emph{converse} of the statement.
+
+\begin{definition}[Converse, Inverse, Contrapositive]
+    For a statement 'if \(A\) then \(B\)',
+    \begin{itemize}
+        \item its \emph{converse} is 'if \(B\) then \(A\)'
+        \item its \emph{inverse} is 'if not \(A\) then not \(B\)';
+        \item its \emph{contrapositive} is 'if not \(B\) then not \(A\)'.
+    \end{itemize}
+\end{definition}
+
+A statement is equivalent to its contrapositive.
+
+\begin{claim}
+    For any positive integer \(n \in \NN\), if \(n^2\) is a multiple of \(9\), then so is \(n\).
+\end{claim}
+
+\begin{proof}[(Counterexample)]
+    Take \(n = 3\).
+\end{proof}
+
+To show a statement 'if \(A\) then \(B\)' is false, it is enough to show that there is \emph{one} instance where \(A\) is true and \(B\) is false. This is the idea where 'one counterexample is enough'.
+
+We now present a correct proof of 'if \(n^2\) is even then \(n\) is even'.
+
+\begin{proof}
+    Suppose on the contrary that \(n^2\) is even but \(n\) is not even. Then \(n\) is odd.
+
+    So \(n = 2k + 1\) for some integer \(n \geq 0\). Then
+    \begin{align*}
+        n^2 &= \para{2k + 1}^2 \\
+        &= 4k^2 + 4k + 1 \\
+        &= 4 \para{k^2 + k} + 1.
+    \end{align*}
+
+    So \(n^2\) is odd, contradicting with the assumption that \(n^2\) is even.
+\end{proof}
+
+To show 'if \(A\) then \(B\)', we showed that there is no case where \(A\) is true and \(B\) is false. This is called \emph{proof by contradiction}.
+
+\begin{definition}[If, Only If, If and Only If]
+    We write \(A \implies B\) for 'if \(A\) then \(B\)'. This is also '\(B\) \emph{if} \(A\)', or '\(A\) \emph{implies} \(B\)'.
+
+    We write \(A \impliedby B\) for 'if \(B\) then \(A\)'. This is also '\(B\) \emph{only if} \(A\)', or '\(A\) \emph{is implied by} \(B\).
+
+    We write \(A \iff B\) if both \(A \implies B\) and \(A \impliedby B\). This means '\(A\) \emph{if and only if} \(B\)', or '\(A\) \emph{is equivalent to} \(B\)'.
+\end{definition}
+
+Some statements might implicitly be a two directional proof.
+
+\begin{claim}
+    The solutions to \(x^2 - 5x + 6 = 0\) is \(x = 2\) or \(x = 3\).
+\end{claim}
+
+There are \textbf{2 assertions} in this claim:
+\begin{enumerate}
+    \item \(x = 2\) and \(x = 3\) are solutions; and
+    \item there are no other solutions apart from these two.
+\end{enumerate}
+
+\begin{proof}
+    \begin{enumerate}
+        \item If \(x = 2\) or \(x = 3\), then \(x - 2 = 0\) or \(x - 3 = 0\), so \(\para{x - 2} \para{x - 3} = 0\), so \(x^2 - 5x + 6 = 0\).
+        \item If \(x^2 - 5x + 6 = 0\), then \(\para{x - 2} \para{x - 3} = 0\), so \(x - 2 = 0\) or \(x - 3 = 0\), so \(x - 2\) or \(x - 3\).
+    \end{enumerate}
+\end{proof}
+
+This is a proof doing the two directions separately. However, in this case, it is possible to combine these two into one.
+
+\begin{proof}
+    \begin{align*}
+        &\phantom{\iff} x = 2 \text{ or } x = 3 \\
+        &\iff x - 2 = 0 \text{ or } x - 3 = 0 \\
+        &\iff \para{x - 2} \para{x - 3} = 0 \\
+        &\iff x^2 - 5x + 6 = 0.
+    \end{align*}
+\end{proof}
+
+Such proofs are only valid if \emph{every step} is 'if and only if'.
+
+We next demonstrate the danger of making arbitrary claims in proofs.
+
+\begin{claim}
+    Every positive real number is \(\geq 1\).
+\end{claim}
+
+\begin{proof}
+    We let \(r\) be the least positive real.
+
+    Either \(r = 1\), \(r < 1\) or \(r > 1\).
+
+    If \(r < 1\), then \(0 < r^2 < r < 1\), contradicting the assumption that \(r\) is the least positive real.
+
+    If \(r > 1\), then \(0 < \sqrt{r} < r\), similarly giving contradiction.
+
+    Hence, \(r = 1\) is the least positive real.
+\end{proof}
+
+We do not know that there is a least positive real to start this proof. Every claim must be justified.
+
+\subsection{Combining Claims}
+\label{sec:combining-claims}
+
+\begin{definition}[And, Or, Not]
+    If \(A\) and \(B\) are assertions, we can write \(A \land B\) for \(A\) \emph{and} \(B\), write \(A \lor B\) for \(A\) \emph{or} \(B\), and \(\lnot A\) for \emph{not} \(A\).
+\end{definition}
+
+The truth of these assertions depends on the truth of \(A\) and \(B\), as summarised in the
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{cc|cccc}
+        \(A\) & \(B\) & \(A \land B\) & \(A \lor B\) & \(\lnot A\) & \(A \implies B\) \\
+        \hline
+        F & F & F & F & T & T \\
+        F & T & F & T & T & T \\
+        T & F & F & T & F & \textbf{F} \\
+        T & T & T & T & F & T
+    \end{tabular}
+\end{table}
+
+We notice the following.
+
+\begin{proposition}[De Morgan's Laws]
+    \begin{itemize}
+        \item \(\lnot \para{A \land B}\) is equivalent to \(\para{\lnot A} \lor \para{\lnot B}\).
+        \item \(\lnot \para{A \lor B}\) is equivalent to \(\para{\lnot A} \land \para{\lnot B}\).
+    \end{itemize}
+\end{proposition}
+
+\begin{proposition}[Contrapositive is Equivalent to Original]
+    \(\para{\lnot B} \implies \para{\lnot A}\) is equivalent to \(A \implies B\).
+\end{proposition}
+
+\begin{proof}
+    We have \(A \implies B\) is equivalent to \(\para{\lnot A} \lor B\), and hence \(B \lor \para{\lnot A}\), and hence \(\para{\lnot B} \implies \para{\lnot A}\).
+\end{proof}
+
+A claim may involve quantifiers.
+
+\begin{definition}[For All, There Exists]
+    \(\forall n\) means '\emph{for all} \(n\)'. \(\exists n\) means '\emph{there exists} \(n\)'.
+\end{definition}
+
+We may negate quantifiers, by swapping to the other quantifies and negating the statement behind.
+
+\begin{proposition}[Negating Quantifiers]
+    \begin{itemize}
+        \item \(\lnot \para{\forall x: A\para{x}}\) is equivalent to \(\exists x: \lnot A\para{x}\).
+        \item \(\lnot \para{\exists x: A\para{x}}\) is equivalent to \(\forall x: \lnot A\para{x}\).
+    \end{itemize}
+\end{proposition}
+
+The order of quantifiers matters, and we will see the significance of this in future chapters.
