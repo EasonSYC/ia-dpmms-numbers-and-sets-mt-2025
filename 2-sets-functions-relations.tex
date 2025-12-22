@@ -1,2 +1,951 @@
 \section{Sets, Functions and Relations}
 \label{sec:sets-functions-relations}
+
+\subsection{Sets}
+\label{sec:sets}
+
+\begin{definition}[Set and Element (Informal)]
+    A \emph{set} is a collection of mathematical objects where the \emph{order} of the elements in the set does not matter, and the elements are only counted \emph{once}.
+
+    We write \(x \in A\) if \(x\) is \emph{an element} of the set \(A\), and \(x \notin A\) if not.
+\end{definition}
+
+\begin{example}[Examples of Sets]
+    \(\RR\), \(\NN\), \(\brce{1, 5, 9}\), \(\ocintv{-2}{3}\) are all examples of sets.
+    
+    We have \(\brce{1, 3, 7} = \brce{1, 7, 3}\) and \(\brce{3, 4, 4, 8} = \brce{3, 4, 8}\).
+\end{example}
+
+\begin{definition}[Sets being Equal]
+    Two sets are \emph{equal} if they have the same elements. In other words, two sets \(A = B\) if
+    \[
+        \forall x: x \in A \iff x = B.
+    \]
+\end{definition}
+
+\begin{definition}[Empty Set]
+    The only set with no elements is the \emph{empty set}, denoted as \(\emptyset\).
+\end{definition}
+
+\begin{definition}[Subset, Proper Subset]
+    A set \(B\) is a \emph{subset} of \(A\), written as \(B \subseteq A\) or \(B \subset A\), if every element of \(B\) is an element of \(A\). \(B\) is a \emph{proper subset} of \(A\), if \(B \subseteq A\) and \(B \neq A\). This is denoted as \(B \subsetneq A\).
+\end{definition}
+
+Note that \(A = B\) if and only if \(A \subseteq B\) and \(B \subseteq A\).
+
+\begin{definition}[Subset Selection]
+    If \(A\) is a set, and \(P\) is a property of some elements of \(A\), we write
+    \[
+        \set{x \in A}{P\para{x}}
+    \]
+    for the subset of \(A\) comprising these elements for which \(P\para{x}\) holds.
+\end{definition}
+
+\begin{example}[Subset of Primes in \(\NN\)]
+    The set
+    \[
+        \brce{2, 3, 5, 7, 11, \ldots} = \set{n \in \NN}{n \text{ is prime}} \subsetneq \NN
+    \]
+    is a proper subset of \(\NN\).
+\end{example}
+
+\begin{definition}[Union, Intersection, Disjoint]
+    If \(A\) and \(B\) are sets, then their \emph{union} is given by
+    \[
+        A \cup B = \set{x}{x \in A \text{ or } x \in B}
+    \]
+    and their \emph{intersection} is given by
+    \[
+        A \cap B = \set{x}{X \in A \text{ and } x \in B}.
+    \]
+
+    We say that \(A\) and \(B\) are \emph{disjoint} if \(A \cap B = \emptyset\).
+\end{definition}
+
+Figure \autoref{fig:set-intersection-union} gives a visualisation of this definition.
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Sets Intersection and Union}
+    \label{fig:set-intersection-union}
+\end{figure}
+
+Note that we can view set intersection as a special case of subset selection:
+\[
+    A \cap B = \set{x \in A}{x \in B}.
+\]
+
+\begin{proposition}[Commutativity, Assosiativity and Distributivity]
+    For any sets \(A\), \(B\), \(C\), the union and intersection operations are:
+    \begin{itemize}
+        \item \textbf{commutative}: \(A \cap B = B \cap A\), \(A \cup B = B \cup A\);
+        \item \textbf{associative}: \(\para{A \cap B} \cap C = A \cap \para{B \cap C}\), \(\para{A \cup B} \cup C = A \cup \para{B \cup C}\).
+    \end{itemize}
+
+    They are distributive over each other:
+    \[
+        A \cup \para{B \cap C} = \para{A \cup B} \cap \para{A \cup C}
+    \]
+    and
+    \[
+        A \cap \para{B \cup C} = \para{A \cap B} \cup \para{A \cap C}.
+    \]
+\end{proposition}
+
+\begin{definition}[Set Difference]
+    The \emph{set difference} is given by
+    \[
+        A \setminus B = \set{x \in A}{x \notin B}.
+    \]
+\end{definition}
+
+\begin{proposition}[De Morgan's Laws]
+    The following are satisfied:
+    \begin{align*}
+        A \setminus \para{B \cap C} &= \para{A \setminus B} \cup \para{A \setminus C}, \\
+        A \setminus \para{B \cup C} &= \para{A \setminus B} \cap \para{A \setminus C}.
+    \end{align*}
+\end{proposition}
+
+We give an example to prove one of the previous laws using a commonly used technique: for two sets \(S\) and \(T\), we have
+\[
+    S = T \iff S \subseteq T \land T \subseteq S.
+\]
+
+\begin{claim}
+    For any three sets \(A, B\) and \(C\), we have
+    \[
+        A \cap \para{B \cup C} = \para{A \cap B} \cup \para{A \cap C}.
+    \]
+\end{claim}
+
+\begin{proof}
+    We first show \(A \cap \para{B \cup C} \subseteq \para{A \cap B} \cup \para{A \cap C}\).
+
+    If \(x \in A \cap \para{B \cup C}\), then \(x \in A\) and \(x \in B \cup C\). In particular, \(x \in B\) or \(x \in C\).
+
+    If \(x \in B\), then \(x \in A \cap B\).
+
+    If \(x \in C\), then \(x \in A \cap C\).
+
+    Hence, we have \(x \in A \cap B\) or \(x \in A \cap C\).
+
+    Therefore, \(x \in \para{A \cap B} \cup \para{A \cap C}\).
+
+    Conversely, if \(x \in \para{A \cap B} \cup \para{A \cap C}\), then \(x \in A \cap B\) or \(x \in A \cap C\).
+
+    If \(x \in A \cap B\), then \(x \in A\) and \(x \in B \cup C\).
+
+    If \(x \in A \cap C\), then \(x \in A\) and \(x \in B \cup C\).
+
+    Hence, we have \(x \in A \cap \para{B \cup C}\), as desired.
+\end{proof}
+
+\begin{definition}[Countable and Arbitrary Unions and Intersections]
+    Given a countable infinite collection of sets \(A_1, A_2, A_3, \ldots\), we define
+    \[
+        \bigcap_{n = 1}^{\infty} A_n = A_1 \cap A_2 \cap A_3 \cap \ldots = \set{x}{\forall n \in \NN: x \in A_n},
+    \]
+    and
+    \[
+        \bigcup_{n = 1}^{\infty} A_n = A_1 \cup A_2 \cup A_3 \cup \ldots = \set{x}{\exists n \in \NN: x \in A_n}.
+    \]
+
+    More generally, given an \emph{index set} \(I\) and a collection of sets \(A_i\) indexed by \(i \in I\), we write
+    \[
+        \bigcap_{i \in I} A_i = \set{x}{\forall i \in I: x \in A_i},
+    \]
+    and
+    \[
+        \bigcup_{i \in I} A_i = \set{x}{\exists i \in I: x \in A_i}.
+    \]
+\end{definition}
+
+\begin{remark}
+    The countable infinite union and intersection \textbf{does not} mean the limit of anything (compared to an infinite product or sum).
+\end{remark}
+
+\begin{definition}[Cartesian Product]
+    Given sets \(A\) and \(B\), their \emph{Cartesian Product} \(A \times B\) is given by
+    \[
+        A \times B = \set{\para{a, b}}{a \in A \land b \in B}
+    \]
+    is the set of \emph{ordered pairs} \(\para{a, b}\) with \(a \in A\) and \(b \in B\).
+\end{definition}
+
+Note that we may define an ordered pair formally using set theory as
+\[
+    \para{a, b} = \brce{\brce{a}, \brce{a, b}},
+\]
+and extend this to ordered triples, etc., as well by a recursive definition:
+\[
+    \para{a, b, c} = \para{\para{a, b}, c}
+\]
+
+Similarly, we may extend the Cartesian product to triples, etc., e.g.
+\[
+    \RR^3 = \RR \times \RR \times \RR = \set{\para{x, y, z}}{x, y, z \in \RR}.
+\]
+
+\begin{definition}[Power Set]
+    For any set \(X\), we form the \emph{power set} \(\powerset\para{X}\) consisting of all subsets of \(X\):
+    \[
+        \powerset\para{X} = \set{Y}{Y \subseteq X}
+    \]
+\end{definition}
+
+\begin{example}[Power Set]
+    If \(X = \brce{1, 2}\), we have
+    \[
+        \powerset\para{X} = \brce{\emptyset, \brce{1}, \brce{2}, \brce{1, 2}}.
+    \]
+\end{example}
+
+Recall that we can do subset selection on a set \(A\) and for any property \(P\):
+\[
+    \set{x \in A}{P\para{x}}.
+\]
+
+But we \emph{cannot} form \(\set{x}{P\para{x}}\) \emph{without} the starting set.
+
+\begin{example}[Russell's Paradox]
+    Suppose
+    \[
+        X = \set{x}{x\text{ is a set, } x \notin x}
+    \]  
+    were a set. For example,
+    \[
+        \brce{2} \in \brce{\brce{2}, \brce{1, 2, 3}}
+    \]
+    but
+    \[
+        \brce{2} \notin \brce{2}.
+    \]
+
+    Then, if \(X \in X\), by definition, we have \(X \notin X\). However, if \(X \notin X\), by definition, we have \(X \in X\).
+\end{example}
+
+This also implies that there is \emph{no universal set} \(Y\) containing all mathematical objects: \(\forall x: x \in Y\). Otherwise, we may form the above set by subset selection
+\[
+    X = \set{x \in Y}{x \notin x}.
+\]
+
+Therefore, to guarantee that a set exists, it should be obtained from known sets, e.g. \(\RR\), \(\NN\), in one of the ways discussed.
+
+\begin{definition}[Finite/Infinite Set, Size of a Set]
+    We let
+    \[
+        \NN_0 = \NN \cup \brce{0} = \brce{0, 1, 2, 3, \ldots}.
+    \]
+
+    Given \(n \in \NN_0\), we say a set \(A\) has \emph{size} \(n\) if we can write
+    \[
+        A = \brce{a_1, a_2, \ldots, a_n}
+    \]
+    where the elements \(a_i\) are distinct.
+
+    We say a set is \emph{finite} if such \(n \in \NN_0\) exists, and otherwise we say the set is \emph{infinite}.
+\end{definition}
+
+\subsection{Functions}
+\label{sec:functions}
+
+Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a 'rule' that assigns to every \(x \in A\) to a unique element \(f\para{x} \in B\).
+
+\begin{definition}[Function]
+    A \emph{function} from \(A\) to \(B\) is a subset \(f \subseteq A \times B\) such that
+    \[
+        \forall x \in A, \exists_1 y \in B: \para{x, y} \in f.
+    \]
+
+    We write
+    \[
+        \functiondomain{f}{A}{B}
+    \]
+    if \(f\) is a function from \(A\) to \(B\), and if \(\para{x, y} \in f\), we write \(f\para{x} = y\), or
+    \[
+        \functionmap{f}{x}{y}.
+    \]
+\end{definition}
+
+\begin{examples}[Examples and Non-Examples of Functions]
+    \begin{enumerate}
+        \item The map
+        \[
+            \function{f}{\RR}{\RR}{x}{x^2}
+        \]
+        is a function.
+
+        \item The map
+        \[
+            \function{f}{\RR}{\RR}{x}{\frac{1}{x}}
+        \]
+        is \emph{not} a function, since \(0 \in \RR\) did not get mapped to anything.
+
+        \item The map
+        \[
+            \function{f}{\RR}{\RR}{x}{\pm \sqrt{\abs{x}}}
+        \]
+        is \emph{not} a function, since the value of such mapping is not unique (for non-zero elements in the domain).
+
+        \item The map
+        \[
+            \function{f}{\RR}{\RR}{x}{\begin{cases}
+                1, & x \in \QQ, \\
+                0, & x \notin \QQ,
+            \end{cases}}
+        \]
+        is a function.
+    \end{enumerate}
+\end{examples}
+
+\begin{definition}[Domain, Co-domain, Image, Pre-Image]
+    Given \(\functiondomain{f}{A}{B}\), we say \(A\) is the \emph{domain} of \(f\), and \(B\) is the \emph{co-domain} or \emph{range} of \(f\).
+
+    If \(x \in A\), and \(f\para{x} = y\), then \(y\) is \emph{the image} of \(x\), and \(x\) is \emph{a pre-image} of \(y\).
+
+    If \(X \subseteq A\), then \emph{the image of \(X\) under \(f\)} is
+    \[
+        f\para{X} = \set{f\para{x}}{X \in X} = \set{b \in B}{\exists x \in X: f\para{x} = b}.
+    \]
+
+    If \(Y \subseteq B\), then \emph{the pre-image of \(Y\) under \(f\)} is
+    \[
+        f\inverse\para{Y} = \set{a \in A}{f\para{a} \in Y}.
+    \]
+
+    The \emph{image} of the map \(f\) is
+    \[
+        \img f = f \para{A}
+    \]
+    where \(A\) is its domain.
+\end{definition}
+
+\begin{remark}
+    Note that the pre-image may exist without an inverse function. However, if the inverse exist, then the pre-image of the function is consistent with the image of the inverse function, hence the dual-meaning of the definition does not really matter.
+\end{remark}
+
+\begin{examples}[Images and Pre-Images]
+    \begin{enumerate}
+        \item For the function \(f\para{x} = x^2\), the image of \(6\) is \(36\), and the pre-images of \(36\) are \(\pm 6\).
+        \item For the function \(f\para{x} = x^2\), the image of \(\cointv{-1}{4}\) is \(\cointv{0}{16}\), and the pre-image of \(\cointv{-1}{4}\) is \(\oointv{-2}{2}\).
+    \end{enumerate}
+\end{examples}
+
+\begin{definition}[Injective, Surjective, Bijective]
+    Let \(\functiondomain{f}{A}{B}\).
+    
+    \begin{itemize}
+        \item \(f\) is \emph{injective} if distinct elements are mapped to distinct elements, i.e.,
+        \[
+            \forall a, b \in A, a \neq b: f\para{a} \neq f\para{b}.
+        \]
+
+        Equivalently, \(f\) is injective if
+        \[
+            \forall a, b \in A: f\para{a} = f\para{b} \implies a = b.
+        \]
+
+        \item \(f\) is \emph{surjective} if \(\img \para{f} = B\). Equivalently, \(f\) is surjective if
+        \[
+            \forall b \in B \exists a \in A: f\para{a} = b.
+        \]
+
+        \item \(f\) is \emph{bijective} if \(f\) is both injective and surjective.
+    \end{itemize}
+\end{definition}
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+          & A \arrow[rr, "f_1"]    & & B           \\
+        1 & \bullet \arrow[rr]   & & \bullet & 1 \\
+        2 & \bullet \arrow[rrd]  & & \bullet & 2 \\
+        3 & \bullet \arrow[rruu] & & \bullet & 3 \\
+        4 & \bullet \arrow[rru]  & & \bullet & 4 \\
+        5 & \bullet \arrow[rru]
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+          & A \arrow[rr, "f_2"]    & & B           \\
+        1 & \bullet \arrow[rr]   & & \bullet & 1 \\
+        2 & \bullet \arrow[rrd]  & & \bullet & 2 \\
+        3 & \bullet \arrow[rru]  & & \bullet & 3
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+          & A \arrow[rr, "f_3"]    & & B           \\
+        1 & \bullet \arrow[rr]   & & \bullet & 1 \\
+        2 & \bullet \arrow[rrdd] & & \bullet & 2 \\
+        3 & \bullet \arrow[rru]  & & \bullet & 3 \\
+          &                      & & \bullet & 4
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+          & A \arrow[rr, "f_4"]    & & B           \\
+        1 & \bullet \arrow[rrdd] & & \bullet & 1 \\
+        2 & \bullet \arrow[rrd]  & & \bullet & 2 \\
+        3 & \bullet \arrow[rruu] & & \bullet & 3 \\
+        4 & \bullet \arrow[rruu]
+    \end{tikzcd}
+    \caption{Examples of Injective and Surjective Functions}
+    \label{fig:injective-surective-examples}
+\end{figure}
+
+\begin{examples}[Injective and Surjective Functions]
+    We refer to \autoref{fig:injective-surective-examples}.
+
+    \begin{enumerate}
+        \item Let \(\functiondomain{f_1}{\brce{1, 2, 3, 4, 5}}{\brce{1, 2, 3, 4}}\) be given by the first map. \(f_1\) is neither injective nor surjective.
+
+        \item Let \(\functiondomain{f_2}{\brce{1, 2, 3}}{\brce{1, 2, 3}}\) be given by the second map. \(f_2\) is both injective and surjective, hence bijective.
+
+        \item Let \(\functiondomain{f_3}{\brce{1, 2, 3}}{\brce{1, 2, 3, 4}}\) be given by the third map. \(f_3\) is injective but not surjective.
+
+        \item Let \(\functiondomain{f_4}{\brce{1, 2, 3, 4}}{\brce{1, 2, 3}}\) be given by the fourth map. \(f_4\) is surjective but not injective.
+    \end{enumerate}
+\end{examples}
+
+If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\) is 'hit' exactly one. That is, \(f\) pairs the elements of \(A\) and \(B\).
+
+\begin{definition}[Permutation]
+    A \emph{permutation} of \(A\) is a bijection \(A \to A\).
+\end{definition}
+
+\begin{remark}
+    When specifying functions, we need to specify both its domain and co-domain. For example, asking whether \(f\para{x} = x^2\) is injective is meaningless, since
+    \[
+        \function{f}{\NN}{\NN}{x}{x^2}
+    \]
+    is injective, while
+    \[
+        \function{f}{\ZZ}{\ZZ}{x}{x^2}
+    \]
+    is not.
+\end{remark}
+
+\begin{proposition}[Size of Finite Sets and Mappings]
+    Let \(A, B\) be finite sets and \(\functiondomain{f}{A}{B}\).
+    \begin{enumerate}
+        \item If \(\abs{A} < \abs{B}\), then \(f\) cannot be surjective.
+        \item If \(\abs{A} > \abs{B}\), then \(f\) cannot be injective.
+        \item If \(A = B\), then \(f\) is surjective if and only if \(f\) is injective. (For a function from a set to itself, injectivity is equivalent to surjectivity.)
+        \item If \(B \subsetneq A\), then \(f\) cannot be bijective. (There are no bijections from a finite \(A\) to any proper subset of \(A\).)
+    \end{enumerate}
+\end{proposition}
+
+\begin{remark}
+    The first two points are extended to infinite sets using \emph{cardinality}. However, there are counterexamples of the other two points in the infinite case.
+\end{remark}
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+          & \NN \arrow[rr, "f"]    & & \NN         \\
+        1 & \bullet \arrow[rrd]    & & \bullet & 1 \\
+        2 & \bullet \arrow[rrd]    & & \bullet & 2 \\
+        3 & \bullet \arrow[rrd]    & & \bullet & 3 \\
+        4 & \bullet \arrow[rrd]    & & \bullet & 4 \\
+        \vdots & \vdots            & & \vdots  & \vdots
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+          & \NN \arrow[rr, "g"]    & & \NN         \\
+        1 & \bullet \arrow[rr]     & & \bullet & 1 \\
+        2 & \bullet \arrow[rru]    & & \bullet & 2 \\
+        3 & \bullet \arrow[rru]    & & \bullet & 3 \\
+        4 & \bullet \arrow[rru]    & & \bullet & 4 \\
+        \vdots & \vdots \arrow[rru] & & \vdots & \vdots
+    \end{tikzcd}
+    \qquad
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+          & \NN \arrow[rr, "h"]    & & \NN \setminus \brce{1} \\
+        1 & \bullet \arrow[rr]    & & \bullet & 2 \\
+        2 & \bullet \arrow[rr]    & & \bullet & 3 \\
+        3 & \bullet \arrow[rr]    & & \bullet & 4 \\
+        4 & \bullet \arrow[rr]    & & \bullet & 5 \\
+        \vdots & \vdots           & & \vdots  & \vdots
+    \end{tikzcd}
+    \caption{Counterexamples in the Infinite Case}
+    \label{fig:infinite-counterexample}
+\end{figure}
+
+\begin{examples}[Counterexamples in the Infinite Case]
+    We refer to \autoref{fig:infinite-counterexample}.
+
+    \begin{enumerate}
+        \item The function
+        \[
+            \function{f}{\NN}{\NN}{x}{x + 1}
+        \]
+        is injective but not surjective. \(1 \in \NN\) does not have a pre-image.
+
+        \item The function
+        \[
+            \function{g}{\NN}{\NN}{x}{\begin{cases}
+            x - 1, & x \neq 1, \\ 1, & x = 1\end{cases}}
+        \]
+        is not injective but surjective. \(h\para{1} = h\para{2}\).
+
+        \item The function
+        \[
+            \function{h}{\NN}{\NN \setminus \brce{1}}{x}{x + 1}
+        \]
+        is bijective, and \(\NN \setminus \brce{1} \subsetneq \NN\).
+    \end{enumerate}
+\end{examples}
+
+\begin{examples}[Examples of Functions]
+    \begin{enumerate}
+        \item For any set \(X\), we say
+        \[
+            \function{\identity_X}{X}{X}{x}{x}
+        \]
+        is the \emph{identity function}.
+
+        \item A sequence of reals \(x_1, x_2, x_3, \ldots\) is a function
+        \[
+            \function{x}{\NN}{\RR}{n}{x_n}.
+        \]
+        
+        \item The operation \(+\) on \(\NN\) is a function
+        \[
+            \function{+}{\NN}{\NN}{\para{a, b}}{a + b}.
+        \]
+
+        \item A set \(X\) has size \(n\) if and only if there is a bijection
+        \[
+            \function{f}{\brce{1, 2, \ldots, n}}{X = \brce{a_1, a_2, \ldots, a_n}}{i}{a_i}.
+        \]
+    \end{enumerate}
+\end{examples}
+
+\begin{definition}[Indicator Function]
+    Given a set \(X\) and \(A \subseteq X\), we have the \emph{indicator function} or \emph{characteristic function} of \(A\)
+    \[
+        \function{\indicator_A = \characteristic_A}{X}{\brce{0, 1}}{x}{\begin{cases}1, & x \in A, \\ 0, & x \notin A\end{cases}.}
+    \]
+\end{definition}
+
+\begin{proposition}[Properties of the Indicator Function]
+    Let \(A, B \subseteq X\).
+    \begin{enumerate}
+        \item The indicator function indicates the equality of sets:
+        \[
+            \indicator_A = \indicator_B \iff A = B.
+        \]
+        \item The indicator of the intersection is given by
+        \[
+            \indicator_{A \cap B} = \indicator_A \cdot \indicator_B.
+        \]
+        \item The indicator of the complement is given by
+        \[
+            \indicator_{X \setminus A} = 1 - \indicator_{A}.
+        \]
+        \item The indicator of the union is given by
+        \[
+            \indicator_{A \cup B} = \indicator_A + \indicator_B - \indicator_{A \cap B}.
+        \]
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}[of Property 4]
+    We have
+    \begin{align*}
+        \indicator_{A \cup B} &= 1 - \indicator_{X \setminus \para{A \cup B}} && \text{Property 3} \\
+        &= 1 - \indicator_{\para{X \setminus A} \cap \para{X \setminus B}} && \text{Property 1, de Morgan's Law} \\
+        &= 1 - \indicator_{X \setminus A} \cdot \indicator_{X \setminus B} && \text{Property 2} \\
+        &= 1 - \para{1 - \indicator_A} \para{1 - \indicator_B} && \text{Property 3} \\
+        &= - \indicator_A \indicator_B + \indicator_A + \indicator_B \\
+        &= \indicator_A + \indicator_B - \indicator_{A \cap B} && \text{Property 2}
+    \end{align*}
+    as desired.
+\end{proof}
+
+\begin{definition}[Composition of Functions]
+    Given \(\functiondomain{f}{A}{B}\) and \(\functiondomain{g}{B}{C}\), the \emph{composition} is
+    \[
+        \function{g \circ f}{A}{C}{a}{g\para{f\para{a}}.}
+    \]
+\end{definition}
+
+Figure \autoref{fig:composition-functions} visualises this, for \(b = f\para{a}\), and \(c = g\para{b} = g \circ f \para{a}\).
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+        A \arrow[rr, "f"'] \arrow[rrrr, "g \circ f", bend left] & & B\arrow[rr, "g"'] & & C \\ \\ \\
+        a \arrow[rr, mapsto] & & b \arrow[rr, mapsto] & & c
+    \end{tikzcd}
+    \caption{Composition of Functions}
+    \label{fig:composition-functions}
+\end{figure}
+
+\begin{example}[Function Composition]
+    Let
+    \[
+        \function{f}{\RR}{\RR}{x}{2x}
+    \]
+    and
+    \[
+        \function{g}{\RR}{\RR}{x}{x + 1}.
+    \]
+
+    We have
+    \[
+        g \circ f \para{x} = g \para{f \para{x}} = g \para{2x} = 2x + 1
+    \]
+    and
+    \[
+        f \circ g \para{x} = f \para{g \para{x}} = f \para{x + 1} = 2x + 2.
+    \]
+
+    Note
+    \[
+        f \circ g \para{1} = 4 \neq 3 = g \circ f \para{1}.
+    \]  
+\end{example}
+
+We see from the above example that in general, \(\circ\) is not commutative.
+
+\begin{proposition}[Function Composition is Associative]
+    For functions \(\functiondomain{f}{A}{B}, \functiondomain{g}{B}{C}, \functiondomain{h}{C}{D}\), we have
+    \[
+        h \circ \para{g \circ f} = \para{h \circ g} \circ f.
+    \]
+
+    This allows us to drop brackets in function composition without ambiguity.
+\end{proposition}
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+        A \arrow[rr, "f"] & & B\arrow[rr, "g"] & & C\arrow[rr, "h"] & & D \\ \\ \\
+        a \arrow[rr, mapsto, "f"] \arrow[rrrr, mapsto, bend right, "g \circ f"] \arrow[rrrrrr, mapsto, bend right, "h \circ g \circ f"' ] & & b \arrow[rr, mapsto, "g"] \arrow[rrrr, mapsto, bend left, "h \circ g"'] & & c \arrow[rr, mapsto, "h"] & & d \\
+    \end{tikzcd}
+    \caption{Composition of Functions is Associative}
+    \label{fig:composition-functions-associative}
+\end{figure}
+
+\begin{proof}
+    \autoref{fig:composition-functions-associative} visualises this result.
+
+    For any \(x \in A\), we have
+    \begin{align*}
+        \para{h \circ \para{g \circ f}} \para{x} &= h\para{\para{g \circ f} \para{x}} \\
+        &= h \para{g \para{f \para{x}}}
+    \end{align*}
+    and
+    \begin{align*}
+        \para{\para{h \circ g} \circ f} \para{x} &= \para{h \circ g} \para{f\para{x}} \\
+        &= h \para{g \para{f \para{x}}}
+    \end{align*}
+    indeed.
+\end{proof}
+
+We now define what it means for a function to be reversible and the reverse of it.
+
+\begin{definition}[Invertibility, Inverse]
+    We say \(\functiondomain{f}{A}{B}\) is \emph{invertible} if there exists \(\functiondomain{g}{B}{A}\) such that
+    \[
+        g \circ f = \identity_A, f \circ g = \identity_B.
+    \]
+
+    \(g\) is called the \emph{inverse} of \(f\).
+\end{definition}
+
+\begin{example}[Inverse Functions on \(\RR \to \RR\)]
+    Let
+    \[
+        \function{f}{\RR}{\RR}{x}{2x + 1}
+    \]
+    and
+    \[
+        \function{g}{\RR}{\RR}{x}{\frac{x - 1}{2}}.
+    \]
+
+    For all \(x \in \RR\), we have
+    \begin{align*}
+        \para{g \circ f} \para{x} &= g \para{f \para{x}} \\
+        &= g \para{2x + 1} \\
+        &= \frac{\para{2x + 1} - 2}{2} \\
+        &= x
+    \end{align*}
+    so \(g \circ f = \identity_{\RR}\).
+
+    For all \(x \in \RR\), we have
+    \begin{align*}
+        \para{f \circ g} \para{x} &= f \para{g \para{x}} \\
+        &= f \para{\frac{x - 1}{2}} \\
+        &= 2 \para{\frac{x - 1}{2}} + 1 \\
+        &= x,
+    \end{align*}
+    so \(f \circ g = \identity_{\RR}\).
+\end{example}
+
+\begin{example}[One-Sided Inverse]
+    Let
+    \[
+        \function{f}{\NN}{\NN}{x}{x + 1}
+    \]
+    and
+    \[
+        \function{G}{\NN}{\NN}{x}{\begin{cases}x - 1, & x \neq 1, \\ 1, & x = 1.\end{cases}}
+    \]
+
+    Figure \autoref{fig:one-sided-inverse} visualises this situation. Note that \(g \circ f = \identity_{\NN}\) but \(f \circ g \neq \identity_{\NN}\), since \(f \para{g\para{1}} = f\para{1} = 2\).
+\end{example}
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
+        \NN \arrow[rr, "f"]   & & \NN \arrow[rr, "g"]   & & \NN \arrow[rr, "f"]   & & \NN\\
+        \bullet_1 \arrow[rrd] & & \bullet_1 \arrow[rr]  & & \bullet_1 \arrow[rrd] & & \bullet_1 \\
+        \bullet_2 \arrow[rrd] & & \bullet_2 \arrow[rru] & & \bullet_2 \arrow[rrd] & & \bullet_2 \\
+        \bullet_3 \arrow[rrd] & & \bullet_3 \arrow[rru] & & \bullet_3 \arrow[rrd] & & \bullet_3 \\
+        \bullet_4 \arrow[rrd] & & \bullet_4 \arrow[rru] & & \bullet_4 \arrow[rrd] & & \bullet_4 \\
+        \vdots                & & \vdots \arrow[rru]    & & \vdots                & & \vdots    \\
+    \end{tikzcd}
+    \caption{One-Sided Inverse}
+    \label{fig:one-sided-inverse}
+\end{figure}
+
+Next we investigate on the conditions that inverses exist.
+
+\begin{lemma}[Injections are those with Left Inverses]
+    Given \(\functiondomain{f}{A}{B}\), there exists \(\functiondomain{g}{B}{A}\) such that \(g \circ f = \identity_A\) if and only if \(f\) is injective.
+\end{lemma}
+
+\begin{proof}
+    If such \(g\) exists, and there exists \(a, a' \in A\) such that \(f \para{a} = f \para{a'}\), then \(g \para{f \para{a}} = g \para{f \para{a'}}\), hence \(a = a'\), and \(f\) is injective.
+
+    Conversely, if \(f\) is injective, we can find \(g\) such that \(g \circ f = \identity_A\). Let \(b \in B\).
+    \begin{itemize}
+        \item If \(b \in f\para{A}\), then let \(g \para{b} = a\) where \(a\) is the \emph{unique} element of \(A\) such that \(f\para{a} = b\).
+        \item If \(b \notin f\para{A}\), then assign \(g \para{b} \in A\) be anything.
+    \end{itemize}
+\end{proof}
+
+\begin{lemma}[Surjections are those with Right Inverses]
+    Given \(\functiondomain{f}{A}{B}\), there exists \(\functiondomain{g}{B}{A}\) such that \(f \circ g = \identity_B\) if and only if \(f\) is surjective.
+\end{lemma}
+
+\begin{proof}
+    If such \(g\) exists, then
+    \[
+        f \para{g \para{B}} = B
+    \]
+    hence \(f\) must be surjective.
+
+    Conversely, if \(f\) is surjective, we construct such \(g\). Let \(b \in B\), pick \emph{some} \(a \in A\) with \(f\para{a} = b\) (i.e. pick \(a\) as some pre-image of \(b\)), and let \(g \para{b} = a\).
+\end{proof}
+
+\begin{theorem}[Bijections are those with Inverses]
+    For a function \(\functiondomain{f}{A}{B}\), it is invertible if and only if \(f\) is bijective.
+\end{theorem}
+
+\begin{proof}
+    If a (two-sided) inverse of a function \(f\) exists, then \(f\) is bijective; and conversely, if \(f\) is bijective, such \(g\)s constructed in the previous two lemmas are identical, hence such \(f\) is invertible.
+\end{proof}
+
+\begin{notation}
+    We write \(f\inverse\) for the inverse of \(f\) when it exists (since it must be unique). Note this uses the same notation as the pre-image.
+\end{notation}
+
+\subsection{Relations}
+\label{sec:relations}
+
+\begin{definition}[Relation]
+    A \emph{relation} on a set \(X\) is a subset \(R \subseteq X \times X\). We write \(aRb\) for \(\para{a, b} \in R\).
+\end{definition}
+
+\begin{examples}[Examples of Relations on \(\NN\)]
+    \begin{enumerate}
+        \item \(aRb\) if \(a\) and \(b\) have the same final digit.
+        \item \(aRb\) if \(a < b\).
+        \item \(aRb\) if \(a \neq b\).
+        \item \(aRb\) if \(a = b = 1\).
+        \item \(aRb\) if \(\abs{a - b} \leq 3\).
+    \end{enumerate}
+\end{examples}
+
+There are three properties of a relation that are of special interest.
+
+\begin{definition}[Reflective, Symmetric, Transitive]
+    A relation \(R\) on a set \(X\) is
+    \begin{itemize}
+        \item \emph{reflexive}, if \(xRx\) for all \(x \in X\);
+        \item \emph{symmetric}, if \(xRy \implies yRx\) for all \(x, y \in X\);
+        \item \emph{transitive} if \(\para{aRb} \land \para{bRc} \implies aRc\) for all \(a, b, c \in X\).
+    \end{itemize}
+\end{definition}
+
+\begin{examples}[Properties of Above Examples]
+    \autoref{fig:properties-examples-relations} gives the properties of the above examples.
+\end{examples}
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|ccccc}
+        Property & 1 & 2 & 3 & 4 & 5 \\
+        \hline
+        Reflexive  & Y & N & N & N & Y \\
+        Symmetric  & Y & N & Y & Y & Y \\
+        Transitive & Y & Y & N & Y & N
+    \end{tabular}
+    \caption{Properties of Examples of Relations}
+    \label{fig:properties-examples-relations}
+\end{table}
+
+\begin{definition}[Equivalence Relation]
+    A relation \(R\) is an \emph{equivalence relation} if it is reflexive, symmetric and transitive. We write this as \(a \sim b\) for \(a R b\).
+\end{definition}
+
+In the above examples, only 1 is an equivalence relation.
+
+\begin{examples}[Partition into Related Elements]
+    \begin{enumerate}
+        \item In Example (1) above, we may partition \(\NN\) into numbers which end in \(0\), end in \(1\), \dots, end in \(9\). This divides \(\NN\) into mutually disjoint subsets consisting of related elements.
+        \item Let \(X\) be the set of IA students and let an equivalence relation on \(X\) be that students are born in the same month. Similarly, we may partition \(X\) into those born in January, February, \dots, December.
+    \end{enumerate}
+\end{examples}
+
+We notice that we seem to be able to partition a set \(X\) based on an equivalence relation \(\sim\) on \(X\).
+
+\begin{definition}[Equivalence Class]
+    Let \(\sim\) be an equivalence relation on \(X\). The \emph{equivalence class} of a particular element \(x \in X\) is denoted by
+    \[
+        \brac{x} = \set{y \in X}{y \sim x}.
+    \]
+\end{definition}
+
+\begin{example}[Equivalence Class]
+    In Example (1) above,
+    \[
+        \brac{35} = \set{y \in \NN}{y\text{ ends in }5} = \brac{5}.
+    \]
+\end{example}
+
+\begin{definition}[Partition]
+    Given a set \(X\), a \emph{partition} of \(X\) is a collection of pairwise disjoint subsets of \(X\) whose union is \(X\). Equivalently, the intersection of two sets in the collection is either trivial (the empty set) or the whole set.
+\end{definition}
+
+\begin{theorem}[Equivalence Relation Partitions into Equivalence Classes]
+    Let \(\sim\) be an equivalence relation on \(X\), then the equivalence classes form a partition of \(X\).
+\end{theorem}
+
+\begin{proof}
+    Since \(\sim\) is reflexive, we have \(x \in \brac{x}\) for all \(x \in X\). Then
+    \[
+        \bigcup_{x \in X} \brac{x} = X.
+    \]
+
+    It remains to prove that for any \(x, y \in X\), either \(\brac{x} = \brac{y}\) or \(\brac{x} \cap \brac{y} = \emptyset\).
+
+    Suppose that \(\brac{x} \cap \brac{y} \neq \emptyset\), we want to prove that \(\brac{x} = \brac{y}\).
+    
+    Take \(z \in \brac{x} \cap \brac{y} \neq \emptyset\). By definition of an equivalence relation, \(z \sim x\) and hence \(x \sim z\), and \(z \sim y\). By transitivity, we have \(x \sim y\).
+
+    Now let \(w \in \brac{y}\), and hence we have \(y \sim w\). By transitivity, \(x \sim w\), so \(w \in \brac{x}\). Hence, \(\brac{y} \subseteq \brac{x}\), and similarly, \(\brac{x} \subseteq \brac{y}\), so \(\brac{x} = \brac{y}\) as desired.
+\end{proof}
+
+Note conversely, that given aby partition of \(X\), there is an equivalence relation \(R\) whose equivalence classes are precisely the parts of the subsets of the partition. We define \(aRb\) whenever \(a\) and \(b\) live in the same part. \autoref{fig:equivalence-relations-partitions} visualise the equivalence.
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Equivalence Relations are Equivalent to Partitions}
+    \label{fig:equivalence-relations-partitions}
+\end{figure}
+
+Now, we may be interested in the set of equivalence classes, since it is useful to restrict a set to a smaller part of it (but not in a subset way).
+
+\begin{definition}[Quotient, Quotient/Projection Map]
+    Given an equivalence relation \(R\) on a set \(X\), the \emph{quotient of \(X\) by \(R\)} is
+    \[
+        X / R = \set{\brac{x}}{x \in X}.
+    \]
+
+    The map
+    \[
+        \function{q}{X}{X / R}{x}{\brac{x}}
+    \]
+    is the \emph{quotient/projection map}.
+\end{definition}
+
+Figure \autoref{fig:quotient-map} visualises the quotient map and this shows that the quotient map is (by definition of the quotient) surjective.
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Quotient Map}
+    \label{fig:quotient-map}
+\end{figure}
+
+\begin{examples}[Examples of Quotients]
+    \begin{enumerate}
+        \item In Example 1 above, we have
+        \[
+            X / R = \brce{\brac{0}, \brac{1}, \ldots, \brac{9}}
+        \]
+        and \(\abs{X / R} = 10\).
+
+        \item We define on \(\ZZ \times \NN\) an equivalence relation
+        \[
+            \para{a, b} R \para{c, d} \iff ad = bc.
+        \]
+
+        Note that
+        \[
+            \brac{\para{1, 2}} = \brce{\para{1, 2}, \para{2, 4}, \para{3, 6}, \ldots},
+        \]
+        so we may regard \(\ZZ \times \NN / R\) as a copy of \(\QQ\) by identifying \(\brac{\para{a, b}}\) with \(\frac{a}{b} \in \QQ\).
+
+        The quotient map for this equivalence relation is
+        \[
+            \function{q}{\ZZ \times \NN}{\QQ}{\para{a, b}}{\frac{a}{b}.}
+        \]
+    \end{enumerate}
+\end{examples}
+
+\subsection{Binary Operations}
+\label{sec:binary-operations}
+
+\begin{definition}[Binary Operation]
+    A \emph{binary operation} \(\ast\) on a set \(A\) is a function
+    \[
+        \functiondomain{\ast}{A \times A}{A}.
+    \]
+\end{definition}
+
+\begin{examples}[Examples of Binary Operations]
+    \begin{enumerate}
+        \item \(+\) and \(\cdot\) are binary operations on \(\NN, \ZZ, \ldots\).
+        \item \(-\) is a binary operation on \(\ZZ, \QQ, \ldots\).
+        \item \(\div\) is a binary operation on \(\QQ \setminus \brce{0} = \QQ\multiplicative, \RR\multiplicative, \ldots\).
+    \end{enumerate}
+\end{examples}
+
+\begin{definition}[Commutative, Associative]
+    Let \(\ast\) be a binary operation on a set \(A\).
+    \begin{itemize}
+        \item If for all \(x, y \in A\), we have \(x \ast y = y \ast x\), then we say \(\ast\) is \emph{commutative}.
+        \item If for all \(x, y, z \in A\), we have \(x \ast \para{y \ast z} = \para{x \ast y} \ast z\), then we say \(\ast\) is \emph{associative}.
+    \end{itemize}
+\end{definition}
+
+We can abstract another common property in arithmetic in binary relations.
+
+\begin{definition}[Distributive]
+    Let \(\ast\) and \(\odot\) be binary operations on \(A\). We say \emph{\(\ast\) is distributive over \(\odot\)} if for all \(x, y, z \in A\), we have
+    \begin{align*}
+        x \ast \para{y \odot z} &= \para{x \ast y} \odot \para{x \ast z}, \\
+        \para{y \odot z} \ast x &= \para{y \ast x} \odot \para{z \ast x}.
+    \end{align*}
+\end{definition}
+
+\begin{remark}
+    The first line is called \emph{left distributivity} ,and the second line is \emph{right distributivity}.
+\end{remark}
+
+\begin{example}[Distributivity]
+    Multiplication \(\times\) is \emph{distributive} over addition \(+\).
+\end{example}
