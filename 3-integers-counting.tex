@@ -1,2 +1,393 @@
 \section{Integers and Counting}
 \label{sec:integers-counting}
+
+\subsection{Integers, Induction and WOP}
+\label{sec:integers-induction-wop}
+
+We first provide the axiomatic definition of the natural numbers \(\NN\).
+
+\begin{definition}[The Natural Numbers, \(\NN\)]
+    The \emph{natural numbers} \(\NN\) is a set containing a special element \(1 \in \NN\), together with a \emph{successor function} (intuitively, \(+ 1\)) \(\functiondomain{s}{\NN}{\NN}\), such that:
+    \begin{enumerate}
+        \item For all \(n \in \NN\), \(s \para{n} \neq 1\). (\(1\) is not the successor of any element.)
+        \item For all \(m, n \in \NN\), if \(s\para{m} = s\para{n}\), then \(m = n\). (The successor function is injective.)
+        \item Let \(A \subseteq \NN\) such that \(1 \in A\), and if \(n \in A\) then \(s\para{n} \in A\). Then \(A = \NN\).
+    \end{enumerate}
+
+    These are the \emph{Peano Axioms}, and specifically (iii) is the \emph{Axiom of Induction}.
+\end{definition}
+
+We can now write \(2 = s\para{1}, 3 = s\para{2}\), etc.
+
+\begin{definition}[Addition and Multiplication on \(\NN\)]
+    We define \(\functiondomain{+}{\NN \times \NN}{\NN}\) recursively (on the second element) by
+    \begin{itemize}
+        \item \(n + 1 = s\para{n}\), and
+        \item \(n + s\para{m} = s\para{n + m}\).
+    \end{itemize}
+
+    Similarly, we define \(\functiondomain{\cdot}{\NN \times \NN}{\NN}\) recursively by
+    \begin{itemize}
+        \item \(n \cdot 1 = n\), and
+        \item \(n \cdot s\para{m} = n \cdot m + n\).
+    \end{itemize}
+\end{definition}
+
+We may show by induction that these operations satisfy the usual rules of arithmetics, that
+\begin{itemize}
+    \item \(+\) and \(\cdot\) are commutative and associative; and
+    \item \(\cdot\) is distributive over \(+\).
+\end{itemize}
+
+\begin{example}[\(1 + 2 = 2 + 1\)]
+    As an example, we have
+    \begin{align*}
+        1 + 2 &= 1 + s\para{1} \\
+        &= s\para{1 + 1} \\
+        &= s\para{s\para{1}} \\
+        &= s\para{1} + 1 \\
+        &= 2 + 1.
+    \end{align*}
+\end{example}
+
+\begin{definition}[Ordering on \(\NN\)]
+    We may define an \emph{ordering} on \(\NN\) as follows: for any \(m, n \in \NN\), if there is some \(k \in \NN\) such that \(m + k = n\), then \(m < n\).
+\end{definition}
+
+We may check from first principles (i.e. by induction) that our usual rules of ordering holds.
+
+\begin{proposition}[\(<\) is a strict total order on \(\NN\)]
+    For \(m, n \in \NN\), exactly one of \(m = n\), \(m < n\) and \(m > n\) holds.
+\end{proposition}
+
+\begin{example}[Total Order]
+    If \(1 < 2\) and \(2 < 1\), then there is \(k, l \in \NN\) such that
+    \[
+        1 = 2 + k, 2 = 1 + l.
+    \]
+
+    Hence,
+    \[
+        1 = 2 + k = \para{1 + l} + k = s\para{l + k}
+    \]
+    contradicts with that \(1\) is not the successor of any number in \(\NN\).
+\end{example}
+
+The axiom of induction from the last lecture is \textbf{weak principle of induction (WPI)}, which states that
+\[
+    P\para{1} \land \para{\forall n \in \NN: P\para{n} \implies P\para{n + 1}}
+\]
+implies
+\[
+    \forall n \in \NN: P\para{n}.
+\]
+
+A different form of induction based on the ordering above is called the \textbf{strong principle of induction (SPI)}, which states that
+\[
+    P\para{1} \land \para{\forall n \in \NN: \para{\forall m \in \NN, m \leq n: P\para{m}} \implies P\para{n + 1}}
+\]
+or equivalently,
+\[
+    P\para{1} \land \para{\forall n \in \NN: \para{P\para{1} \land P\para{2} \land \cdots \land P\para{n}} \implies P\para{n + 1}}.
+\]
+
+Clearly, if one has SPI, then one has WPI.
+
+To see WPI implies SPI, we apply the former to the statement
+\[
+    Q\para{n} = P\para{1} \land P\para{2} \land \cdots \land P\para{n} = \bigland_{i = 1}^{n} P\para{i}.
+\]
+
+Another consequence of the above ordering of the natural numbers \(\NN\) is that it satisfies a special property called the \textbf{well--ordering principle} (WOP), which states that every non-empty subset of \(\NN\) has a minimal element. Equivalently, for any \(A \subseteq \NN\),
+\[
+    \para{\exists n \in A: P\para{n}} \implies \para{\exists n \in A: P\para{n} \land \para{\nexists m \in A, m < n: P\para{n}}}.
+\]
+
+\begin{theorem}[SPI Implies WOP]
+    The Strong Principle of Induction implies the Well--Ordering Principle.
+\end{theorem}
+
+\begin{proof}
+    Suppose, for contradiction, that there is some \(n \in \NN\) such that \(P\para{n}\) is true, but no minimal \(n \in \NN\) such that \(P\para{n}\) is true.
+
+    Consider the statement \(Q\para{n} = \lnot P\para{n}\).
+
+    Certainly, \(P\para{1}\) is false, otherwise \(1\) is the minimal element for which \(P\) is true. So \(Q\para{1}\) is true.
+
+    Given \(n \in \NN\), suppose that \(Q\para{k}\) is true for all \(k < n\), then \(P\para{k}\) is false for all \(k < n\). Then \(P\para{n}\) is false, otherwise \(n\) will be a minimal element for which \(P\) holds. Hence, \(Q\para{n}\) is true.
+
+    Therefore, by the Strong Principle of Induction, \(Q\para{n}\) holds for all \(n \in \NN\).
+
+    Therefore, \(P\para{n}\) is false for all \(n \in \NN\), contradicting with the assumption that there is some \(n \in \NN\) such that \(P\para{n}\).
+\end{proof}
+
+However, the WOP (on its own) does not imply SPI --- this fails for certain \emph{ordinals}. However, in every proof using SPI, we may frame the proof by some modifications to WOP.
+
+\begin{claim}[Fundamental Theorem of Arithematic]
+    Any natural number \(> 1\) can be written as a product of primes.
+\end{claim}
+
+\begin{proof}[using WOP]
+    Let
+    \[
+        C = \set{n \in \NN}{n > 1 \text{ and } n \text{ cannot be written as a product of primes}}.
+    \]
+
+    For contradiction, assume that \(C \neq \emptyset\). By the well-ordering principle, \(C\) has some least element, say \(m\).
+
+    Clearly, \(m\) must be a composite number (otherwise itself is clearly a product of one prime), and hence \(m = ab\) for some \(1 < a, b < m\).
+
+    So at least one of \(a\) or \(b\) cannot have a prime factorisation, say \(a\), but \(a < m\) and \(a \in C\), contradicting \(m\) being the least element of \(C\).
+\end{proof}
+
+\subsection{Counting Subsets}
+\label{sec:counting-subsets}
+
+Recall a set \(A\) has \emph{size \(n\)} if we can write
+\[
+    A = \brce{a_1, a_2, \ldots, a_n}
+\]
+with the elements \(a_i\) being distinct. We denote
+\[
+    \abs{A} = \size{A} = n.
+\]
+
+We say \(A\) is \emph{finite} if there is some \(n \in \NN_0\) such that \(\abs{A} = n\), and \emph{infinite} otherwise.
+
+We now conduct counting on the subsets of finite sets, and those with a particular size.
+
+\begin{proposition}[Size of Power Set]
+    A set of size \(n\) has exactly \(2^n\) subsets.
+\end{proposition}
+
+\begin{proof}
+    We prove by induction on \(n\). It is clearly true for \(n = 0\).
+
+    Now, given \(n > 0\), and fix some \(T \subseteq \brce{1, 2, \ldots, n - 1}\). The number of subsets \(S \subseteq \brce{1, 2, \ldots, n}\) such that
+    \[
+        S \cap \brce{1, 2, \ldots, n - 1} = T
+    \]
+    is exactly \(2\), namely \(T\) and \(T \cup \brce{n}\).
+    
+
+    Therefore, the number of subsets of \(\brce{1, 2, \ldots, n}\) is equal to
+    \begin{align*}
+        &\phantom{=} 2 \times \text{number of subsets of } \brce{1, 2, \ldots, n - 1}\\
+        &= 2 \cdot 2^{n - 1} && \text{Induction Hypothesis} \\
+        &= 2^n.
+    \end{align*}
+\end{proof}
+
+This proposition is telling us that if \(\abs{A} = n\), then
+\[
+    \abs{\powerset\para{A}} = 2^n.
+\]
+
+\begin{definition}[Binomial Coefficient]
+    Given some \(n \in \NN_0\), and \(0 \leq k \leq n\), the \emph{binomial coefficient}
+    \[
+        \binom{n}{k} = n \text{ choose } k
+    \]
+    is the number of subsets of an \(n\)-element set that are of size \(k\).
+
+    Equivalently,
+    \[
+        \binom{n}{k} = \abs{\set{S \subseteq \brce{1, 2, \ldots, n}}{\abs{S} = k}}.
+    \]
+\end{definition}
+
+\begin{examples}[Examples of Binomial Coefficients]
+    \begin{enumerate}
+        \item We have \(\binom{4}{2} = 6\), since the size-\(2\) subsets of \(\brce{1, 2, 3, 4}\) are
+        \[
+            \brce{1, 2}, \brce{1, 3}, \brce{1, 4}, \brce{2, 3}, \brce{2, 4}, \brce{3, 4}.
+        \]
+
+        \item We have \(\binom{n}{0} = \binom{n}{n} = 1\), since the only subset of size \(0\) is \(\emptyset\), and the only subset of size \(n\) is the set itself.
+        \item We have \(\binom{n}{1} = n\) for \(n > 0\), since the size-\(1\) subsets are precisely the sets containing one element.
+    \end{enumerate}
+\end{examples}
+
+Furthermore, we have the identity
+\[
+    \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{n - 1} + \binom{n}{n} = 2^n
+\]
+for all \(n \in \NN_0\), since subsets must take exactly one of the sizes \(0, 1, \ldots, n - 1, n\).
+
+Also, we have the identity
+\[
+    \binom{n}{k} = \binom{n}{n - k}
+\]
+for all \(n \in \NN_0\) and \(0 \leq k \leq n\). Indeed, specifying which \(k\) elements to pick is the same as specifying which \(\para{n - k}\) elements not to pick.
+
+Furthermore, Pascal's Identity states that for all \(n \in \NN\) and \(1 \leq k \leq n\), we have
+\[
+    \binom{n}{k} = \binom{n - 1}{k - 1} + \binom{n - 1}{k}.
+\]
+
+This is since the subsets of \(\brce{1, 2, \ldots, n}\) with size \(k\) consists of two types:
+\begin{itemize}
+    \item those with \(n\) chosen, remaining \(\para{k - 1}\) to choose in \(\brce{1, 2, \ldots, n - 1}\), giving \(\binom{n - 1}{k - 1}\) of those; and
+    \item those with \(n\) not chosen, remaining \(k\) to choose in \(\brce{1, 2, \ldots, n - 1}\), giving \(\binom{n - 1}{k}\) of those.
+\end{itemize}
+
+In this way, we obtain the \emph{Pascal's Triangle}, as in \autoref{fig:pascals-triangle}.
+
+\begin{figure}[ht!]
+    \centering
+    \begin{tikzcd}[cramped, sep=tiny]
+        &   &&  && 1 &&   &&    & \\
+          &&   && 1 && 1 &&   &&  \\
+        &   && 1 && 2 && 1 &&   & \\
+          && 1 && 3 && 3 && 1 &&  \\
+        & 1 && 4 && 6 && 4 && 1 & \\
+        1 && 5 && 10 && 10 && 5 && 1 \\
+    \end{tikzcd}
+    \caption{Pascal's Triangle}
+    \label{fig:pascals-triangle}
+\end{figure}
+
+Note that each row starts and ends with a \(1\), and the remaining entries are the sum of the \(2\) items directly above.
+
+\begin{proposition}[Formula for \(\binom{n}{k}\)]
+    We have
+    \[
+        \binom{n}{k} = \frac{n \para{n - 1} \para{n - 2} \cdots \para{n - k + 1}}{k \para{k - 1} \para{k - 2} \cdots 2 \cdot 1} = \frac{n!}{\para{n - k}! k!}.
+    \]
+\end{proposition}
+
+\begin{proof}
+    Given a set of size \(n\), there are \(n \para{n - 1} \para{n - 2} \cdots \para{n - k + 1}\) ways to pick \(k\) elements in order, one by one. But each subset of size \(k\) is picked in \(k \para{k - 1} \para{k - 2} \cdots 2 \cdot 1\) ways by this method.
+
+    Hence, the number of subsets of size \(k\) in \(\brce{1, 2, \ldots, n}\) is
+    \[
+        \frac{n \para{n - 1} \para{n - 2} \cdots \para{n - k + 1}}{k \para{k - 1} \para{k - 2} \cdots 2 \cdot 1}.
+    \]
+\end{proof}
+
+The formula allows to approximate the binomial coefficient for big \(n\). For example, for \(n \gg 1\), we have
+\begin{align*}
+    \binom{n}{2} &= \frac{n \para{n - 1}}{2!} \sim \frac{n^2}{2}, \\
+    \binom{n}{3} &= \frac{n \para{n - 1} \para{n - 2}}{3!} \sim \frac{n^3}{6}.
+\end{align*}
+
+\begin{theorem}[Binomial Theorem]
+    For all \(a, b \in \RR\), and \(n \in \NN\), we have
+    \[
+        \para{a + b}^n = \binom{n}{0} a^n + \binom{n}{1} a^{n - 1} b + \binom{n}{2} a^{n - 2} b^2 + \cdots + \binom{n}{n - 1} a b^{n - 1} + \binom{n}{n} b^n.
+    \]
+\end{theorem}
+
+\begin{proof}
+    When we expand out the left-hand side as
+    \[
+        \para{a + b}^n = \underbrace{\para{a + b} \para{a + b} \cdots \para{a + b}}_{n \text{ times}},
+    \]
+    we obtain terms of the form \(a^{n - k} b^k\) where \(0 \leq k \leq n\). The number of terms of the form \(a^{n - k} b^k\) is \(\binom{n}{k}\), as we must specify \(k\) brackets from which to pick \(b\).
+
+    Hence,
+    \[
+        \para{a + b}^n = \sum_{k = 0}^{n} \binom{n}{k} a^{n - k} b^k.
+    \]
+\end{proof}
+
+We may use the binomial theorem to conduct approximation as well. For example, we have
+\[
+    \para{1 + x}^n = 1 + nx + \frac{n \para{n - 1}}{2} x^2 + \binom{n}{3} x^3 + \cdots + \binom{n}{n - 1} x^{n - 1} + x^n,
+\]
+and hence for \(\abs{x} \ll 1\), a good approximation is \(\para{1 + nx}\), for example
+\[
+    \para{1.00001}^8 \sim 1 + 8 \cdot 0.00001 = 1.00008.
+\]
+
+A better approximation is \(1 + nx + \frac{n\para{n - 1}}{2}x^2\), for example
+\[
+    \para{1.00001}^8 \sim 1 + 8 \cdot 0.00001 + 56 \cdot \para{0.00001}^2 = 1.0000800056.
+\]
+
+\subsection{Size of Unions and Intersections of Sets}
+\label{sec:size-unions-intersections-sets}
+
+What can we say about the relationship between sizes of unions and intersections of finite sets?
+
+For two sets, we have
+\[
+    \abs{A \cup B} = \abs{A} + \abs{B} - \abs{A \cap B}.
+\]
+
+For three sets, we have
+\[
+    \abs{A \cup B \cup C} = \abs{A} + \abs{B} + \abs{C} - \abs{A \cap B} - \abs{A \cap C} - \abs{B \cap C} + \abs{A \cap B \cap C}.
+\]
+
+\begin{theorem}[Inclusion--Exclusion Principle]
+    Let \(S_1, S_2, \ldots, S_n\) be finite sets. Then
+    \begin{align*}
+        &\phantom{=} \abs{S_1 \cup S_2 \cup \cdots \cup S_n} \\
+        &= \sum_{\abs{A} = 1} \abs{S_A} - \sum_{\abs{A} = 2} \abs{S_A} + \sum_{\abs{A} = 3} \abs{S_A} + \cdots + \para{-1}^{n + 1} \sum_{\abs{A} = n} \abs{S_A},
+    \end{align*}
+    where
+    \[
+        S_A = \bigcap_{i \in A} S_i
+    \]
+    and the summation
+    \[
+        \sum_{\abs{A} = k}
+    \]
+    means looking for all index sets \(A \subseteq \abs{1, 2, \ldots, n}\) of size \(k\).
+
+    Equivalently, this states that
+    \[
+        \abs{\bigcup_{i = 1}^{n} S_n} = \sum_{r = 1}^{n} \para{-1}^{r + 1} \sum_{\substack{A \subseteq \brce{1, 2, \ldots, n} \\ \abs{A} = r}} \abs{\bigcap_{i \in A} S_i}.
+    \]
+\end{theorem}
+
+\begin{proof}[using indicator functions]
+    We make use of an identity using indicator functions, specifically
+    \[
+        \abs{A} = \sum_{x \in A} \indicator_{A} \para{x}.
+    \]
+
+    We claim that
+    \[
+        \indicator_{S} = \sum_{r = 1}^{N} \para{-1}^{r + 1} \sum_{\substack{A \subseteq \brce{1, 2, \ldots, n} \\ \abs{A} = r}} \indicator_{S_A},
+    \]
+    for
+    \[
+        S = \bigcup_{i = 1}^{n} S_i.
+    \]
+
+    Consider the product
+    \[
+        \para{\indicator_{S} - \indicator_{S_1}} \para{\indicator_{S} - \indicator_{S_2}} \cdots \para{\indicator_{S} - \indicator_{S_n}},
+    \]
+    and we claim this product is identically \(0\), since if \(x \notin S\), then all terms are \(\para{0 - 0} = 0\), and if \(x \in S\), then \(x \in S_i\) for some \(i = 1, 2, \ldots, n\), and hence \(\para{\indicator_{S} - \indicator_{S_i}} = \para{1 - 1} = 0\).
+
+    Expanding the product on the left-hand side, we get the claimed equality as desired (since multiplying a \(\indicator_S\) does not change the value of the product), and summing this over elements in \(S\) gives as desired.
+\end{proof}
+
+\begin{proof}[by counting clemenets]
+    Let \(x \in S_1 \cup \cdots \cup S_n\), and say \(x \in S_i\) for exactly \(k\) of \(S_i\). We aim to show that \(x\) gets counted exactly once on the right-hand side.
+
+    Indeed,
+    \begin{align*}
+        \abs{\set{A}{\abs{A} = 1 \land x \in S_A}} &= k, \\
+        \abs{\set{A}{\abs{A} = 2 \land x \in S_A}} &= \binom{k}{2},
+    \end{align*}
+    and in general,
+    \[
+        \abs{\set{A}{\abs{A} = r \land x \in S_A}} = \begin{cases}
+            \binom{k}{r}, & 1 \leq r \leq k, \\ 0, & r > k.
+        \end{cases}
+    \]
+
+    Hence, the number of times \(x\) is counted on the right-hand side is
+    \begin{align*}
+        & \phantom{=} k - \binom{k}{2} + \binom{k}{3} - \cdots + \para{-1}^{k + 1} \binom{k}{k} \\
+        &= 1 - \para{1 - k + \binom{k}{2} - \binom{k}{3} + \cdots + \para{-1}^{k} \binom{k}{k}} \\
+        &= 1 - \para{1 - 1}^k \\
+        &= 1 - 0^k \\
+        &= 1
+    \end{align*}
+    for \(k \geq 1\).
+\end{proof}
