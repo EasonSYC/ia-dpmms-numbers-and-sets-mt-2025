@@ -1,2 +1,604 @@
 \section{Elementary Number Theory}
 \label{sec:elementary-number-theory}
+
+\subsection{Primes and Divisibility}
+\label{sec:primes-and-divisibility}
+
+\begin{definition}[Divisors]
+    Given \(a, b \in \ZZ\), we say \emph{\(a\) divides \(b\)} if there exists \(c \in \ZZ\) such that \(b = ac\).
+
+    Equivalently, we might also say \emph{\(a\) is a divisor of \(b\)}, \emph{\(a\) is a factor of \(b\)}, or \emph{\(b\) is a multiple of \(a\)}. We denote \(a \divides b\).
+\end{definition}
+
+\begin{definition}[Proper Factors]
+    For any \(b \in \ZZ\), \(\para{\pm 1}\) and \(\para{\pm b}\) are always factors of \(b\). We call those the \emph{trivial factors} of \(b\), and the rest \emph{proper/non-trivial factors}.
+\end{definition}
+
+\begin{definition}[Prime, Composite]
+    A natural number \(n \geq 2\) is \emph{prime} if its only divisors are trivial. Otherwise, we say \(n\) is \emph{composite}.
+\end{definition}
+
+\begin{proposition}[Fundamental Theorem of Arithmetics, Part 1]
+    Every natural number \(\geq 2\) can be written as a product of primes.
+\end{proposition}
+
+\begin{proof}
+    We show this by induction on \(n\). This is true for \(n = 2\).
+
+    Now, let \(n > 2\) and suppose the claim holds up to and including \(n - 1\). If \(n\) is prime, then we are done. If \(n\) is composite, then by definition, \(n = ab\) for some \(1 < a, b < n\).
+
+    By the induction hypothesis, \(a = p_1 p_2 \cdots p_k\) and \(b = q_1 q_2 \cdots q_l\) for some primes \(p_1, p_2, \ldots, p_k\) and \(q_1, q_2, \ldots, q_l\).
+
+    Hence,
+    \[
+        n = ab = p_1 p_2 \cdots p_k q_1 q_2 \cdots q_l
+    \]
+    is a product of primes.
+\end{proof}
+
+\begin{theorem}[Infinitely Many Primes]
+    There are infinitely many primes.
+\end{theorem}
+
+\begin{proof}[(Euclid, 300 BC)]
+    Suppose for the sake of contradiction, that there are only finitely many primes, and let them be \(p_1, p_2, \ldots, p_k\).
+
+    Consider \(N = p_1 p_2 \cdots p_k + 1\). \(N\) is not itself a prime. Then \(p_1 \notdivides N\), or otherwise,
+    \[
+        p_1 \divides \para{N - p_1 p_2 \cdots p_k} = 1.
+    \]
+
+    Likewise, \(p_2 \notdivides N, \ldots, p_k \notdivides N\).
+
+    This contradicts with the fact that \(N\) can be written as a product of primes.
+\end{proof}
+
+The previous proposition states the existence of a representation as a product of primes, but our proof does not give uniqueness. It is in fact unique, and the following lemma is useful.
+
+\begin{proposition}[Euclid's Lemma]
+    If \(p\) is prime and \(p \divides ab\), then \(p \divides a\) and \(p \divides b\).
+\end{proposition}
+
+Before we prove this, we introduce what is meant by the highest common factor.
+
+\begin{definition}[Highest Common Factor/Greatest Common Divisor]
+    Given \(a, b \in \NN\), we say a number \(c \in \NN\) is the \emph{highest common factor} (hcf) or \emph{greatest common divisor} (gcd) of \(a\) and \(b\) if:
+    \begin{enumerate}
+        \item \(c \divides a\) and \(c \divides b\) (i.e. \(c\) is a common divisor of \(a\) and \(b\)); and
+        \item \(d \divides a\) and \(d \divides b\) implies \(d \divides c\) (i.e. every common divisor of \(a\) and \(b\) divides \(c\)).
+    \end{enumerate}
+
+    We denote this as
+    \[
+        c = \hcf\para{a, b} = \gcd\para{a, b} = \para{a, b}.
+    \]
+\end{definition}
+
+\begin{example}[Greatest Common Divisor]
+    We attempt to find the greatest common divisor of \(12\) and \(18\).
+
+    The factors of \(12\) are \(1, 2, 3, 4, 6, 12\).
+
+    The factors of \(18\) are \(1, 2, 3, 6, 9, 18\).
+
+    So the common factors of \(12\) and \(18\) are \(1, 2, 3, 6\).
+
+    Hence,
+    \[
+        \gcd\para{12, 18} = 6.
+    \]
+\end{example}
+
+This definition does not immediately lead to the fact that the greatest common divisor always exists -- if it does it must be the 'greatest' common factor, but it is not trivial that the 'greatest' common factor is always a multiple of every other common factor.
+
+We show by construction that in fact it must always exist, but we first introduce an important method.
+
+\begin{proposition}[Division Algorithm]
+    Let \(n, k \in \NN\), then we can write \(n = qk + r\) for some \(q, r \in \ZZ\), with \(0 \leq r \leq k - 1\).
+    
+    Such \(q\) is called the \emph{quotient} and \(r\) is called the \emph{remainder}.
+\end{proposition}
+
+\begin{proof}
+    We show this by induction on \(n\). This is true for \(n = 1\).
+
+    Suppose \(n \geq 2\), and the statement holds for \(n - 1\), i.e.
+    \[
+        n - 1 = qk + r
+    \]
+    for some \(q, r \in \ZZ\) and \(0 \leq r \leq k - 1\).
+
+    If \(0 \leq r < k - 1\), then
+    \[
+        n = qk + \para{r + 1}
+    \]
+    and hence \(1 \leq r + 1 < k\) is within the required range.
+
+    If \(r = k - 1\), then
+    \[
+        n = qk + \para{k - 1} + 1 = \para{q + 1}k + 0,
+    \]
+    and the obtained \(q\) and \(r\) are within the range.
+\end{proof}
+
+\begin{remark}
+    The \(q\) and \(r\) obtained from this integer division is unique. Indeed, if \(n = qk + r = q'k + r'\), then
+    \[
+        \para{q - q'}k = r' - r
+    \]
+    and we see that since \(0 \leq r, r' < k\), we have
+    \[
+        -k < r' - r < k
+    \]
+    and hence since \(\para{q - q'}k\) is a multiple of \(k\), we must have \(r - r' = 0\), and \(q - q' = 0\).
+\end{remark}
+
+We now use this integer division to conduct an algorithm called \emph{Euclid's algorithm}, as in \autoref{tab:euclids-algorithm}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{c|cc|c}
+        Input & \(a, b\) && \(a = 372, b = 162\) \\
+        \hline
+        Step 1 & \(a = q_1 b + r_1\) & \(q_1, r_1 \in \ZZ, 0 \leq r_1 \leq b - 1\) & \(372 = 2 \cdot \boxed{162} + \boxed{48}\) \\
+        Step 2 & \(b = q_2 r_1 + r_2\) & \(q_2, r_2 \in \ZZ, 0 \leq r_2 \leq r_1 - 1\) & \(162 = 3 \cdot \boxed{48} + \boxed{18}\) \\
+        Step 3 & \(r_1 = q_3 r_2 + r_3\) & \(q_3, r_3 \in \ZZ, 0 \leq r_3 \leq r_2 - 1\) & \(48 = 2 \cdot \boxed{18} + \boxed{2}\) \\
+        \(\vdots\) & \(\vdots\) & \(\vdots\) & \\
+        Step \(n\) & \(r_{n - 2} = q_n r_{n - 1} + r_n\) & \(q_n, r_n \in \ZZ, 0 \leq r_n \leq r_{n - 1} - 1\) & \(18 = 1 \times \boxed{12} + \boxed{6}\) \\
+        Step \(n + 1\) & \(r_{n - 1} = q_{n + 1} r_n + r_{n + 1}\) & \(q_{n + 1} \in \ZZ, \boxed{r_{n + 1} = 0}\) & \(12 = 2 \times \boxed{6} + \boxed{0}\) \\
+        \hline
+        Output & \(r_n\) & & \(6\)
+    \end{tabular}
+    \caption{Euclid's algorithm}
+    \label{tab:euclids-algorithm}
+\end{table}
+
+Note that this algorithm terminates in \(n < b\) steps, since
+\[
+    b > r_! > r_2 > \cdots > r_n > 0.
+\]
+
+\begin{theorem}[Euclid's Algorithm gives the Greatest Common Divisor]
+    The output of Euclid's algorithm with input \(a, b\) is \(\gcd\para{a, b}\).
+\end{theorem}
+
+\begin{proof}
+    We show that it satisfies the two defining properties of the greatest common divisor.
+
+    \begin{enumerate}
+        \item We must have \(r_n \divides r_{n - 1}\), as \(r_{n + 1} = 0\) at step \(n + 1\). Therefore, \(r_N \divides r_{n - 2}\) by step \(n\).
+        
+        Hence, inductively, \(r_n \divides r_i\) for \(i = 1, 2, \ldots, n - 1\), and hence \(r_n \divides b\) by step 2, and \(r_n \divides a\) by step 1.
+
+        \item Given any \(d\) such that \(d \divides a\) and \(d \divides b\). From step 1 we see \(d \divides r_1\), and from step 2 we have \(d \divides r_2\).
+        
+        Hence, inductively, \(d \divides r_i\) for all \(i = 1, 2, \ldots, n\), and in particular, \(d \divides r_n\).
+    \end{enumerate}
+\end{proof}
+
+\begin{example}[Greatest Common Divisor of \(87\) and \(52\)]
+    Suppose we want to find \(\gcd\para{87, 52}\). We run Euclid's Algorithm:
+    \begin{align*}
+        87 &= 1 \cdot 52 + 35, \\
+        52 &= 1 \cdot 35 + 17, \\
+        35 &= 2 \cdot 17 + \boxed{1}, \\
+        17 &= 17 \cdot \boxed{1},
+    \end{align*}
+    so \(\gcd\para{87, 52} = 1\). Note we may terminate the algorithm one step early, outputting the final non-zero divisor, which is the greatest common divisor.
+\end{example}
+
+\begin{definition}[Coprime]
+    When \(\gcd\para{a, b} = 1\), we say \(a\) and \(b\) are \emph{coprime}.
+\end{definition}
+
+Notice that we may reverse Euclid's algorithm. For example, in the previous example,
+\begin{align*}
+    1 &= 35 - 2 \times 17 \\
+       &= 35 - 2 \times \para{52 - 1 \times 35} \\
+       &= 3 \times 35 - 2 \times 52 \\
+       &= 3 \times \para{57 - 1 \times 52} - 2 \times 52 \\
+       &= 3 \times 57 - 5 \times 52.
+\end{align*}
+
+This leads to the following lemma.
+
+\begin{theorem}[B\'{e}zout's Identity]
+    For all \(a, b \in \NN\), there exists \(x, y \in \ZZ\), such that
+    \[
+        ax + by = \gcd\para{a, b}.
+    \]
+
+    We can write \(\gcd\para{a, b}\) as a linear combination of \(a\) and \(b\).
+\end{theorem}
+
+\begin{proof}[by reversing Euclid's Algorithm]
+    We run Euclid's Algorithm with input \(a, b\) to obtain an output \(r_n\). We have
+    \[
+        r_n = x r_{n - 1} + y r_{n - 2}
+    \]
+    for some \(x, y \in \ZZ\).
+
+    For step \(n - 1\), we see that \(r_{n - 1}\) is expressible of some linear combination of \(r_{n - 2}\) and \(r_{n - 3}\). We have
+    \[
+        r_{n - 1} = x r_{n - 2} + y r_{n - 3}
+    \]
+    for some \(x, y \in \ZZ\).
+
+    Hence,
+    \[
+        r_n = x r_{n - 2} + y r_{n - 3}
+    \]  
+    for some \(x, y \in \ZZ\).
+
+    We may continue inductively, for all \(i = 1, 2, \ldots, n - 1\), to see that
+    \[
+        r_n = x r_i + y r_{i - 1}
+    \]
+    for some \(x, y \in \ZZ\). Hence,
+    \[
+        r_{n} = xa + yb
+    \]
+    for some \(x, y \in \ZZ\) from steps 1 and 2.
+\end{proof}
+
+\begin{remark}
+    Euclid's Algorithm not only proves the existence of such \(x, y \in \ZZ\), but also gives a quick way to find them.
+\end{remark}
+
+\begin{proof}[by utilising well--ordering principle]
+    Let \(h\) be the least positive linear combination of \(a\) and \(b\), i.e. the least positive integer of the form \(ax + by\) for some \(x, y \in \ZZ\). Such \(h\) exists by well--ordering principle.
+
+    We aim to show that \(h = \gcd\para{a, b}\).
+
+    To show the first property, suppose that \(h\) does not divide one of \(a\) or \(b\), say \(a\). Then by integer division, we have
+    \[
+        a = qh + r
+    \]
+    for some \(q, r \in \ZZ\) with \(0 < r < h\).
+
+    Hence,
+    \begin{align*}
+        r &= a - qh \\
+        &= a - q \cdot \para{xa + yb} \\
+        &= \para{1 - qx} a - \para{qy} b
+    \end{align*}
+    is a positive linear combination of \(a\) and \(b\), strictly smaller than \(h\), and contradicting with the fact that \(h\) is minimal.
+
+    To show the second property, notice that for any common divisor \(d \divides a\) and \(d \divides b\), we have \(d \divides ax + by\) for all \(x, y \in \ZZ\), and \(d \divides h\) in particular.
+\end{proof}
+
+\begin{remark}
+    This proof tells us that \(\gcd\para{a, b}\) exists and is a linear combination of \(a\) and \(b\), but it gives in fact no way to find the coefficients \(x, y \in \ZZ\) to find \(\gcd\para{a, b}\).
+\end{remark}
+
+A natural question to ask, is by changing the right-hand side, when does an equation of the form \(ax + by = c\) have a solution? For example, is there a solution in \(\para{x, y} \in \ZZ \times \ZZ\) to
+\[
+    160 x + 72 y = 33?
+\]
+
+What about
+\[
+    87 x + 52 y = 33?
+\]
+
+It is obvious for the second equation, that we have for \(x', y' \in \ZZ\) that
+\[
+    87 x' + 52 y' = 1
+\]
+so let \(x = 33 x'\) and \(y = 33 y'\), we have
+\[
+    87 x + 52 y = 33.
+\]
+
+\begin{corollary}[B\'{e}zout's Identity, Continued]
+    Let \(a, b \in \NN\). Then the equation
+    \[
+        ax + by = c
+    \]
+    has a solution for \(x, y \in \ZZ\) if and only if
+    \[
+        \gcd\para{a, b} \divides c.
+    \]
+\end{corollary}
+
+\begin{proof}
+    Let \(h = \gcd\para{a, b}\)
+
+    \(\implies\). Suppose there are such integers \(x, y \in \ZZ\) such that \(ax + by = c\). Since \(h \divides a\) and \(h \divides b\), we must have \(h \divides ax + by = c\).
+
+    \(\impliedby\). Conversely, suppose \(h \divides c\). Then by the previous theorem, there exists \(x, y \in \ZZ\), such that \(h = ax + by\).
+
+    But then \(c = \frac{ch} \cdot h\) and \(\frac{c}{h} \in \ZZ\), and hence
+    \[
+        c = \frac{c}{h} \cdot \para{ax + by} = a \cdot \para{x \cdot \frac{c}{h}} + b \cdot \para{y \cdot \frac{c}{h}}
+    \]
+    constructing a solution as desired.
+\end{proof}
+
+We now prove Euclid's Lemma.
+
+\begin{proposition}[Euclid's Lemma]
+    If \(p\) is a prime and \(p \divides ab\), then \(p \divides a\) or \(p \divides b\).
+\end{proposition}
+
+\begin{proof}
+    Suppose that \(p \divides ab\) but \(p \notdivides a\). We want to prove that \(p \divides b\).
+
+    Since \(p\) is prime and \(p \notdivides a\), we have \(\gcd\para{a, p} = 1\).
+
+    Then, by B\'{e}zout's Identity, there exists \(x, y \in \ZZ\) such that
+    \[
+        xp + ya = 1.
+    \]
+
+    Hence, multiplying both sides by \(b\) gives
+    \[
+        \para{xb} \cdot p + y \cdot \para{ab} = b,
+    \]
+    and we have \(p \divides \para{xb} \cdot b\) and \(p \divides y \cdot \para{ab}\). Hence, \(p \divides b\).
+\end{proof}
+
+\begin{remarks}
+    \begin{enumerate}
+        \item We can iterate this lemma: if \(p \divides a_1 a_2 \cdots a_n\), then \(p \divides a_i\) for some \(i = 1, 2, \ldots, n\).
+        \item We do require \(p\) is prime. Indeed, \(4 \divides 2 \times 6\), but \(4 \notdivides 2\) and \(4 \notdivides 6\).
+    \end{enumerate}
+\end{remarks}
+
+\begin{theorem}[Fundamental Theorem of Arithemetic]
+    Every natural number \(n \geq 2\) is expressible as a product of primes uniquely, up to reordering. 
+\end{theorem}
+
+\begin{proof}
+    The existence of such proposition follows from the earlier proposition.
+
+    To show uniqueness, we show by strong induction. This is indeed true for \(n = 2\).
+
+    Consider \(n > 2\). Suppose that there are two factorisations
+    \begin{align*}
+        n &= p_1 p_2 \cdots p_k,\\
+        n &= q_1 q_2 \cdots q_l
+    \end{align*}
+    where \(p_i\) and \(q_j\) are all prime. We want to prove \(k = l\), and after reordering \(p_i = q_i\) for all \(i = 1, 2, \ldots, k\).
+
+    Since
+    \[
+        p_1 p_2 \cdots p_k = q_1 q_2 \cdots q_l,
+    \]
+    we have
+    \[
+        p_1 \divides n = q_1 q_2 \cdots q_l
+    \]
+    and by Euclid's Lemma, we must have
+    \[
+        p_1 \divides q_i
+    \]
+    for some \(i\), and after relabelling, we assume \(p_1 \divides q_1\).
+
+    Since \(q_1\) is prime, it follows that \(p_1 = q_1\). Hence,
+    \[
+        \frac{n}{p_1} = p_2 \cdots p_k = q_2 \cdots q_l < n
+    \]
+    and by the strong induction hypothesis, in fact \(k = l\), and after reordering, \(p_2 = q_2, p_3 = q_3, \ldots, p_k = q_k\).
+\end{proof}
+
+\begin{remark}
+    There are 'arithmetical systems' (rings) permitting addition and multiplication in which factorisation is not unique. For example, consider the ring extension
+    \[
+        \ZZ\brac{\sqrt{-3}} = \set{x + y i \sqrt{3}}{x, y \in \ZZ}
+    \]
+
+    We can add and multiply to get another element of \(\ZZ\brac{\sqrt{-3}}\), e.g.
+    \begin{align*}
+        \para{1 + \sqrt{-3}} + \para{1 - \sqrt{-3}} &= 2,\\
+        \para{1 + \sqrt{-3}} \para{1 - \sqrt{-3}} &= 1^2 - \para{-3} = 4.
+    \end{align*}
+
+    In \(\ZZ\brac{\sqrt{-3}}\) we may define what it means to be \emph{prime}, and both \(\para{1 \pm \sqrt{3}}\) are indeed prime.
+
+    However, \(4 = 2 \cdot 2\) and \(2\) is a prime in this system as well.
+
+    Factorisation is \emph{not} unique in this system.
+\end{remark}
+
+We may now apply the fundamental theorem of arithmetics to some useful applications.
+
+\begin{definition}[Least Common Multiple]
+    Given \(a, b \in \NN\), we say a number \(c \in \NN\) is the \emph{least common multiple} (lcm) of \(a\) and \(b\) if:
+    \begin{enumerate}
+        \item \(a \divides c\) and \(b \divides c\) (i.e. \(c\) is a common multiple of \(a\) and \(b\)); and
+        \item \(a \divides m\) and \(b \divides m\) implies \(c \divides m\) (i.e. every common multiple of \(a\) and \(b\) is a multiple of \(c\)).
+    \end{enumerate}
+
+    We denote this as
+    \[
+        c = \lcm\para{a, b} = \brac{a, b}.
+    \]  
+\end{definition}
+
+\begin{examples}[Applications of Fundamental Theorem of Arithmetics]
+    \begin{enumerate}
+        \item What are the factors of \(n = 2^3 \cdot 3^7 \cdot 11\)? All number of the form \(2^a \cdot 3^b \cdot 11^c\) for \(0 \leq a \leq 3, 0 \leq b \leq 7\) and \(0 \leq c \leq 1\), and there must not be any others.
+        
+        For example, if \(7\) divides a factor of \(n\), then \(7\) divides \(n\), and hence we have a factorisation of \(n\) involving \(7\), contradicting with the uniqueness of the factorisation.
+
+        More generally, the factors of
+        \[
+            n = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}
+        \]
+        are \emph{precisely} the numbers of the form
+        \[
+            p_1^{\beta_1} p_2^{\beta_2} \cdots p_2^{\beta_k}
+        \]
+        where \(0 \leq \beta_i \leq \alpha_i\) for all \(i = 1, 2, \ldots, k\).
+
+        \item What are the common factors of \(2^3 \cdot 3^7 \cdot 5 \cdot 11^2\) and \(2^4 \cdot 3^2 \cdot 11 \cdot 13\)? All numbers of the form \(2^a \cdot 3^b \cdot 11^c\) for \(0 \leq a \leq 3, 0 \leq b \leq 2\) and \(0 \leq c \leq 1\). Then the greatest common divisor is \(2^3 \cdot 3^2 \cdot 11\).
+        
+        In general, the greatest common divisor of two numbers
+        \[
+            p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}
+        \]
+        and
+        \[
+            p_1^{\beta_1} p_2^{\beta_2} \cdots p_k^{\beta_k}
+        \]
+        for \(\alpha_i, \beta_i \geq 0\), is
+        \[
+            p_1^{\min\brce{\alpha_1, \beta_1}} p_2^{\min\brce{\alpha_2, \beta_2}} \cdots p_k^{\min\brce{\alpha_k, \beta_k}}.
+        \]
+
+        \item What are the common multiples of the two previous numbers? They are all numbers of the form
+        \[
+            2^a \cdot 3^b \cdot 5^c \cdot 11^d \cdot 13^e
+        \]
+        for \(a \geq 4, b \geq 7, c \geq 1, d \geq 3, e \geq 1\), times any integer.
+
+        Hence, the number \(2^4 \cdot 3^7 \cdot 5 \cdot 11^3 \cdot 13\) is a common multiple, and every other common multiple is a multiple of it, and hence it is the least common multiple of the two numbers.
+
+        In general, the least common multiple of two numbers
+        \[
+            p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}
+        \]
+        and
+        \[
+            p_1^{\beta_1} p_2^{\beta_2} \cdots p_k^{\beta_k}
+        \]
+        for \(\alpha_i, \beta_i \geq 0\), is
+        \[
+            p_1^{\max\brce{\alpha_1, \beta_1}} p_2^{\max\brce{\alpha_2, \beta_2}} \cdots p_k^{\max\brce{\alpha_k, \beta_k}}.
+        \]
+    \end{enumerate}
+\end{examples}
+
+\begin{proposition}[GCD and LCM multiple to the Product]
+    We have for any \(x, y \in \NN\), that
+    \[
+        \gcd\para{x, y} \cdot \lcm\para{x, y} = x \cdot y.
+    \]
+\end{proposition}
+
+\begin{proof}
+    This is immediate from the previous example and using the fact that
+    \[
+        \min\brce{a, b} + \max\brce{a, b} = a + b.
+    \]
+\end{proof}
+
+We may now present another proof that there are infinitely many primes --- recall that we did not use the fact that there are infinitely many primes in any part of the form.
+
+\begin{proof}[of infinitely may primes, Erd\"{o}s, 1930]
+    Let \(p_1, p_2, \ldots, p_k\) be all the primes. Since all numbers is uniquely expressed as a product of primes, consider
+    \[
+        p_1^{j_1} p_2^{j_2} \cdots p_k^{j_k}.
+    \]
+
+    We may rewrite this in the following way:
+    \[
+        p_1^{j_1} p_2^{j_2} \cdots p_k^{j_k} = m^2 p_1^{i_1} p_2^{i_2} \cdots p_k^{i_k}
+    \]
+    for \(i_l = 0, 1\).
+
+    Now, let \(N \in \NN\). Suppose given a number \(\leq N\) of this form, we have \(m \leq \sqrt{N}\), and hence we have at most \(\sqrt{N} \cdot 2^k\) numbers of this form that are \(\leq N\).
+
+    Now, take \(N > \sqrt{N} \cdot 2^k\), i.e. \(N > 4^k\), then there must be a number which is \(\leq N\) but not of this form, not having a prime factorisation, which gives a contradiction.
+\end{proof}
+
+\begin{remark}
+    Both of these proofs in fact give an upper bound on the \(k\)th prime. Euclid's Proof tells us that the \(k\)th prime, \(p_k\) has an upper bound
+    \[
+        p_k < 2^{2^k}.
+    \]
+
+    Even better, Erd\"{o}s's Proof gives the bound
+    \[
+        p_k < 4^k.
+    \]
+
+    In fact, a much tighter bound is given by the \emph{prime number theorem}, stating
+    \[
+        p_k \sim k \log k.
+    \]
+\end{remark}
+
+\subsection{Modular Arithmetic}
+\label{sec:modular-arithmetic}
+
+\begin{definition}[Integers Modulo \(n\)]
+    Let \(n \geq 2\) be a natural number. Then, the \emph{integers modulo \(n\)}, denoted \(\ZZ_{n}\) or \(\ZZ / n\ZZ\), consists of the integers with the two integers being the same if they differ by a multiple of \(n\).
+
+    Formally, if \(x\) and \(y\) are the same in \(\ZZ_n\), we write
+    \[
+        x \equiv y \pmod{n}
+    \]
+    or
+    \[
+        x \equiv y \quad \para{n}
+    \]
+    or
+    \[
+        x = y \text{ in } \ZZ_n.
+    \]
+
+    This is equivalent to \(n \divides x - y\), or \(x = y + kn\) for some \(k \in \ZZ\).
+\end{definition}
+
+\begin{example}[Example of Congurence]
+    In \(\ZZ_7\), \(2\) is regarded the same as \(16\), and hence
+    \[
+        2 \equiv 16 \pmod 7.
+    \]
+\end{example}
+
+Instead of a straight axis, we can view \(\ZZ_n\) as a circle, as in \autoref{fig:visuallisation-of-zn}.
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Visualisation of \(\ZZ_N\)}
+    \label{fig:visuallisation-of-zn}
+\end{figure}
+
+\begin{proposition}[Addition and Multiplication on \(\ZZ_n\)]
+    Addition and multiplication on \(\ZZ_n\) is well defined.
+\end{proposition}
+
+\begin{proof}
+    If \(a \equiv a', b \equiv b' \pmod{n}\), then
+    \[
+        n \divides \para{a - a'} + \para{b - b'} = \para{a + b} - \para{a' + b'}
+    \]
+    and hence
+    \[
+        a + b \equiv a' + b' \pmod{n}.
+    \]
+
+    Similarly,
+    \[
+        n \divides \para{a - a'} b + a' \cdot \para{b - b'} = ab - a' b'
+    \]
+    and hence
+    \[
+        ab \equiv a' b' \pmod{n}.
+    \]
+\end{proof}
+
+This allows us to do usual arithmetic modulo \(n\).
+
+We first see a useful application of modular arithmetic, that is determining whether a Diophantine equation has a solution.
+
+\begin{examples}[Diophantine Equation]
+    Does \(2a^2 + 3b^3 = 1\) have a solution in \(\ZZ\)? If there is one, then we have
+    \[
+        2a^2 \equiv 1 \pmod{3}.
+    \]
+
+    However, note that
+    \begin{align*}
+        2 \cdot 0^2 &\equiv 0, \\
+        2 \cdot 1^2 &\equiv 2, \pmod{3} \\
+        2 \cdot 2^2 &\equiv 2,
+    \end{align*}
+    and \(1 \nequiv 2 \pmod{3}\).
+
+    Therefore, there is no solution.
+\end{examples}
+
