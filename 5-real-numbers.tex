@@ -1,2 +1,410 @@
 \section{The Real Numbers}
 \label{sec:real-numbers}
+
+\subsection{Defining the Real Numbers}
+\label{sec:defining-real-numbers}
+
+Recall that we defined \(\NN\) using the Peano's Axioms, and we may obtain \(\ZZ\) from \(\NN\) by allowing for 'subtraction'.
+
+\begin{definition}[\(\ZZ\)]
+    Formally, \(\ZZ\) is the set of equivaleence classes of \(\NN \times \NN\) under the equivalence relation
+    \[
+        \para{a, b} \sim \para{c, d} \iff a + d = b + c.
+    \]
+\end{definition}
+
+We may think of \(\para{a, b}\) as \(a - b\). We denote
+\[
+    0 = \brac{\para{1, 1}}
+\]
+and
+\[
+    -a = \brac{\para{1, a + 1}}.
+\]
+
+We may similarly define addition and multiplication on \(\times\) using this pair, as
+\[
+    \para{a, b} + \para{c, d} = \para{a + c, b + d}
+\]
+and
+\[
+    \para{a, b} \times \para{c, d} = \para{ac + bd, bc + ad},
+\]
+and we may indeed check that these operations are well-defined.
+
+Similarly, we may obtain \(\QQ\) from \(\ZZ\) by allowing for 'division'.
+
+\begin{definition}[\(\QQ\)]
+    Formally, \(\QQ\) is the set of the equivalence classes of \(\ZZ \times \NN\) under the equivalence relation
+    \[
+        \para{a, b} \sim \para{c, d} \iff ad = bc.
+    \]
+\end{definition}
+
+Similarly, notational wise, we write \(\frac{a}{b}\) instead of \(\brac{\para{a, b}}\), and we may similarly define \(+\) and \(\times\) by
+\[
+    \para{a, b} + \para{c, d} = \para{ad + bc, bd}
+\]
+and
+\[
+    \para{a, b} \times \para{c, d} = \para{a \times c, b \times d}.
+\]
+
+In addition to this, we may define an \emph{ordering} on \(\QQ\), \(<\), which satisfy the following properties, that
+\begin{enumerate}
+    \item if \(a, b \in \QQ\), then precisely one of \(a < b, a = b, a > b\) holds;
+    \item if \(a < b\) and \(b < c\), then \(a < c\).
+\end{enumerate}
+
+This ordering is useful, in the sense that there is a rational number between any two rational numbers. If \(p, q \in \QQ\) with \(p < q\), w e have
+\[
+    p < \frac{p + q}{2} < q
+\]
+so \(\QQ\) is \emph{densely ordered}.
+
+However, this does not ensure that all the gaps are filled in.
+
+\begin{proposition}[\(\sqrt{2}\) is irrational]
+    There is no rational \(x\) with \(x^2 = 2\).    
+\end{proposition}
+
+\begin{proof}[by Number Theory]
+    Suppose that \(x^2 = 2\). Note we may assume \(x > 0\) since \(\para{-x}^2 = x^2\). If \(x\) is rational, then
+    \[
+        x = \frac{a}{b}
+    \]
+    for some \(a, b \in \NN\). Thus, \(a^2 = 2b^2\).
+
+    But note that the exponent of \(2\) in the prime factorisation on the left-hand side is even, while the exponent of \(2\) in the prime factorisation on the right-hand side is odd. This contradicts with the fundamental theorem of arithemetics.
+\end{proof}
+
+\begin{remark}
+    This proof reflects from a number theory perspective, that if there is \(x \in \QQ\) with \(x^2 = n\) for some \(n \in \NN\), then \(n\) must itself be a square number.
+\end{remark}
+
+\begin{proof}[by Algebra]
+    Suppose \(x^2 = 2\) for some \(x = \frac{a}{b}\), with \(a, b \in \NN\). Then, for any \(c, d \in \ZZ\), \(\para{cx + d}\) is of the form \(\frac{e}{b}\) for some \(e \in \ZZ\).
+
+    Then, if \(cx + d > 0\), we have \(cx + d \geq \frac{1}{b}\).
+
+    But \(0 < x - 1 < 1\) as \(1 < x < 2\), if \(n\) is sufficiently large, we have
+    \[
+        0 < \para{x - 1}^n < \frac{1}{b}.
+    \]
+
+    But for any \(n \in \NN\), \(\para{x - 1}^n\) is of the form \(cx + d\), for some \(c, d \in \ZZ\), since \(x^2 = 2\). This leads to a contradiction.
+\end{proof}
+
+\begin{remark}
+    This proof shows that if the square root of an integer is rational, then it must in fact be a whole number.
+\end{remark}
+
+This shows that \(\QQ\) has a gap. But how do we fill in this gap only making reference to \(\QQ\), without mentioning \(\RR\)? (We haven't defined the real numbers yet.)
+
+\(\QQ\) fails another property which is key to constructing the reals. Let \(A\) be the set of positive rationals \(p\), such that \(p^2 < 2\). Formally, let
+\[
+    A = \set{p \in \QQ}{p^2 < 2}.
+\]
+
+We show that \(A\) has no largest number. For any \(p \in A\), consider \(q = p - \frac{p^2 - 2}{p + 2}\).
+
+Since \(p \in A\), \(p^2 - 2 < 0\), so we have \(q > p\). Also,
+\[
+    q^2 - 2 = \frac{2 \para{p^2 - 2}}{\para{p + 2}^2} < 0,
+\]
+so \(q \in A\).
+
+Similarly, the set
+\[
+    \set{q \in \QQ}{q > 0, q^2 > 0}
+\]
+has no smallest element.
+
+The \textbf{crucial point} is not about the \emph{maximum/minimum} of a set -- it is about a \emph{least upper bound} -- which is the "gap". (And luckily, all the "gaps".)
+
+\begin{definition}[\(\RR\)]
+    The \emph{real numbers} \(\RR\) are a set with elements \(0, 1 \in \RR\) where \(0 \neq 1\), equipped with operations \(+\) and \(\times\), and an ordering \(<\) satisfying the following axioms:
+    \begin{enumerate}
+        \item \(\para{\RR, +, 0}\) is an abelian group: \(+\) is commutative and associative with identity \(0\), and inverses exist under \(+\);
+        \item \(\para{\RR\multiplicative, \times, 1}\) is an abelian group: \(\times\) is commutative and associative with identity \(1\), and inverses exist under \(\times\) for non-zero elements;
+        \item \(\times\) is distributive over \(+\):
+        \[
+            a \times \para{b + c} = a \times b + a \times c,
+        \]
+        and \(\para{\RR, +, \times}\) form a field;
+        \item \(\para{\RR, <}\) is a totally ordered field: for all \(a, b\), exactly one of \(a < b\), \(a = b\) and \(a > b\) holds; for all \(a, b, c\), if \(a < b\) and \(b < c\), then \(a < c\);
+        \item the ordering preserve arithemetics: for all \(a, b, c\), if \(a < b\), then \(a + c < b + c\), and \(ac < bc\) for \(c > 0\);
+        \item given any set \(S\) of reals that is non-empty and bounded above, \(S\) has a \emph{least upper bound}.
+    \end{enumerate}
+
+    The final axiom is known as the \emph{least upper bound axiom.}
+\end{definition}
+
+\begin{definition}[Least Upper Bound]
+    We say a set \(S\) is \emph{bounded above} if there is some \(x \in \RR\), such that \(x \geq y\) for all \(y \in S\). Such an element \(x\) is called an \emph{upper bound of \(S\)}.
+
+    We say \(x\) is \emph{the least upper bound} for \(S\), if \(x\) is an upper bound for \(S\), and any other upper bound \(x'\) satisfies \(x' \geq x\).
+
+    We denote this as \(x = \LUB\para{S}\), \(x = \supremum\para{S}\), or most commonly,
+    \[
+        x = \sup\para{S}.
+    \]
+\end{definition}
+
+Note that we defined \(\RR\) -- but its existence is not immediately obvious from the definition. This can be seen from a technique called \emph{Dedkind Cuts}.
+
+\begin{remarks}
+    \begin{enumerate}
+        \item From the axioms, we can check, for example, that \(0 < 1\). Indeed, if not, then \(1 < 0\). Since \(0 \neq 1\), assume on the countrary that \(1 < 0\), so we have
+        \[
+            0 = 1 - 1 < 0 - 1 = -1,
+        \]
+        so
+        \[
+            0 = 0 \cdot \para{-1} < \para{-1} \para{-1} = 1
+        \]
+        which gives a contradiction.
+        \item We may consider \(\QQ\) as \emph{contained} in \(\RR\), by identifying \(\frac{a}{b} \in \QQ\) with \(a \cdot b\inverse \in \RR\).
+        \item \(\QQ\) satisfies all axioms \emph{apart from} the final one -- the least upper bound axiom. For example, the set \(A\) involving squaring to \(2\) above does not have a supremum.
+        \item The words non-empty and bounded above are crucial.
+        
+        If \(S\) is empty, then every \(x \in \RR\) is trivially an upper bound, so there is no least upper bound.
+
+        If \(S\) is not bounded above, then it has no upper bound, and certainly does not have a least one.
+    \end{enumerate}
+\end{remarks}
+
+We give some examples on the idea of the least upper bound.
+
+\begin{examples}
+    \begin{enumerate}
+        \item Consider \(S = \set{x \in \RR}{0 \leq x \leq 1} = \ccintv{0}{1}\).
+        
+        \(2\) is an upper bound for \(S\), since for all \(x \in S\), \(x \leq 2\).
+
+        \(\frac{3}{4}\) is \emph{not} an upper bound for \(S\), since \(\frac{7}{8} \in S\), and \(\frac{7}{8} > \frac{3}{4}\).
+
+        In fact, we have
+        \[
+            \sup \para{S} = 1,
+        \]
+        since \(1\) is an upper bound: for all \(x \in S, x \leq 1\); and every other upper bound is \(\geq 1\), since \(1 \in S\).
+
+        \item Consier \(S = \set{x \in \RR}{0 < x < 1} = \oointv{0}{1}\).
+        
+        Similarly, \(2\) is an upper bound for \(S\), and \(\frac{3}{4}\) is not.
+
+        In fact, we have
+        \[
+            \sup \para{S} = 1,
+        \]
+        since \(1\) is an upper bound: for all \(x \in S, x < 1\) so \(x \leq 1\); and no opper bound \(c\) satisfies \(c < 1\).
+
+        Indeed, \(c\) is certainly greater than \(0\), and furthermore \(c \geq \frac{1}{2}\) since \(\frac{1}{2} \in S\).
+
+        So if \(c < 1\), then \(0 < c < 1\), so \(\frac{c + 1}{2} \in S\), but we have \(\frac{c + 1}{2} > c\).
+    \end{enumerate}
+\end{examples}
+
+\begin{remark}
+    If \(S\) have a greatest element, then
+    \[
+        \sup \para{S} = \max \para{S} \in S.
+    \]
+
+    However, as the example shows, \(\sup\para{S}\) can exist when \(\max\para{S}\) does not: in this case, \(\sup\para{S} \notin S\).
+\end{remark}
+
+Now we want to find the least upper bound of
+\[
+    S = \brce{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
+\]
+
+Clearly, \(1\) is an upper bound of \(S\). But is there an upper bound less than 1?
+
+\begin{proposition}[Axiom of Archimedes]
+    \(\NN\) is not bounded above in \(\RR\).
+\end{proposition}
+
+\begin{proof}
+    Suppose on the contrary, that \(\NN\) is bounded above, then it has a least upper bound
+    \[
+        c = \sup \para{\NN} \in \RR.
+    \]
+
+    By definition, \(\para{c - 1}\) is not an upper bound for \(\NN\), so there is some \(n \in \NN\), such that \(n > c - 1\).
+
+    Then, \(n + 1 \in \NN\), with \(n + 1 > c\), contradicting that \(c\) is an upper bound for \(\NN\).
+\end{proof}
+
+\begin{corollary}[Reciprocal of Natural Numbers can be Arbitrarily Small]
+    For any real number \(t > 0\), there exists \(n \in \NN\) such that \(\frac{1}{n} < t\).
+\end{corollary}
+
+\begin{proof}
+    Given \(t > 0\), by Axiom of Archimedes, there is \(n \in \NN\) where \(n > \frac{1}{t}\).
+
+    Hence, \(\frac{1}{n} < t\) as desired.
+\end{proof}
+
+\begin{definition}[Greatest Lower Bound]
+    A set \(S\) is said to be \emph{bounded below}, if there exists \(x\), such that for all \(y \in S\), we have \(x \leq y\). Such an \(x\) is called a \emph{lower bound} for \(S\).
+
+    We say \(x\) is the \emph{greatest lower bound} for \(S\), if \(x\) is a lower bound for \(S\), and any other lower bound \(x'\) satisfies \(x' \leq x\).
+
+    We denote this as \(x = \GLB \para{S}\), \(x = \infimum\para{S}\), or most commonly,
+    \[
+        x = \inf \para{S}.
+    \]
+\end{definition}
+
+Note that if \(S\) is empty and bounded below, then
+\[
+    -S = \set{-y}{y \in S}
+\]
+is non-empty and bounded above, so it has a least upper bound
+\[
+    \sup \para{-S} = c,
+\]
+and hence \(-c\) is the greatest lower bound.
+
+The previous corollary immediately implies that
+\[
+    \inf \para{\set{\frac{1}{n}}{n \in \NN}} = 0.
+\]
+
+The previous proposition and corollary can be interpreted as that there are no 'infinitely large' or 'infinitely small' numbers in \(\RR\).
+
+Now, we return to a previous example.
+
+\begin{example}
+    We want to find the least upper bound of
+    \[
+        S = \brce{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
+    \]
+
+    We claim \(\sup \para{S} = 1\), and suppose on the countrary that \(c < 1\) is an upper bound for \(S\). Then \(1 - \frac{1}{n} \leq c\), for all \(n \in \NN\), so
+    \[
+        0 < 1 - c \leq \frac{1}{n}
+    \]
+    for all \(n \in \NN\), contradicting with the previous corollary.
+\end{example}
+
+Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least upper bound axiom.
+
+\begin{theorem}[Square Roots Exist in \(\RR\)]
+    There exists \(x \in \RR\) with \(x^2 = 2\).
+\end{theorem}
+
+\begin{proof}
+    Let
+    \[
+        S = \set{x \in \RR}{x^2 < 2}.
+    \]
+
+    First we note that \(S\) is non-empty since \(1 \in S\), and it is bounded above by \(2\)
+
+    Hence, \(S\) has a supremum, and let \(c = \sup S\). We observe \(1 < c < 2\), ad we claim that \(c^2 = 2\).
+
+    Suppose that \(c^2 < 2\). For \(0 < t < 1\), we have
+    \begin{align*}
+        \para{c + t}^2 &= c^2 + 2ct + t^2 \\
+        &< c^2 + 4t + t \\
+        &= c^2 + 5t \\
+        &< 2,
+    \end{align*}
+    for sufficiently small \(t\), say \(t < \frac{2 - c^2}{5}\).
+
+    But this contradicts with the assumption that \(c\) is \emph{an upper bound} for \(S\), since \(c + t \in S\) and \(c + t > c\).
+
+    Now, suppose that \(c^2 > 2\). For \(0 < t < 1\), we have
+    \begin{align*}
+        \para{c - t}^2 &= c^2 - 2ct + t^2 \\
+        &> c^2 - 4t + 0 \\
+        &> 2,
+    \end{align*}
+    for sufficiently small \(t\), say \(t < \frac{c^2 - 2}{4}\).
+
+    This contradicts with the assumption that \(c\) is the \emph{least} upper bound of \(S\), since \(c - t < c\) and \(c - t\) is an upper bound for \(S\).
+
+    Hence, \(c^2 = 2\).
+\end{proof}
+
+\begin{remark}
+    A similar proof shows that \(\sqrt[n]{x}\) exists for all \(n \in \NN\), for all \(x \in \RR\) where \(x > 0\):
+    \[
+        \forall n \in \NN, \forall x \in \oointv{0}{\plusinfty}, \exists y \in \RR: y^n = x.
+    \]
+\end{remark}
+
+\begin{definition}[Irrational Numbers]
+    A real that is not rational is \emph{irrational}.
+\end{definition}
+
+\begin{examples}[Examples of Irrationals]
+    \begin{enumerate}
+        \item \(\sqrt{2}, \sqrt{3}, \sqrt{5}, \sqrt{6}, \ldots\) are irrational.
+        \item If \(2 + 3 \sqrt{5} = \frac{a}{b}\) for some \(a, b \in \NN\), then
+        \[
+            \sqrt{5} = \frac{a - 2b}{3b} \in \QQ
+        \]
+        but \(\sqrt{5}\) is irrational. So \(2 + 3 \sqrt{5}\) is irrational.
+    \end{enumerate}
+\end{examples}
+
+\begin{proposition}[\(\QQ\) is dense in \(\RR\)]
+    The rationals are \emph{dense} in the reals. Formally,
+    \[
+        \forall a, b \in \RR, a < b, \exists c \in \QQ: a < c < b.
+    \]
+\end{proposition}
+
+\begin{proof}
+    We may assume \(a \geq 0\). By corollary of the axiom of achimedes, we have some \(n \in \NN\) such that \(\frac{1}{n} < b - a\).
+
+    Let
+    \[
+        T = \set{k \in \NN}{\frac{k}{n} \geq b}.
+    \]
+
+    By axiom of archimedes, there is some \(N \in \NN\) such that \(N > b\).
+    
+    Hence, we have
+    \[
+        \frac{Nn}{n} \geq b,
+    \]
+    and hence \(Nn \in T\), so \(T \neq \emptyset\).
+
+    By the well-ordering principle, \(T\) has some least element \(m\). Now, let \(c = \frac{m - 1}{n} \in \QQ\).
+
+    Since \(m - 1 \notin T\), we have \(c < b\).
+
+    Now, if \(c \leq a\), then
+    \[
+        \frac{m}{n} = c + \frac{1}{n} < a + \para{b - a} = b,
+    \]
+    contradicts with \(m \in T\).
+
+    Therefore, \(c > a\), and hence \(a < c < b\) with \(c \in \QQ\), as desired.
+\end{proof}
+
+\begin{proposition}[\(\RR \setminus \QQ\) is dense in \(\RR\)]
+    The irrationals are \emph{dense} in the reals. Formally,
+    \[
+        \forall a, b \in \RR, a < b, \exists c \in \RR \setminus \QQ: a < c < b.
+    \]
+\end{proposition}
+
+\begin{proof}
+    Indeed, take \(c \in \QQ\) such that
+    \[
+        a \sqrt{2} < c < b \sqrt{2}
+    \]
+    then
+    \[
+        a < \frac{c}{\sqrt{2}} < b.
+    \]
+\end{proof}
+
+\subsection{Sequences}
+\label{sec:sequences}
