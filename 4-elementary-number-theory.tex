@@ -602,3 +602,501 @@ We first see a useful application of modular arithmetic, that is determining whe
     Therefore, there is no solution.
 \end{examples}
 
+Similar to how we solve equations in integers, we can also solve equations in the integers modulo \(n\).
+
+\begin{example}[Solving Congurence]
+    We solve the equation \(7x \equiv 2 \pmod{10}\).
+
+    Note that \(3 \cdot 7 \equiv 1 \pmod{10}\), and hence \(3 \cdot 7x \equiv 3 \cdot 2 \pmod{10}\).
+
+    Hence, \(x \equiv 6 \pmod{10}\).
+\end{example}
+
+\begin{definition}[Inverses Modulo \(n\)]
+    Given \(a, b \in \ZZ\), we say \(b\) is \emph{an inverse of \(a\) modulo \(n\)} if \(ab \equiv 1 \pmod{n}\).
+
+    We say that \emph{\(a\) is invertible modulo \(n\)} or that \emph{\(a\) is a unit modulo \(n\)}, if it has an inverse.
+\end{definition}
+
+\begin{example}[Inverses Modulo \(10\)]
+    In \(\ZZ_{10}\), \(3\) is an inverse of \(7\), and both \(3\) and \(7\) are units modulo \(10\).
+
+    However, \(4\) is \emph{not} a unit modulo \(10\), since \(4x \nequiv 1 \pmod{10}\) for any \(x \in \ZZ_{10}\).
+\end{example}
+
+\begin{proposition}[Properties on Units Modulo \(n\)]
+    If \(a\) is a unit modulo \(n\), then
+    \begin{enumerate}
+        \item its inverse is unique modulo \(n\);
+        \item if \(ab \equiv ac \pmod{n}\), then \(b \equiv c \pmod{n}\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Suppose that there is \(b, b' \in \ZZ_n\) such that
+        \[
+            ab \equiv ab' \equiv 1 \pmod{n}.
+        \]
+
+        Then,
+        \[
+            b \equiv bab \equiv bab' \equiv b' \pmod{n}.
+        \]
+
+        \item We left-multiply both sides by the inverse.
+    \end{enumerate}
+\end{proof}
+
+\begin{notation}
+    Since the inverse is unique, we write \(a\inverse\) for its inverse.
+\end{notation}
+
+\begin{remark}
+    The second property is not true in general. As a counterexample, we have
+    \[
+        4 \cdot 3 \equiv 12 \equiv 32 \equiv 4 \cdot 8 \pmod{10},
+    \]
+    but
+    \[
+        3 \nequiv 8 \pmod{10}.
+    \]
+\end{remark}
+
+We next ask the questsion on which numbers are invertible in modulo \(n\). This answer is straightforward if \(n\) is a prime.
+
+\begin{proposition}[Integers Modulo \(p\) are Invertible]
+    Let \(p\) be a prime. Then every \(a \nequiv 0 \pmod{p}\) is a unit modulo \(p\).
+\end{proposition}
+
+\begin{proof}
+    We must have \(\gcd\para{a, p} = 1\) for \(p\) being prime. Hence, by B\'{e}zout's Identity, there is \(x, y \in \ZZ\) such that
+    \[
+        ax + py = 1.
+    \]
+    
+    Hence, \(ax = 1 - py\), and hence \(ax \equiv 1 \pmod{p}\), for some \(x \in \ZZ\).
+\end{proof}
+
+The answer is similar modulo any integer \(n\).
+
+\begin{proposition}[Integers Coprime to \(n\) are Invertible modulo \(n\)]
+    Let \(n \geq 2\) be a natural number. Then \(a\) is a unit modulo \(n\), if and only if \(\gcd\para{a, n} = 1\).
+\end{proposition}
+
+\begin{proof}
+    We have
+    \begin{align*}
+        \gcd\para{a, b} = 1 &\iff \exists x, y \in \ZZ: ax + ny = 1 && \text{B\'{e}zout's Identity} \\
+        &\iff \exists x, y \in \ZZ: ax = 1 - ny \\
+        &\iff \exists x \in \ZZ: ax \equiv 1 \pmod{n}.
+    \end{align*}
+\end{proof}
+
+\begin{corollary}[Solution to Congurence involving Unit is Unique]
+    If \(\gcd\para{a, n} = 1\), then the congurence \(ax \equiv b \pmod{n}\) has a unique solution. In particular, if \(\gcd\para{a, n} = 1\), there exists a unique inverse of \(a\) modulo \(n\).
+\end{corollary}
+
+\begin{example}[Diophantine Equation]
+    If a particular year's New Year's Day is a Monday, when is the time that a New Year's Day is a particular day of the week?
+
+    We put New Year's Day as Day 0, and note a wek has 7 days in it, while a year has 365.
+
+    We want to solve for \(y\) in
+    \[
+        7x = 365y + k
+    \]
+    which is the congurence
+    \[
+        365y \equiv k \pmod{7}.
+    \]
+\end{example}
+
+What if we want to solve \(ax \equiv b \pmod{n}\), but in the case where \(a\) is not a unit?
+
+Say \(\gcd\para{a, n} = d > 1\). Then \(n \divides ax - b\), so \(d \divides ax - b\), and we have \(d \divides a\).
+
+Hence, if there is a solution, then \(d \divides b\).
+
+Conversely, if \(d \divides b\), let \(n = d \cdot n'\), \(a = d \cdot a'\) and \(b = d \cdot b'\) for \(n', a', b' \in \ZZ\). Then
+\begin{align*}
+    ax \equiv b \pmod{n} &\iff ax - b = kn && \text{for some } k \in \ZZ \\
+    &\iff d a' x - d b' = k d n' && \text{for some } k \in \ZZ \\
+    &\iff a' x - b' = k n' && \text{for some } k \in \ZZ \\
+    &\iff a' x \equiv b' \pmod{n}.
+\end{align*}
+
+Note that \(\gcd\para{a', n'} = 1\), so \(a' x \equiv b'\) has a unique solution from before.
+
+Therefore, if \(\gcd\para{a, n} = d > 1\), the congurence \(ax \equiv b \pmod{n}\) has \emph{no solution} unless \(d \divides b\), in which case the solution are exactly
+\[
+    \frac{a}{d} x \equiv \frac{b}{d} \pmod{\frac{n}{d}}.
+\]
+
+\begin{examples}[Solving Congurences]
+    \begin{enumerate}
+        \item We solve \(7x \equiv 4 \pmod{30}\). Notice \(\gcd\para{7, 30} = 1\), so \(7\) is a unit modulo \(30\). We note \(13 \cdot 7 \equiv 1 \pmod{30}\), and hence \(x \equiv 4 \cdot 13 \equiv 22 \pmod{30}\).
+        
+        We now explicitly show that there are no other solutions. Suppose \(x'\) is also a solution to \(7 x' \equiv 4 \pmod{30}\), then \(7x \equiv 7x' \pmod{30}\), and hence \(x \equiv x' \pmod{30}\) since \(7\) is a unit modulo \(30\).
+
+        Writing up, we can write this as
+        \begin{align*}
+            &\phantom{\iff} 7x \equiv 4 \pmod{30} \\
+            &\iff 13 \cdot 7x \equiv 13 \cdot 4 \pmod{30} \\
+            &\iff x \equiv 22 \pmod{30}.
+        \end{align*}
+
+        \item We solve \(10 x \equiv 12 \pmod{34}\). We have
+        \begin{align*}
+            &\phantom{\iff} 10x \equiv 12 \pmod{34} \\
+            &\iff 10x = 12 + 34y && \text{for some } y \in \ZZ \\
+            &\iff 5x = 6 + 17y && \text{for some } y \in \ZZ \\
+            &\iff 5x \equiv 6 \pmod{17}.
+        \end{align*}
+
+        We are back in the previous case, where we solve as before.
+    \end{enumerate}
+\end{examples}
+
+Similarly, we may solve \textbf{simultaneous congurences} in \(\ZZ_n\) as well.
+
+\begin{example}[Han Xin]
+    A famous example is as following.
+
+    "How many soldiers are there in Han Xin's army? If you let them parade in rows of \(3\), then \(2\) are left; if you let them parade in rows of \(4\), then \(1\) is left."
+
+    We may model this as the following system of linear congurences:
+    \begin{align*}
+        x \equiv 1 \pmod{4} &\implies x \equiv 1, \boxed{5}, 9, 13, \ldots \\
+        x \equiv 2 \pmod{3} &\implies x \equiv 2, \boxed{5}, 8, 11, \ldots
+    \end{align*}
+\end{example}
+
+What about the follwoing system?
+
+\begin{align*}
+    x \equiv 1 \pmod{4} &\implies x \equiv 1, 5, 9, 13, \ldots \\
+    x \equiv 2 \pmod{6} &\implies x \equiv 2, 8, 14, 20, \ldots
+\end{align*}
+
+Here, \(4\) and \(6\) are not coprime, and there are not any solutions.
+
+\begin{theorem}[Chinese Remainder Theorem]
+    Let \(m, n\) be coprime, and let \(a, b \in \ZZ\). Then there is a unique solution in \(\ZZ_{mn}\) to the simultaneous congurences
+    \begin{align*}
+        x &\equiv a \pmod{m}, \\
+        x &\equiv b \pmod{n}.
+    \end{align*}
+
+    In other words, \(y\) is a solution to the same system of equations if and only if \(x \equiv y \pmod{mn}\).
+\end{theorem}
+
+\begin{proof}
+    The proof is in two parts, for the existance, and for the uniqueness.
+
+    \textbf{Existance.} Since \(\gcd\para{n, m} = 1\), by B\'{e}zout's Idnetityt, there are \(s, t \in \ZZ\), such that \(sm + tn = 1\).
+
+    Note that \(sm \equiv 1 \pmod{n}\), and \(tn \equiv 1 \pmod{m}\), and that \(sm \equiv 0 \pmod{m}\), and \(tn \equiv 0 \pmod{n}\).
+
+    Hence, we consider \(x = a \para{tn} + b \para{sm}\). Then we see that this is indeed a solution.
+
+    \textbf{Uniqueness.} Suppose \(y\) is also a solution to the same congurences, we have
+    \begin{align*}
+        &\phantom{\iff} y \equiv a \pmod{m}, y \equiv b \pmod{n} \\
+        &\iff y \equiv x \pmod{m}, y \equiv x \pmod{n} \\
+        &\iff m \divides y - x, n \divides y - x \\
+        &\iff mn \divides y - x && \text{since } \gcd\para{m, n} = 1 \\
+        &\iff x \equiv y \pmod{mn}.
+    \end{align*}
+\end{proof}
+
+\begin{remark}
+    The Chinese Remainder Theorem can be extended to a system of congurences to more than 2 moduli. If \(m_1, m_2, \ldots, m_k\) are \emph{pairwise coprime}, then for all \(a_1, a_2, \ldots, a_k \in \ZZ\), there exists a solution \(x \in \ZZ\) to the simultaneous congurences
+    \begin{align*}
+        x &\equiv a_1 \pmod{m_1} \\
+        x &\equiv a_2 \pmod{m_2} \\
+          &\vdots \\
+        x &\equiv a_k \pmod{m_k},
+    \end{align*}
+    and such solution is unique modulo \(m_1 m_2 \cdots m_k\).
+\end{remark}
+
+\begin{definition}[Euler Totient Function]
+    We denote by \(\totient\para{m}\) the number of integers \(a\) with \(1 \leq a \leq m\), such that \(\gcd\para{a, m} = 1\). In other words, \(\totient\para{m}\) is \emph{the number of units modulo \(m\)}.
+    
+    This is known as the \emph{Euler Totient Function}.
+
+    Note that we define \(\totient\para{1} = 1\).
+\end{definition}
+
+
+\begin{examples}[Euler Totient Function]
+    \begin{enumerate}
+        \item For \(m = 9\), the units in \(\ZZ_m\) is \(1, 2, 3, 5, 7, 8\), and hence \(\totient\para{9} = 6\).
+        \item For a prime \(p\), we have \(\totient\para{p} = p - 1\). Similarly, \(\totient\para{p^2} = p^2 - p = p \para{p - 1}\).
+        \item When \(p, q\) are distinct primes,
+        \[
+            \totient\para{pq} = pq - p - q + 1 = \para{p - 1} \para{q - 1},
+        \]
+        since there are \(pq\) numbers in total, \(q\) of which are multiples of \(p\), \(p\) of which are multiples of \(q\), and \(1\) double counted which is \(pq\). (This is by Inclusion--Exclusion Principle.)
+    \end{enumerate}
+\end{examples}
+
+We investigate the behaviour of powers of an integer under modulo a prime \(p\).
+
+\begin{examples}[Powers of Integers Modulo \(p\)]
+    \begin{enumerate}
+        \item Under modulo \(7\), we have
+        \[
+            2^1 \equiv 2, 2^2 \equiv 4, 2^3 \equiv 1, 2^4 \equiv 2, 2^5 \equiv 4, 2^6 \equiv 1
+        \]
+        and this repeats.
+
+        \item Under modulo \(11\), we have
+        \begin{align*}
+            2^1 \equiv 2, 2^2 \equiv 4, & 2^3 \equiv 8, 2^4 \equiv 5, \\
+            2^5 \equiv 10, 2^6 \equiv 9, & 2^7 \equiv 7, 2^8 \equiv 3, \\
+            2^9 \equiv 6, 2^{10} \equiv 1, & 2^{11} \equiv 2, 2^{12} \equiv 4,
+        \end{align*}
+        and this repeats.
+    \end{enumerate}
+\end{examples}
+
+The following result(s) is (are) best motivited by (corollary of) Lagrange's Theorem in group theory (lots of results in elementary number theory involving congurences are), but we show this in an elementary way.
+
+\begin{theorem}[Fermat's Little Theorem]
+    Let \(p\) be a prime. Then \(a^p \equiv a \pmod{p}\), for all integers \(a \in \ZZ\).
+
+    Equivalently, \(a^{p - 1} \equiv 1 \pmod{p}\) for all \(a \nequiv 0 \pmod{p}\).
+\end{theorem}
+
+\begin{proof}
+    If \(a \nequiv 0 \pmod{p}\), then \(a\) is a unit mod \(p\), and hence
+    \[
+        ax \equiv ay \pmod{p} \iff x \equiv y \pmod{p}.
+    \]
+
+    Hence, the numbers \(a, 2a, 3a, \ldots, \para{p - 1}a\) are pairwise distinct (incongurent) under modulo \(p\), and are all non-zero modulo \(p\).
+
+    Therefore, they must be \(1, 2, 3, \ldots, p - 1\), in some order.
+
+    Hence,
+    \[
+        a \cdot 2a \cdot 3a \cdot \cdots \cdot \para{p - 1} a \equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \para{p - 1} \pmod{p},
+    \]
+    and hence
+    \[
+        a^{p - 1} \para{p - 1}! \equiv \para{p - 1}! \pmod{p}.
+    \]
+
+    However, \(\para{p - 1}!\) is a unit modulo \(p\), since it is a product of units. Hence, we obtain \(a^{p - 1} \equiv 1 \pmod{p}\), as desired.
+\end{proof}
+
+We have a theorem closely related to this but modulo any general integer.
+
+\begin{theorem}[Fermat--Euler Theorem]
+    Let \(\gcd\para{a, m} = 1\), then we have \(a^{\totient\para{m}} \equiv 1 \pmod{m}\).
+\end{theorem}
+
+\begin{proof}
+    Let
+    \[
+        \mathcal{U} = \set{x \in \ZZ}{0 < x < m, \gcd\para{x, m} = 1}
+    \]
+    be the \(\totient\para{m}\) units in \(\ZZ_{m}\). Let them be
+    \[
+        \mathcal{U} = \brce{u_1, u_2, \ldots, u_{\totient\para{m}}}.
+    \]
+
+    Similarly, for any \(a\) where \(\gcd\para{a, m} = 1\), we have
+    \[
+        a u_1, a u_2, \ldots, a u_{\totient\para{m}}
+    \]
+    are the units in \(\ZZ_m\), and hence \(u_1, u_2, \ldots, u_{\totient\para{m}}\) in some order. Hence,
+    \[
+        \para{a u_1} \para{a u_2} \cdots \para{a u_{\totient\para{m}}} \equiv \para{u_1} \para{u_2} \cdots \para{u_{\totient\para{m}}} \pmod{m}
+    \]
+    and hence
+    \[
+        a^{\phi \para{m}} \prod_{u \in \mathcal{U}} u \equiv \prod_{u \in \mathcal{U}} u \pmod{m}.
+    \]
+
+    Since \(\mathcal{U}\) contain units, their products must be a unit as well modulo \(n\), in other words,
+    \[
+        \prod_{u \in \mathcal{U}} u \in \mathcal{U}.
+    \]
+
+    Hence, we may obtain
+    \[
+        a^{\totient\para{m}} \equiv 1 \pmod{m}.
+    \]
+\end{proof}
+
+This next result is less intuitive: we consider the value of \(\para{p - 1}!\) modulo \(p\).
+
+\begin{examples}[\(\para{p - 1}!\) modulo \(p\)]
+    \begin{enumerate}
+        \item For \(p = 5\), we have
+        \[
+            4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24 \equiv -1 \pmod{5}.
+        \]
+
+        \item For \(p = 7\), we have
+        \[
+            6! = 720 \equiv -1 \pmod{-1}.
+        \]
+    \end{enumerate}
+\end{examples}
+
+We conjuecture that the result is always \(-1\). To prove this, we first introduce some lemmas.
+
+\begin{lemma}[Square Root of \(1\) is \(\pm 1\) modulo Prime]
+    Let \(p\) be a prime. We have
+    \[
+        x^2 \equiv 1 \pmod{p} \iff x \equiv \pm 1 \pmod{p}.
+    \]
+\end{lemma}
+
+\begin{remark}
+    This does not necessarily hold for non-primes: in modulo \(8\),
+    \[
+        1^2 \equiv 3^2 \equiv 5^2 \equiv 7^2 \equiv 1 \pmod{8}.
+    \]
+\end{remark}
+
+\begin{proof}
+    We have by factorisation
+    \begin{align*}
+        x^2 \equiv 1 \pmod{p} &\iff x^2 - 1 \equiv 0 \pmod{p} \\
+        &\iff \para{x + 1} \para{x - 1} \equiv 0 \pmod{p}.
+    \end{align*}
+
+    Recall that Euclid's Lemma states that \(p \divides ab\) if and only if \(p \divides a\) or \(p \divides b\).
+
+    Equivalently, if \(p\) is prime, then \(ab \equiv 0 \pmod{p}\) if and only if \(a \equiv 0 \pmod{p}\) or \(b \equiv 0 \pmod{p}\).
+
+    Hence,
+    \begin{align*}
+        x^2 \equiv 1 \pmod{p} &\iff x + 1 \equiv 0 \text{ or } x - 1 \equiv 0 \pmod{p} \\
+        &\iff x \equiv -1 \text{ or } x \equiv 1 \pmod{p},
+    \end{align*}
+    as desired.
+\end{proof}
+
+\begin{remark}
+    More generally, a non-zero polynomial of degree \(k\) over \(\ZZ_p\) has \emph{at most} \(k\) roots in \(\ZZ_p\) for any prime \(p\).
+\end{remark}
+
+Now we are ready to prove our result.
+
+\begin{theorem}[Wilson's Theorem]
+    Let \(p\) be a prime. Then \(\para{p - 1}! \equiv -1 \pmod{p}\).
+\end{theorem}
+
+\begin{proof}
+    This is trivially true for \(p = 2\), so we assume \(p > 2\).
+
+    Note that the units modulo \(p\) come in pairs whose product is \(1\), and together with some elements that are self inverse, i.e. \(x\) where \(x^2 \equiv 1 \pmod{p}\).
+
+    From the previous lemma, these elements are in fact precisely \(\pm 1\), and the remaining \(p - 3\) units in \(\ZZ_p\) come in pairs of inverses.
+
+    Hence, \(\para{p - 1}!\) is the product of \(\frac{p - 3}{2}\) pairs of inverses together with \(\pm 1\) and hence
+    \[
+        \para{p - 1}! \equiv -1 \pmod{p}.
+    \]
+\end{proof}
+
+As an example, in modulo \(11\), \(\para{2, 6}, \para{3, 4}, \para{5, 9}, \para{7, 8}\) are the pairs of inverses, and \(1, 10\) are the units whose inverse is theirself.
+
+The next question we ask, is when is \(-1\) a square modulo \(p\), if ever?
+
+\begin{proposition}
+    Let \(p\) be an odd prime. Then \(-1\) is a square modulo \(p\), if and onlyl if \(p \equiv 1 \pmod{4}\).
+\end{proposition}
+
+\begin{proof}
+    \(\impliedby\). Suppose \(p \equiv 1 \pmod{4}\). By Wilson's theorem, we have
+    \begin{align*}
+        -1 &\equiv \para{p - 1}! \\
+        &\equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{p - 1}{2} \cdot \para{p + 1}{2} \cdot \cdots \cdot \para{p - 3} \cdot \para{p - 2} \cdot \para{p - 1} \\
+        &\equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{p - 1}{2} \cdot \para{- \frac{p - 1}{2}} \cdot \cdots \cdot \para{-3} \cdot \para{-2} \cdot \para{-1} \\
+        &\equiv \para{-1}^{\frac{p - 1}{2}} \cdot \para{\para{\frac{p - 1}{2}}!}^2 \pmod{p}.
+    \end{align*}
+
+    Since \(p \equiv 1 \pmod{4}\), \(p = 4k + 1\) for some \(k \in \ZZ\), and we have
+    \[
+        -1 \equiv \para{-1}^{2k} \cdot \para{\para{\frac{p - 1}{2}}!}^2 \equiv \para{\para{\frac{p - 1}{2}}!}^2 \pmod{p}
+    \]
+    so \(\para{-1}\) is a square modulo \(p\).
+
+    \(\implies\). Suppose on the other hand, that \(p \equiv 3 \pmod{4}\), i.e. \(p = 4k + 3\) for some \(k \in \ZZ\).
+
+    If \(\para{-1}\) were a square modulo \(p\), i.e. if there were an integer \(z \in \ZZ\) such that \(z^2 \equiv -1\), then by Fermat's Little Theorem,
+    \begin{align*}
+        1 &\equiv z^{p - 1} \\
+        &\equiv z^{4k + 2} \\
+        &\equiv \para{z^2}^{2k + 1} \\
+        &\equiv \para{-1}^{2k + 1} \\
+        &\equiv -1 \pmod{p},
+    \end{align*}
+    which gives a contradiction.
+\end{proof}
+
+\begin{remark}
+    When \(p \equiv 1 \pmod{4}\), Wilson's theorem gives us \emph{a} solution to \(x^2 \equiv -1 \pmod{p}\), namely \(\para{\frac{p - 1}{2}}!\).
+
+    For example, if \(p = 29\), then \(x = 14!\) is a solution.
+\end{remark}
+
+\subsection{Public Key Cryptography}
+\label{sec:public-key-cryptography}
+
+Using Wilson's Theorem to find primes is very inefficient. There is an alternative called \textbf{Fermat's Criteria}.
+
+We look at Fermat's Little Theorem when \(a = 2\), showing
+\[
+    2^p \equiv 2 \pmod{p}.
+\]
+
+In fact, if \(2^p \equiv 2 \pmod{p}\), then there is a good chance that \(p\) is prime. Otherwise, \(p\) is a \emph{pseudo-prime}. Since we have efficient ways to calculate powers (in logarithm time), this is an efficient way to find primes.
+
+Now we preceed from this and encrypt messages. We may encode messages as a sequence of numbers, e.g. encoding \(A\) as \(0\), \(B\) as \(1\), \dots, \(Z\) as \(25\). Our goal is to send messages in an encrypted form, in such a way that the intended receiver can decrypt them easily, but a third party cannot.
+
+\begin{definition}[RSA Scheme]
+    The following procedure is defined to be the \emph{RSA Scheme}.
+
+    The receiver:
+    \begin{itemize}
+        \item think of two \emph{very large primes} \(p\) and \(q\);
+        \item let \(n = pq\); pick an \emph{encoding exponent} \(e\) coprime to
+        \[
+            \totient \para{n} = \para{p - 1} \para{q - 1};
+        \]
+        \item publish the pair \(\para{n, e}\) as the \emph{encryption scheme}.
+    \end{itemize}
+
+    The sender:
+    \begin{itemize}
+        \item chops the message into pieces \(M < n\),
+        \item send the result of \(M^e \mod n\), computed quickly by repeated squaring modulo \(n\) (in logarithmic time).
+    \end{itemize}
+
+    To decrypt the message:
+    \begin{itemize}
+        \item the \emph{decoding exponent} \(d\) is calculated such that
+        \[
+            ed \equiv 1 \pmod{\totient\para{n}};
+        \]
+        \item by computing
+        \[
+            \para{M^e}^d \equiv M^{k \totient \para{n} + 1} \equiv M \pmod{n}
+        \]
+        for some \(k \in \ZZ\), by Fermat--Euler Theorem.
+    \end{itemize}
+
+    This method works when \(\gcd\para{M, n} = 1\).
+\end{definition}
+
+In order to decrypt in this way, either \(n\) and \(d\) is needed, or \(n, e\) and \(\totient\para{n}\) is needed.
+
+This relies on computational complexity: finding \(\totient\para{n}\) is as difficult as finding the prime factors of \(n\), which is believed to be computationally hard. However, it is \emph{not known} if RSA can be broken without prime factorisaion.
