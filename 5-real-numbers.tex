@@ -1001,3 +1001,257 @@ This case is to be dealt carefully when dealing with reals by considering their 
     \]
     so \(x\) is periodic.
 \end{proof}
+
+\subsection{Irrational and Transcedental Numbers}
+
+\begin{definition}[Euler's Number \(e\)]
+    The Euler's Number \(e\) (which is discovered by Bernoulli) is defined as the infinite series
+    \[
+        e = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots.
+    \]
+\end{definition}
+
+\begin{proposition}[\(e\) exists]
+    The infinite series for \(e\) converges.
+\end{proposition}
+
+\begin{proof}
+    The partial sums form a monotone sequence, and we have
+    \[
+        \frac{1}{n!} \leq \frac{1}{2^{n - 1}}
+    \]
+    for \(n \geq 2\), and hence the sum is bounded above by
+    \[
+        1 + 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots = 3.
+    \]
+
+    The result follows from monotone convergence theorem.
+\end{proof}
+
+\begin{notation}
+    If we use the convention \(0! = 1\), we have
+    \[
+        e = \sum_{j = 0}^{\infty} \frac{1}{j!}.
+    \]
+\end{notation}
+
+\begin{proposition}[Euler, 1740s: \(e\) is irrational]
+    \(e\) is irrational.
+\end{proposition}
+
+\begin{proof}
+    Suppose that \(e\) were rational, then let
+    \[
+        e = \frac{p}{q}
+    \]
+    for \(p, q \in \NN\) and \(q > 1\) (since clearly \(2 < e < 3\) and \(e \notin \NN\)). Then \(q! e \in \NN\).
+
+    However,
+    \begin{align*}
+        q!e &= q! + \frac{q!}{1} + \frac{q!}{2!} + \frac{q!}{3!} + \cdots + \frac{q!}{q!} \\
+        &\phantom{=} + \frac{q!}{\para{q + 1}!} + \frac{q!}{\para{q + 2}!} + \cdots \\
+        &= \sum_{j = 0}^{q} \frac{q!}{j!} + \sum_{j = q + 1}^{\infty} \frac{q!}{j!}.
+    \end{align*}
+
+    The sum
+    \[
+        \sum_{j = 0}^{q} \frac{q!}{j!} \in \NN
+    \]
+    since all the terms are integers, and hence the remaining part
+    \[
+        \sum_{j = q + 1}^{\infty} \frac{q!}{j!} = \sum_{j = 1}^{\infty} \frac{q!}{\para{q + j}!} = \frac{1}{q + 1} + \frac{1}{\para{q + 1} \para{q + 2}} + \cdots \in \NN.
+    \]
+
+    We may apply bounds on the terms above by
+    \[
+        0 < \frac{q!}{\para{q + j}!} \leq \frac{1}{\para{q + 1}^j}
+    \]
+    for \(j \in \NN\), and hence
+    \[
+        0 < \sum_{j = 1}^{\infty} \frac{q!}{\para{q + j}!} \leq \sum_{j = 1}^{\infty} \frac{1}{\para{q + 1}^j} = \frac{1}{q} < 1
+    \]
+    since \(q \geq 2\).
+
+    Hence, \(0 < x < 1\), contradicting with the fact that \(q! e \in \NN\).
+\end{proof}
+
+\begin{definition}[Algebraic and Transcedental Numbers]
+    We say a real number is \emph{algebraic} if it is a root of a non-zero polynomial with integer coefficients. (Or rational coefficeints).
+
+    A real number is \emph{transcedental} if it is not algebraic.
+\end{definition}
+
+\begin{examples}[Examples of Algebraic Numbers]
+    \begin{enumerate}
+        \item Every rational number is algebraic, since
+        \[
+            x = \frac{p}{q} \implies qx - p = 0.
+        \]
+
+        \item \(x = \sqrt{2}\) is algebraic since it satisfies \(x^2 - 2 = 0\).
+    \end{enumerate}
+\end{examples}
+
+The existence of transcedental numbers is not shown until quite lately in the history of mathematics.
+
+\begin{theorem}[Liouville, 1844: The Liouville Number is Transcedental]
+    The number
+    \[
+        L = \sum_{n = 1}^{\infty} \frac{1}{10^{n!}} = 0.11000100\ldots
+    \]
+    is transcedental.
+\end{theorem}
+
+To show this, we utilise two lemmas.
+
+\begin{lemma}
+    For any polynomial \(p\), there exists a constant \(k\) such that
+    \[
+        \abs{p\para{x} - p\para{y}} \leq k \abs{x - y}
+    \]
+    for all \(0 \leq x, y \leq 1\).
+\end{lemma}
+
+\begin{proof}
+    Suppose that
+    \[
+        p\para{x} = a_d x^d + a_{d - 1} x^{d - 1} + \cdots + a_1 x + a_0.
+    \]
+
+    Then we have
+    \begin{align*}
+        p\para{x} - p\para{y} &= a_d \para{x^d - y^d} + a_{d - 1} \para{x^{d - 1} - y^{d - 1}} + \cdots + a_1 \para{x - y} \\
+        &= \para{x - y} \brac{a_d \para{x^{d - 1} + x^{d - 2} y + \cdots + y^{d - 1}} + \cdots + a_1},
+    \end{align*}
+    and hence
+    \begin{align*}
+        \abs{p \para{x} - p \para{y}} &= \abs{x - y} \abs{a_d \para{x^{d - 1} + x^{d - 2} y + \cdots + y^{d - 1}} + \cdots + a_1} \\
+        &\leq \abs{x - y} \brac{\abs{a_d} \cdot d + \abs{a_{d - 1}} \cdot \para{d - 1} + \cdots + \abs{a_1}}.
+    \end{align*}
+
+    The second term is a constant.
+\end{proof}
+
+\begin{lemma}[Corollary of Fundamental Theorem of Algebra]
+    A non-zero polynomial of degree \(d\) has at most \(d\) real roots.
+\end{lemma}
+
+We utilise these two facts to show that the Liouville number is irrational.
+
+\begin{proof}[of Liouville's Theorem]
+    We let the partial sums be
+    \[
+        L_n = \sum_{k = 1}^{n} \frac{1}{10^{k!}},
+    \]
+    so \(L_n \to L\) as \(n \to \infty\).
+
+    Suppose that there is an integer-coefficient polynomial \(p\) of which \(L\) is a root. Note that \(0 < L < 1\).
+
+    Using the first lemma above, let \(k\) be such that
+    \[
+        \abs{p \para{x} - p \para{y}} \leq k \abs{x - y}
+    \]
+    for all \(0 \leq x, y \leq 1\).
+
+    Note that,
+    \[
+        \abs{L - L_n} = \sum_{k = n + 1}^{\infty} \frac{1}{10^{k!}} < 2 \cdot \frac{1}{10^{\para{n + 1}!}}.
+    \]
+
+    Suppose that \(p\) has degree \(d\), i.e,
+    \[
+        p\para{x} = a_d x^d + a_{d - 1} x^{d - 1} + \cdots + a_1 x + a_0
+    \]
+    with \(a_i \in \ZZ\) and \(a_d \neq 0\).
+
+    Notice that
+    \[
+        L_n = \frac{s}{10^{n!}}
+    \]
+    for some \(s \in \NN\), then we have
+    \[
+        p \para{L_n} = \frac{t}{10^{d \cdot n!}}
+    \]
+    for some \(t \in \ZZ\).
+
+    By the fundamental theorem of algebra, for sufficiently large \(n\), \(L_n\) is not a root of \(p\). (\(L_n\) is a root only for finitely many \(n\)s.)
+
+    Hence, we have
+    \[
+        \abs{p\para{L_n} - p\para{L}} = \abs{p\para{L_n}} \geq \frac{1}{10^{d \cdot n!}},
+    \]
+    and hence
+    \begin{align*}
+        \frac{1}{10^{d \cdot n!}} &\leq k \para{L_n - L} \\
+        &\leq 2k \cdot \frac{1}{10^{\para{n + 1}!}},
+    \end{align*}
+    but this is a contradiction for sufficiently large \(n\).
+\end{proof}
+
+\begin{remarks}
+    \begin{enumerate}
+        \item Such \(L\) are called Liouville numbers.
+        \item This proof does not show \(e\) is transcandental, but \(e\) is indeed transcedental, and so is \(\pi\). (Lindemann--Weierstrass Theorem)
+        \item The same proof shows that any real number \(x\) such that
+        \[
+            \forall n \in \NN, \exists \frac{p}{q} \in \QQ, q > 1: 0 < \abs{x - \frac{p}{q}} < \frac{1}{q^n}
+        \]
+        is transcandental. This is \textbf{Liouville's Theorem}, and can be interpreted as \emph{\(x\) has a very good rational approximation implies \(x\) is irrational}.
+        \item Anotehr proof of the existence of transcandental numbers can be shown considering cardinality of sets (countability).
+    \end{enumerate}
+\end{remarks}
+
+\subsection{The Complex Numbers}
+\label{sec:complex-numbers}
+
+\(\RR\) is not 'complete' in the sense that some polynomials with coefficents in \(\RR\) do not have real roots, for example \(x^2 + 1\).
+
+We define such numbers into existance.
+
+\begin{definition}[Complex Numbers, \(\CC\)]
+    The \emph{complex numbers} \(\CC\) consists of \(\RR^2 = \set{\para{a, b}}{a, b \in \RR}\) together with operation \(+\) and \(\times\):
+    \begin{align*}
+        \para{a, b} + \para{c, d} &= \para{a + c, b + d}, \\
+        \para{a, b} \times \para{c, d} &= \para{ac - bd, ad + bc}.
+    \end{align*}
+\end{definition}
+
+Figure \autoref{fig:visuallisation-of-complex-numbers} visuallises the complex numbers on \(\RR^2\).
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Visuallisation of \(\CC\)}
+    \label{fig:visuallisation-of-complex-numbers}
+\end{figure}
+
+We can view \(\RR\) as contained in \(\CC\) by identifying
+\[
+    a \in \RR \leftrightarrow \para{a, 0} \in \CC,
+\]
+i.e. defining the injection (inclusiong map) \(i\) where
+\[
+    \function{i}{\RR}{\CC}{a}{\para{a, 0}}.  
+\]
+
+Note that \(\para{a, 0} + \para{b, 0} = \para{a + b, 0}\) and \(\para{a, 0} \times \para{b, 0} = \para{ab, 0}\) so operations on \(\CC\) is consistent with that on \(\RR\).
+
+Now, let \(i = \para{0, 1}\), then \(i^2 = \para{-1, 0}\) corresponding to \(-1 \in \RR\). We may identify any \(z \in \CC\) as of the form \(a + ib\) for \(a, b \in \RR\) for
+\[
+    \para{a, b} = a \para{1, 0} + b \para{0, 1} = a + bi,
+\]
+uniquely.
+
+\begin{remarks}
+    \begin{enumerate}
+        \item \(\CC\) obeys all the usual rules of arithmetic, meaning in particular that \(\CC\) is a field. Specifically, for any \(z \in \CC \setminus \brce{0}\), then there is some \(w \in \CC\) with \(zw = 1\). Indeed, let \(z = a + ib\), note that
+        \[
+            \para{a + ib} \para{a - ib} = a^2 + b^2
+        \]
+        so
+        \[
+            \para{a + ib} \cdot \frac{a - ib}{a^2 + b^2} = 1.
+        \]
+
+        \item Every non-constant polynomial with complex coefficients has a root in \(\CC\). This is known as the \emph{fundamental theorem of algebra}.
+    \end{enumerate}
+\end{remarks}
