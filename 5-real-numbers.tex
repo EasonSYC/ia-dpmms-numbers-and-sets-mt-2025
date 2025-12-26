@@ -725,3 +725,279 @@ We can do limits in addition, if the limits of the separate sequences being summ
 
     This finishes the proof.
 \end{proof}
+
+\subsection{Series}
+\label{sec:series}
+
+In the reals, the sum of \(2\) numbers is defined, so by induction, finite sums are defined.
+
+We may say things about infinite sums like
+\[
+    1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \cdots = \log 2.
+\]
+
+We aim to formalise the study of infinite sums in this section.
+
+\begin{definition}[Partial Sums and Infinite Series]
+    Let \(\para{a_n}_{n = 1}^{\infty}\) be a sequence, then
+    \[
+        s_k = \sum_{n = 1}^{k} a_n
+    \]
+    is the \(k\)-th \emph{partial sum} of the \emph{series} whose \(n\)-th term is \(a_n\).
+
+    We write
+    \[
+        \sum_{n = 1}^{\infty} a_n = \lim_{k \to \infty} s_k
+    \]
+    if the limit exists.
+\end{definition}
+
+\begin{examples}[Examples of Series]
+    \begin{enumerate}
+        \item The series whose \(n\)-th term is \(a_n = r^n\) for some constant \(\abs{r} < 1\) is known as the \emph{geometric series}.
+        
+        We have
+        \begin{align*}
+            s_k &= r + r^2 + \cdots + r^k \\
+            &= r \cdot \frac{1 - r^k}{1 - r} \\
+            & \to r \cdot \frac{1}{1 - r}
+        \end{align*}
+        as \(k \to \infty\), since \(r^k = 0\).
+
+        Hence,
+        \[
+            \sum_{n = 1}^{\infty} r^n = \frac{r}{1 - r}.
+        \]
+
+        \item The series whose \(n\)-th term is \(a_n = \frac{1}{n}\) is known as the \emph{harmonic series}.
+        
+        We have
+        \begin{align*}
+            s_{2^k} &= 1 + \frac{1}{2} + \underbrace{\frac{1}{3} + \frac{1}{4}}_{\text{each} \geq \frac{1}{4}} + \underbrace{\frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8}}_{\text{each} \geq \frac{1}{8}} + \cdots + \frac{1}{2^k} \\
+            &\geq 1 + \frac{1}{2} + 2 \cdot \frac{1}{4} + 4 \cdot \frac{1}{8} + \cdots + \frac{1}{2^k}.
+        \end{align*}
+
+        In general, we have
+        \[
+            \frac{1}{2^m + 1} + \frac{1}{2^m + 2} + \cdots + \frac{1}{2^{m + 1}} \geq 2^m \cdot \frac{1}{2^{m + 1}} = \frac{1}{2}.
+        \]
+
+        Hence,
+        \[
+            s_{2^k} \geq 1 + \frac{k}{2},
+        \]
+        so the partial sums are increasing and unbounded, and hence the infinite series
+        \[
+            \sum_{n = 1}^{\infty} \frac{1}{n}
+        \]
+        diverges.
+
+        \item The series whose \(n\)-th term is \(a_n = \frac{1}{n^2}\) satisfies
+        \[
+            s_{2^n - 1} = 1 + \underbrace{\frac{1}{2^2} + \frac{1}{3^2}}_{\leq 2 \cdot \frac{1}{2^2}} + \underbrace{\frac{1}{4^2} + \frac{1}{5^2} + \frac{1}{6^2} + \frac{1}{7^2}}_{\leq 4 \cdot \frac{1}{4^2}} + \cdots + \frac{1}{\para{2^n - 1}^2}
+        \]
+        and in general, we have
+        \[
+            \frac{1}{\para{2^m}^2} + \frac{1}{\para{2^m + 1}^2} + \cdots + \frac{1}{\para{2^{m + 1} - 1}^2} \leq 2^m \cdot \frac{1}{\para{2^m}^2} = \frac{1}{2^m}.
+        \]
+
+        Hence, we have
+        \[
+            s_{2^k - 1} \leq 1 + \frac{1}{2} + \frac{1}{4} + \cdots + \frac{1}{2^{n - 1}} < 2,
+        \]
+        and by monotone convergence theorem, we have
+        \[
+            \sum_{n = 1}^{\infty} \frac{1}{n^2}
+        \]
+        converges sice its partial sums are increasing and bounded above.
+
+        In fact, we have
+        \[
+            \sum_{n = 1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}.
+        \]
+    \end{enumerate}
+\end{examples}
+
+From the previous examples, we see that series whose terms are positive are of particular interest, since such series are increasing, and to study their convergence, we just have to study whether they are bounded above or not.
+
+We next study a particular type of sequences in the reals -- the \textbf{decimal expansions}.
+
+\begin{proposition}[Decimal Expansions Converge]
+    Let \(\para{d_n}_{n = 1}^{\infty}\) be a sequence with terms \(d_n \in \brce{0, 1, 2, \ldots, 9}\). Then
+    \[
+        \sum_{n = 1}^{\infty} \frac{d_n}{10^n}
+    \]
+    converges to some limit \(x\) where \(0 \leq x \leq 1\).
+\end{proposition}
+
+\begin{proof}
+    The partial sums
+    \[
+        s_m = \sum_{n = 1}^{m} \frac{d_n}{10^n}
+    \]
+    are increasing, and they are bounded below (trivially) by \(0\) and above by
+    \[
+        \sum_{n = 1}^{\infty} \frac{9}{10^n} = \frac{9}{10} \cdot \frac{1}{1 - \frac{1}{10}} = 1.
+    \]
+\end{proof}
+
+\begin{definition}[Decimal Expansion]
+    We say that \(0.d_1 d_2 d_3 \ldots\) is a \emph{decimal expansion} of \(x\).
+\end{definition}
+
+The next question to ask, is if the decimal expansions are correspondent to the reals in \(\ccintv{0}{1}\) in some way.
+
+\begin{proposition}[Reals in \(\ccintv{0}{1}\) have Decimal Expansions]
+    Any real \(x\) with \(0 \leq x \leq 1\) have a decimal expansion.
+\end{proposition}
+
+\begin{proof}
+    This is trivially true for \(x = 1\) by \(0.999\ldots\). We consider \(0 \leq x < 1\). We conduct the follwoing algorithm to construct such decimal expansion.
+
+    We pick \(d_1 \in \ZZ\) be maximal such that
+    \[
+        0 \leq \frac{d_1}{10} \leq x < 1,
+    \]
+    and hence we have \(0 \leq d_1 \leq 9\), since \(0 \leq x < 1\).
+
+    Furthermore, we have
+    \[
+        0 \leq x - \frac{d_1}{10} < \frac{1}{10}
+    \]
+    since \(d_1\) is maximal.
+
+    Then, pick \(d_2 \in \ZZ\) be maximal such that
+    \[
+        0 \leq \frac{d_2}{100} \leq x - \frac{d_1}{10} < \frac{1}{10},
+    \]
+    and similarly, \(0 \leq d_2 \leq 9\), and we have
+    \[
+        0 \leq x - \frac{d_1}{10} - \frac{d_2}{100} < \frac{1}{100}
+    \]
+    since \(d_2\) is maximal.
+
+    We continue this process indefinitely, picking \(d_n \in \ZZ\) maximal, such that
+    \[
+        \frac{d_n}{10^n} \leq x - \sum_{j = 1}^{n - 1} \frac{d_j}{10^j}
+    \]
+    and so
+    \[
+        0 \leq x - \sum_{j = 1}^{n} \frac{d_j}{10^j} < \frac{1}{10^n}.
+    \]
+
+    Since \(\frac{10^n} \to 0\) as \(n \to \infty\), we have
+    \[
+        x - \sum_{j = 1}^{n} \frac{d_j}{10^j} \to 0,
+    \]
+    and hence
+    \[
+        x = \sum_{j = 1}^{\infty} \frac{d_j}{10^j} = 0.d_1 d_2 d_3 \ldots.
+    \]
+\end{proof}
+
+However, decimal expansions do not have to be unique: a straightforward example is
+\[
+    1.000\ldots = 0.999\ldots
+\]
+and anything similar terminating in this. Indeed, these are the only ones.
+
+\begin{proposition}[Decimal Expansions are not Unique precisely for Finite Decimals]
+    If a number has two decimal expansions
+    \[
+        0.a_1 a_2 a_3 \ldots = 0.b_1 b_2 b_3 \ldots
+    \]
+    that are not identical, then there is some \(k\) such that
+    \begin{itemize}
+        \item \(a_j = b_j\) for \(j < k\);
+        \item \(a_j = b_j - 1\) for \(j = k\); and
+        \item \(a_j = 9, b_j = 0\) for \(j > k\);
+    \end{itemize}
+    or reversed (i.e. swapping the \(a\) and \(b\) above).
+\end{proposition}
+
+\begin{proof}
+    We suppose \(k\) is maximal such that \(a_j = b_j\) for all \(j < k\), i.e. the expansion is the same precisely up to but not including this digit.
+
+    Without loss of generality, we say \(a_k < b_k\) for the first non-identical digit.
+
+    By bounding, we have
+    \begin{align*}
+        \sum_{j = k + 1}^{\infty} \frac{a_j}{10^j} &\leq \sum_{j = k + 1}^{\infty} \frac{9}{10^j} \\
+        &= \frac{9}{10^{k + 1}} \cdot \frac{1}{1 - \frac{1}{10}} \\
+        &= \frac{1}{10^k},
+    \end{align*}
+    so we must have \(b_k = a_k + 1\).
+
+    (If \(b_k > a_k + 1\), then \(0.b_1 b_2 b_3 \ldots - 0.a_1 a_2 a_3 \ldots \geq \underbrace{2\cdot 10^{-k}}_{k\text{th place}} - \underbrace{10^{-k}}_{\text{tail}} > 0\).)
+
+    For the equal sign to take place, for \(j > k\), we must have
+    \[
+        a_j = 9, b_j = 0.
+    \]
+\end{proof}
+
+This case is to be dealt carefully when dealing with reals by considering their decimal expansions.
+
+\begin{definition}[Periodic Decimals]
+    A decimal expansion is \emph{periodic} if after a finite number of terms, it repeats in blocks of a fixed length. Equivalently, a decimal expansion \(0.d_1 d_2 d_3 \ldots\) is periodic if
+    \[
+        \exists l, k \in \NN, \forall n > l: d_{n + k} = d_n.
+    \]
+\end{definition}
+
+\begin{proposition}[Periodic Decimals are Rational]
+    A periodic decimal is rational.
+\end{proposition}
+
+\begin{example}[Converting from Decimals to Fractions]
+    Consider \(x = 0.\underbrace{7832}_{l}\underbrace{147}\underbrace{147}_{k = 3}\underbrace{147}\).
+
+    We have
+    \begin{align*}
+        10^4 \cdot x - 7832 &= 0.147 147 147 \ldots \\
+        &= 147 \cdot \sum_{j = 1}^{\infty} \frac{1}{10^{3j}} \\
+        &= 147 \cdot \frac{1}{10^3} \cdot \frac{1}{1 - \frac{1}{10^3}} \\
+        &\in \QQ
+    \end{align*}
+    so \(x \in \QQ\).
+\end{example}
+
+\begin{proposition}[Rationals have Periodic Decimal Expansion]
+    A rational has a periodic decimal expansion.
+\end{proposition}
+
+\begin{proof}
+    Let \(x \in \QQ\) be
+    \[
+        x = \frac{p}{2^a 5^b q}
+    \]
+    for \(a, b, p, q \in \ZZ, a, b \geq 0, q > 0\) and \(\gcd\para{q, 10} = 1\).
+
+    Then, we have
+    \[
+        10^{\max\brce{a, b}} x = \frac{t}{q} = n + \frac{c}{q}
+    \]
+    for some \(n, c \in \ZZ\), satisfying \(0 \leq c < q\).
+
+    By Fermat--Euler Theorem, since \(\gcd\para{q, 10} = 1\), we have
+    \[
+        10^{\totient\para{q}} - 1 = kq
+    \]
+    for some \(k \in \NN\).
+
+    Hence,
+    \[
+        \frac{c}{q} = \frac{kc}{kq} = \frac{kc}{10^{\totient\para{q}} - 1} = kc \cdot \sum_{j = 1}^{\infty} \frac{1}{\para{10^{\totient\para{q}}}^j},
+    \]
+    and that \(0 \leq kc < kq\) tells us that \(kc\) is (at most) a \(\totient\para{q}\)-digit number
+    \[
+        d_1 d_2 \cdots d_{\totient\para{q}},
+    \]
+    potentially with leading zeroes.
+
+    This therefore gives
+    \[
+        \frac{c}{q} = 0.d_1 d_2 \cdots d_{\totient\para{q}} d_1 d_2 \cdots d_{\totient\para{q}} \cdots
+    \]
+    so \(x\) is periodic.
+\end{proof}
