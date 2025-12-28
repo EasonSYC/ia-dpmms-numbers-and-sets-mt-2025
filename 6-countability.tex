@@ -1,2 +1,556 @@
 \section{Countability}
 \label{sec:countability}
+
+In this section we aim to talk about the sizes of infinite sizes. Intuitively,
+\[
+    \abs{\NN} < \abs{\ZZ} \ll \abs{\QQ} \lll \abs{\RR},
+\]
+but can we formalise this result?
+
+\subsection{Countable Sets}
+\label{sec:countable-sets}
+
+\begin{definition}[Countable]
+    A set \(X\) is \emph{countable}, if \(X\) satisfies one of the following two conditions:
+    \begin{itemize}
+        \item \(X\) is finite; or
+        \item there is a bijection \(X \to \NN\).
+    \end{itemize}
+
+    The second case is called \emph{countably infinite}.
+\end{definition}
+
+A set \(X\) is countable if and only if we can list its elements one by one as
+\[
+    X = \brce{x_1, x_2, x_3, \ldots}
+\]
+and this list might terminate.
+
+\begin{examples}[Countable Sets]
+    \begin{enumerate}
+        \item Any finite set is countable.
+        \item \(\NN\) is countable.
+        \item \(\ZZ\) is countable, by listing the elements by
+        \[
+        \ZZ = \brce{0, 1, -1, 2, -2, \ldots}.
+        \]
+
+        The bijetion is given by
+        \[
+            x_n = \begin{cases}
+                \frac{n}{2}, & n \text{ is even}, \\
+                - \frac{n - 1}{2}, & n \text{ is odd}.
+            \end{cases}
+        \]
+    \end{enumerate}
+\end{examples}
+
+Countable sets are, in a sense, the 'smaller' sets in the infinite class. Intuitively we want the size of a subset of a set to be at most the size of the set itself. This is indeed true using the countability way to measure.
+
+\begin{lemma}[Subsets of \(\NN\) are Countable]
+    Any subset of \(\NN\) is countable.
+\end{lemma}
+
+\begin{proof}
+    Let \(S \subseteq \NN\) be non-empty (the empty set is clearly countable). By well--ordering principle, let \(s_1 \in S\) be the least element.
+
+    If \(S \setminus \brce{s_1} \neq \emptyset\), we take \(s_2\) as the least element of \(S \setminus \brce{s_1}\).
+
+    If at some point this process ends, then
+    \[
+        S = \brce{s_1, s_2, \ldots, s_m}
+    \]
+    is finite and hence countable; if it does not terminate, then the map
+    \[
+        \function{g}{\NN}{S}{n}{s_n}
+    \]
+    is well-defined, since for eny \(n\) there will be a unique \(s_n\), and it is injective.
+
+    It is also surjective becasue if \(k \in S\), then \(k \in \NN\), and there are \(< k\) elements of \(S\) less than \(k\). So \(k = s_n\) for some \(n \leq k\), i.e. this process reaches any element in \(S\) in finitely many steps.
+\end{proof}
+
+\begin{theorem}[Countability, Injection and Surjection]
+    The following are equivalent:
+    \begin{enumerate}
+        \item \(X\) is countable;
+        \item there is a injection \(X \to \NN\);
+        \item \(X = \emptyset\) or there is a surjection \(\NN \to X\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{itemize}
+        \item (i) \(\implies\) (ii), since if \(X\) is finite, it clearly injects into \(\NN\); if \(X\) bijects with \(\NN\), it certainly injects into \(\NN\).
+        
+        \item (i) \(\implies\) (iii) similarly.
+
+        \item (ii) \(\implies\) (i), since if there is an injection \(\functiondomain{f}{X}{\NN}\), then the restriction on the co-domain gives a bijection
+        \[
+            \functiondomain{f}{X}{S = f\para{X} \subseteq \NN}.
+        \]
+
+        If \(S\) is finite, then so is \(X\); if \(S\) is infinite, then by previous lemma, there is a bijection \(\functiondomain{g}{S}{\NN}\), and hence
+        \[
+            X \xrightarrow{f} S = f\para{X} \xrightarrow{g} \NN
+        \]
+        is a bijection.
+
+        \item (iii) \(\implies\) (ii), we suppose that \(X \neq \emptyset\) and \(\functiondomain{f}{\NN}{X}\) is surjective. Let \(\functiondomain{g}{X}{W}\) be defined by
+        \[
+            \functionmap{g}{a}{\min f\inverse\para{\brce{a}}}.
+        \]
+
+        This is well-defined, since
+        \[
+            \emptyset \neq f\inverse\para{\brce{a}} \subseteq \NN
+        \]
+        and such minima exists by well--ordering principle.
+    \end{itemize}
+\end{proof}
+
+\begin{corollary}[Subsets of Countable Sets are Countable]
+    Any subset of a countable set is countable.
+\end{corollary}
+
+\begin{proof}
+    If \(Y \subseteq X\) and \(X\) is countable, take the injection \(X \to \NN\), and restrict this to \(Y\), this gives an injection \(Y \to \NN\).
+\end{proof}
+
+Therefore, intuitively, countable means that a set is 'at most as big as \(\NN\)' -- and any set strictly smaller than \(\NN\) is finite.
+
+Now we see some examples of sets that seem to be bigger than \(\NN\) -- but is in fact countable as well.
+
+\begin{theorem}[\(\NN \times \NN\) is Countable]
+    The set \(\NN \times \NN\) is countable.
+\end{theorem}
+
+\begin{proof}[by Construction]
+    Let \(a_1 = \para{1, 1}\) and \(a_n\) inductively as follows: if \(a_{n - 1} = \para{p, q}\), then we define
+    \[
+        a_n = \begin{cases}
+            \para{p - 1, q + 1}, & p \neq 1, \\
+            \para{p + q, 1}, & \text{otherwise}.
+        \end{cases}
+    \]
+
+    This inductively defines \(a: \NN \to \NN \times \NN\).
+\end{proof}
+
+\autoref{fig:label-n-n-with-n} gives a visuallisation of this map.
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Labelling \(\NN \times \NN\) using \(\NN\)}
+    \label{fig:label-n-n-with-n}
+\end{figure}
+
+\begin{proof}[by Injection]
+    Define
+    \[
+        \function{f}{\NN \times \NN}{\NN}{\para{x, y}}{2^x 3^y,}
+    \]
+    then \(f\) is injective by the fundamental theorem of arithmetic.
+\end{proof}
+
+\begin{corollary}[\(\ZZ \times \ZZ\) is Countable]
+    Since \(\ZZ\) is countable, let
+    \[
+        \functiondomain{f}{\ZZ}{\NN}
+    \]
+    be an injection.
+
+    Since \(\NN \times \NN\) is countable, similarly, there is an injection
+    \[
+        \functiondomain{g}{\NN \times \NN}{\NN}.
+    \]
+    
+    By composition, we have an injection
+    \[
+        \ZZ \times \ZZ \xrightarrow{\para{f, f}} \NN \times \NN \xrightarrow{g} \NN
+    \]
+\end{corollary}
+
+By induction, we have \(\ZZ^k\) and \(\NN^k\) is countable for any \(k \in \NN\).
+
+\begin{theorem}[Countable Union of Countable Sets is Countable]
+    A countable union of countable sets is countable.
+\end{theorem}
+
+\begin{proof}
+    We may assume that the sets are indexed by \(\NN\), i.e. the countable sets are
+    \[
+        A_1, A_2, A_3, \ldots.
+    \]
+
+    We wish to show that
+    \[
+        \bigcup_{n \in \NN} A_n
+    \]
+    is countable.
+
+    For each \(i \in \NN\), since \(A_i\) is countable, we may list its elements as
+    \[
+        a_1^{\para{i}}, a_2^{\para{i}}, a_3^{\para{i}}, \ldots.
+    \]
+
+    Let
+    \[
+        \function{f}{\bigcup_{n \in \NN} A_n}{\NN}{x}{2^i 3^j}
+    \]
+    where \(x = a_j^{\para{i}}\) for the least \(i\) such that \(x \in A_i\) -- this is guarenteed to exist by well ordering principle, i.e.,
+    \[
+        i = \min\set{t \in \NN}{x \in A_t}.
+    \]
+
+    This is an injection.
+\end{proof}
+
+\begin{example}[\(\QQ\) is Countable]
+    We have
+    \[
+        \QQ = \bigcup_{n \in \NN} \frac{1}{n} \ZZ = \bigcup_{n \in \NN} \set{\frac{m}{n}}{m \in \ZZ}
+    \]
+    is a countable union of countable sets, hence countable.
+\end{example}
+
+\begin{theorem}[Algebraic Numbers are Countable]
+    The set of algebraic numbers is countable.
+\end{theorem}
+
+\begin{proof}
+    It suffices to show that the set of polynomials with integer coefficients is countable, since if so, the set of algebraic numbers is a countable union of finite sets (the set of solutions to such polynomials), and hence would be countable.
+
+    In fact, it suffices to show that for each \(d \in \NN\), the set \(P_d\) of all integer polynomials of degree \(d\) is countable, again by using the fact that a countable union of countable sets is countable.
+
+    We consider the map
+    \[
+        \function{f_d}{P_d}{\ZZ^{d + 1}}{p\para{x} = a_d x^d + a_{d - 1} x^{d - 1} + \cdots + a_1 x + a_0}{\para{a_d, a_{d - 1}, \ldots, a_0}}
+    \]
+    and this is an injection. Hence, since \(\ZZ^{d + 1}\) is countable, \(P_d\) is as well.
+\end{proof}
+
+\subsection{Uncountable Sets}
+\label{sec:uncountable-sets}
+
+\begin{definition}[Uncountable Sets]
+    A set is \emph{uncountable} if it is not countable.
+\end{definition}
+
+\begin{theorem}[\(\RR\) is uncountable]
+    If \(\RR\) were countable, we would be able to list all the reals as \(r_1, r_2, r_3, \ldots\). We write each in decimal form in some way:
+    \begin{align*}
+        r_1 &= n_1.\boxed{d_{11}} d_{12} d_{13} \ldots \\
+        r_2 &= n_2.d_{21} \boxed{d_{22}} d_{23} \ldots \\
+        r_3 &= n_3.d_{31} d_{32} \boxed{d_{33}} \ldots \\
+            & \vdots
+    \end{align*}
+
+    Let
+    \[
+        r = d_1 d_2 d_3 \ldots
+    \]
+    by
+    \[
+        d_n = \begin{cases}
+            2, & d_{nn} = 1, \\
+            1, & d_{nn} \neq 1.
+        \end{cases}
+    \]
+
+    This number has a unique decimal expansion, and it is not on the list of our real numbers.
+
+    This contradicts with that \(\RR\) is countable.
+\end{theorem}
+
+This is known as a \emph{diagonal argument} due to Cantor, 1870s. This shows that \(\oointv{0}{1}\) is uncountable, and by bijecting it with any interval linearlly, we see any interval with positive length on \(\RR\) is uncountable.
+
+\begin{corollary}[Transcedental Numbers are Uncountable]
+    There are uncountably many transcedental numbers.
+\end{corollary}
+
+\begin{proof}
+    Let \(\mathcal{A}\) be the set of algebraic numbers, then \(\RR \setminus \mathcal{A}\) is the set of transcedental numbers.
+
+    Since \(\mathcal{A}\) is countable, if \(\RR \setminus \mathcal{A}\) were countable, then
+    \[
+        \RR = \mathcal{A} \cup \para{\RR \setminus \mathcal{A}}
+    \]
+    is a finite union of countable sets, hence countable.
+
+    But \(\RR\) is uncountable, so \(\RR \setminus \mathcal{A}\) is uncountable.
+\end{proof}
+
+We can also investigate the size of power sets of sets.
+
+\begin{theorem}[\(\powerset\para{\NN}\) is Uncountable]
+    \(\powerset\para{\NN}\) is uncountable.
+\end{theorem}
+
+\begin{proof}[using Diagonal Argument]
+    If \(\powerset\para{\NN}\) were countable, we could list it as
+    \[
+        S_1, S_2, S_3, \ldots.
+    \]
+
+    Let
+    \[
+        S = \set{n \in \NN}{n \notin S_n}.
+    \]
+
+    Then \(S\) is not on our list, since for all \(n \in \NN\), we have
+    \[
+        n \in S \iff n \notin S_n
+    \]
+    and hence \(S \neq S_n\), i.e. \(S\) and \(S_n\) differ in element \(n\).
+
+    Hence, \(S\) is not in our list, and \(\powerset\para{\NN}\) is uncountable.
+\end{proof}
+
+\begin{proof}[by Injection]
+    We define an injection
+    \[
+        \functiondomain{f}{\oointv{0}{1}}{\powerset\para{\NN}}.
+    \]
+
+    Let \(x \in \oointv{0}{1}\) be \(x = 0.x_1 x_2 x_3 \ldots\) in binary for \(x_i \in \brce{0, 1}\), and using the expansion not ending in an infinite string of \(1\)s (ensuring the map defined using infinite decimals is well-defined). Define
+    \[
+        \functionmap{f}{x}{\set{n \in \NN}{x_n = 1}}.
+    \]
+
+    Since \(\oointv{0}{1}\) injects into \(\powerset\para{\NN}\) and the former is uncountable, the latter cannot be countable, since otherwise we can inject \(\oointv{0}{1}\) inject into \(\NN\) by composing injections.
+\end{proof}
+
+However, note that the proof above does not give a \emph{bijection}: sets such as
+\[
+    \set{n \in \NN}{n > 5}
+\]
+would not appear under \(f\).
+
+The first proof using the diagonal argument gives an even stronger result.
+
+\begin{theorem}[No Bijection between \(X\) and \(\powerset\para{X}\)]
+    For any set \(X\), there is no bijection between \(X\) and its power set \(\powerset\para{X}\).
+\end{theorem}
+
+\begin{proof}
+    Given any \(\functiondomain{f}{X}{\powerset\para{X}}\), we show that it cannot be surjective. (This is similar to labelling elements in \(\powerset\para{X}\) with \(X\).)
+
+    Let
+    \[
+        S = \set{x \in X}{x \notin f\para{x}} \subseteq X,
+    \]
+    then \(S\) does not belong to the image of \(f\), since for all \(x \in X\), the sets \(S\) and \(f\para{x}\) differ in the element \(x\).
+
+    Hence, \(S \neq f\para{x}\) for any \(x \in X\), so \(f\) is not surjective.
+\end{proof}
+
+\begin{remarks}
+    \begin{enumerate}
+        \item This is reminiscent of Russell's Paradox.
+        \item In fact, it gives another proof that there is no universal set. If so, for a universal set \(\mathcal{V}\), then we would have
+        \[
+            \powerset\para{\mathcal{V}} \subseteq \mathcal{V}
+        \]
+        in which there would certainly be a surjection \(\mathcal{V} \to \powerset\para{\mathcal{V}}\).
+    \end{enumerate}
+\end{remarks}
+
+\begin{proposition}[Family of Pairwise Disjoint Intervals is Countable]
+    Let
+    \[
+        \mathcal{A} = \set{A_i}{i \in I}
+    \]
+    be a family of open pairwise disjiont intervals of \(\RR\). Then \(\mathcal{A}\) is countable.
+\end{proposition}
+
+\begin{proof}[by considering \(\QQ\)]
+    Each interval \(A_i\) contains a rational, and \(\QQ\) is countable. Since the intervals are disjoint, we have an injection
+    \[
+        \function{f}{I}{\QQ}{i}{r}
+    \]
+    by choosing a rational \(r\) in each interval \(A_i\). Hence, \(I\) is countable.
+\end{proof}
+
+\begin{proof}[by using countable union of countable sets]
+    The set
+    \[
+        S_1 = \set{i \in I}{A_i \text{ has length} \geq 1}
+    \]
+    is countable and injects into \(\ZZ\) by considering an integer in each interval.
+
+    Similarly, the set
+    \[
+        S_2 = \set{i \in I}{A_i \text{ has length} \geq \frac{1}{2}}
+    \]
+    is countable and injects into \(\frac{1}{2} \ZZ\) by considering a half-integer in each interval.
+
+    More generally, for each\(n \in \NN\), we have
+    \[
+        S_n = \set{i \in I}{A_i \text{ has length} \geq \frac{1}{n}}
+    \]
+    is countable and injects into \(\frac{1}{n} \ZZ\).
+
+    Hence, since \(\inf \set{\frac{1}{n}}{n \in \NN} = 0\), we have
+    \[
+        \mathcal{A} = \bigcup_{n \in \NN} S_n
+    \]
+    is a countable union of countable sets, and hence is countable.
+\end{proof}
+
+To summarise the previous two sections, we have the following techniques.
+
+To show a set \(X\) is \textbf{countable}, we
+\begin{enumerate}
+    \item list its elements (which may be fiddly);
+    \item inject it into \(\NN\) (or another countable set);
+    \item surject a countable set onto \(X\);
+    \item use "a countable union of countable sets is countable"; or
+    \item if "in/near" \(\RR\), consider \(\QQ\).
+\end{enumerate}
+
+To show a set \(X\) is \textbf{uncountable}, we
+\begin{enumerate}
+    \item run a diagonal argument on \(X\);
+    \item inject an uncountable set into \(X\); or
+    \item surject \(X\) onto an uncountable set.
+\end{enumerate}
+
+\subsection{Forming an Order on Sizes}
+\label{sec:order-on-sizes}
+
+Intuitively, we think of "\(A\) bijects with \(B\)" as saying that "\(A\) and \(B\) are of the same size". This indeed gives a binary relation.
+
+However, we would like to extend this to comparing sizes in the sense of giving an order. We think of "\(A\) injects into \(B\)" as saying that "\(A\) is at most as big as \(B\)", and "\(A\) surjects onto \(B\)" as saying that "\(A\) is at least as big as \(B\)", for \(B \neq \emptyset\).
+
+We see defining such a weak order on cardinality is \textbf{transitive} and \textbf{reflexive}. However, it seems that we need a choice to define it using injectivity or surjectivity. For these interpretations to be the same, we need that if "\(A\) is at most as big as \(B\)", then "\(B\) is at least as big as \(A\)".
+
+\begin{lemma}[Injectivity in One Direction is Equivalent to Surjectivity in the Other]
+    Given non-empty sets \(A, B\), there is an injection \(\functiondomain{f}{A}{B}\) if and only if there is a surjection \(\functiondomain{g}{B}{A}\).
+\end{lemma}
+
+\begin{proof}
+    \(\implies\). Suppose \(\functiondomain{f}{A}{B}\) is injective. We fix an arbitrary \(a_0 \in A\), and define \(\functiondomain{g}{B}{A}\), as follows. For \(b \in B\),
+    \begin{itemize}
+        \item if \(b \in \img f\), then let \(a \in A\) be \(f \para{a} = b\), and such \(a\) is unique; 
+        \item if \(b \notin \img f\), let \(a = a_0\),
+    \end{itemize}
+    and let \(g\para{b} = a\). Equivalently, let
+    \[
+        \functionmap{g}{b}{\begin{cases}
+            \text{unique } a \in A \text{ where } f\para{a} = b, & b \in \img f, \\
+            a_0, & b \notin \img f.
+        \end{cases}}
+    \]
+
+    Then \(g\) is surjective.
+
+    \(\impliedby\). Suppose \(\functiondomain{g}{B}{A}\) is surjective. Let
+    \[
+        \function{f}{A}{B}{a}{\text{some } b \in B \text{ where } f \para{b} = a.}
+    \]
+
+    Then \(f\) is injective.
+\end{proof}
+
+\autoref{fig:injection-surjection-equivalence} gives an illustration of the maps defined.
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Injection in one Direction and Surjection in the Other}
+    \label{fig:injection-surjection-equivalence}
+\end{figure}
+
+Next, we want to show that the order is \textbf{antisymmetric} -- i.e. if there is an injection in one direction, and one in the other as well, then there is a bijection between them.
+
+\begin{theorem}[Schr\"{o}der--Bernstein Theorem]
+    If \(\functiondomain{f}{A}{B}\) and \(\functiondomain{g}{B}{A}\) are injections, then there is a bijection \(\functiondomain{h}{A}{B}\).
+\end{theorem}
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Ancestor Sequence}
+    \label{fig:ancestor-sequence}
+\end{figure}
+
+\begin{proof}
+    For \(a \in A\), we write \(g\inverse\para{a}\) for the unique \(b \in B\) where \(g\para{b} = a\), if it exists.
+
+    Similarly, for \(b \in B\), we write \(f\inverse\para{b}\) for the unique \(a \in A\) where \(f\para{a} = b\), if it exists.
+
+    We first define what it means for an \emph{ancestor sequence} -- which is illustrated in \autoref{fig:ancestor-sequence}.
+
+    For some \(a \in A\), we call
+    \[
+        g\inverse\para{a}, f\inverse \para{g\inverse \para{a}}, g\inverse \para{f\inverse \para{g\inverse \para{a}}}, \ldots
+    \]
+    as the \emph{ancestor sequence} of \(a\), which might terminate.
+
+    Similarly, for some \(b \in B\), we call
+    \[
+        f\inverse\para{b}, g\inverse \para{f\inverse \para{b}}, f\inverse \para{g\inverse \para{f\inverse \para{b}}}, \ldots
+    \]
+    as the \emph{ancestor sequence} of \(b\), which might terminate.
+
+    Let
+    \begin{align*}
+        A_0 &= \set{a \in A}{\text{ancestor sequence of } a \text{ stops after an even number of steps}}, \\
+        A_1 &= \set{a \in A}{\text{ancestor sequence of } a \text{ stops after an odd number of steps}}, \\
+        A_{\infty} &= \set{a \in A}{\text{ancestor sequence of } a \text{ does not terminate}},
+    \end{align*}
+    and similarly, we define
+    \begin{align*}
+        B_0 &= \set{b \in B}{\text{ancestor sequence of } b \text{ stops after an even number of steps}}, \\
+        B_1 &= \set{b \in B}{\text{ancestor sequence of } b \text{ stops after an odd number of steps}}, \\
+        B_{\infty} &= \set{b \in B}{\text{ancestor sequence of } b \text{ does not terminate}},
+    \end{align*}
+
+    \autoref{fig:ancestor-sequence-even-odd-infinite-length} visuallises this \emph{partition} of \(A\) and \(B\).
+    
+    Now, note that \(f\) bijects from \(A_0\) to \(B_1\), observing that every \(b \in B_1\) has at least one ancestor, so is equal to \(f\para{a}\) for some \(a \in A_0\).
+
+    Simlilarly, \(g\) bijects from \(B_0\) to \(A_1\), observing that every \(a \in A_1\) has at least one ancestor, so is equal to \(g\para{b}\) for some \(b \in B_0\).
+
+    Similarly, \(f\) (or \(g\)) bijects from \(A_{\infty}\) to \(B{_{\infty}}\).
+
+    Hence, we define \(h\) as
+    \[
+        \function{h}{A}{B}{a}{\begin{cases}
+            f\para{a}, & a \in A_0, \\
+            g\inverse\para{a}, & a \in A_1, \\
+            f\para{a}, & a \in A_{\infty}
+        \end{cases}}
+    \]
+    defines a bijection.
+\end{proof}
+
+\begin{figure}[ht!]
+    \centering
+    \caption{Ancestor Sequence with Even, Odd and Infinite Length}
+    \label{fig:ancestor-sequence-even-odd-infinite-length}
+\end{figure}
+
+\begin{example}[Example of Application of Schr\"{o}rder--Bernstein Theorem]
+    Is there a bijection \(\functiondomain{f}{\ccintv{0}{1}}{\ccintv{0}{1} \cup \ccintv{2}{3}}\)?
+
+    Observe that there is indeed an injection
+    \[
+        \function{i_1}{\ccintv{0}{1}}{\ccintv{0}{1} \cup \ccintv{2}{3}}{x}{x}
+    \]
+    and an injection
+    \[
+        \function{i_2}{\ccintv{0}{1} \cup \ccintv{2}{3}}{\ccintv{0}{1}}{x}{\frac{x}{3}}
+    \]
+    so by Schr\"{o}rder--Bernstein Theorem, there is a bijection between these two sets.
+\end{example}
+
+Our journey of this course ends here -- but there are two important and fundamental questions remaining: is this order \textbf{total} (i.e. can we compare the sizes of \emph{any} two sets), and is there a set whose size lies strictly between \(\NN\) (countable) and \(\RR\) (the smallest uncountable set we see above)? These leads to important results in the fundamentals of mathematics, in axiomatic set theory.
+
+\begin{remarks}
+    \begin{enumerate}
+        \item It would be nice to say that for any two sets \(A\) and \(B\), either \(A\) injects into \(B\), or \(B\) injects into \(A\) -- this allows us to define the comparison of sizes on \emph{any} two sets, showing that our order is \textbf{total}. This is known as the \emph{Principle of Cardinal Comparability (PCC)}, and is equivalent to the \emph{Axiom of Choice (AC)}.
+        
+        \item The \emph{Cotinuum Hypothesis (CH)} states that there is no set whose size lies between \(\NN\) and \(\RR\), i.e. any subset of \(\RR\) is either countable or bijects with \(\RR\).
+        
+        This is proven to be independent of Zermelo--Fraenkel Set Theory, with or without Axiom of Choice, i.e. within ZF or ZFC.
+    \end{enumerate}
+\end{remarks}
