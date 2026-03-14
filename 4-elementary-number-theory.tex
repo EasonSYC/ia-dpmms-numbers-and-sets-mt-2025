@@ -542,7 +542,7 @@ We may now present another proof that there are infinitely many primes --- recal
     This is equivalent to \(n \divides x - y\), or \(x = y + kn\) for some \(k \in \ZZ\).
 \end{definition}
 
-\begin{example}[Example of Congurence]
+\begin{example}[Example of Congruence]
     In \(\ZZ_7\), \(2\) is regarded the same as \(16\), and hence
     \[
         2 \equiv 16 \pmod 7.
@@ -604,7 +604,7 @@ We first see a useful application of modular arithmetic, that is determining whe
 
 Similar to how we solve equations in integers, we can also solve equations in the integers modulo \(n\).
 
-\begin{example}[Solving Congurence]
+\begin{example}[Solving Congruence]
     We solve the equation \(7x \equiv 2 \pmod{10}\).
 
     Note that \(3 \cdot 7 \equiv 1 \pmod{10}\), and hence \(3 \cdot 7x \equiv 3 \cdot 2 \pmod{10}\).
@@ -693,8 +693,8 @@ The answer is similar modulo any integer \(n\).
     \end{align*}
 \end{proof}
 
-\begin{corollary}[Solution to Congurence involving Unit is Unique]
-    If \(\gcd\para{a, n} = 1\), then the congurence \(ax \equiv b \pmod{n}\) has a unique solution. In particular, if \(\gcd\para{a, n} = 1\), there exists a unique inverse of \(a\) modulo \(n\).
+\begin{corollary}[Solution to Congruence involving Unit is Unique]
+    If \(\gcd\para{a, n} = 1\), then the congruence \(ax \equiv b \pmod{n}\) has a unique solution. In particular, if \(\gcd\para{a, n} = 1\), there exists a unique inverse of \(a\) modulo \(n\).
 \end{corollary}
 
 \begin{example}[Diophantine Equation]
@@ -706,7 +706,7 @@ The answer is similar modulo any integer \(n\).
     \[
         7x = 365y + k
     \]
-    which is the congurence
+    which is the congruence
     \[
         365y \equiv k \pmod{7}.
     \]
@@ -728,12 +728,12 @@ Conversely, if \(d \divides b\), let \(n = d \cdot n'\), \(a = d \cdot a'\) and 
 
 Note that \(\gcd\para{a', n'} = 1\), so \(a' x \equiv b'\) has a unique solution from before.
 
-Therefore, if \(\gcd\para{a, n} = d > 1\), the congurence \(ax \equiv b \pmod{n}\) has \emph{no solution} unless \(d \divides b\), in which case the solution are exactly
+Therefore, if \(\gcd\para{a, n} = d > 1\), the congruence \(ax \equiv b \pmod{n}\) has \emph{no solution} unless \(d \divides b\), in which case the solution are exactly
 \[
     \frac{a}{d} x \equiv \frac{b}{d} \pmod{\frac{n}{d}}.
 \]
 
-\begin{examples}[Solving Congurences]
+\begin{examples}[Solving Congruences]
     \begin{enumerate}
         \item We solve \(7x \equiv 4 \pmod{30}\). Notice \(\gcd\para{7, 30} = 1\), so \(7\) is a unit modulo \(30\). We note \(13 \cdot 7 \equiv 1 \pmod{30}\), and hence \(x \equiv 4 \cdot 13 \equiv 22 \pmod{30}\).
         
@@ -758,14 +758,14 @@ Therefore, if \(\gcd\para{a, n} = d > 1\), the congurence \(ax \equiv b \pmod{n}
     \end{enumerate}
 \end{examples}
 
-Similarly, we may solve \textbf{simultaneous congurences} in \(\ZZ_n\) as well.
+Similarly, we may solve \textbf{simultaneous congruences} in \(\ZZ_n\) as well.
 
 \begin{example}[Han Xin]
     A famous example is as following.
 
     "How many soldiers are there in Han Xin's army? If you let them parade in rows of \(3\), then \(2\) are left; if you let them parade in rows of \(4\), then \(1\) is left."
 
-    We may model this as the following system of linear congurences:
+    We may model this as the following system of linear congruences:
     \begin{align*}
         x \equiv 1 \pmod{4} &\implies x \equiv 1, \boxed{5}, 9, 13, \ldots \\
         x \equiv 2 \pmod{3} &\implies x \equiv 2, \boxed{5}, 8, 11, \ldots
@@ -782,7 +782,7 @@ What about the follwoing system?
 Here, \(4\) and \(6\) are not coprime, and there are not any solutions.
 
 \begin{theorem}[Chinese Remainder Theorem]
-    Let \(m, n\) be coprime, and let \(a, b \in \ZZ\). Then there is a unique solution in \(\ZZ_{mn}\) to the simultaneous congurences
+    Let \(m, n\) be coprime, and let \(a, b \in \ZZ\). Then there is a unique solution in \(\ZZ_{mn}\) to the simultaneous congruences
     \begin{align*}
         x &\equiv a \pmod{m}, \\
         x &\equiv b \pmod{n}.
@@ -800,7 +800,7 @@ Here, \(4\) and \(6\) are not coprime, and there are not any solutions.
 
     Hence, we consider \(x = a \para{tn} + b \para{sm}\). Then we see that this is indeed a solution.
 
-    \textbf{Uniqueness.} Suppose \(y\) is also a solution to the same congurences, we have
+    \textbf{Uniqueness.} Suppose \(y\) is also a solution to the same congruences, we have
     \begin{align*}
         &\phantom{\iff} y \equiv a \pmod{m}, y \equiv b \pmod{n} \\
         &\iff y \equiv x \pmod{m}, y \equiv x \pmod{n} \\
@@ -811,7 +811,7 @@ Here, \(4\) and \(6\) are not coprime, and there are not any solutions.
 \end{proof}
 
 \begin{remark}
-    The Chinese Remainder Theorem can be extended to a system of congurences to more than 2 moduli. If \(m_1, m_2, \ldots, m_k\) are \emph{pairwise coprime}, then for all \(a_1, a_2, \ldots, a_k \in \ZZ\), there exists a solution \(x \in \ZZ\) to the simultaneous congurences
+    The Chinese Remainder Theorem can be extended to a system of congruences to more than 2 moduli. If \(m_1, m_2, \ldots, m_k\) are \emph{pairwise coprime}, then for all \(a_1, a_2, \ldots, a_k \in \ZZ\), there exists a solution \(x \in \ZZ\) to the simultaneous congruences
     \begin{align*}
         x &\equiv a_1 \pmod{m_1} \\
         x &\equiv a_2 \pmod{m_2} \\
@@ -862,7 +862,7 @@ We investigate the behaviour of powers of an integer under modulo a prime \(p\).
     \end{enumerate}
 \end{examples}
 
-The following result(s) is (are) best motivited by (corollary of) Lagrange's Theorem in group theory (lots of results in elementary number theory involving congurences are), but we show this in an elementary way.
+The following result(s) is (are) best motivited by (corollary of) Lagrange's Theorem in group theory (lots of results in elementary number theory involving congruences are), but we show this in an elementary way.
 
 \begin{theorem}[Fermat's Little Theorem]
     Let \(p\) be a prime. Then \(a^p \equiv a \pmod{p}\), for all integers \(a \in \ZZ\).
@@ -876,7 +876,7 @@ The following result(s) is (are) best motivited by (corollary of) Lagrange's The
         ax \equiv ay \pmod{p} \iff x \equiv y \pmod{p}.
     \]
 
-    Hence, the numbers \(a, 2a, 3a, \ldots, \para{p - 1}a\) are pairwise distinct (incongurent) under modulo \(p\), and are all non-zero modulo \(p\).
+    Hence, the numbers \(a, 2a, 3a, \ldots, \para{p - 1}a\) are pairwise distinct (incongruent) under modulo \(p\), and are all non-zero modulo \(p\).
 
     Therefore, they must be \(1, 2, 3, \ldots, p - 1\), in some order.
 
