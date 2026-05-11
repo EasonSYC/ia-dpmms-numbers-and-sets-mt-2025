@@ -1,0 +1,15 @@
+name: LaTeX Compile PDF
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+
+jobs:
+  call-build:
+    name: Call Reusable Workflow
+    uses: EasonSYC/cambridge-notes-workflow/.github/workflows/compile-pdf.yml@main
