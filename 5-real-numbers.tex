@@ -9,26 +9,26 @@ Recall that we defined \(\NN\) using the Peano's Axioms, and we may obtain \(\ZZ
 \begin{definition}[\(\ZZ\)]
     Formally, \(\ZZ\) is the set of equivaleence classes of \(\NN \times \NN\) under the equivalence relation
     \[
-        \para{a, b} \sim \para{c, d} \iff a + d = b + c.
+        \pqty{a, b} \sim \pqty{c, d} \iff a + d = b + c.
     \]
 \end{definition}
 
-We may think of \(\para{a, b}\) as \(a - b\). We denote
+We may think of \(\pqty{a, b}\) as \(a - b\). We denote
 \[
-    0 = \brac{\para{1, 1}}
+    0 = \bqty{\pqty{1, 1}}
 \]
 and
 \[
-    -a = \brac{\para{1, a + 1}}.
+    -a = \bqty{\pqty{1, a + 1}}.
 \]
 
 We may similarly define addition and multiplication on \(\times\) using this pair, as
 \[
-    \para{a, b} + \para{c, d} = \para{a + c, b + d}
+    \pqty{a, b} + \pqty{c, d} = \pqty{a + c, b + d}
 \]
 and
 \[
-    \para{a, b} \times \para{c, d} = \para{ac + bd, bc + ad},
+    \pqty{a, b} \times \pqty{c, d} = \pqty{ac + bd, bc + ad},
 \]
 and we may indeed check that these operations are well-defined.
 
@@ -37,17 +37,17 @@ Similarly, we may obtain \(\QQ\) from \(\ZZ\) by allowing for 'division'.
 \begin{definition}[\(\QQ\)]
     Formally, \(\QQ\) is the set of the equivalence classes of \(\ZZ \times \NN\) under the equivalence relation
     \[
-        \para{a, b} \sim \para{c, d} \iff ad = bc.
+        \pqty{a, b} \sim \pqty{c, d} \iff ad = bc.
     \]
 \end{definition}
 
-Similarly, notational wise, we write \(\frac{a}{b}\) instead of \(\brac{\para{a, b}}\), and we may similarly define \(+\) and \(\times\) by
+Similarly, notational wise, we write \(\frac{a}{b}\) instead of \(\bqty{\pqty{a, b}}\), and we may similarly define \(+\) and \(\times\) by
 \[
-    \para{a, b} + \para{c, d} = \para{ad + bc, bd}
+    \pqty{a, b} + \pqty{c, d} = \pqty{ad + bc, bd}
 \]
 and
 \[
-    \para{a, b} \times \para{c, d} = \para{a \times c, b \times d}.
+    \pqty{a, b} \times \pqty{c, d} = \pqty{a \times c, b \times d}.
 \]
 
 In addition to this, we may define an \emph{ordering} on \(\QQ\), \(<\), which satisfy the following properties, that
@@ -69,7 +69,7 @@ However, this does not ensure that all the gaps are filled in.
 \end{proposition}
 
 \begin{proof}[by Number Theory]
-    Suppose that \(x^2 = 2\). Note we may assume \(x > 0\) since \(\para{-x}^2 = x^2\). If \(x\) is rational, then
+    Suppose that \(x^2 = 2\). Note we may assume \(x > 0\) since \(\pqty{-x}^2 = x^2\). If \(x\) is rational, then
     \[
         x = \frac{a}{b}
     \]
@@ -83,16 +83,16 @@ However, this does not ensure that all the gaps are filled in.
 \end{remark}
 
 \begin{proof}[by Algebra]
-    Suppose \(x^2 = 2\) for some \(x = \frac{a}{b}\), with \(a, b \in \NN\). Then, for any \(c, d \in \ZZ\), \(\para{cx + d}\) is of the form \(\frac{e}{b}\) for some \(e \in \ZZ\).
+    Suppose \(x^2 = 2\) for some \(x = \frac{a}{b}\), with \(a, b \in \NN\). Then, for any \(c, d \in \ZZ\), \(\pqty{cx + d}\) is of the form \(\frac{e}{b}\) for some \(e \in \ZZ\).
 
     Then, if \(cx + d > 0\), we have \(cx + d \geq \frac{1}{b}\).
 
     But \(0 < x - 1 < 1\) as \(1 < x < 2\), if \(n\) is sufficiently large, we have
     \[
-        0 < \para{x - 1}^n < \frac{1}{b}.
+        0 < \pqty{x - 1}^n < \frac{1}{b}.
     \]
 
-    But for any \(n \in \NN\), \(\para{x - 1}^n\) is of the form \(cx + d\), for some \(c, d \in \ZZ\), since \(x^2 = 2\). This leads to a contradiction.
+    But for any \(n \in \NN\), \(\pqty{x - 1}^n\) is of the form \(cx + d\), for some \(c, d \in \ZZ\), since \(x^2 = 2\). This leads to a contradiction.
 \end{proof}
 
 \begin{remark}
@@ -110,7 +110,7 @@ We show that \(A\) has no largest number. For any \(p \in A\), consider \(q = p 
 
 Since \(p \in A\), \(p^2 - 2 < 0\), so we have \(q > p\). Also,
 \[
-    q^2 - 2 = \frac{2 \para{p^2 - 2}}{\para{p + 2}^2} < 0,
+    q^2 - 2 = \frac{2 \pqty{p^2 - 2}}{\pqty{p + 2}^2} < 0,
 \]
 so \(q \in A\).
 
@@ -125,14 +125,14 @@ The \textbf{crucial point} is not about the \emph{maximum/minimum} of a set -- i
 \begin{definition}[\(\RR\)]
     The \emph{real numbers} \(\RR\) are a set with elements \(0, 1 \in \RR\) where \(0 \neq 1\), equipped with operations \(+\) and \(\times\), and an ordering \(<\) satisfying the following axioms:
     \begin{enumerate}
-        \item \(\para{\RR, +, 0}\) is an abelian group: \(+\) is commutative and associative with identity \(0\), and inverses exist under \(+\);
-        \item \(\para{\RR\multiplicative, \times, 1}\) is an abelian group: \(\times\) is commutative and associative with identity \(1\), and inverses exist under \(\times\) for non-zero elements;
+        \item \(\pqty{\RR, +, 0}\) is an abelian group: \(+\) is commutative and associative with identity \(0\), and inverses exist under \(+\);
+        \item \(\pqty{\RR\multiplicative, \times, 1}\) is an abelian group: \(\times\) is commutative and associative with identity \(1\), and inverses exist under \(\times\) for non-zero elements;
         \item \(\times\) is distributive over \(+\):
         \[
-            a \times \para{b + c} = a \times b + a \times c,
+            a \times \pqty{b + c} = a \times b + a \times c,
         \]
-        and \(\para{\RR, +, \times}\) form a field;
-        \item \(\para{\RR, <}\) is a totally ordered field: for all \(a, b\), exactly one of \(a < b\), \(a = b\) and \(a > b\) holds; for all \(a, b, c\), if \(a < b\) and \(b < c\), then \(a < c\);
+        and \(\pqty{\RR, +, \times}\) form a field;
+        \item \(\pqty{\RR, <}\) is a totally ordered field: for all \(a, b\), exactly one of \(a < b\), \(a = b\) and \(a > b\) holds; for all \(a, b, c\), if \(a < b\) and \(b < c\), then \(a < c\);
         \item the ordering preserve arithmetic: for all \(a, b, c\), if \(a < b\), then \(a + c < b + c\), and \(ac < bc\) for \(c > 0\);
         \item given any set \(S\) of reals that is non-empty and bounded above, \(S\) has a \emph{least upper bound}.
     \end{enumerate}
@@ -145,9 +145,9 @@ The \textbf{crucial point} is not about the \emph{maximum/minimum} of a set -- i
 
     We say \(x\) is \emph{the least upper bound} for \(S\), if \(x\) is an upper bound for \(S\), and any other upper bound \(x'\) satisfies \(x' \geq x\).
 
-    We denote this as \(x = \LUB\para{S}\), \(x = \supremum\para{S}\), or most commonly,
+    We denote this as \(x = \LUB\pqty{S}\), \(x = \supremum\pqty{S}\), or most commonly,
     \[
-        x = \sup\para{S}.
+        x = \sup\pqty{S}.
     \]
 \end{definition}
 
@@ -161,7 +161,7 @@ Note that we defined \(\RR\) -- but its existence is not immediately obvious fro
         \]
         so
         \[
-            0 = 0 \cdot \para{-1} < \para{-1} \para{-1} = 1
+            0 = 0 \cdot \pqty{-1} < \pqty{-1} \pqty{-1} = 1
         \]
         which gives a contradiction.
         \item We may consider \(\QQ\) as \emph{contained} in \(\RR\), by identifying \(\frac{a}{b} \in \QQ\) with \(a \cdot b\inverse \in \RR\).
@@ -186,7 +186,7 @@ We give some examples on the idea of the least upper bound.
 
         In fact, we have
         \[
-            \sup \para{S} = 1,
+            \sup \pqty{S} = 1,
         \]
         since \(1\) is an upper bound: for all \(x \in S, x \leq 1\); and every other upper bound is \(\geq 1\), since \(1 \in S\).
 
@@ -196,7 +196,7 @@ We give some examples on the idea of the least upper bound.
 
         In fact, we have
         \[
-            \sup \para{S} = 1,
+            \sup \pqty{S} = 1,
         \]
         since \(1\) is an upper bound: for all \(x \in S, x < 1\) so \(x \leq 1\); and no opper bound \(c\) satisfies \(c < 1\).
 
@@ -209,15 +209,15 @@ We give some examples on the idea of the least upper bound.
 \begin{remark}
     If \(S\) have a greatest element, then
     \[
-        \sup \para{S} = \max \para{S} \in S.
+        \sup \pqty{S} = \max \pqty{S} \in S.
     \]
 
-    However, as the example shows, \(\sup\para{S}\) can exist when \(\max\para{S}\) does not: in this case, \(\sup\para{S} \notin S\).
+    However, as the example shows, \(\sup\pqty{S}\) can exist when \(\max\pqty{S}\) does not: in this case, \(\sup\pqty{S} \notin S\).
 \end{remark}
 
 Now we want to find the least upper bound of
 \[
-    S = \brce{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
+    S = \Bqty{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
 \]
 
 Clearly, \(1\) is an upper bound of \(S\). But is there an upper bound less than 1?
@@ -229,10 +229,10 @@ Clearly, \(1\) is an upper bound of \(S\). But is there an upper bound less than
 \begin{proof}
     Suppose on the contrary, that \(\NN\) is bounded above, then it has a least upper bound
     \[
-        c = \sup \para{\NN} \in \RR.
+        c = \sup \pqty{\NN} \in \RR.
     \]
 
-    By definition, \(\para{c - 1}\) is not an upper bound for \(\NN\), so there is some \(n \in \NN\), such that \(n > c - 1\).
+    By definition, \(\pqty{c - 1}\) is not an upper bound for \(\NN\), so there is some \(n \in \NN\), such that \(n > c - 1\).
 
     Then, \(n + 1 \in \NN\), with \(n + 1 > c\), contradicting that \(c\) is an upper bound for \(\NN\).
 \end{proof}
@@ -252,9 +252,9 @@ Clearly, \(1\) is an upper bound of \(S\). But is there an upper bound less than
 
     We say \(x\) is the \emph{greatest lower bound} for \(S\), if \(x\) is a lower bound for \(S\), and any other lower bound \(x'\) satisfies \(x' \leq x\).
 
-    We denote this as \(x = \GLB \para{S}\), \(x = \infimum\para{S}\), or most commonly,
+    We denote this as \(x = \GLB \pqty{S}\), \(x = \infimum\pqty{S}\), or most commonly,
     \[
-        x = \inf \para{S}.
+        x = \inf \pqty{S}.
     \]
 \end{definition}
 
@@ -264,13 +264,13 @@ Note that if \(S\) is empty and bounded below, then
 \]
 is non-empty and bounded above, so it has a least upper bound
 \[
-    \sup \para{-S} = c,
+    \sup \pqty{-S} = c,
 \]
 and hence \(-c\) is the greatest lower bound.
 
 The previous corollary immediately implies that
 \[
-    \inf \para{\set{\frac{1}{n}}{n \in \NN}} = 0.
+    \inf \pqty{\set{\frac{1}{n}}{n \in \NN}} = 0.
 \]
 
 The previous proposition and corollary can be interpreted as that there are no 'infinitely large' or 'infinitely small' numbers in \(\RR\).
@@ -280,10 +280,10 @@ Now, we return to a previous example.
 \begin{example}
     We want to find the least upper bound of
     \[
-        S = \brce{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
+        S = \Bqty{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
     \]
 
-    We claim \(\sup \para{S} = 1\), and suppose on the countrary that \(c < 1\) is an upper bound for \(S\). Then \(1 - \frac{1}{n} \leq c\), for all \(n \in \NN\), so
+    We claim \(\sup \pqty{S} = 1\), and suppose on the countrary that \(c < 1\) is an upper bound for \(S\). Then \(1 - \frac{1}{n} \leq c\), for all \(n \in \NN\), so
     \[
         0 < 1 - c \leq \frac{1}{n}
     \]
@@ -308,7 +308,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 
     Suppose that \(c^2 < 2\). For \(0 < t < 1\), we have
     \begin{align*}
-        \para{c + t}^2 &= c^2 + 2ct + t^2 \\
+        \pqty{c + t}^2 &= c^2 + 2ct + t^2 \\
         &< c^2 + 4t + t \\
         &= c^2 + 5t \\
         &< 2,
@@ -319,7 +319,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 
     Now, suppose that \(c^2 > 2\). For \(0 < t < 1\), we have
     \begin{align*}
-        \para{c - t}^2 &= c^2 - 2ct + t^2 \\
+        \pqty{c - t}^2 &= c^2 - 2ct + t^2 \\
         &> c^2 - 4t + 0 \\
         &> 2,
     \end{align*}
@@ -381,7 +381,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 
     Now, if \(c \leq a\), then
     \[
-        \frac{m}{n} = c + \frac{1}{n} < a + \para{b - a} = b,
+        \frac{m}{n} = c + \frac{1}{n} < a + \pqty{b - a} = b,
     \]
     contradicts with \(m \in T\).
 
@@ -418,7 +418,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
     \]
     or
     \[
-        \para{a_n}_{n = 1}^{\infty}.
+        \pqty{a_n}_{n = 1}^{\infty}.
     \]
 \end{definition}
 
@@ -469,7 +469,7 @@ We may think of the absolute value \(\abs{a - b}\) as the \emph{distance} betwee
 \end{proposition}
 
 \begin{notation}
-    When \(\para{a_n}_{n = 1}^{\infty}\) tends to \(l\) as \(n\) tends to infinity, we may write
+    When \(\pqty{a_n}_{n = 1}^{\infty}\) tends to \(l\) as \(n\) tends to infinity, we may write
     \[
         a_n \to l \text{ as } n \to \infty,
     \]
@@ -479,7 +479,7 @@ We may think of the absolute value \(\abs{a - b}\) as the \emph{distance} betwee
     \]
     or
     \[
-        \para{a_n}_{n = 1}^{\infty} \text{ converges to } l.
+        \pqty{a_n}_{n = 1}^{\infty} \text{ converges to } l.
     \]
 
     If there is a limit \(l\), but it is not specified, we may simply say the sequence converges; if such limit does not converge to any \(l \in \RR\), we say it \emph{diverges}.
@@ -523,7 +523,7 @@ We may think of the absolute value \(\abs{a - b}\) as the \emph{distance} betwee
 
         Hence, \(a_n \to 1\) as \(n \to \infty\).
 
-        \item Consider the sequence \(a_n = \para{-1}^n\). We aim to show that it does not tend to \emph{any} real number \(l \in \RR\), i.e.,
+        \item Consider the sequence \(a_n = \pqty{-1}^n\). We aim to show that it does not tend to \emph{any} real number \(l \in \RR\), i.e.,
         \[
             \forall l \in \RR, \exists \epsilon > 0, \forall N \in \NN, \exists n \geq N: \abs{a_n - l} \geq \epsilon.
         \]
@@ -548,12 +548,12 @@ We may think of the absolute value \(\abs{a - b}\) as the \emph{distance} betwee
         and hence by the triangular inequaltiy,
         \begin{align*}
             2 &> \abs{1 - l} + \abs{-1 - l} \\
-            &\geq \abs{\para{1 - l} - \para{-1 - l}} \\
+            &\geq \abs{\pqty{1 - l} - \pqty{-1 - l}} \\
             &= \abs{2} \\
             &= 2.
         \end{align*}
 
-        Therefore, \(\para{\para{-1}^n}_{n = 1}^{\infty}\) is divergent. However, it does not "go off to infinity" in that sense.
+        Therefore, \(\pqty{\pqty{-1}^n}_{n = 1}^{\infty}\) is divergent. However, it does not "go off to infinity" in that sense.
     \end{enumerate}
 \end{examples}
 
@@ -578,7 +578,7 @@ So far, we implicitly assumed that if a limit exists, then it is unique.
     Hence,
     \begin{align*}
         2\epsilon &> \abs{a_n - l} + \abs{a_n - k} \\
-        &\geq \abs{\para{a_n - l} - \para{a_n - k}} \\
+        &\geq \abs{\pqty{a_n - l} - \pqty{a_n - k}} \\
         &= \abs{l - k} \\
         &= 2\epsilon,
     \end{align*}
@@ -588,14 +588,14 @@ So far, we implicitly assumed that if a limit exists, then it is unique.
 However, we would like to study more generally on the sequences that converge. An important technique is putting \emph{bounds} on the sequence.
 
 \begin{definition}[Bounded Sequence]
-    A sequence \(\para{a_n}_{n = 1}^{\infty}\) is \emph{bounded above}, if there exists a real number \(U\), such that \(a_n < U\) for all \(n \in \NN\).
+    A sequence \(\pqty{a_n}_{n = 1}^{\infty}\) is \emph{bounded above}, if there exists a real number \(U\), such that \(a_n < U\) for all \(n \in \NN\).
 
     Similarly, it is \emph{bounded below}, if there exists a real number \(L\), such that \(a_n > L\) for all \(n \in \NN\).
 
     It is \emph{bounded} if it is both bounded above and below. Alternatively, we may define it to be \emph{bounded} if there exists a real number \(B\), such that \(\abs{a_n} < B\) for all \(n \in \NN\).
 \end{definition}
 
-We see the two definitions of bounded are equivalent. Indeed, if \(\abs{a_n} < B\) for some \(B \in \RR\), then let \(U = B\) and \(L = -B\), then it is both bounded above and below. If such \(U, L \in \RR\) exists, then let \(B = \max\brce{\abs{U}, \abs{L}}\).
+We see the two definitions of bounded are equivalent. Indeed, if \(\abs{a_n} < B\) for some \(B \in \RR\), then let \(U = B\) and \(L = -B\), then it is both bounded above and below. If such \(U, L \in \RR\) exists, then let \(B = \max\Bqty{\abs{U}, \abs{L}}\).
 
 \begin{proposition}[Convergent Sequences are Bounded]
     A convergent sequence is bounded.
@@ -609,13 +609,13 @@ We see the two definitions of bounded are equivalent. Indeed, if \(\abs{a_n} < B
 
     Hence,
     \[
-        \abs{a_n} \leq \max\brce{\abs{a_1}, \abs{a_2}, \ldots, \abs{a_{N - 1}}, \abs{l} + 1}
+        \abs{a_n} \leq \max\Bqty{\abs{a_1}, \abs{a_2}, \ldots, \abs{a_{N - 1}}, \abs{l} + 1}
     \]
     for all \(n \in \NN\).
 \end{proof}
 
 \begin{definition}[Monotonic]
-    A sequnece \(\para{a_n}_{n = 1}^{\infty}\) is \emph{increasing} if \(a_{n + 1} \geq a_n\) for all \(n \in \NN\).
+    A sequnece \(\pqty{a_n}_{n = 1}^{\infty}\) is \emph{increasing} if \(a_{n + 1} \geq a_n\) for all \(n \in \NN\).
 
     Similarly, it is \emph{decreasing} if \(a_{n + 1} \leq a_n\) for all \(n \in \NN\).
 
@@ -629,7 +629,7 @@ This leads to the following theorem.
 \end{theorem}
 
 \begin{proof}
-    Suppose \(\para{a_n}_{n = 1}^{\infty}\) is increasing and bounded above. We want to show it converges to its supremum.
+    Suppose \(\pqty{a_n}_{n = 1}^{\infty}\) is increasing and bounded above. We want to show it converges to its supremum.
 
     Then the set
     \[
@@ -649,7 +649,7 @@ This leads to the following theorem.
     \[
         l - \epsilon < a_n \leq l,
     \]
-    since \(\para{a_n}\) is monotonic.
+    since \(\pqty{a_n}\) is monotonic.
 
     Hence,
     \[
@@ -663,7 +663,7 @@ This leads to the following theorem.
 \begin{remarks}
     \begin{enumerate}
         \item For an increasing sequence to converge, we only need to know that it is bounded above. The sequence converges to its supremum.
-        \item The sequence \(\para{a_n}_{n = 1}^{\infty}\) with \(a_n = n\) is increasing and not bounded above -- and it diverges.
+        \item The sequence \(\pqty{a_n}_{n = 1}^{\infty}\) with \(a_n = n\) is increasing and not bounded above -- and it diverges.
         \item Monotone convergence theorem is in fact equivalent to the least upper bound axiom -- meaning that if we substitude the latter with the former, we get an equivalent formation of the reals.
         \item Every sequence must have a monotonic subsequence.
     \end{enumerate}
@@ -715,9 +715,9 @@ We can do limits in addition, if the limits of the separate sequences being summ
         \exists N \in \NN, \forall n \geq N: \abs{b_n - d} < \frac{\epsilon}{2}.
     \]
 
-    Let \(N' = \max\brce{N, M}\), then for all \(n \geq N'\), we have
+    Let \(N' = \max\Bqty{N, M}\), then for all \(n \geq N'\), we have
     \begin{align*}
-        \abs{\para{a_n + b_n} - \para{c + d}} &= \abs{\para{a_n - c} + \para{b_n - d}} \\
+        \abs{\pqty{a_n + b_n} - \pqty{c + d}} &= \abs{\pqty{a_n - c} + \pqty{b_n - d}} \\
         &\leq \abs{a_n - c} + \abs{b_n - d} \\
         &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
         &= \epsilon.
@@ -739,7 +739,7 @@ We may say things about infinite sums like
 We aim to formalise the study of infinite sums in this section.
 
 \begin{definition}[Partial Sums and Infinite Series]
-    Let \(\para{a_n}_{n = 1}^{\infty}\) be a sequence, then
+    Let \(\pqty{a_n}_{n = 1}^{\infty}\) be a sequence, then
     \[
         s_k = \sum_{n = 1}^{k} a_n
     \]
@@ -794,11 +794,11 @@ We aim to formalise the study of infinite sums in this section.
 
         \item The series whose \(n\)-th term is \(a_n = \frac{1}{n^2}\) satisfies
         \[
-            s_{2^n - 1} = 1 + \underbrace{\frac{1}{2^2} + \frac{1}{3^2}}_{\leq 2 \cdot \frac{1}{2^2}} + \underbrace{\frac{1}{4^2} + \frac{1}{5^2} + \frac{1}{6^2} + \frac{1}{7^2}}_{\leq 4 \cdot \frac{1}{4^2}} + \cdots + \frac{1}{\para{2^n - 1}^2}
+            s_{2^n - 1} = 1 + \underbrace{\frac{1}{2^2} + \frac{1}{3^2}}_{\leq 2 \cdot \frac{1}{2^2}} + \underbrace{\frac{1}{4^2} + \frac{1}{5^2} + \frac{1}{6^2} + \frac{1}{7^2}}_{\leq 4 \cdot \frac{1}{4^2}} + \cdots + \frac{1}{\pqty{2^n - 1}^2}
         \]
         and in general, we have
         \[
-            \frac{1}{\para{2^m}^2} + \frac{1}{\para{2^m + 1}^2} + \cdots + \frac{1}{\para{2^{m + 1} - 1}^2} \leq 2^m \cdot \frac{1}{\para{2^m}^2} = \frac{1}{2^m}.
+            \frac{1}{\pqty{2^m}^2} + \frac{1}{\pqty{2^m + 1}^2} + \cdots + \frac{1}{\pqty{2^{m + 1} - 1}^2} \leq 2^m \cdot \frac{1}{\pqty{2^m}^2} = \frac{1}{2^m}.
         \]
 
         Hence, we have
@@ -823,7 +823,7 @@ From the previous examples, we see that series whose terms are positive are of p
 We next study a particular type of sequences in the reals -- the \textbf{decimal expansions}.
 
 \begin{proposition}[Decimal Expansions Converge]
-    Let \(\para{d_n}_{n = 1}^{\infty}\) be a sequence with terms \(d_n \in \brce{0, 1, 2, \ldots, 9}\). Then
+    Let \(\pqty{d_n}_{n = 1}^{\infty}\) be a sequence with terms \(d_n \in \Bqty{0, 1, 2, \ldots, 9}\). Then
     \[
         \sum_{n = 1}^{\infty} \frac{d_n}{10^n}
     \]
@@ -971,33 +971,33 @@ This case is to be dealt carefully when dealing with reals by considering their 
     \[
         x = \frac{p}{2^a 5^b q}
     \]
-    for \(a, b, p, q \in \ZZ, a, b \geq 0, q > 0\) and \(\gcd\para{q, 10} = 1\).
+    for \(a, b, p, q \in \ZZ, a, b \geq 0, q > 0\) and \(\gcd\pqty{q, 10} = 1\).
 
     Then, we have
     \[
-        10^{\max\brce{a, b}} x = \frac{t}{q} = n + \frac{c}{q}
+        10^{\max\Bqty{a, b}} x = \frac{t}{q} = n + \frac{c}{q}
     \]
     for some \(n, c \in \ZZ\), satisfying \(0 \leq c < q\).
 
-    By Fermat--Euler Theorem, since \(\gcd\para{q, 10} = 1\), we have
+    By Fermat--Euler Theorem, since \(\gcd\pqty{q, 10} = 1\), we have
     \[
-        10^{\totient\para{q}} - 1 = kq
+        10^{\totient\pqty{q}} - 1 = kq
     \]
     for some \(k \in \NN\).
 
     Hence,
     \[
-        \frac{c}{q} = \frac{kc}{kq} = \frac{kc}{10^{\totient\para{q}} - 1} = kc \cdot \sum_{j = 1}^{\infty} \frac{1}{\para{10^{\totient\para{q}}}^j},
+        \frac{c}{q} = \frac{kc}{kq} = \frac{kc}{10^{\totient\pqty{q}} - 1} = kc \cdot \sum_{j = 1}^{\infty} \frac{1}{\pqty{10^{\totient\pqty{q}}}^j},
     \]
-    and that \(0 \leq kc < kq\) tells us that \(kc\) is (at most) a \(\totient\para{q}\)-digit number
+    and that \(0 \leq kc < kq\) tells us that \(kc\) is (at most) a \(\totient\pqty{q}\)-digit number
     \[
-        d_1 d_2 \cdots d_{\totient\para{q}},
+        d_1 d_2 \cdots d_{\totient\pqty{q}},
     \]
     potentially with leading zeroes.
 
     This therefore gives
     \[
-        \frac{c}{q} = 0.d_1 d_2 \cdots d_{\totient\para{q}} d_1 d_2 \cdots d_{\totient\para{q}} \cdots
+        \frac{c}{q} = 0.d_1 d_2 \cdots d_{\totient\pqty{q}} d_1 d_2 \cdots d_{\totient\pqty{q}} \cdots
     \]
     so \(x\) is periodic.
 \end{proof}
@@ -1049,7 +1049,7 @@ This case is to be dealt carefully when dealing with reals by considering their 
     However,
     \begin{align*}
         q!e &= q! + \frac{q!}{1} + \frac{q!}{2!} + \frac{q!}{3!} + \cdots + \frac{q!}{q!} \\
-        &\phantom{=} + \frac{q!}{\para{q + 1}!} + \frac{q!}{\para{q + 2}!} + \cdots \\
+        &\phantom{=} + \frac{q!}{\pqty{q + 1}!} + \frac{q!}{\pqty{q + 2}!} + \cdots \\
         &= \sum_{j = 0}^{q} \frac{q!}{j!} + \sum_{j = q + 1}^{\infty} \frac{q!}{j!}.
     \end{align*}
 
@@ -1059,16 +1059,16 @@ This case is to be dealt carefully when dealing with reals by considering their 
     \]
     since all the terms are integers, and hence the remaining part
     \[
-        \sum_{j = q + 1}^{\infty} \frac{q!}{j!} = \sum_{j = 1}^{\infty} \frac{q!}{\para{q + j}!} = \frac{1}{q + 1} + \frac{1}{\para{q + 1} \para{q + 2}} + \cdots \in \NN.
+        \sum_{j = q + 1}^{\infty} \frac{q!}{j!} = \sum_{j = 1}^{\infty} \frac{q!}{\pqty{q + j}!} = \frac{1}{q + 1} + \frac{1}{\pqty{q + 1} \pqty{q + 2}} + \cdots \in \NN.
     \]
 
     We may apply bounds on the terms above by
     \[
-        0 < \frac{q!}{\para{q + j}!} \leq \frac{1}{\para{q + 1}^j}
+        0 < \frac{q!}{\pqty{q + j}!} \leq \frac{1}{\pqty{q + 1}^j}
     \]
     for \(j \in \NN\), and hence
     \[
-        0 < \sum_{j = 1}^{\infty} \frac{q!}{\para{q + j}!} \leq \sum_{j = 1}^{\infty} \frac{1}{\para{q + 1}^j} = \frac{1}{q} < 1
+        0 < \sum_{j = 1}^{\infty} \frac{q!}{\pqty{q + j}!} \leq \sum_{j = 1}^{\infty} \frac{1}{\pqty{q + 1}^j} = \frac{1}{q} < 1
     \]
     since \(q \geq 2\).
 
@@ -1107,7 +1107,7 @@ To show this, we utilise two lemmas.
 \begin{lemma}
     For any polynomial \(p\), there exists a constant \(k\) such that
     \[
-        \abs{p\para{x} - p\para{y}} \leq k \abs{x - y}
+        \abs{p\pqty{x} - p\pqty{y}} \leq k \abs{x - y}
     \]
     for all \(0 \leq x, y \leq 1\).
 \end{lemma}
@@ -1115,18 +1115,18 @@ To show this, we utilise two lemmas.
 \begin{proof}
     Suppose that
     \[
-        p\para{x} = a_d x^d + a_{d - 1} x^{d - 1} + \cdots + a_1 x + a_0.
+        p\pqty{x} = a_d x^d + a_{d - 1} x^{d - 1} + \cdots + a_1 x + a_0.
     \]
 
     Then we have
     \begin{align*}
-        p\para{x} - p\para{y} &= a_d \para{x^d - y^d} + a_{d - 1} \para{x^{d - 1} - y^{d - 1}} + \cdots + a_1 \para{x - y} \\
-        &= \para{x - y} \brac{a_d \para{x^{d - 1} + x^{d - 2} y + \cdots + y^{d - 1}} + \cdots + a_1},
+        p\pqty{x} - p\pqty{y} &= a_d \pqty{x^d - y^d} + a_{d - 1} \pqty{x^{d - 1} - y^{d - 1}} + \cdots + a_1 \pqty{x - y} \\
+        &= \pqty{x - y} \bqty{a_d \pqty{x^{d - 1} + x^{d - 2} y + \cdots + y^{d - 1}} + \cdots + a_1},
     \end{align*}
     and hence
     \begin{align*}
-        \abs{p \para{x} - p \para{y}} &= \abs{x - y} \abs{a_d \para{x^{d - 1} + x^{d - 2} y + \cdots + y^{d - 1}} + \cdots + a_1} \\
-        &\leq \abs{x - y} \brac{\abs{a_d} \cdot d + \abs{a_{d - 1}} \cdot \para{d - 1} + \cdots + \abs{a_1}}.
+        \abs{p \pqty{x} - p \pqty{y}} &= \abs{x - y} \abs{a_d \pqty{x^{d - 1} + x^{d - 2} y + \cdots + y^{d - 1}} + \cdots + a_1} \\
+        &\leq \abs{x - y} \bqty{\abs{a_d} \cdot d + \abs{a_{d - 1}} \cdot \pqty{d - 1} + \cdots + \abs{a_1}}.
     \end{align*}
 
     The second term is a constant.
@@ -1149,18 +1149,18 @@ We utilise these two facts to show that the Liouville number is irrational.
 
     Using the first lemma above, let \(k\) be such that
     \[
-        \abs{p \para{x} - p \para{y}} \leq k \abs{x - y}
+        \abs{p \pqty{x} - p \pqty{y}} \leq k \abs{x - y}
     \]
     for all \(0 \leq x, y \leq 1\).
 
     Note that,
     \[
-        \abs{L - L_n} = \sum_{k = n + 1}^{\infty} \frac{1}{10^{k!}} < 2 \cdot \frac{1}{10^{\para{n + 1}!}}.
+        \abs{L - L_n} = \sum_{k = n + 1}^{\infty} \frac{1}{10^{k!}} < 2 \cdot \frac{1}{10^{\pqty{n + 1}!}}.
     \]
 
     Suppose that \(p\) has degree \(d\), i.e,
     \[
-        p\para{x} = a_d x^d + a_{d - 1} x^{d - 1} + \cdots + a_1 x + a_0
+        p\pqty{x} = a_d x^d + a_{d - 1} x^{d - 1} + \cdots + a_1 x + a_0
     \]
     with \(a_i \in \ZZ\) and \(a_d \neq 0\).
 
@@ -1170,7 +1170,7 @@ We utilise these two facts to show that the Liouville number is irrational.
     \]
     for some \(s \in \NN\), then we have
     \[
-        p \para{L_n} = \frac{t}{10^{d \cdot n!}}
+        p \pqty{L_n} = \frac{t}{10^{d \cdot n!}}
     \]
     for some \(t \in \ZZ\).
 
@@ -1178,12 +1178,12 @@ We utilise these two facts to show that the Liouville number is irrational.
 
     Hence, we have
     \[
-        \abs{p\para{L_n} - p\para{L}} = \abs{p\para{L_n}} \geq \frac{1}{10^{d \cdot n!}},
+        \abs{p\pqty{L_n} - p\pqty{L}} = \abs{p\pqty{L_n}} \geq \frac{1}{10^{d \cdot n!}},
     \]
     and hence
     \begin{align*}
-        \frac{1}{10^{d \cdot n!}} &\leq k \para{L_n - L} \\
-        &\leq 2k \cdot \frac{1}{10^{\para{n + 1}!}},
+        \frac{1}{10^{d \cdot n!}} &\leq k \pqty{L_n - L} \\
+        &\leq 2k \cdot \frac{1}{10^{\pqty{n + 1}!}},
     \end{align*}
     but this is a contradiction for sufficiently large \(n\).
 \end{proof}
@@ -1209,10 +1209,10 @@ We utilise these two facts to show that the Liouville number is irrational.
 We define such numbers into existance.
 
 \begin{definition}[Complex Numbers, \(\CC\)]
-    The \emph{complex numbers} \(\CC\) consists of \(\RR^2 = \set{\para{a, b}}{a, b \in \RR}\) together with operation \(+\) and \(\times\):
+    The \emph{complex numbers} \(\CC\) consists of \(\RR^2 = \set{\pqty{a, b}}{a, b \in \RR}\) together with operation \(+\) and \(\times\):
     \begin{align*}
-        \para{a, b} + \para{c, d} &= \para{a + c, b + d}, \\
-        \para{a, b} \times \para{c, d} &= \para{ac - bd, ad + bc}.
+        \pqty{a, b} + \pqty{c, d} &= \pqty{a + c, b + d}, \\
+        \pqty{a, b} \times \pqty{c, d} &= \pqty{ac - bd, ad + bc}.
     \end{align*}
 \end{definition}
 
@@ -1226,30 +1226,30 @@ Figure \autoref{fig:visuallisation-of-complex-numbers} visuallises the complex n
 
 We can view \(\RR\) as contained in \(\CC\) by identifying
 \[
-    a \in \RR \leftrightarrow \para{a, 0} \in \CC,
+    a \in \RR \leftrightarrow \pqty{a, 0} \in \CC,
 \]
 i.e. defining the injection (inclusiong map) \(i\) where
 \[
-    \function{i}{\RR}{\CC}{a}{\para{a, 0}}.  
+    \function{i}{\RR}{\CC}{a}{\pqty{a, 0}}.  
 \]
 
-Note that \(\para{a, 0} + \para{b, 0} = \para{a + b, 0}\) and \(\para{a, 0} \times \para{b, 0} = \para{ab, 0}\) so operations on \(\CC\) is consistent with that on \(\RR\).
+Note that \(\pqty{a, 0} + \pqty{b, 0} = \pqty{a + b, 0}\) and \(\pqty{a, 0} \times \pqty{b, 0} = \pqty{ab, 0}\) so operations on \(\CC\) is consistent with that on \(\RR\).
 
-Now, let \(i = \para{0, 1}\), then \(i^2 = \para{-1, 0}\) corresponding to \(-1 \in \RR\). We may identify any \(z \in \CC\) as of the form \(a + ib\) for \(a, b \in \RR\) for
+Now, let \(i = \pqty{0, 1}\), then \(i^2 = \pqty{-1, 0}\) corresponding to \(-1 \in \RR\). We may identify any \(z \in \CC\) as of the form \(a + ib\) for \(a, b \in \RR\) for
 \[
-    \para{a, b} = a \para{1, 0} + b \para{0, 1} = a + bi,
+    \pqty{a, b} = a \pqty{1, 0} + b \pqty{0, 1} = a + bi,
 \]
 uniquely.
 
 \begin{remarks}
     \begin{enumerate}
-        \item \(\CC\) obeys all the usual rules of arithmetic, meaning in particular that \(\CC\) is a field. Specifically, for any \(z \in \CC \setminus \brce{0}\), then there is some \(w \in \CC\) with \(zw = 1\). Indeed, let \(z = a + ib\), note that
+        \item \(\CC\) obeys all the usual rules of arithmetic, meaning in particular that \(\CC\) is a field. Specifically, for any \(z \in \CC \setminus \Bqty{0}\), then there is some \(w \in \CC\) with \(zw = 1\). Indeed, let \(z = a + ib\), note that
         \[
-            \para{a + ib} \para{a - ib} = a^2 + b^2
+            \pqty{a + ib} \pqty{a - ib} = a^2 + b^2
         \]
         so
         \[
-            \para{a + ib} \cdot \frac{a - ib}{a^2 + b^2} = 1.
+            \pqty{a + ib} \cdot \frac{a - ib}{a^2 + b^2} = 1.
         \]
 
         \item Every non-constant polynomial with complex coefficients has a root in \(\CC\). This is known as the \emph{fundamental theorem of algebra}.

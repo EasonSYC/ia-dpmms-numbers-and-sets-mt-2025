@@ -11,7 +11,7 @@
 \end{definition}
 
 \begin{definition}[Proper Factors]
-    For any \(b \in \ZZ\), \(\para{\pm 1}\) and \(\para{\pm b}\) are always factors of \(b\). We call those the \emph{trivial factors} of \(b\), and the rest \emph{proper/non-trivial factors}.
+    For any \(b \in \ZZ\), \(\pqty{\pm 1}\) and \(\pqty{\pm b}\) are always factors of \(b\). We call those the \emph{trivial factors} of \(b\), and the rest \emph{proper/non-trivial factors}.
 \end{definition}
 
 \begin{definition}[Prime, Composite]
@@ -45,7 +45,7 @@
 
     Consider \(N = p_1 p_2 \cdots p_k + 1\). \(N\) is not itself a prime. Then \(p_1 \notdivides N\), or otherwise,
     \[
-        p_1 \divides \para{N - p_1 p_2 \cdots p_k} = 1.
+        p_1 \divides \pqty{N - p_1 p_2 \cdots p_k} = 1.
     \]
 
     Likewise, \(p_2 \notdivides N, \ldots, p_k \notdivides N\).
@@ -70,7 +70,7 @@ Before we prove this, we introduce what is meant by the highest common factor.
 
     We denote this as
     \[
-        c = \hcf\para{a, b} = \gcd\para{a, b} = \para{a, b}.
+        c = \hcf\pqty{a, b} = \gcd\pqty{a, b} = \pqty{a, b}.
     \]
 \end{definition}
 
@@ -85,7 +85,7 @@ Before we prove this, we introduce what is meant by the highest common factor.
 
     Hence,
     \[
-        \gcd\para{12, 18} = 6.
+        \gcd\pqty{12, 18} = 6.
     \]
 \end{example}
 
@@ -110,13 +110,13 @@ We show by construction that in fact it must always exist, but we first introduc
 
     If \(0 \leq r < k - 1\), then
     \[
-        n = qk + \para{r + 1}
+        n = qk + \pqty{r + 1}
     \]
     and hence \(1 \leq r + 1 < k\) is within the required range.
 
     If \(r = k - 1\), then
     \[
-        n = qk + \para{k - 1} + 1 = \para{q + 1}k + 0,
+        n = qk + \pqty{k - 1} + 1 = \pqty{q + 1}k + 0,
     \]
     and the obtained \(q\) and \(r\) are within the range.
 \end{proof}
@@ -124,13 +124,13 @@ We show by construction that in fact it must always exist, but we first introduc
 \begin{remark}
     The \(q\) and \(r\) obtained from this integer division is unique. Indeed, if \(n = qk + r = q'k + r'\), then
     \[
-        \para{q - q'}k = r' - r
+        \pqty{q - q'}k = r' - r
     \]
     and we see that since \(0 \leq r, r' < k\), we have
     \[
         -k < r' - r < k
     \]
-    and hence since \(\para{q - q'}k\) is a multiple of \(k\), we must have \(r - r' = 0\), and \(q - q' = 0\).
+    and hence since \(\pqty{q - q'}k\) is a multiple of \(k\), we must have \(r - r' = 0\), and \(q - q' = 0\).
 \end{remark}
 
 We now use this integer division to conduct an algorithm called \emph{Euclid's algorithm}, as in \autoref{tab:euclids-algorithm}.
@@ -159,7 +159,7 @@ Note that this algorithm terminates in \(n < b\) steps, since
 \]
 
 \begin{theorem}[Euclid's Algorithm gives the Greatest Common Divisor]
-    The output of Euclid's algorithm with input \(a, b\) is \(\gcd\para{a, b}\).
+    The output of Euclid's algorithm with input \(a, b\) is \(\gcd\pqty{a, b}\).
 \end{theorem}
 
 \begin{proof}
@@ -177,26 +177,26 @@ Note that this algorithm terminates in \(n < b\) steps, since
 \end{proof}
 
 \begin{example}[Greatest Common Divisor of \(87\) and \(52\)]
-    Suppose we want to find \(\gcd\para{87, 52}\). We run Euclid's Algorithm:
+    Suppose we want to find \(\gcd\pqty{87, 52}\). We run Euclid's Algorithm:
     \begin{align*}
         87 &= 1 \cdot 52 + 35, \\
         52 &= 1 \cdot 35 + 17, \\
         35 &= 2 \cdot 17 + \boxed{1}, \\
         17 &= 17 \cdot \boxed{1},
     \end{align*}
-    so \(\gcd\para{87, 52} = 1\). Note we may terminate the algorithm one step early, outputting the final non-zero divisor, which is the greatest common divisor.
+    so \(\gcd\pqty{87, 52} = 1\). Note we may terminate the algorithm one step early, outputting the final non-zero divisor, which is the greatest common divisor.
 \end{example}
 
 \begin{definition}[Coprime]
-    When \(\gcd\para{a, b} = 1\), we say \(a\) and \(b\) are \emph{coprime}.
+    When \(\gcd\pqty{a, b} = 1\), we say \(a\) and \(b\) are \emph{coprime}.
 \end{definition}
 
 Notice that we may reverse Euclid's algorithm. For example, in the previous example,
 \begin{align*}
     1 &= 35 - 2 \times 17 \\
-       &= 35 - 2 \times \para{52 - 1 \times 35} \\
+       &= 35 - 2 \times \pqty{52 - 1 \times 35} \\
        &= 3 \times 35 - 2 \times 52 \\
-       &= 3 \times \para{57 - 1 \times 52} - 2 \times 52 \\
+       &= 3 \times \pqty{57 - 1 \times 52} - 2 \times 52 \\
        &= 3 \times 57 - 5 \times 52.
 \end{align*}
 
@@ -205,10 +205,10 @@ This leads to the following lemma.
 \begin{theorem}[B\'{e}zout's Identity]
     For all \(a, b \in \NN\), there exists \(x, y \in \ZZ\), such that
     \[
-        ax + by = \gcd\para{a, b}.
+        ax + by = \gcd\pqty{a, b}.
     \]
 
-    We can write \(\gcd\para{a, b}\) as a linear combination of \(a\) and \(b\).
+    We can write \(\gcd\pqty{a, b}\) as a linear combination of \(a\) and \(b\).
 \end{theorem}
 
 \begin{proof}[by reversing Euclid's Algorithm]
@@ -248,7 +248,7 @@ This leads to the following lemma.
 \begin{proof}[by utilising well--ordering principle]
     Let \(h\) be the least positive linear combination of \(a\) and \(b\), i.e. the least positive integer of the form \(ax + by\) for some \(x, y \in \ZZ\). Such \(h\) exists by well--ordering principle.
 
-    We aim to show that \(h = \gcd\para{a, b}\).
+    We aim to show that \(h = \gcd\pqty{a, b}\).
 
     To show the first property, suppose that \(h\) does not divide one of \(a\) or \(b\), say \(a\). Then by integer division, we have
     \[
@@ -259,8 +259,8 @@ This leads to the following lemma.
     Hence,
     \begin{align*}
         r &= a - qh \\
-        &= a - q \cdot \para{xa + yb} \\
-        &= \para{1 - qx} a - \para{qy} b
+        &= a - q \cdot \pqty{xa + yb} \\
+        &= \pqty{1 - qx} a - \pqty{qy} b
     \end{align*}
     is a positive linear combination of \(a\) and \(b\), strictly smaller than \(h\), and contradicting with the fact that \(h\) is minimal.
 
@@ -268,10 +268,10 @@ This leads to the following lemma.
 \end{proof}
 
 \begin{remark}
-    This proof tells us that \(\gcd\para{a, b}\) exists and is a linear combination of \(a\) and \(b\), but it gives in fact no way to find the coefficients \(x, y \in \ZZ\) to find \(\gcd\para{a, b}\).
+    This proof tells us that \(\gcd\pqty{a, b}\) exists and is a linear combination of \(a\) and \(b\), but it gives in fact no way to find the coefficients \(x, y \in \ZZ\) to find \(\gcd\pqty{a, b}\).
 \end{remark}
 
-A natural question to ask, is by changing the right-hand side, when does an equation of the form \(ax + by = c\) have a solution? For example, is there a solution in \(\para{x, y} \in \ZZ \times \ZZ\) to
+A natural question to ask, is by changing the right-hand side, when does an equation of the form \(ax + by = c\) have a solution? For example, is there a solution in \(\pqty{x, y} \in \ZZ \times \ZZ\) to
 \[
     160 x + 72 y = 33?
 \]
@@ -297,12 +297,12 @@ so let \(x = 33 x'\) and \(y = 33 y'\), we have
     \]
     has a solution for \(x, y \in \ZZ\) if and only if
     \[
-        \gcd\para{a, b} \divides c.
+        \gcd\pqty{a, b} \divides c.
     \]
 \end{corollary}
 
 \begin{proof}
-    Let \(h = \gcd\para{a, b}\)
+    Let \(h = \gcd\pqty{a, b}\)
 
     \(\implies\). Suppose there are such integers \(x, y \in \ZZ\) such that \(ax + by = c\). Since \(h \divides a\) and \(h \divides b\), we must have \(h \divides ax + by = c\).
 
@@ -310,7 +310,7 @@ so let \(x = 33 x'\) and \(y = 33 y'\), we have
 
     But then \(c = \frac{ch} \cdot h\) and \(\frac{c}{h} \in \ZZ\), and hence
     \[
-        c = \frac{c}{h} \cdot \para{ax + by} = a \cdot \para{x \cdot \frac{c}{h}} + b \cdot \para{y \cdot \frac{c}{h}}
+        c = \frac{c}{h} \cdot \pqty{ax + by} = a \cdot \pqty{x \cdot \frac{c}{h}} + b \cdot \pqty{y \cdot \frac{c}{h}}
     \]
     constructing a solution as desired.
 \end{proof}
@@ -324,7 +324,7 @@ We now prove Euclid's Lemma.
 \begin{proof}
     Suppose that \(p \divides ab\) but \(p \notdivides a\). We want to prove that \(p \divides b\).
 
-    Since \(p\) is prime and \(p \notdivides a\), we have \(\gcd\para{a, p} = 1\).
+    Since \(p\) is prime and \(p \notdivides a\), we have \(\gcd\pqty{a, p} = 1\).
 
     Then, by B\'{e}zout's Identity, there exists \(x, y \in \ZZ\) such that
     \[
@@ -333,9 +333,9 @@ We now prove Euclid's Lemma.
 
     Hence, multiplying both sides by \(b\) gives
     \[
-        \para{xb} \cdot p + y \cdot \para{ab} = b,
+        \pqty{xb} \cdot p + y \cdot \pqty{ab} = b,
     \]
-    and we have \(p \divides \para{xb} \cdot b\) and \(p \divides y \cdot \para{ab}\). Hence, \(p \divides b\).
+    and we have \(p \divides \pqty{xb} \cdot b\) and \(p \divides y \cdot \pqty{ab}\). Hence, \(p \divides b\).
 \end{proof}
 
 \begin{remarks}
@@ -385,16 +385,16 @@ We now prove Euclid's Lemma.
 \begin{remark}
     There are 'arithmetical systems' (rings) permitting addition and multiplication in which factorisation is not unique. For example, consider the ring extension
     \[
-        \ZZ\brac{\sqrt{-3}} = \set{x + y i \sqrt{3}}{x, y \in \ZZ}
+        \ZZ\bqty{\sqrt{-3}} = \set{x + y i \sqrt{3}}{x, y \in \ZZ}
     \]
 
-    We can add and multiply to get another element of \(\ZZ\brac{\sqrt{-3}}\), e.g.
+    We can add and multiply to get another element of \(\ZZ\bqty{\sqrt{-3}}\), e.g.
     \begin{align*}
-        \para{1 + \sqrt{-3}} + \para{1 - \sqrt{-3}} &= 2,\\
-        \para{1 + \sqrt{-3}} \para{1 - \sqrt{-3}} &= 1^2 - \para{-3} = 4.
+        \pqty{1 + \sqrt{-3}} + \pqty{1 - \sqrt{-3}} &= 2,\\
+        \pqty{1 + \sqrt{-3}} \pqty{1 - \sqrt{-3}} &= 1^2 - \pqty{-3} = 4.
     \end{align*}
 
-    In \(\ZZ\brac{\sqrt{-3}}\) we may define what it means to be \emph{prime}, and both \(\para{1 \pm \sqrt{3}}\) are indeed prime.
+    In \(\ZZ\bqty{\sqrt{-3}}\) we may define what it means to be \emph{prime}, and both \(\pqty{1 \pm \sqrt{3}}\) are indeed prime.
 
     However, \(4 = 2 \cdot 2\) and \(2\) is a prime in this system as well.
 
@@ -412,7 +412,7 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
 
     We denote this as
     \[
-        c = \lcm\para{a, b} = \brac{a, b}.
+        c = \lcm\pqty{a, b} = \bqty{a, b}.
     \]  
 \end{definition}
 
@@ -444,7 +444,7 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
         \]
         for \(\alpha_i, \beta_i \geq 0\), is
         \[
-            p_1^{\min\brce{\alpha_1, \beta_1}} p_2^{\min\brce{\alpha_2, \beta_2}} \cdots p_k^{\min\brce{\alpha_k, \beta_k}}.
+            p_1^{\min\Bqty{\alpha_1, \beta_1}} p_2^{\min\Bqty{\alpha_2, \beta_2}} \cdots p_k^{\min\Bqty{\alpha_k, \beta_k}}.
         \]
 
         \item What are the common multiples of the two previous numbers? They are all numbers of the form
@@ -465,7 +465,7 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
         \]
         for \(\alpha_i, \beta_i \geq 0\), is
         \[
-            p_1^{\max\brce{\alpha_1, \beta_1}} p_2^{\max\brce{\alpha_2, \beta_2}} \cdots p_k^{\max\brce{\alpha_k, \beta_k}}.
+            p_1^{\max\Bqty{\alpha_1, \beta_1}} p_2^{\max\Bqty{\alpha_2, \beta_2}} \cdots p_k^{\max\Bqty{\alpha_k, \beta_k}}.
         \]
     \end{enumerate}
 \end{examples}
@@ -473,14 +473,14 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
 \begin{proposition}[GCD and LCM multiple to the Product]
     We have for any \(x, y \in \NN\), that
     \[
-        \gcd\para{x, y} \cdot \lcm\para{x, y} = x \cdot y.
+        \gcd\pqty{x, y} \cdot \lcm\pqty{x, y} = x \cdot y.
     \]
 \end{proposition}
 
 \begin{proof}
     This is immediate from the previous example and using the fact that
     \[
-        \min\brce{a, b} + \max\brce{a, b} = a + b.
+        \min\Bqty{a, b} + \max\Bqty{a, b} = a + b.
     \]
 \end{proof}
 
@@ -524,7 +524,7 @@ We may now present another proof that there are infinitely many primes --- recal
 \label{sec:modular-arithmetic}
 
 \begin{definition}[Integers Modulo \(n\)]
-    Let \(n \geq 2\) be a natural number. Then, the \emph{integers modulo \(n\)}, denoted \(\ZZ_{n}\) or \(\ZZ / n\ZZ\), consists of the integers with the two integers being the same if they differ by a multiple of \(n\).
+    Let \(n \geq 2\) be a natural number. Then, the \emph{integers modulo \(n\)}, denoted \(\ZZ_{n}\) or \(\flatfrac{\ZZ}{n\ZZ}\), consists of the integers with the two integers being the same if they differ by a multiple of \(n\).
 
     Formally, if \(x\) and \(y\) are the same in \(\ZZ_n\), we write
     \[
@@ -532,7 +532,7 @@ We may now present another proof that there are infinitely many primes --- recal
     \]
     or
     \[
-        x \equiv y \quad \para{n}
+        x \equiv y \quad \pqty{n}
     \]
     or
     \[
@@ -564,7 +564,7 @@ Instead of a straight axis, we can view \(\ZZ_n\) as a circle, as in \autoref{fi
 \begin{proof}
     If \(a \equiv a', b \equiv b' \pmod{n}\), then
     \[
-        n \divides \para{a - a'} + \para{b - b'} = \para{a + b} - \para{a' + b'}
+        n \divides \pqty{a - a'} + \pqty{b - b'} = \pqty{a + b} - \pqty{a' + b'}
     \]
     and hence
     \[
@@ -573,7 +573,7 @@ Instead of a straight axis, we can view \(\ZZ_n\) as a circle, as in \autoref{fi
 
     Similarly,
     \[
-        n \divides \para{a - a'} b + a' \cdot \para{b - b'} = ab - a' b'
+        n \divides \pqty{a - a'} b + a' \cdot \pqty{b - b'} = ab - a' b'
     \]
     and hence
     \[
@@ -670,7 +670,7 @@ We next ask the questsion on which numbers are invertible in modulo \(n\). This 
 \end{proposition}
 
 \begin{proof}
-    We must have \(\gcd\para{a, p} = 1\) for \(p\) being prime. Hence, by B\'{e}zout's Identity, there is \(x, y \in \ZZ\) such that
+    We must have \(\gcd\pqty{a, p} = 1\) for \(p\) being prime. Hence, by B\'{e}zout's Identity, there is \(x, y \in \ZZ\) such that
     \[
         ax + py = 1.
     \]
@@ -681,20 +681,20 @@ We next ask the questsion on which numbers are invertible in modulo \(n\). This 
 The answer is similar modulo any integer \(n\).
 
 \begin{proposition}[Integers Coprime to \(n\) are Invertible modulo \(n\)]
-    Let \(n \geq 2\) be a natural number. Then \(a\) is a unit modulo \(n\), if and only if \(\gcd\para{a, n} = 1\).
+    Let \(n \geq 2\) be a natural number. Then \(a\) is a unit modulo \(n\), if and only if \(\gcd\pqty{a, n} = 1\).
 \end{proposition}
 
 \begin{proof}
     We have
     \begin{align*}
-        \gcd\para{a, b} = 1 &\iff \exists x, y \in \ZZ: ax + ny = 1 && \text{B\'{e}zout's Identity} \\
+        \gcd\pqty{a, b} = 1 &\iff \exists x, y \in \ZZ: ax + ny = 1 && \text{B\'{e}zout's Identity} \\
         &\iff \exists x, y \in \ZZ: ax = 1 - ny \\
         &\iff \exists x \in \ZZ: ax \equiv 1 \pmod{n}.
     \end{align*}
 \end{proof}
 
 \begin{corollary}[Solution to Congruence involving Unit is Unique]
-    If \(\gcd\para{a, n} = 1\), then the congruence \(ax \equiv b \pmod{n}\) has a unique solution. In particular, if \(\gcd\para{a, n} = 1\), there exists a unique inverse of \(a\) modulo \(n\).
+    If \(\gcd\pqty{a, n} = 1\), then the congruence \(ax \equiv b \pmod{n}\) has a unique solution. In particular, if \(\gcd\pqty{a, n} = 1\), there exists a unique inverse of \(a\) modulo \(n\).
 \end{corollary}
 
 \begin{example}[Diophantine Equation]
@@ -714,7 +714,7 @@ The answer is similar modulo any integer \(n\).
 
 What if we want to solve \(ax \equiv b \pmod{n}\), but in the case where \(a\) is not a unit?
 
-Say \(\gcd\para{a, n} = d > 1\). Then \(n \divides ax - b\), so \(d \divides ax - b\), and we have \(d \divides a\).
+Say \(\gcd\pqty{a, n} = d > 1\). Then \(n \divides ax - b\), so \(d \divides ax - b\), and we have \(d \divides a\).
 
 Hence, if there is a solution, then \(d \divides b\).
 
@@ -726,16 +726,16 @@ Conversely, if \(d \divides b\), let \(n = d \cdot n'\), \(a = d \cdot a'\) and 
     &\iff a' x \equiv b' \pmod{n}.
 \end{align*}
 
-Note that \(\gcd\para{a', n'} = 1\), so \(a' x \equiv b'\) has a unique solution from before.
+Note that \(\gcd\pqty{a', n'} = 1\), so \(a' x \equiv b'\) has a unique solution from before.
 
-Therefore, if \(\gcd\para{a, n} = d > 1\), the congruence \(ax \equiv b \pmod{n}\) has \emph{no solution} unless \(d \divides b\), in which case the solution are exactly
+Therefore, if \(\gcd\pqty{a, n} = d > 1\), the congruence \(ax \equiv b \pmod{n}\) has \emph{no solution} unless \(d \divides b\), in which case the solution are exactly
 \[
     \frac{a}{d} x \equiv \frac{b}{d} \pmod{\frac{n}{d}}.
 \]
 
 \begin{examples}[Solving Congruences]
     \begin{enumerate}
-        \item We solve \(7x \equiv 4 \pmod{30}\). Notice \(\gcd\para{7, 30} = 1\), so \(7\) is a unit modulo \(30\). We note \(13 \cdot 7 \equiv 1 \pmod{30}\), and hence \(x \equiv 4 \cdot 13 \equiv 22 \pmod{30}\).
+        \item We solve \(7x \equiv 4 \pmod{30}\). Notice \(\gcd\pqty{7, 30} = 1\), so \(7\) is a unit modulo \(30\). We note \(13 \cdot 7 \equiv 1 \pmod{30}\), and hence \(x \equiv 4 \cdot 13 \equiv 22 \pmod{30}\).
         
         We now explicitly show that there are no other solutions. Suppose \(x'\) is also a solution to \(7 x' \equiv 4 \pmod{30}\), then \(7x \equiv 7x' \pmod{30}\), and hence \(x \equiv x' \pmod{30}\) since \(7\) is a unit modulo \(30\).
 
@@ -794,18 +794,18 @@ Here, \(4\) and \(6\) are not coprime, and there are not any solutions.
 \begin{proof}
     The proof is in two parts, for the existence, and for the uniqueness.
 
-    \textbf{Existence.} Since \(\gcd\para{n, m} = 1\), by B\'{e}zout's Identity, there are \(s, t \in \ZZ\), such that \(sm + tn = 1\).
+    \textbf{Existence.} Since \(\gcd\pqty{n, m} = 1\), by B\'{e}zout's Identity, there are \(s, t \in \ZZ\), such that \(sm + tn = 1\).
 
     Note that \(sm \equiv 1 \pmod{n}\), and \(tn \equiv 1 \pmod{m}\), and that \(sm \equiv 0 \pmod{m}\), and \(tn \equiv 0 \pmod{n}\).
 
-    Hence, we consider \(x = a \para{tn} + b \para{sm}\). Then we see that this is indeed a solution.
+    Hence, we consider \(x = a \pqty{tn} + b \pqty{sm}\). Then we see that this is indeed a solution.
 
     \textbf{Uniqueness.} Suppose \(y\) is also a solution to the same congruences, we have
     \begin{align*}
         &\phantom{\iff} y \equiv a \pmod{m}, y \equiv b \pmod{n} \\
         &\iff y \equiv x \pmod{m}, y \equiv x \pmod{n} \\
         &\iff m \divides y - x, n \divides y - x \\
-        &\iff mn \divides y - x && \text{since } \gcd\para{m, n} = 1 \\
+        &\iff mn \divides y - x && \text{since } \gcd\pqty{m, n} = 1 \\
         &\iff x \equiv y \pmod{mn}.
     \end{align*}
 \end{proof}
@@ -822,21 +822,21 @@ Here, \(4\) and \(6\) are not coprime, and there are not any solutions.
 \end{remark}
 
 \begin{definition}[Euler Totient Function]
-    We denote by \(\totient\para{m}\) the number of integers \(a\) with \(1 \leq a \leq m\), such that \(\gcd\para{a, m} = 1\). In other words, \(\totient\para{m}\) is \emph{the number of units modulo \(m\)}.
+    We denote by \(\totient\pqty{m}\) the number of integers \(a\) with \(1 \leq a \leq m\), such that \(\gcd\pqty{a, m} = 1\). In other words, \(\totient\pqty{m}\) is \emph{the number of units modulo \(m\)}.
     
     This is known as the \emph{Euler Totient Function}.
 
-    Note that we define \(\totient\para{1} = 1\).
+    Note that we define \(\totient\pqty{1} = 1\).
 \end{definition}
 
 
 \begin{examples}[Euler Totient Function]
     \begin{enumerate}
-        \item For \(m = 9\), the units in \(\ZZ_m\) is \(1, 2, 3, 5, 7, 8\), and hence \(\totient\para{9} = 6\).
-        \item For a prime \(p\), we have \(\totient\para{p} = p - 1\). Similarly, \(\totient\para{p^2} = p^2 - p = p \para{p - 1}\).
+        \item For \(m = 9\), the units in \(\ZZ_m\) is \(1, 2, 3, 5, 7, 8\), and hence \(\totient\pqty{9} = 6\).
+        \item For a prime \(p\), we have \(\totient\pqty{p} = p - 1\). Similarly, \(\totient\pqty{p^2} = p^2 - p = p \pqty{p - 1}\).
         \item When \(p, q\) are distinct primes,
         \[
-            \totient\para{pq} = pq - p - q + 1 = \para{p - 1} \para{q - 1},
+            \totient\pqty{pq} = pq - p - q + 1 = \pqty{p - 1} \pqty{q - 1},
         \]
         since there are \(pq\) numbers in total, \(q\) of which are multiples of \(p\), \(p\) of which are multiples of \(q\), and \(1\) double counted which is \(pq\). (This is by Inclusion--Exclusion Principle.)
     \end{enumerate}
@@ -876,49 +876,49 @@ The following result(s) is (are) best motivited by (corollary of) Lagrange's The
         ax \equiv ay \pmod{p} \iff x \equiv y \pmod{p}.
     \]
 
-    Hence, the numbers \(a, 2a, 3a, \ldots, \para{p - 1}a\) are pairwise distinct (incongruent) under modulo \(p\), and are all non-zero modulo \(p\).
+    Hence, the numbers \(a, 2a, 3a, \ldots, \pqty{p - 1}a\) are pairwise distinct (incongruent) under modulo \(p\), and are all non-zero modulo \(p\).
 
     Therefore, they must be \(1, 2, 3, \ldots, p - 1\), in some order.
 
     Hence,
     \[
-        a \cdot 2a \cdot 3a \cdot \cdots \cdot \para{p - 1} a \equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \para{p - 1} \pmod{p},
+        a \cdot 2a \cdot 3a \cdot \cdots \cdot \pqty{p - 1} a \equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \pqty{p - 1} \pmod{p},
     \]
     and hence
     \[
-        a^{p - 1} \para{p - 1}! \equiv \para{p - 1}! \pmod{p}.
+        a^{p - 1} \pqty{p - 1}! \equiv \pqty{p - 1}! \pmod{p}.
     \]
 
-    However, \(\para{p - 1}!\) is a unit modulo \(p\), since it is a product of units. Hence, we obtain \(a^{p - 1} \equiv 1 \pmod{p}\), as desired.
+    However, \(\pqty{p - 1}!\) is a unit modulo \(p\), since it is a product of units. Hence, we obtain \(a^{p - 1} \equiv 1 \pmod{p}\), as desired.
 \end{proof}
 
 We have a theorem closely related to this but modulo any general integer.
 
 \begin{theorem}[Fermat--Euler Theorem]
-    Let \(\gcd\para{a, m} = 1\), then we have \(a^{\totient\para{m}} \equiv 1 \pmod{m}\).
+    Let \(\gcd\pqty{a, m} = 1\), then we have \(a^{\totient\pqty{m}} \equiv 1 \pmod{m}\).
 \end{theorem}
 
 \begin{proof}
     Let
     \[
-        \mathcal{U} = \set{x \in \ZZ}{0 < x < m, \gcd\para{x, m} = 1}
+        \mathcal{U} = \set{x \in \ZZ}{0 < x < m, \gcd\pqty{x, m} = 1}
     \]
-    be the \(\totient\para{m}\) units in \(\ZZ_{m}\). Let them be
+    be the \(\totient\pqty{m}\) units in \(\ZZ_{m}\). Let them be
     \[
-        \mathcal{U} = \brce{u_1, u_2, \ldots, u_{\totient\para{m}}}.
+        \mathcal{U} = \Bqty{u_1, u_2, \ldots, u_{\totient\pqty{m}}}.
     \]
 
-    Similarly, for any \(a\) where \(\gcd\para{a, m} = 1\), we have
+    Similarly, for any \(a\) where \(\gcd\pqty{a, m} = 1\), we have
     \[
-        a u_1, a u_2, \ldots, a u_{\totient\para{m}}
+        a u_1, a u_2, \ldots, a u_{\totient\pqty{m}}
     \]
-    are the units in \(\ZZ_m\), and hence \(u_1, u_2, \ldots, u_{\totient\para{m}}\) in some order. Hence,
+    are the units in \(\ZZ_m\), and hence \(u_1, u_2, \ldots, u_{\totient\pqty{m}}\) in some order. Hence,
     \[
-        \para{a u_1} \para{a u_2} \cdots \para{a u_{\totient\para{m}}} \equiv \para{u_1} \para{u_2} \cdots \para{u_{\totient\para{m}}} \pmod{m}
+        \pqty{a u_1} \pqty{a u_2} \cdots \pqty{a u_{\totient\pqty{m}}} \equiv \pqty{u_1} \pqty{u_2} \cdots \pqty{u_{\totient\pqty{m}}} \pmod{m}
     \]
     and hence
     \[
-        a^{\phi \para{m}} \prod_{u \in \mathcal{U}} u \equiv \prod_{u \in \mathcal{U}} u \pmod{m}.
+        a^{\phi \pqty{m}} \prod_{u \in \mathcal{U}} u \equiv \prod_{u \in \mathcal{U}} u \pmod{m}.
     \]
 
     Since \(\mathcal{U}\) contain units, their products must be a unit as well modulo \(n\), in other words,
@@ -928,13 +928,13 @@ We have a theorem closely related to this but modulo any general integer.
 
     Hence, we may obtain
     \[
-        a^{\totient\para{m}} \equiv 1 \pmod{m}.
+        a^{\totient\pqty{m}} \equiv 1 \pmod{m}.
     \]
 \end{proof}
 
-This next result is less intuitive: we consider the value of \(\para{p - 1}!\) modulo \(p\).
+This next result is less intuitive: we consider the value of \(\pqty{p - 1}!\) modulo \(p\).
 
-\begin{examples}[\(\para{p - 1}!\) modulo \(p\)]
+\begin{examples}[\(\pqty{p - 1}!\) modulo \(p\)]
     \begin{enumerate}
         \item For \(p = 5\), we have
         \[
@@ -968,7 +968,7 @@ We conjuecture that the result is always \(-1\). To prove this, we first introdu
     We have by factorisation
     \begin{align*}
         x^2 \equiv 1 \pmod{p} &\iff x^2 - 1 \equiv 0 \pmod{p} \\
-        &\iff \para{x + 1} \para{x - 1} \equiv 0 \pmod{p}.
+        &\iff \pqty{x + 1} \pqty{x - 1} \equiv 0 \pmod{p}.
     \end{align*}
 
     Recall that Euclid's Lemma states that \(p \divides ab\) if and only if \(p \divides a\) or \(p \divides b\).
@@ -990,7 +990,7 @@ We conjuecture that the result is always \(-1\). To prove this, we first introdu
 Now we are ready to prove our result.
 
 \begin{theorem}[Wilson's Theorem]
-    Let \(p\) be a prime. Then \(\para{p - 1}! \equiv -1 \pmod{p}\).
+    Let \(p\) be a prime. Then \(\pqty{p - 1}! \equiv -1 \pmod{p}\).
 \end{theorem}
 
 \begin{proof}
@@ -1000,13 +1000,13 @@ Now we are ready to prove our result.
 
     From the previous lemma, these elements are in fact precisely \(\pm 1\), and the remaining \(p - 3\) units in \(\ZZ_p\) come in pairs of inverses.
 
-    Hence, \(\para{p - 1}!\) is the product of \(\frac{p - 3}{2}\) pairs of inverses together with \(\pm 1\) and hence
+    Hence, \(\pqty{p - 1}!\) is the product of \(\frac{p - 3}{2}\) pairs of inverses together with \(\pm 1\) and hence
     \[
-        \para{p - 1}! \equiv -1 \pmod{p}.
+        \pqty{p - 1}! \equiv -1 \pmod{p}.
     \]
 \end{proof}
 
-As an example, in modulo \(11\), \(\para{2, 6}, \para{3, 4}, \para{5, 9}, \para{7, 8}\) are the pairs of inverses, and \(1, 10\) are the units whose inverse is theirself.
+As an example, in modulo \(11\), \(\pqty{2, 6}, \pqty{3, 4}, \pqty{5, 9}, \pqty{7, 8}\) are the pairs of inverses, and \(1, 10\) are the units whose inverse is theirself.
 
 The next question we ask, is when is \(-1\) a square modulo \(p\), if ever?
 
@@ -1017,33 +1017,33 @@ The next question we ask, is when is \(-1\) a square modulo \(p\), if ever?
 \begin{proof}
     \(\impliedby\). Suppose \(p \equiv 1 \pmod{4}\). By Wilson's theorem, we have
     \begin{align*}
-        -1 &\equiv \para{p - 1}! \\
-        &\equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{p - 1}{2} \cdot \para{p + 1}{2} \cdot \cdots \cdot \para{p - 3} \cdot \para{p - 2} \cdot \para{p - 1} \\
-        &\equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{p - 1}{2} \cdot \para{- \frac{p - 1}{2}} \cdot \cdots \cdot \para{-3} \cdot \para{-2} \cdot \para{-1} \\
-        &\equiv \para{-1}^{\frac{p - 1}{2}} \cdot \para{\para{\frac{p - 1}{2}}!}^2 \pmod{p}.
+        -1 &\equiv \pqty{p - 1}! \\
+        &\equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{p - 1}{2} \cdot \pqty{p + 1}{2} \cdot \cdots \cdot \pqty{p - 3} \cdot \pqty{p - 2} \cdot \pqty{p - 1} \\
+        &\equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{p - 1}{2} \cdot \pqty{- \frac{p - 1}{2}} \cdot \cdots \cdot \pqty{-3} \cdot \pqty{-2} \cdot \pqty{-1} \\
+        &\equiv \pqty{-1}^{\frac{p - 1}{2}} \cdot \pqty{\pqty{\frac{p - 1}{2}}!}^2 \pmod{p}.
     \end{align*}
 
     Since \(p \equiv 1 \pmod{4}\), \(p = 4k + 1\) for some \(k \in \ZZ\), and we have
     \[
-        -1 \equiv \para{-1}^{2k} \cdot \para{\para{\frac{p - 1}{2}}!}^2 \equiv \para{\para{\frac{p - 1}{2}}!}^2 \pmod{p}
+        -1 \equiv \pqty{-1}^{2k} \cdot \pqty{\pqty{\frac{p - 1}{2}}!}^2 \equiv \pqty{\pqty{\frac{p - 1}{2}}!}^2 \pmod{p}
     \]
-    so \(\para{-1}\) is a square modulo \(p\).
+    so \(\pqty{-1}\) is a square modulo \(p\).
 
     \(\implies\). Suppose on the other hand, that \(p \equiv 3 \pmod{4}\), i.e. \(p = 4k + 3\) for some \(k \in \ZZ\).
 
-    If \(\para{-1}\) were a square modulo \(p\), i.e. if there were an integer \(z \in \ZZ\) such that \(z^2 \equiv -1\), then by Fermat's Little Theorem,
+    If \(\pqty{-1}\) were a square modulo \(p\), i.e. if there were an integer \(z \in \ZZ\) such that \(z^2 \equiv -1\), then by Fermat's Little Theorem,
     \begin{align*}
         1 &\equiv z^{p - 1} \\
         &\equiv z^{4k + 2} \\
-        &\equiv \para{z^2}^{2k + 1} \\
-        &\equiv \para{-1}^{2k + 1} \\
+        &\equiv \pqty{z^2}^{2k + 1} \\
+        &\equiv \pqty{-1}^{2k + 1} \\
         &\equiv -1 \pmod{p},
     \end{align*}
     which gives a contradiction.
 \end{proof}
 
 \begin{remark}
-    When \(p \equiv 1 \pmod{4}\), Wilson's theorem gives us \emph{a} solution to \(x^2 \equiv -1 \pmod{p}\), namely \(\para{\frac{p - 1}{2}}!\).
+    When \(p \equiv 1 \pmod{4}\), Wilson's theorem gives us \emph{a} solution to \(x^2 \equiv -1 \pmod{p}\), namely \(\pqty{\frac{p - 1}{2}}!\).
 
     For example, if \(p = 29\), then \(x = 14!\) is a solution.
 \end{remark}
@@ -1070,9 +1070,9 @@ Now we preceed from this and encrypt messages. We may encode messages as a seque
         \item think of two \emph{very large primes} \(p\) and \(q\);
         \item let \(n = pq\); pick an \emph{encoding exponent} \(e\) coprime to
         \[
-            \totient \para{n} = \para{p - 1} \para{q - 1};
+            \totient \pqty{n} = \pqty{p - 1} \pqty{q - 1};
         \]
-        \item publish the pair \(\para{n, e}\) as the \emph{encryption scheme}.
+        \item publish the pair \(\pqty{n, e}\) as the \emph{encryption scheme}.
     \end{itemize}
 
     The sender:
@@ -1085,18 +1085,18 @@ Now we preceed from this and encrypt messages. We may encode messages as a seque
     \begin{itemize}
         \item the \emph{decoding exponent} \(d\) is calculated such that
         \[
-            ed \equiv 1 \pmod{\totient\para{n}};
+            ed \equiv 1 \pmod{\totient\pqty{n}};
         \]
         \item by computing
         \[
-            \para{M^e}^d \equiv M^{k \totient \para{n} + 1} \equiv M \pmod{n}
+            \pqty{M^e}^d \equiv M^{k \totient \pqty{n} + 1} \equiv M \pmod{n}
         \]
         for some \(k \in \ZZ\), by Fermat--Euler Theorem.
     \end{itemize}
 
-    This method works when \(\gcd\para{M, n} = 1\).
+    This method works when \(\gcd\pqty{M, n} = 1\).
 \end{definition}
 
-In order to decrypt in this way, either \(n\) and \(d\) is needed, or \(n, e\) and \(\totient\para{n}\) is needed.
+In order to decrypt in this way, either \(n\) and \(d\) is needed, or \(n, e\) and \(\totient\pqty{n}\) is needed.
 
-This relies on computational complexity: finding \(\totient\para{n}\) is as difficult as finding the prime factors of \(n\), which is believed to be computationally hard. However, it is \emph{not known} if RSA can be broken without prime factorisaion.
+This relies on computational complexity: finding \(\totient\pqty{n}\) is as difficult as finding the prime factors of \(n\), which is believed to be computationally hard. However, it is \emph{not known} if RSA can be broken without prime factorisaion.

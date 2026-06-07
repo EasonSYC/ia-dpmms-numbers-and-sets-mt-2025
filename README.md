@@ -2,4 +2,4 @@
 
 [![LaTeX Compile PDF](https://github.com/EasonSYC/ia-dpmms-numbers-and-sets-mt-2025/actions/workflows/compile-pdf.yml/badge.svg)](https://github.com/EasonSYC/ia-dpmms-numbers-and-sets-mt-2025/actions/workflows/compile-pdf.yml)
 
-My notes for Cambridge Maths Part IA DPMMS Numbers & Sets course, Michaelmas Term 2025, Lectured by Dr Zoe Wyatt.
+My notes for Cambridge Maths Part IA DPMMS Numbers and Sets course, Michaelmas Term 2025, Lectured by Z. Wyatt.

@@ -22,7 +22,7 @@ but can we formalise this result?
 
 A set \(X\) is countable if and only if we can list its elements one by one as
 \[
-    X = \brce{x_1, x_2, x_3, \ldots}
+    X = \Bqty{x_1, x_2, x_3, \ldots}
 \]
 and this list might terminate.
 
@@ -32,7 +32,7 @@ and this list might terminate.
         \item \(\NN\) is countable.
         \item \(\ZZ\) is countable, by listing the elements by
         \[
-        \ZZ = \brce{0, 1, -1, 2, -2, \ldots}.
+        \ZZ = \Bqty{0, 1, -1, 2, -2, \ldots}.
         \]
 
         The bijetion is given by
@@ -54,11 +54,11 @@ Countable sets are, in a sense, the 'smaller' sets in the infinite class. Intuit
 \begin{proof}
     Let \(S \subseteq \NN\) be non-empty (the empty set is clearly countable). By well--ordering principle, let \(s_1 \in S\) be the least element.
 
-    If \(S \setminus \brce{s_1} \neq \emptyset\), we take \(s_2\) as the least element of \(S \setminus \brce{s_1}\).
+    If \(S \setminus \Bqty{s_1} \neq \emptyset\), we take \(s_2\) as the least element of \(S \setminus \Bqty{s_1}\).
 
     If at some point this process ends, then
     \[
-        S = \brce{s_1, s_2, \ldots, s_m}
+        S = \Bqty{s_1, s_2, \ldots, s_m}
     \]
     is finite and hence countable; if it does not terminate, then the map
     \[
@@ -86,23 +86,23 @@ Countable sets are, in a sense, the 'smaller' sets in the infinite class. Intuit
 
         \item (ii) \(\implies\) (i), since if there is an injection \(\functiondomain{f}{X}{\NN}\), then the restriction on the co-domain gives a bijection
         \[
-            \functiondomain{f}{X}{S = f\para{X} \subseteq \NN}.
+            \functiondomain{f}{X}{S = f\pqty{X} \subseteq \NN}.
         \]
 
         If \(S\) is finite, then so is \(X\); if \(S\) is infinite, then by previous lemma, there is a bijection \(\functiondomain{g}{S}{\NN}\), and hence
         \[
-            X \xrightarrow{f} S = f\para{X} \xrightarrow{g} \NN
+            X \xrightarrow{f} S = f\pqty{X} \xrightarrow{g} \NN
         \]
         is a bijection.
 
         \item (iii) \(\implies\) (ii), we suppose that \(X \neq \emptyset\) and \(\functiondomain{f}{\NN}{X}\) is surjective. Let \(\functiondomain{g}{X}{W}\) be defined by
         \[
-            \functionmap{g}{a}{\min f\inverse\para{\brce{a}}}.
+            \functionmap{g}{a}{\min f\inverse\pqty{\Bqty{a}}}.
         \]
 
         This is well-defined, since
         \[
-            \emptyset \neq f\inverse\para{\brce{a}} \subseteq \NN
+            \emptyset \neq f\inverse\pqty{\Bqty{a}} \subseteq \NN
         \]
         and such minima exists by well--ordering principle.
     \end{itemize}
@@ -125,11 +125,11 @@ Now we see some examples of sets that seem to be bigger than \(\NN\) -- but is i
 \end{theorem}
 
 \begin{proof}[by Construction]
-    Let \(a_1 = \para{1, 1}\) and \(a_n\) inductively as follows: if \(a_{n - 1} = \para{p, q}\), then we define
+    Let \(a_1 = \pqty{1, 1}\) and \(a_n\) inductively as follows: if \(a_{n - 1} = \pqty{p, q}\), then we define
     \[
         a_n = \begin{cases}
-            \para{p - 1, q + 1}, & p \neq 1, \\
-            \para{p + q, 1}, & \text{otherwise}.
+            \pqty{p - 1, q + 1}, & p \neq 1, \\
+            \pqty{p + q, 1}, & \text{otherwise}.
         \end{cases}
     \]
 
@@ -147,7 +147,7 @@ Now we see some examples of sets that seem to be bigger than \(\NN\) -- but is i
 \begin{proof}[by Injection]
     Define
     \[
-        \function{f}{\NN \times \NN}{\NN}{\para{x, y}}{2^x 3^y,}
+        \function{f}{\NN \times \NN}{\NN}{\pqty{x, y}}{2^x 3^y,}
     \]
     then \(f\) is injective by the fundamental theorem of arithmetic.
 \end{proof}
@@ -166,7 +166,7 @@ Now we see some examples of sets that seem to be bigger than \(\NN\) -- but is i
     
     By composition, we have an injection
     \[
-        \ZZ \times \ZZ \xrightarrow{\para{f, f}} \NN \times \NN \xrightarrow{g} \NN
+        \ZZ \times \ZZ \xrightarrow{\pqty{f, f}} \NN \times \NN \xrightarrow{g} \NN
     \]
 \end{corollary}
 
@@ -190,14 +190,14 @@ By induction, we have \(\ZZ^k\) and \(\NN^k\) is countable for any \(k \in \NN\)
 
     For each \(i \in \NN\), since \(A_i\) is countable, we may list its elements as
     \[
-        a_1^{\para{i}}, a_2^{\para{i}}, a_3^{\para{i}}, \ldots.
+        a_1^{\pqty{i}}, a_2^{\pqty{i}}, a_3^{\pqty{i}}, \ldots.
     \]
 
     Let
     \[
         \function{f}{\bigcup_{n \in \NN} A_n}{\NN}{x}{2^i 3^j}
     \]
-    where \(x = a_j^{\para{i}}\) for the least \(i\) such that \(x \in A_i\) -- this is guarenteed to exist by well ordering principle, i.e.,
+    where \(x = a_j^{\pqty{i}}\) for the least \(i\) such that \(x \in A_i\) -- this is guarenteed to exist by well ordering principle, i.e.,
     \[
         i = \min\set{t \in \NN}{x \in A_t}.
     \]
@@ -224,7 +224,7 @@ By induction, we have \(\ZZ^k\) and \(\NN^k\) is countable for any \(k \in \NN\)
 
     We consider the map
     \[
-        \function{f_d}{P_d}{\ZZ^{d + 1}}{p\para{x} = a_d x^d + a_{d - 1} x^{d - 1} + \cdots + a_1 x + a_0}{\para{a_d, a_{d - 1}, \ldots, a_0}}
+        \function{f_d}{P_d}{\ZZ^{d + 1}}{p\pqty{x} = a_d x^d + a_{d - 1} x^{d - 1} + \cdots + a_1 x + a_0}{\pqty{a_d, a_{d - 1}, \ldots, a_0}}
     \]
     and this is an injection. Hence, since \(\ZZ^{d + 1}\) is countable, \(P_d\) is as well.
 \end{proof}
@@ -273,7 +273,7 @@ This is known as a \emph{diagonal argument} due to Cantor, 1870s. This shows tha
 
     Since \(\mathcal{A}\) is countable, if \(\RR \setminus \mathcal{A}\) were countable, then
     \[
-        \RR = \mathcal{A} \cup \para{\RR \setminus \mathcal{A}}
+        \RR = \mathcal{A} \cup \pqty{\RR \setminus \mathcal{A}}
     \]
     is a finite union of countable sets, hence countable.
 
@@ -282,12 +282,12 @@ This is known as a \emph{diagonal argument} due to Cantor, 1870s. This shows tha
 
 We can also investigate the size of power sets of sets.
 
-\begin{theorem}[\(\powerset\para{\NN}\) is Uncountable]
-    \(\powerset\para{\NN}\) is uncountable.
+\begin{theorem}[\(\powerset\pqty{\NN}\) is Uncountable]
+    \(\powerset\pqty{\NN}\) is uncountable.
 \end{theorem}
 
 \begin{proof}[using Diagonal Argument]
-    If \(\powerset\para{\NN}\) were countable, we could list it as
+    If \(\powerset\pqty{\NN}\) were countable, we could list it as
     \[
         S_1, S_2, S_3, \ldots.
     \]
@@ -303,21 +303,21 @@ We can also investigate the size of power sets of sets.
     \]
     and hence \(S \neq S_n\), i.e. \(S\) and \(S_n\) differ in element \(n\).
 
-    Hence, \(S\) is not in our list, and \(\powerset\para{\NN}\) is uncountable.
+    Hence, \(S\) is not in our list, and \(\powerset\pqty{\NN}\) is uncountable.
 \end{proof}
 
 \begin{proof}[by Injection]
     We define an injection
     \[
-        \functiondomain{f}{\oointv{0}{1}}{\powerset\para{\NN}}.
+        \functiondomain{f}{\oointv{0}{1}}{\powerset\pqty{\NN}}.
     \]
 
-    Let \(x \in \oointv{0}{1}\) be \(x = 0.x_1 x_2 x_3 \ldots\) in binary for \(x_i \in \brce{0, 1}\), and using the expansion not ending in an infinite string of \(1\)s (ensuring the map defined using infinite decimals is well-defined). Define
+    Let \(x \in \oointv{0}{1}\) be \(x = 0.x_1 x_2 x_3 \ldots\) in binary for \(x_i \in \Bqty{0, 1}\), and using the expansion not ending in an infinite string of \(1\)s (ensuring the map defined using infinite decimals is well-defined). Define
     \[
         \functionmap{f}{x}{\set{n \in \NN}{x_n = 1}}.
     \]
 
-    Since \(\oointv{0}{1}\) injects into \(\powerset\para{\NN}\) and the former is uncountable, the latter cannot be countable, since otherwise we can inject \(\oointv{0}{1}\) inject into \(\NN\) by composing injections.
+    Since \(\oointv{0}{1}\) injects into \(\powerset\pqty{\NN}\) and the former is uncountable, the latter cannot be countable, since otherwise we can inject \(\oointv{0}{1}\) inject into \(\NN\) by composing injections.
 \end{proof}
 
 However, note that the proof above does not give a \emph{bijection}: sets such as
@@ -328,20 +328,20 @@ would not appear under \(f\).
 
 The first proof using the diagonal argument gives an even stronger result.
 
-\begin{theorem}[No Bijection between \(X\) and \(\powerset\para{X}\)]
-    For any set \(X\), there is no bijection between \(X\) and its power set \(\powerset\para{X}\).
+\begin{theorem}[No Bijection between \(X\) and \(\powerset\pqty{X}\)]
+    For any set \(X\), there is no bijection between \(X\) and its power set \(\powerset\pqty{X}\).
 \end{theorem}
 
 \begin{proof}
-    Given any \(\functiondomain{f}{X}{\powerset\para{X}}\), we show that it cannot be surjective. (This is similar to labelling elements in \(\powerset\para{X}\) with \(X\).)
+    Given any \(\functiondomain{f}{X}{\powerset\pqty{X}}\), we show that it cannot be surjective. (This is similar to labelling elements in \(\powerset\pqty{X}\) with \(X\).)
 
     Let
     \[
-        S = \set{x \in X}{x \notin f\para{x}} \subseteq X,
+        S = \set{x \in X}{x \notin f\pqty{x}} \subseteq X,
     \]
-    then \(S\) does not belong to the image of \(f\), since for all \(x \in X\), the sets \(S\) and \(f\para{x}\) differ in the element \(x\).
+    then \(S\) does not belong to the image of \(f\), since for all \(x \in X\), the sets \(S\) and \(f\pqty{x}\) differ in the element \(x\).
 
-    Hence, \(S \neq f\para{x}\) for any \(x \in X\), so \(f\) is not surjective.
+    Hence, \(S \neq f\pqty{x}\) for any \(x \in X\), so \(f\) is not surjective.
 \end{proof}
 
 \begin{remarks}
@@ -349,9 +349,9 @@ The first proof using the diagonal argument gives an even stronger result.
         \item This is reminiscent of Russell's Paradox.
         \item In fact, it gives another proof that there is no universal set. If so, for a universal set \(\mathcal{V}\), then we would have
         \[
-            \powerset\para{\mathcal{V}} \subseteq \mathcal{V}
+            \powerset\pqty{\mathcal{V}} \subseteq \mathcal{V}
         \]
-        in which there would certainly be a surjection \(\mathcal{V} \to \powerset\para{\mathcal{V}}\).
+        in which there would certainly be a surjection \(\mathcal{V} \to \powerset\pqty{\mathcal{V}}\).
     \end{enumerate}
 \end{remarks}
 
@@ -431,13 +431,13 @@ We see defining such a weak order on cardinality is \textbf{transitive} and \tex
 \begin{proof}
     \(\implies\). Suppose \(\functiondomain{f}{A}{B}\) is injective. We fix an arbitrary \(a_0 \in A\), and define \(\functiondomain{g}{B}{A}\), as follows. For \(b \in B\),
     \begin{itemize}
-        \item if \(b \in \img f\), then let \(a \in A\) be \(f \para{a} = b\), and such \(a\) is unique; 
+        \item if \(b \in \img f\), then let \(a \in A\) be \(f \pqty{a} = b\), and such \(a\) is unique; 
         \item if \(b \notin \img f\), let \(a = a_0\),
     \end{itemize}
-    and let \(g\para{b} = a\). Equivalently, let
+    and let \(g\pqty{b} = a\). Equivalently, let
     \[
         \functionmap{g}{b}{\begin{cases}
-            \text{unique } a \in A \text{ where } f\para{a} = b, & b \in \img f, \\
+            \text{unique } a \in A \text{ where } f\pqty{a} = b, & b \in \img f, \\
             a_0, & b \notin \img f.
         \end{cases}}
     \]
@@ -446,7 +446,7 @@ We see defining such a weak order on cardinality is \textbf{transitive} and \tex
 
     \(\impliedby\). Suppose \(\functiondomain{g}{B}{A}\) is surjective. Let
     \[
-        \function{f}{A}{B}{a}{\text{some } b \in B \text{ where } f \para{b} = a.}
+        \function{f}{A}{B}{a}{\text{some } b \in B \text{ where } f \pqty{b} = a.}
     \]
 
     Then \(f\) is injective.
@@ -473,21 +473,21 @@ Next, we want to show that the order is \textbf{antisymmetric} -- i.e. if there 
 \end{figure}
 
 \begin{proof}
-    For \(a \in A\), we write \(g\inverse\para{a}\) for the unique \(b \in B\) where \(g\para{b} = a\), if it exists.
+    For \(a \in A\), we write \(g\inverse\pqty{a}\) for the unique \(b \in B\) where \(g\pqty{b} = a\), if it exists.
 
-    Similarly, for \(b \in B\), we write \(f\inverse\para{b}\) for the unique \(a \in A\) where \(f\para{a} = b\), if it exists.
+    Similarly, for \(b \in B\), we write \(f\inverse\pqty{b}\) for the unique \(a \in A\) where \(f\pqty{a} = b\), if it exists.
 
     We first define what it means for an \emph{ancestor sequence} -- which is illustrated in \autoref{fig:ancestor-sequence}.
 
     For some \(a \in A\), we call
     \[
-        g\inverse\para{a}, f\inverse \para{g\inverse \para{a}}, g\inverse \para{f\inverse \para{g\inverse \para{a}}}, \ldots
+        g\inverse\pqty{a}, f\inverse \pqty{g\inverse \pqty{a}}, g\inverse \pqty{f\inverse \pqty{g\inverse \pqty{a}}}, \ldots
     \]
     as the \emph{ancestor sequence} of \(a\), which might terminate.
 
     Similarly, for some \(b \in B\), we call
     \[
-        f\inverse\para{b}, g\inverse \para{f\inverse \para{b}}, f\inverse \para{g\inverse \para{f\inverse \para{b}}}, \ldots
+        f\inverse\pqty{b}, g\inverse \pqty{f\inverse \pqty{b}}, f\inverse \pqty{g\inverse \pqty{f\inverse \pqty{b}}}, \ldots
     \]
     as the \emph{ancestor sequence} of \(b\), which might terminate.
 
@@ -506,18 +506,18 @@ Next, we want to show that the order is \textbf{antisymmetric} -- i.e. if there 
 
     \autoref{fig:ancestor-sequence-even-odd-infinite-length} visuallises this \emph{partition} of \(A\) and \(B\).
     
-    Now, note that \(f\) bijects from \(A_0\) to \(B_1\), observing that every \(b \in B_1\) has at least one ancestor, so is equal to \(f\para{a}\) for some \(a \in A_0\).
+    Now, note that \(f\) bijects from \(A_0\) to \(B_1\), observing that every \(b \in B_1\) has at least one ancestor, so is equal to \(f\pqty{a}\) for some \(a \in A_0\).
 
-    Simlilarly, \(g\) bijects from \(B_0\) to \(A_1\), observing that every \(a \in A_1\) has at least one ancestor, so is equal to \(g\para{b}\) for some \(b \in B_0\).
+    Simlilarly, \(g\) bijects from \(B_0\) to \(A_1\), observing that every \(a \in A_1\) has at least one ancestor, so is equal to \(g\pqty{b}\) for some \(b \in B_0\).
 
     Similarly, \(f\) (or \(g\)) bijects from \(A_{\infty}\) to \(B{_{\infty}}\).
 
     Hence, we define \(h\) as
     \[
         \function{h}{A}{B}{a}{\begin{cases}
-            f\para{a}, & a \in A_0, \\
-            g\inverse\para{a}, & a \in A_1, \\
-            f\para{a}, & a \in A_{\infty}
+            f\pqty{a}, & a \in A_0, \\
+            g\inverse\pqty{a}, & a \in A_1, \\
+            f\pqty{a}, & a \in A_{\infty}
         \end{cases}}
     \]
     defines a bijection.

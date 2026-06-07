@@ -28,11 +28,11 @@ We also introduce some number systems.
     \begin{itemize}
         \item \(\NN\) is the set of \emph{natural numbers}
         \[
-            \NN = \brce{1, 2, 3, \ldots}.
+            \NN = \Bqty{1, 2, 3, \ldots}.
         \]
         \item \(\ZZ\) is the set of \emph{integers}
         \[
-            \ZZ = \brce{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots}.
+            \ZZ = \Bqty{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots}.
         \]
         \item \(\QQ\) is the set of \emph{rational numbers}, which are all fractions of the form \(\frac{a}{b}\) where \(a, b \in \ZZ\) and \(b \neq 0\). Equivalently,
         \[
@@ -68,7 +68,7 @@ In this section we give examples of proofs and examples of incorrect proofs.
 \begin{proof}
     For any positive integer \(n \in \NN\), we have
     \[
-        n^3 - n = n \para{n^2 - 1} = \para{n - 1} n \para{n + 1}.
+        n^3 - n = n \pqty{n^2 - 1} = \pqty{n - 1} n \pqty{n + 1}.
     \]
 
     One of the \(3\) consecutive integers must be a multiple of \(3\), and hence so is their product.
@@ -81,7 +81,7 @@ In this section we give examples of proofs and examples of incorrect proofs.
 \begin{proof}[(Non-proof)]
     Given a positive integer \(n \in \NN\) which is even, we can write \(n = 2k\) for some positive integer \(k \in \NN\).
 
-    Hence, \(n^2 = \para{2k}^2 = 2 \para{2k^2}\) which is even.
+    Hence, \(n^2 = \pqty{2k}^2 = 2 \pqty{2k^2}\) which is even.
 \end{proof}
 
 We did not show the statement itself -- we showed the \emph{converse} of the statement.
@@ -114,9 +114,9 @@ We now present a correct proof of 'if \(n^2\) is even then \(n\) is even'.
 
     So \(n = 2k + 1\) for some integer \(n \geq 0\). Then
     \begin{align*}
-        n^2 &= \para{2k + 1}^2 \\
+        n^2 &= \pqty{2k + 1}^2 \\
         &= 4k^2 + 4k + 1 \\
-        &= 4 \para{k^2 + k} + 1.
+        &= 4 \pqty{k^2 + k} + 1.
     \end{align*}
 
     So \(n^2\) is odd, contradicting with the assumption that \(n^2\) is even.
@@ -146,8 +146,8 @@ There are \textbf{2 assertions} in this claim:
 
 \begin{proof}
     \begin{enumerate}
-        \item If \(x = 2\) or \(x = 3\), then \(x - 2 = 0\) or \(x - 3 = 0\), so \(\para{x - 2} \para{x - 3} = 0\), so \(x^2 - 5x + 6 = 0\).
-        \item If \(x^2 - 5x + 6 = 0\), then \(\para{x - 2} \para{x - 3} = 0\), so \(x - 2 = 0\) or \(x - 3 = 0\), so \(x - 2\) or \(x - 3\).
+        \item If \(x = 2\) or \(x = 3\), then \(x - 2 = 0\) or \(x - 3 = 0\), so \(\pqty{x - 2} \pqty{x - 3} = 0\), so \(x^2 - 5x + 6 = 0\).
+        \item If \(x^2 - 5x + 6 = 0\), then \(\pqty{x - 2} \pqty{x - 3} = 0\), so \(x - 2 = 0\) or \(x - 3 = 0\), so \(x - 2\) or \(x - 3\).
     \end{enumerate}
 \end{proof}
 
@@ -157,7 +157,7 @@ This is a proof doing the two directions separately. However, in this case, it i
     \begin{align*}
         &\phantom{\iff} x = 2 \text{ or } x = 3 \\
         &\iff x - 2 = 0 \text{ or } x - 3 = 0 \\
-        &\iff \para{x - 2} \para{x - 3} = 0 \\
+        &\iff \pqty{x - 2} \pqty{x - 3} = 0 \\
         &\iff x^2 - 5x + 6 = 0.
     \end{align*}
 \end{proof}
@@ -209,17 +209,17 @@ We notice the following.
 
 \begin{proposition}[De Morgan's Laws]
     \begin{itemize}
-        \item \(\lnot \para{A \land B}\) is equivalent to \(\para{\lnot A} \lor \para{\lnot B}\).
-        \item \(\lnot \para{A \lor B}\) is equivalent to \(\para{\lnot A} \land \para{\lnot B}\).
+        \item \(\lnot \pqty{A \land B}\) is equivalent to \(\pqty{\lnot A} \lor \pqty{\lnot B}\).
+        \item \(\lnot \pqty{A \lor B}\) is equivalent to \(\pqty{\lnot A} \land \pqty{\lnot B}\).
     \end{itemize}
 \end{proposition}
 
 \begin{proposition}[Contrapositive is Equivalent to Original]
-    \(\para{\lnot B} \implies \para{\lnot A}\) is equivalent to \(A \implies B\).
+    \(\pqty{\lnot B} \implies \pqty{\lnot A}\) is equivalent to \(A \implies B\).
 \end{proposition}
 
 \begin{proof}
-    We have \(A \implies B\) is equivalent to \(\para{\lnot A} \lor B\), and hence \(B \lor \para{\lnot A}\), and hence \(\para{\lnot B} \implies \para{\lnot A}\).
+    We have \(A \implies B\) is equivalent to \(\pqty{\lnot A} \lor B\), and hence \(B \lor \pqty{\lnot A}\), and hence \(\pqty{\lnot B} \implies \pqty{\lnot A}\).
 \end{proof}
 
 A claim may involve quantifiers.
@@ -232,8 +232,8 @@ We may negate quantifiers, by swapping to the other quantifies and negating the 
 
 \begin{proposition}[Negating Quantifiers]
     \begin{itemize}
-        \item \(\lnot \para{\forall x: A\para{x}}\) is equivalent to \(\exists x: \lnot A\para{x}\).
-        \item \(\lnot \para{\exists x: A\para{x}}\) is equivalent to \(\forall x: \lnot A\para{x}\).
+        \item \(\lnot \pqty{\forall x: A\pqty{x}}\) is equivalent to \(\exists x: \lnot A\pqty{x}\).
+        \item \(\lnot \pqty{\exists x: A\pqty{x}}\) is equivalent to \(\forall x: \lnot A\pqty{x}\).
     \end{itemize}
 \end{proposition}
 

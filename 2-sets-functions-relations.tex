@@ -11,9 +11,9 @@
 \end{definition}
 
 \begin{example}[Examples of Sets]
-    \(\RR\), \(\NN\), \(\brce{1, 5, 9}\), \(\ocintv{-2}{3}\) are all examples of sets.
+    \(\RR\), \(\NN\), \(\Bqty{1, 5, 9}\), \(\ocintv{-2}{3}\) are all examples of sets.
     
-    We have \(\brce{1, 3, 7} = \brce{1, 7, 3}\) and \(\brce{3, 4, 4, 8} = \brce{3, 4, 8}\).
+    We have \(\Bqty{1, 3, 7} = \Bqty{1, 7, 3}\) and \(\Bqty{3, 4, 4, 8} = \Bqty{3, 4, 8}\).
 \end{example}
 
 \begin{definition}[Sets being Equal]
@@ -36,15 +36,15 @@ Note that \(A = B\) if and only if \(A \subseteq B\) and \(B \subseteq A\).
 \begin{definition}[Subset Selection]
     If \(A\) is a set, and \(P\) is a property of some elements of \(A\), we write
     \[
-        \set{x \in A}{P\para{x}}
+        \set{x \in A}{P\pqty{x}}
     \]
-    for the subset of \(A\) comprising these elements for which \(P\para{x}\) holds.
+    for the subset of \(A\) comprising these elements for which \(P\pqty{x}\) holds.
 \end{definition}
 
 \begin{example}[Subset of Primes in \(\NN\)]
     The set
     \[
-        \brce{2, 3, 5, 7, 11, \ldots} = \set{n \in \NN}{n \text{ is prime}} \subsetneq \NN
+        \Bqty{2, 3, 5, 7, 11, \ldots} = \set{n \in \NN}{n \text{ is prime}} \subsetneq \NN
     \]
     is a proper subset of \(\NN\).
 \end{example}
@@ -79,16 +79,16 @@ Note that we can view set intersection as a special case of subset selection:
     For any sets \(A\), \(B\), \(C\), the union and intersection operations are:
     \begin{itemize}
         \item \textbf{commutative}: \(A \cap B = B \cap A\), \(A \cup B = B \cup A\);
-        \item \textbf{associative}: \(\para{A \cap B} \cap C = A \cap \para{B \cap C}\), \(\para{A \cup B} \cup C = A \cup \para{B \cup C}\).
+        \item \textbf{associative}: \(\pqty{A \cap B} \cap C = A \cap \pqty{B \cap C}\), \(\pqty{A \cup B} \cup C = A \cup \pqty{B \cup C}\).
     \end{itemize}
 
     They are distributive over each other:
     \[
-        A \cup \para{B \cap C} = \para{A \cup B} \cap \para{A \cup C}
+        A \cup \pqty{B \cap C} = \pqty{A \cup B} \cap \pqty{A \cup C}
     \]
     and
     \[
-        A \cap \para{B \cup C} = \para{A \cap B} \cup \para{A \cap C}.
+        A \cap \pqty{B \cup C} = \pqty{A \cap B} \cup \pqty{A \cap C}.
     \]
 \end{proposition}
 
@@ -102,8 +102,8 @@ Note that we can view set intersection as a special case of subset selection:
 \begin{proposition}[De Morgan's Laws]
     The following are satisfied:
     \begin{align*}
-        A \setminus \para{B \cap C} &= \para{A \setminus B} \cup \para{A \setminus C}, \\
-        A \setminus \para{B \cup C} &= \para{A \setminus B} \cap \para{A \setminus C}.
+        A \setminus \pqty{B \cap C} &= \pqty{A \setminus B} \cup \pqty{A \setminus C}, \\
+        A \setminus \pqty{B \cup C} &= \pqty{A \setminus B} \cap \pqty{A \setminus C}.
     \end{align*}
 \end{proposition}
 
@@ -115,14 +115,14 @@ We give an example to prove one of the previous laws using a commonly used techn
 \begin{claim}
     For any three sets \(A, B\) and \(C\), we have
     \[
-        A \cap \para{B \cup C} = \para{A \cap B} \cup \para{A \cap C}.
+        A \cap \pqty{B \cup C} = \pqty{A \cap B} \cup \pqty{A \cap C}.
     \]
 \end{claim}
 
 \begin{proof}
-    We first show \(A \cap \para{B \cup C} \subseteq \para{A \cap B} \cup \para{A \cap C}\).
+    We first show \(A \cap \pqty{B \cup C} \subseteq \pqty{A \cap B} \cup \pqty{A \cap C}\).
 
-    If \(x \in A \cap \para{B \cup C}\), then \(x \in A\) and \(x \in B \cup C\). In particular, \(x \in B\) or \(x \in C\).
+    If \(x \in A \cap \pqty{B \cup C}\), then \(x \in A\) and \(x \in B \cup C\). In particular, \(x \in B\) or \(x \in C\).
 
     If \(x \in B\), then \(x \in A \cap B\).
 
@@ -130,15 +130,15 @@ We give an example to prove one of the previous laws using a commonly used techn
 
     Hence, we have \(x \in A \cap B\) or \(x \in A \cap C\).
 
-    Therefore, \(x \in \para{A \cap B} \cup \para{A \cap C}\).
+    Therefore, \(x \in \pqty{A \cap B} \cup \pqty{A \cap C}\).
 
-    Conversely, if \(x \in \para{A \cap B} \cup \para{A \cap C}\), then \(x \in A \cap B\) or \(x \in A \cap C\).
+    Conversely, if \(x \in \pqty{A \cap B} \cup \pqty{A \cap C}\), then \(x \in A \cap B\) or \(x \in A \cap C\).
 
     If \(x \in A \cap B\), then \(x \in A\) and \(x \in B \cup C\).
 
     If \(x \in A \cap C\), then \(x \in A\) and \(x \in B \cup C\).
 
-    Hence, we have \(x \in A \cap \para{B \cup C}\), as desired.
+    Hence, we have \(x \in A \cap \pqty{B \cup C}\), as desired.
 \end{proof}
 
 \begin{definition}[Countable and Arbitrary Unions and Intersections]
@@ -168,45 +168,45 @@ We give an example to prove one of the previous laws using a commonly used techn
 \begin{definition}[Cartesian Product]
     Given sets \(A\) and \(B\), their \emph{Cartesian Product} \(A \times B\) is given by
     \[
-        A \times B = \set{\para{a, b}}{a \in A \land b \in B}
+        A \times B = \set{\pqty{a, b}}{a \in A \land b \in B}
     \]
-    is the set of \emph{ordered pairs} \(\para{a, b}\) with \(a \in A\) and \(b \in B\).
+    is the set of \emph{ordered pairs} \(\pqty{a, b}\) with \(a \in A\) and \(b \in B\).
 \end{definition}
 
 Note that we may define an ordered pair formally using set theory as
 \[
-    \para{a, b} = \brce{\brce{a}, \brce{a, b}},
+    \pqty{a, b} = \Bqty{\Bqty{a}, \Bqty{a, b}},
 \]
 and extend this to ordered triples, etc., as well by a recursive definition:
 \[
-    \para{a, b, c} = \para{\para{a, b}, c}
+    \pqty{a, b, c} = \pqty{\pqty{a, b}, c}
 \]
 
 Similarly, we may extend the Cartesian product to triples, etc., e.g.
 \[
-    \RR^3 = \RR \times \RR \times \RR = \set{\para{x, y, z}}{x, y, z \in \RR}.
+    \RR^3 = \RR \times \RR \times \RR = \set{\pqty{x, y, z}}{x, y, z \in \RR}.
 \]
 
 \begin{definition}[Power Set]
-    For any set \(X\), we form the \emph{power set} \(\powerset\para{X}\) consisting of all subsets of \(X\):
+    For any set \(X\), we form the \emph{power set} \(\powerset\pqty{X}\) consisting of all subsets of \(X\):
     \[
-        \powerset\para{X} = \set{Y}{Y \subseteq X}
+        \powerset\pqty{X} = \set{Y}{Y \subseteq X}
     \]
 \end{definition}
 
 \begin{example}[Power Set]
-    If \(X = \brce{1, 2}\), we have
+    If \(X = \Bqty{1, 2}\), we have
     \[
-        \powerset\para{X} = \brce{\emptyset, \brce{1}, \brce{2}, \brce{1, 2}}.
+        \powerset\pqty{X} = \Bqty{\emptyset, \Bqty{1}, \Bqty{2}, \Bqty{1, 2}}.
     \]
 \end{example}
 
 Recall that we can do subset selection on a set \(A\) and for any property \(P\):
 \[
-    \set{x \in A}{P\para{x}}.
+    \set{x \in A}{P\pqty{x}}.
 \]
 
-But we \emph{cannot} form \(\set{x}{P\para{x}}\) \emph{without} the starting set.
+But we \emph{cannot} form \(\set{x}{P\pqty{x}}\) \emph{without} the starting set.
 
 \begin{example}[Russell's Paradox]
     Suppose
@@ -215,11 +215,11 @@ But we \emph{cannot} form \(\set{x}{P\para{x}}\) \emph{without} the starting set
     \]  
     were a set. For example,
     \[
-        \brce{2} \in \brce{\brce{2}, \brce{1, 2, 3}}
+        \Bqty{2} \in \Bqty{\Bqty{2}, \Bqty{1, 2, 3}}
     \]
     but
     \[
-        \brce{2} \notin \brce{2}.
+        \Bqty{2} \notin \Bqty{2}.
     \]
 
     Then, if \(X \in X\), by definition, we have \(X \notin X\). However, if \(X \notin X\), by definition, we have \(X \in X\).
@@ -235,12 +235,12 @@ Therefore, to guarantee that a set exists, it should be obtained from known sets
 \begin{definition}[Finite/Infinite Set, Size of a Set]
     We let
     \[
-        \NN_0 = \NN \cup \brce{0} = \brce{0, 1, 2, 3, \ldots}.
+        \NN_0 = \NN \cup \Bqty{0} = \Bqty{0, 1, 2, 3, \ldots}.
     \]
 
     Given \(n \in \NN_0\), we say a set \(A\) has \emph{size} \(n\) if we can write
     \[
-        A = \brce{a_1, a_2, \ldots, a_n}
+        A = \Bqty{a_1, a_2, \ldots, a_n}
     \]
     where the elements \(a_i\) are distinct.
 
@@ -250,19 +250,19 @@ Therefore, to guarantee that a set exists, it should be obtained from known sets
 \subsection{Functions}
 \label{sec:functions}
 
-Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a 'rule' that assigns to every \(x \in A\) to a unique element \(f\para{x} \in B\).
+Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a 'rule' that assigns to every \(x \in A\) to a unique element \(f\pqty{x} \in B\).
 
 \begin{definition}[Function]
     A \emph{function} from \(A\) to \(B\) is a subset \(f \subseteq A \times B\) such that
     \[
-        \forall x \in A, \exists_1 y \in B: \para{x, y} \in f.
+        \forall x \in A, \exists_1 y \in B: \pqty{x, y} \in f.
     \]
 
     We write
     \[
         \functiondomain{f}{A}{B}
     \]
-    if \(f\) is a function from \(A\) to \(B\), and if \(\para{x, y} \in f\), we write \(f\para{x} = y\), or
+    if \(f\) is a function from \(A\) to \(B\), and if \(\pqty{x, y} \in f\), we write \(f\pqty{x} = y\), or
     \[
         \functionmap{f}{x}{y}.
     \]
@@ -302,21 +302,21 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a 'rule' tha
 \begin{definition}[Domain, Co-domain, Image, Pre-Image]
     Given \(\functiondomain{f}{A}{B}\), we say \(A\) is the \emph{domain} of \(f\), and \(B\) is the \emph{co-domain} or \emph{range} of \(f\).
 
-    If \(x \in A\), and \(f\para{x} = y\), then \(y\) is \emph{the image} of \(x\), and \(x\) is \emph{a pre-image} of \(y\).
+    If \(x \in A\), and \(f\pqty{x} = y\), then \(y\) is \emph{the image} of \(x\), and \(x\) is \emph{a pre-image} of \(y\).
 
     If \(X \subseteq A\), then \emph{the image of \(X\) under \(f\)} is
     \[
-        f\para{X} = \set{f\para{x}}{X \in X} = \set{b \in B}{\exists x \in X: f\para{x} = b}.
+        f\pqty{X} = \set{f\pqty{x}}{X \in X} = \set{b \in B}{\exists x \in X: f\pqty{x} = b}.
     \]
 
     If \(Y \subseteq B\), then \emph{the pre-image of \(Y\) under \(f\)} is
     \[
-        f\inverse\para{Y} = \set{a \in A}{f\para{a} \in Y}.
+        f\inverse\pqty{Y} = \set{a \in A}{f\pqty{a} \in Y}.
     \]
 
     The \emph{image} of the map \(f\) is
     \[
-        \img f = f \para{A}
+        \img f = f \pqty{A}
     \]
     where \(A\) is its domain.
 \end{definition}
@@ -327,8 +327,8 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a 'rule' tha
 
 \begin{examples}[Images and Pre-Images]
     \begin{enumerate}
-        \item For the function \(f\para{x} = x^2\), the image of \(6\) is \(36\), and the pre-images of \(36\) are \(\pm 6\).
-        \item For the function \(f\para{x} = x^2\), the image of \(\cointv{-1}{4}\) is \(\cointv{0}{16}\), and the pre-image of \(\cointv{-1}{4}\) is \(\oointv{-2}{2}\).
+        \item For the function \(f\pqty{x} = x^2\), the image of \(6\) is \(36\), and the pre-images of \(36\) are \(\pm 6\).
+        \item For the function \(f\pqty{x} = x^2\), the image of \(\cointv{-1}{4}\) is \(\cointv{0}{16}\), and the pre-image of \(\cointv{-1}{4}\) is \(\oointv{-2}{2}\).
     \end{enumerate}
 \end{examples}
 
@@ -338,17 +338,17 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a 'rule' tha
     \begin{itemize}
         \item \(f\) is \emph{injective} if distinct elements are mapped to distinct elements, i.e.,
         \[
-            \forall a, b \in A, a \neq b: f\para{a} \neq f\para{b}.
+            \forall a, b \in A, a \neq b: f\pqty{a} \neq f\pqty{b}.
         \]
 
         Equivalently, \(f\) is injective if
         \[
-            \forall a, b \in A: f\para{a} = f\para{b} \implies a = b.
+            \forall a, b \in A: f\pqty{a} = f\pqty{b} \implies a = b.
         \]
 
-        \item \(f\) is \emph{surjective} if \(\img \para{f} = B\). Equivalently, \(f\) is surjective if
+        \item \(f\) is \emph{surjective} if \(\img \pqty{f} = B\). Equivalently, \(f\) is surjective if
         \[
-            \forall b \in B \exists a \in A: f\para{a} = b.
+            \forall b \in B \exists a \in A: f\pqty{a} = b.
         \]
 
         \item \(f\) is \emph{bijective} if \(f\) is both injective and surjective.
@@ -396,13 +396,13 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a 'rule' tha
     We refer to \autoref{fig:injective-surjective-examples}.
 
     \begin{enumerate}
-        \item Let \(\functiondomain{f_1}{\brce{1, 2, 3, 4, 5}}{\brce{1, 2, 3, 4}}\) be given by the first map. \(f_1\) is neither injective nor surjective.
+        \item Let \(\functiondomain{f_1}{\Bqty{1, 2, 3, 4, 5}}{\Bqty{1, 2, 3, 4}}\) be given by the first map. \(f_1\) is neither injective nor surjective.
 
-        \item Let \(\functiondomain{f_2}{\brce{1, 2, 3}}{\brce{1, 2, 3}}\) be given by the second map. \(f_2\) is both injective and surjective, hence bijective.
+        \item Let \(\functiondomain{f_2}{\Bqty{1, 2, 3}}{\Bqty{1, 2, 3}}\) be given by the second map. \(f_2\) is both injective and surjective, hence bijective.
 
-        \item Let \(\functiondomain{f_3}{\brce{1, 2, 3}}{\brce{1, 2, 3, 4}}\) be given by the third map. \(f_3\) is injective but not surjective.
+        \item Let \(\functiondomain{f_3}{\Bqty{1, 2, 3}}{\Bqty{1, 2, 3, 4}}\) be given by the third map. \(f_3\) is injective but not surjective.
 
-        \item Let \(\functiondomain{f_4}{\brce{1, 2, 3, 4}}{\brce{1, 2, 3}}\) be given by the fourth map. \(f_4\) is surjective but not injective.
+        \item Let \(\functiondomain{f_4}{\Bqty{1, 2, 3, 4}}{\Bqty{1, 2, 3}}\) be given by the fourth map. \(f_4\) is surjective but not injective.
     \end{enumerate}
 \end{examples}
 
@@ -413,7 +413,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 \end{definition}
 
 \begin{remark}
-    When specifying functions, we need to specify both its domain and co-domain. For example, asking whether \(f\para{x} = x^2\) is injective is meaningless, since
+    When specifying functions, we need to specify both its domain and co-domain. For example, asking whether \(f\pqty{x} = x^2\) is injective is meaningless, since
     \[
         \function{f}{\NN}{\NN}{x}{x^2}
     \]
@@ -459,7 +459,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
     \end{tikzcd}
     \qquad
     \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
-          & \NN \arrow[rr, "h"]    & & \NN \setminus \brce{1} \\
+          & \NN \arrow[rr, "h"]    & & \NN \setminus \Bqty{1} \\
         1 & \bullet \arrow[rr]    & & \bullet & 2 \\
         2 & \bullet \arrow[rr]    & & \bullet & 3 \\
         3 & \bullet \arrow[rr]    & & \bullet & 4 \\
@@ -485,13 +485,13 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
             \function{g}{\NN}{\NN}{x}{\begin{cases}
             x - 1, & x \neq 1, \\ 1, & x = 1\end{cases}}
         \]
-        is not injective but surjective. \(h\para{1} = h\para{2}\).
+        is not injective but surjective. \(h\pqty{1} = h\pqty{2}\).
 
         \item The function
         \[
-            \function{h}{\NN}{\NN \setminus \brce{1}}{x}{x + 1}
+            \function{h}{\NN}{\NN \setminus \Bqty{1}}{x}{x + 1}
         \]
-        is bijective, and \(\NN \setminus \brce{1} \subsetneq \NN\).
+        is bijective, and \(\NN \setminus \Bqty{1} \subsetneq \NN\).
     \end{enumerate}
 \end{examples}
 
@@ -510,12 +510,12 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
         
         \item The operation \(+\) on \(\NN\) is a function
         \[
-            \function{+}{\NN}{\NN}{\para{a, b}}{a + b}.
+            \function{+}{\NN}{\NN}{\pqty{a, b}}{a + b}.
         \]
 
         \item A set \(X\) has size \(n\) if and only if there is a bijection
         \[
-            \function{f}{\brce{1, 2, \ldots, n}}{X = \brce{a_1, a_2, \ldots, a_n}}{i}{a_i}.
+            \function{f}{\Bqty{1, 2, \ldots, n}}{X = \Bqty{a_1, a_2, \ldots, a_n}}{i}{a_i}.
         \]
     \end{enumerate}
 \end{examples}
@@ -523,7 +523,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 \begin{definition}[Indicator Function]
     Given a set \(X\) and \(A \subseteq X\), we have the \emph{indicator function} or \emph{characteristic function} of \(A\)
     \[
-        \function{\indicator_A = \characteristic_A}{X}{\brce{0, 1}}{x}{\begin{cases}1, & x \in A, \\ 0, & x \notin A\end{cases}.}
+        \function{\indicator_A = \characteristic_A}{X}{\Bqty{0, 1}}{x}{\begin{cases}1, & x \in A, \\ 0, & x \notin A\end{cases}.}
     \]
 \end{definition}
 
@@ -552,10 +552,10 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 \begin{proof}[of Property 4]
     We have
     \begin{align*}
-        \indicator_{A \cup B} &= 1 - \indicator_{X \setminus \para{A \cup B}} && \text{Property 3} \\
-        &= 1 - \indicator_{\para{X \setminus A} \cap \para{X \setminus B}} && \text{Property 1, de Morgan's Law} \\
+        \indicator_{A \cup B} &= 1 - \indicator_{X \setminus \pqty{A \cup B}} && \text{Property 3} \\
+        &= 1 - \indicator_{\pqty{X \setminus A} \cap \pqty{X \setminus B}} && \text{Property 1, de Morgan's Law} \\
         &= 1 - \indicator_{X \setminus A} \cdot \indicator_{X \setminus B} && \text{Property 2} \\
-        &= 1 - \para{1 - \indicator_A} \para{1 - \indicator_B} && \text{Property 3} \\
+        &= 1 - \pqty{1 - \indicator_A} \pqty{1 - \indicator_B} && \text{Property 3} \\
         &= - \indicator_A \indicator_B + \indicator_A + \indicator_B \\
         &= \indicator_A + \indicator_B - \indicator_{A \cap B} && \text{Property 2}
     \end{align*}
@@ -565,11 +565,11 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 \begin{definition}[Composition of Functions]
     Given \(\functiondomain{f}{A}{B}\) and \(\functiondomain{g}{B}{C}\), the \emph{composition} is
     \[
-        \function{g \circ f}{A}{C}{a}{g\para{f\para{a}}.}
+        \function{g \circ f}{A}{C}{a}{g\pqty{f\pqty{a}}.}
     \]
 \end{definition}
 
-Figure \autoref{fig:composition-functions} visualises this, for \(b = f\para{a}\), and \(c = g\para{b} = g \circ f \para{a}\).
+Figure \autoref{fig:composition-functions} visualises this, for \(b = f\pqty{a}\), and \(c = g\pqty{b} = g \circ f \pqty{a}\).
 
 \begin{figure}[ht!]
     \centering
@@ -593,16 +593,16 @@ Figure \autoref{fig:composition-functions} visualises this, for \(b = f\para{a}\
 
     We have
     \[
-        g \circ f \para{x} = g \para{f \para{x}} = g \para{2x} = 2x + 1
+        g \circ f \pqty{x} = g \pqty{f \pqty{x}} = g \pqty{2x} = 2x + 1
     \]
     and
     \[
-        f \circ g \para{x} = f \para{g \para{x}} = f \para{x + 1} = 2x + 2.
+        f \circ g \pqty{x} = f \pqty{g \pqty{x}} = f \pqty{x + 1} = 2x + 2.
     \]
 
     Note
     \[
-        f \circ g \para{1} = 4 \neq 3 = g \circ f \para{1}.
+        f \circ g \pqty{1} = 4 \neq 3 = g \circ f \pqty{1}.
     \]  
 \end{example}
 
@@ -611,7 +611,7 @@ We see from the above example that in general, \(\circ\) is not commutative.
 \begin{proposition}[Function Composition is Associative]
     For functions \(\functiondomain{f}{A}{B}, \functiondomain{g}{B}{C}, \functiondomain{h}{C}{D}\), we have
     \[
-        h \circ \para{g \circ f} = \para{h \circ g} \circ f.
+        h \circ \pqty{g \circ f} = \pqty{h \circ g} \circ f.
     \]
 
     This allows us to drop brackets in function composition without ambiguity.
@@ -632,13 +632,13 @@ We see from the above example that in general, \(\circ\) is not commutative.
 
     For any \(x \in A\), we have
     \begin{align*}
-        \para{h \circ \para{g \circ f}} \para{x} &= h\para{\para{g \circ f} \para{x}} \\
-        &= h \para{g \para{f \para{x}}}
+        \pqty{h \circ \pqty{g \circ f}} \pqty{x} &= h\pqty{\pqty{g \circ f} \pqty{x}} \\
+        &= h \pqty{g \pqty{f \pqty{x}}}
     \end{align*}
     and
     \begin{align*}
-        \para{\para{h \circ g} \circ f} \para{x} &= \para{h \circ g} \para{f\para{x}} \\
-        &= h \para{g \para{f \para{x}}}
+        \pqty{\pqty{h \circ g} \circ f} \pqty{x} &= \pqty{h \circ g} \pqty{f\pqty{x}} \\
+        &= h \pqty{g \pqty{f \pqty{x}}}
     \end{align*}
     indeed.
 \end{proof}
@@ -666,18 +666,18 @@ We now define what it means for a function to be reversible and the reverse of i
 
     For all \(x \in \RR\), we have
     \begin{align*}
-        \para{g \circ f} \para{x} &= g \para{f \para{x}} \\
-        &= g \para{2x + 1} \\
-        &= \frac{\para{2x + 1} - 2}{2} \\
+        \pqty{g \circ f} \pqty{x} &= g \pqty{f \pqty{x}} \\
+        &= g \pqty{2x + 1} \\
+        &= \frac{\pqty{2x + 1} - 2}{2} \\
         &= x
     \end{align*}
     so \(g \circ f = \identity_{\RR}\).
 
     For all \(x \in \RR\), we have
     \begin{align*}
-        \para{f \circ g} \para{x} &= f \para{g \para{x}} \\
-        &= f \para{\frac{x - 1}{2}} \\
-        &= 2 \para{\frac{x - 1}{2}} + 1 \\
+        \pqty{f \circ g} \pqty{x} &= f \pqty{g \pqty{x}} \\
+        &= f \pqty{\frac{x - 1}{2}} \\
+        &= 2 \pqty{\frac{x - 1}{2}} + 1 \\
         &= x,
     \end{align*}
     so \(f \circ g = \identity_{\RR}\).
@@ -693,7 +693,7 @@ We now define what it means for a function to be reversible and the reverse of i
         \function{G}{\NN}{\NN}{x}{\begin{cases}x - 1, & x \neq 1, \\ 1, & x = 1.\end{cases}}
     \]
 
-    Figure \autoref{fig:one-sided-inverse} visualises this situation. Note that \(g \circ f = \identity_{\NN}\) but \(f \circ g \neq \identity_{\NN}\), since \(f \para{g\para{1}} = f\para{1} = 2\).
+    Figure \autoref{fig:one-sided-inverse} visualises this situation. Note that \(g \circ f = \identity_{\NN}\) but \(f \circ g \neq \identity_{\NN}\), since \(f \pqty{g\pqty{1}} = f\pqty{1} = 2\).
 \end{example}
 
 \begin{figure}[ht!]
@@ -717,12 +717,12 @@ Next we investigate on the conditions that inverses exist.
 \end{lemma}
 
 \begin{proof}
-    If such \(g\) exists, and there exists \(a, a' \in A\) such that \(f \para{a} = f \para{a'}\), then \(g \para{f \para{a}} = g \para{f \para{a'}}\), hence \(a = a'\), and \(f\) is injective.
+    If such \(g\) exists, and there exists \(a, a' \in A\) such that \(f \pqty{a} = f \pqty{a'}\), then \(g \pqty{f \pqty{a}} = g \pqty{f \pqty{a'}}\), hence \(a = a'\), and \(f\) is injective.
 
     Conversely, if \(f\) is injective, we can find \(g\) such that \(g \circ f = \identity_A\). Let \(b \in B\).
     \begin{itemize}
-        \item If \(b \in f\para{A}\), then let \(g \para{b} = a\) where \(a\) is the \emph{unique} element of \(A\) such that \(f\para{a} = b\).
-        \item If \(b \notin f\para{A}\), then assign \(g \para{b} \in A\) be anything.
+        \item If \(b \in f\pqty{A}\), then let \(g \pqty{b} = a\) where \(a\) is the \emph{unique} element of \(A\) such that \(f\pqty{a} = b\).
+        \item If \(b \notin f\pqty{A}\), then assign \(g \pqty{b} \in A\) be anything.
     \end{itemize}
 \end{proof}
 
@@ -733,11 +733,11 @@ Next we investigate on the conditions that inverses exist.
 \begin{proof}
     If such \(g\) exists, then
     \[
-        f \para{g \para{B}} = B
+        f \pqty{g \pqty{B}} = B
     \]
     hence \(f\) must be surjective.
 
-    Conversely, if \(f\) is surjective, we construct such \(g\). Let \(b \in B\), pick \emph{some} \(a \in A\) with \(f\para{a} = b\) (i.e. pick \(a\) as some pre-image of \(b\)), and let \(g \para{b} = a\).
+    Conversely, if \(f\) is surjective, we construct such \(g\). Let \(b \in B\), pick \emph{some} \(a \in A\) with \(f\pqty{a} = b\) (i.e. pick \(a\) as some pre-image of \(b\)), and let \(g \pqty{b} = a\).
 \end{proof}
 
 \begin{theorem}[Bijections are those with Inverses]
@@ -756,7 +756,7 @@ Next we investigate on the conditions that inverses exist.
 \label{sec:relations}
 
 \begin{definition}[Relation]
-    A \emph{relation} on a set \(X\) is a subset \(R \subseteq X \times X\). We write \(aRb\) for \(\para{a, b} \in R\).
+    A \emph{relation} on a set \(X\) is a subset \(R \subseteq X \times X\). We write \(aRb\) for \(\pqty{a, b} \in R\).
 \end{definition}
 
 \begin{examples}[Examples of Relations on \(\NN\)]
@@ -776,7 +776,7 @@ There are three properties of a relation that are of special interest.
     \begin{itemize}
         \item \emph{reflexive}, if \(xRx\) for all \(x \in X\);
         \item \emph{symmetric}, if \(xRy \implies yRx\) for all \(x, y \in X\);
-        \item \emph{transitive} if \(\para{aRb} \land \para{bRc} \implies aRc\) for all \(a, b, c \in X\).
+        \item \emph{transitive} if \(\pqty{aRb} \land \pqty{bRc} \implies aRc\) for all \(a, b, c \in X\).
     \end{itemize}
 \end{definition}
 
@@ -815,14 +815,14 @@ We notice that we seem to be able to partition a set \(X\) based on an equivalen
 \begin{definition}[Equivalence Class]
     Let \(\sim\) be an equivalence relation on \(X\). The \emph{equivalence class} of a particular element \(x \in X\) is denoted by
     \[
-        \brac{x} = \set{y \in X}{y \sim x}.
+        \bqty{x} = \set{y \in X}{y \sim x}.
     \]
 \end{definition}
 
 \begin{example}[Equivalence Class]
     In Example (1) above,
     \[
-        \brac{35} = \set{y \in \NN}{y\text{ ends in }5} = \brac{5}.
+        \bqty{35} = \set{y \in \NN}{y\text{ ends in }5} = \bqty{5}.
     \]
 \end{example}
 
@@ -835,18 +835,18 @@ We notice that we seem to be able to partition a set \(X\) based on an equivalen
 \end{theorem}
 
 \begin{proof}
-    Since \(\sim\) is reflexive, we have \(x \in \brac{x}\) for all \(x \in X\). Then
+    Since \(\sim\) is reflexive, we have \(x \in \bqty{x}\) for all \(x \in X\). Then
     \[
-        \bigcup_{x \in X} \brac{x} = X.
+        \bigcup_{x \in X} \bqty{x} = X.
     \]
 
-    It remains to prove that for any \(x, y \in X\), either \(\brac{x} = \brac{y}\) or \(\brac{x} \cap \brac{y} = \emptyset\).
+    It remains to prove that for any \(x, y \in X\), either \(\bqty{x} = \bqty{y}\) or \(\bqty{x} \cap \bqty{y} = \emptyset\).
 
-    Suppose that \(\brac{x} \cap \brac{y} \neq \emptyset\), we want to prove that \(\brac{x} = \brac{y}\).
+    Suppose that \(\bqty{x} \cap \bqty{y} \neq \emptyset\), we want to prove that \(\bqty{x} = \bqty{y}\).
     
-    Take \(z \in \brac{x} \cap \brac{y} \neq \emptyset\). By definition of an equivalence relation, \(z \sim x\) and hence \(x \sim z\), and \(z \sim y\). By transitivity, we have \(x \sim y\).
+    Take \(z \in \bqty{x} \cap \bqty{y} \neq \emptyset\). By definition of an equivalence relation, \(z \sim x\) and hence \(x \sim z\), and \(z \sim y\). By transitivity, we have \(x \sim y\).
 
-    Now let \(w \in \brac{y}\), and hence we have \(y \sim w\). By transitivity, \(x \sim w\), so \(w \in \brac{x}\). Hence, \(\brac{y} \subseteq \brac{x}\), and similarly, \(\brac{x} \subseteq \brac{y}\), so \(\brac{x} = \brac{y}\) as desired.
+    Now let \(w \in \bqty{y}\), and hence we have \(y \sim w\). By transitivity, \(x \sim w\), so \(w \in \bqty{x}\). Hence, \(\bqty{y} \subseteq \bqty{x}\), and similarly, \(\bqty{x} \subseteq \bqty{y}\), so \(\bqty{x} = \bqty{y}\) as desired.
 \end{proof}
 
 Note conversely, that given aby partition of \(X\), there is an equivalence relation \(R\) whose equivalence classes are precisely the parts of the subsets of the partition. We define \(aRb\) whenever \(a\) and \(b\) live in the same part. \autoref{fig:equivalence-relations-partitions} visualise the equivalence.
@@ -862,12 +862,12 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
 \begin{definition}[Quotient, Quotient/Projection Map]
     Given an equivalence relation \(R\) on a set \(X\), the \emph{quotient of \(X\) by \(R\)} is
     \[
-        X / R = \set{\brac{x}}{x \in X}.
+        \flatfrac{X}{R} = \set{\bqty{x}}{x \in X}.
     \]
 
     The map
     \[
-        \function{q}{X}{X / R}{x}{\brac{x}}
+        \function{q}{X}{\flatfrac{X}{R}}{x}{\bqty{x}}
     \]
     is the \emph{quotient/projection map}.
 \end{definition}
@@ -884,24 +884,24 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
     \begin{enumerate}
         \item In Example 1 above, we have
         \[
-            X / R = \brce{\brac{0}, \brac{1}, \ldots, \brac{9}}
+            \flatfrac{X}{R} = \Bqty{\bqty{0}, \bqty{1}, \ldots, \bqty{9}}
         \]
-        and \(\abs{X / R} = 10\).
+        and \(\abs{\flatfrac{X}{R}} = 10\).
 
         \item We define on \(\ZZ \times \NN\) an equivalence relation
         \[
-            \para{a, b} R \para{c, d} \iff ad = bc.
+            \pqty{a, b} R \pqty{c, d} \iff ad = bc.
         \]
 
         Note that
         \[
-            \brac{\para{1, 2}} = \brce{\para{1, 2}, \para{2, 4}, \para{3, 6}, \ldots},
+            \bqty{\pqty{1, 2}} = \Bqty{\pqty{1, 2}, \pqty{2, 4}, \pqty{3, 6}, \ldots},
         \]
-        so we may regard \(\ZZ \times \NN / R\) as a copy of \(\QQ\) by identifying \(\brac{\para{a, b}}\) with \(\frac{a}{b} \in \QQ\).
+        so we may regard \(\ZZ \times \NN / R\) as a copy of \(\QQ\) by identifying \(\bqty{\pqty{a, b}}\) with \(\frac{a}{b} \in \QQ\).
 
         The quotient map for this equivalence relation is
         \[
-            \function{q}{\ZZ \times \NN}{\QQ}{\para{a, b}}{\frac{a}{b}.}
+            \function{q}{\ZZ \times \NN}{\QQ}{\pqty{a, b}}{\frac{a}{b}.}
         \]
     \end{enumerate}
 \end{examples}
@@ -920,7 +920,7 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
     \begin{enumerate}
         \item \(+\) and \(\cdot\) are binary operations on \(\NN, \ZZ, \ldots\).
         \item \(-\) is a binary operation on \(\ZZ, \QQ, \ldots\).
-        \item \(\div\) is a binary operation on \(\QQ \setminus \brce{0} = \QQ\multiplicative, \RR\multiplicative, \ldots\).
+        \item \(\div\) is a binary operation on \(\QQ \setminus \Bqty{0} = \QQ\multiplicative, \RR\multiplicative, \ldots\).
     \end{enumerate}
 \end{examples}
 
@@ -928,7 +928,7 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
     Let \(\ast\) be a binary operation on a set \(A\).
     \begin{itemize}
         \item If for all \(x, y \in A\), we have \(x \ast y = y \ast x\), then we say \(\ast\) is \emph{commutative}.
-        \item If for all \(x, y, z \in A\), we have \(x \ast \para{y \ast z} = \para{x \ast y} \ast z\), then we say \(\ast\) is \emph{associative}.
+        \item If for all \(x, y, z \in A\), we have \(x \ast \pqty{y \ast z} = \pqty{x \ast y} \ast z\), then we say \(\ast\) is \emph{associative}.
     \end{itemize}
 \end{definition}
 
@@ -937,8 +937,8 @@ We can abstract another common property in arithmetic in binary relations.
 \begin{definition}[Distributive]
     Let \(\ast\) and \(\odot\) be binary operations on \(A\). We say \emph{\(\ast\) is distributive over \(\odot\)} if for all \(x, y, z \in A\), we have
     \begin{align*}
-        x \ast \para{y \odot z} &= \para{x \ast y} \odot \para{x \ast z}, \\
-        \para{y \odot z} \ast x &= \para{y \ast x} \odot \para{z \ast x}.
+        x \ast \pqty{y \odot z} &= \pqty{x \ast y} \odot \pqty{x \ast z}, \\
+        \pqty{y \odot z} \ast x &= \pqty{y \ast x} \odot \pqty{z \ast x}.
     \end{align*}
 \end{definition}
 
