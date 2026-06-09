@@ -4,10 +4,10 @@
 \subsection{Defining the Real Numbers}
 \label{sec:defining-real-numbers}
 
-Recall that we defined \(\NN\) using the Peano's Axioms, and we may obtain \(\ZZ\) from \(\NN\) by allowing for 'subtraction'.
+Recall that we defined \(\NN\) using the Peano's Axioms, and we may obtain \(\ZZ\) from \(\NN\) by allowing for `subtraction'.
 
 \begin{definition}[\(\ZZ\)]
-    Formally, \(\ZZ\) is the set of equivaleence classes of \(\NN \times \NN\) under the equivalence relation
+    Formally, \(\ZZ\) is the set of equivalence classes of \(\NN \times \NN\) under the equivalence relation
     \[
         \pqty{a, b} \sim \pqty{c, d} \iff a + d = b + c.
     \]
@@ -151,11 +151,11 @@ The \textbf{crucial point} is not about the \emph{maximum/minimum} of a set -- i
     \]
 \end{definition}
 
-Note that we defined \(\RR\) -- but its existence is not immediately obvious from the definition. This can be seen from a technique called \emph{Dedkind Cuts}.
+Note that we defined \(\RR\) -- but its existence is not immediately obvious from the definition. This can be seen from a technique called \emph{Dedekind Cuts}.
 
 \begin{remarks}
     \begin{enumerate}
-        \item From the axioms, we can check, for example, that \(0 < 1\). Indeed, if not, then \(1 < 0\). Since \(0 \neq 1\), assume on the countrary that \(1 < 0\), so we have
+        \item From the axioms, we can check, for example, that \(0 < 1\). Indeed, if not, then \(1 < 0\). Since \(0 \neq 1\), assume on the contrary that \(1 < 0\), so we have
         \[
             0 = 1 - 1 < 0 - 1 = -1,
         \]
@@ -190,7 +190,7 @@ We give some examples on the idea of the least upper bound.
         \]
         since \(1\) is an upper bound: for all \(x \in S, x \leq 1\); and every other upper bound is \(\geq 1\), since \(1 \in S\).
 
-        \item Consier \(S = \set{x \in \RR}{0 < x < 1} = \oointv{0}{1}\).
+        \item Consider \(S = \set{x \in \RR}{0 < x < 1} = \oointv{0}{1}\).
         
         Similarly, \(2\) is an upper bound for \(S\), and \(\frac{3}{4}\) is not.
 
@@ -198,7 +198,7 @@ We give some examples on the idea of the least upper bound.
         \[
             \sup \pqty{S} = 1,
         \]
-        since \(1\) is an upper bound: for all \(x \in S, x < 1\) so \(x \leq 1\); and no opper bound \(c\) satisfies \(c < 1\).
+        since \(1\) is an upper bound: for all \(x \in S, x < 1\) so \(x \leq 1\); and no upper bound \(c\) satisfies \(c < 1\).
 
         Indeed, \(c\) is certainly greater than \(0\), and furthermore \(c \geq \frac{1}{2}\) since \(\frac{1}{2} \in S\).
 
@@ -273,7 +273,7 @@ The previous corollary immediately implies that
     \inf \pqty{\set{\frac{1}{n}}{n \in \NN}} = 0.
 \]
 
-The previous proposition and corollary can be interpreted as that there are no 'infinitely large' or 'infinitely small' numbers in \(\RR\).
+The previous proposition and corollary can be interpreted as that there are no `infinitely large' or `infinitely small' numbers in \(\RR\).
 
 Now, we return to a previous example.
 
@@ -283,7 +283,7 @@ Now, we return to a previous example.
         S = \Bqty{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
     \]
 
-    We claim \(\sup \pqty{S} = 1\), and suppose on the countrary that \(c < 1\) is an upper bound for \(S\). Then \(1 - \frac{1}{n} \leq c\), for all \(n \in \NN\), so
+    We claim \(\sup \pqty{S} = 1\), and suppose on the contrary that \(c < 1\) is an upper bound for \(S\). Then \(1 - \frac{1}{n} \leq c\), for all \(n \in \NN\), so
     \[
         0 < 1 - c \leq \frac{1}{n}
     \]
@@ -424,7 +424,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 
 We aim to answer the question of what it means for a sequence \(a_1, a_2, a_3, \ldots\) to tend to a limit \(l\).
 
-First, it is \emph{not} enough on its own that the terms get 'arbitrarily close' to \(l\), in the sense that
+First, it is \emph{not} enough on its own that the terms get `arbitrarily close' to \(l\), in the sense that
 \[
     \forall \epsilon > 0, \exists n \in \NN: l - \epsilon < a_n < l + \epsilon.
 \]
@@ -545,7 +545,7 @@ We may think of the absolute value \(\abs{a - b}\) as the \emph{distance} betwee
         \[
             \abs{1 - l} < 1, \abs{-1 - l} < 1,
         \]
-        and hence by the triangular inequaltiy,
+        and hence by the triangular inequality,
         \begin{align*}
             2 &> \abs{1 - l} + \abs{-1 - l} \\
             &\geq \abs{\pqty{1 - l} - \pqty{-1 - l}} \\
@@ -615,7 +615,7 @@ We see the two definitions of bounded are equivalent. Indeed, if \(\abs{a_n} < B
 \end{proof}
 
 \begin{definition}[Monotonic]
-    A sequnece \(\pqty{a_n}_{n = 1}^{\infty}\) is \emph{increasing} if \(a_{n + 1} \geq a_n\) for all \(n \in \NN\).
+    A sequence \(\pqty{a_n}_{n = 1}^{\infty}\) is \emph{increasing} if \(a_{n + 1} \geq a_n\) for all \(n \in \NN\).
 
     Similarly, it is \emph{decreasing} if \(a_{n + 1} \leq a_n\) for all \(n \in \NN\).
 
@@ -664,7 +664,7 @@ This leads to the following theorem.
     \begin{enumerate}
         \item For an increasing sequence to converge, we only need to know that it is bounded above. The sequence converges to its supremum.
         \item The sequence \(\pqty{a_n}_{n = 1}^{\infty}\) with \(a_n = n\) is increasing and not bounded above -- and it diverges.
-        \item Monotone convergence theorem is in fact equivalent to the least upper bound axiom -- meaning that if we substitude the latter with the former, we get an equivalent formation of the reals.
+        \item Monotone convergence theorem is in fact equivalent to the least upper bound axiom -- meaning that if we substitute the latter with the former, we get an equivalent formation of the reals.
         \item Every sequence must have a monotonic subsequence.
     \end{enumerate}
 \end{remarks}
@@ -809,7 +809,7 @@ We aim to formalise the study of infinite sums in this section.
         \[
             \sum_{n = 1}^{\infty} \frac{1}{n^2}
         \]
-        converges sice its partial sums are increasing and bounded above.
+        converges since its partial sums are increasing and bounded above.
 
         In fact, we have
         \[
@@ -852,7 +852,7 @@ The next question to ask, is if the decimal expansions are correspondent to the 
 \end{proposition}
 
 \begin{proof}
-    This is trivially true for \(x = 1\) by \(0.999\ldots\). We consider \(0 \leq x < 1\). We conduct the follwoing algorithm to construct such decimal expansion.
+    This is trivially true for \(x = 1\) by \(0.999\ldots\). We consider \(0 \leq x < 1\). We conduct the following algorithm to construct such decimal expansion.
 
     We pick \(d_1 \in \ZZ\) be maximal such that
     \[
@@ -1076,7 +1076,7 @@ This case is to be dealt carefully when dealing with reals by considering their 
 \end{proof}
 
 \begin{definition}[Algebraic and Transcendental Numbers]
-    We say a real number is \emph{algebraic} if it is a root of a non-zero polynomial with integer coefficients. (Or rational coefficeints).
+    We say a real number is \emph{algebraic} if it is a root of a non-zero polynomial with integer coefficients. (Or rational coefficients).
 
     A real number is \emph{transcendental} if it is not algebraic.
 \end{definition}
@@ -1204,9 +1204,9 @@ We utilise these two facts to show that the Liouville number is irrational.
 \subsection{The Complex Numbers}
 \label{sec:complex-numbers}
 
-\(\RR\) is not 'complete' in the sense that some polynomials with coefficents in \(\RR\) do not have real roots, for example \(x^2 + 1\).
+\(\RR\) is not `complete' in the sense that some polynomials with coefficients in \(\RR\) do not have real roots, for example \(x^2 + 1\).
 
-We define such numbers into existance.
+We define such numbers into existence.
 
 \begin{definition}[Complex Numbers, \(\CC\)]
     The \emph{complex numbers} \(\CC\) consists of \(\RR^2 = \set{\pqty{a, b}}{a, b \in \RR}\) together with operation \(+\) and \(\times\):
@@ -1216,19 +1216,19 @@ We define such numbers into existance.
     \end{align*}
 \end{definition}
 
-Figure \autoref{fig:visuallisation-of-complex-numbers} visuallises the complex numbers on \(\RR^2\).
+Figure \autoref{fig:visualisation-of-complex-numbers} visualises the complex numbers on \(\RR^2\).
 
 \begin{figure}[ht!]
     \centering
-    \caption{Visuallisation of \(\CC\)}
-    \label{fig:visuallisation-of-complex-numbers}
+    \caption{Visualisation of \(\CC\)}
+    \label{fig:visualisation-of-complex-numbers}
 \end{figure}
 
 We can view \(\RR\) as contained in \(\CC\) by identifying
 \[
     a \in \RR \leftrightarrow \pqty{a, 0} \in \CC,
 \]
-i.e. defining the injection (inclusiong map) \(i\) where
+i.e. defining the injection (inclusion map) \(i\) where
 \[
     \function{i}{\RR}{\CC}{a}{\pqty{a, 0}}.  
 \]

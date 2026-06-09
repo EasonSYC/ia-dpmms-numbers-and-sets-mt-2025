@@ -35,7 +35,7 @@ and this list might terminate.
         \ZZ = \Bqty{0, 1, -1, 2, -2, \ldots}.
         \]
 
-        The bijetion is given by
+        The bijection is given by
         \[
             x_n = \begin{cases}
                 \frac{n}{2}, & n \text{ is even}, \\
@@ -45,7 +45,7 @@ and this list might terminate.
     \end{enumerate}
 \end{examples}
 
-Countable sets are, in a sense, the 'smaller' sets in the infinite class. Intuitively we want the size of a subset of a set to be at most the size of the set itself. This is indeed true using the countability way to measure.
+Countable sets are, in a sense, the `smaller' sets in the infinite class. Intuitively we want the size of a subset of a set to be at most the size of the set itself. This is indeed true using the countability way to measure.
 
 \begin{lemma}[Subsets of \(\NN\) are Countable]
     Any subset of \(\NN\) is countable.
@@ -66,7 +66,7 @@ Countable sets are, in a sense, the 'smaller' sets in the infinite class. Intuit
     \]
     is well-defined, since for eny \(n\) there will be a unique \(s_n\), and it is injective.
 
-    It is also surjective becasue if \(k \in S\), then \(k \in \NN\), and there are \(< k\) elements of \(S\) less than \(k\). So \(k = s_n\) for some \(n \leq k\), i.e. this process reaches any element in \(S\) in finitely many steps.
+    It is also surjective because if \(k \in S\), then \(k \in \NN\), and there are \(< k\) elements of \(S\) less than \(k\). So \(k = s_n\) for some \(n \leq k\), i.e. this process reaches any element in \(S\) in finitely many steps.
 \end{proof}
 
 \begin{theorem}[Countability, Injection and Surjection]
@@ -116,7 +116,7 @@ Countable sets are, in a sense, the 'smaller' sets in the infinite class. Intuit
     If \(Y \subseteq X\) and \(X\) is countable, take the injection \(X \to \NN\), and restrict this to \(Y\), this gives an injection \(Y \to \NN\).
 \end{proof}
 
-Therefore, intuitively, countable means that a set is 'at most as big as \(\NN\)' -- and any set strictly smaller than \(\NN\) is finite.
+Therefore, intuitively, countable means that a set is `at most as big as \(\NN\)' -- and any set strictly smaller than \(\NN\) is finite.
 
 Now we see some examples of sets that seem to be bigger than \(\NN\) -- but is in fact countable as well.
 
@@ -136,7 +136,7 @@ Now we see some examples of sets that seem to be bigger than \(\NN\) -- but is i
     This inductively defines \(a: \NN \to \NN \times \NN\).
 \end{proof}
 
-\autoref{fig:label-n-n-with-n} gives a visuallisation of this map.
+\autoref{fig:label-n-n-with-n} gives a visualisation of this map.
 
 \begin{figure}[ht!]
     \centering
@@ -197,7 +197,7 @@ By induction, we have \(\ZZ^k\) and \(\NN^k\) is countable for any \(k \in \NN\)
     \[
         \function{f}{\bigcup_{n \in \NN} A_n}{\NN}{x}{2^i 3^j}
     \]
-    where \(x = a_j^{\pqty{i}}\) for the least \(i\) such that \(x \in A_i\) -- this is guarenteed to exist by well ordering principle, i.e.,
+    where \(x = a_j^{\pqty{i}}\) for the least \(i\) such that \(x \in A_i\) -- this is guaranteed to exist by well ordering principle, i.e.,
     \[
         i = \min\set{t \in \NN}{x \in A_t}.
     \]
@@ -262,7 +262,7 @@ By induction, we have \(\ZZ^k\) and \(\NN^k\) is countable for any \(k \in \NN\)
     This contradicts with that \(\RR\) is countable.
 \end{theorem}
 
-This is known as a \emph{diagonal argument} due to Cantor, 1870s. This shows that \(\oointv{0}{1}\) is uncountable, and by bijecting it with any interval linearlly, we see any interval with positive length on \(\RR\) is uncountable.
+This is known as a \emph{diagonal argument} due to Cantor, 1870s. This shows that \(\oointv{0}{1}\) is uncountable, and by bijecting it with any interval linearly, we see any interval with positive length on \(\RR\) is uncountable.
 
 \begin{corollary}[Transcendental Numbers are Uncountable]
     There are uncountably many transcendental numbers.
@@ -360,7 +360,7 @@ The first proof using the diagonal argument gives an even stronger result.
     \[
         \mathcal{A} = \set{A_i}{i \in I}
     \]
-    be a family of open pairwise disjiont intervals of \(\RR\). Then \(\mathcal{A}\) is countable.
+    be a family of open pairwise disjoint intervals of \(\RR\). Then \(\mathcal{A}\) is countable.
 \end{proposition}
 
 \begin{proof}[by considering \(\QQ\)]
@@ -504,11 +504,11 @@ Next, we want to show that the order is \textbf{antisymmetric} -- i.e. if there 
         B_{\infty} &= \set{b \in B}{\text{ancestor sequence of } b \text{ does not terminate}},
     \end{align*}
 
-    \autoref{fig:ancestor-sequence-even-odd-infinite-length} visuallises this \emph{partition} of \(A\) and \(B\).
+    \autoref{fig:ancestor-sequence-even-odd-infinite-length} visualises this \emph{partition} of \(A\) and \(B\).
     
     Now, note that \(f\) bijects from \(A_0\) to \(B_1\), observing that every \(b \in B_1\) has at least one ancestor, so is equal to \(f\pqty{a}\) for some \(a \in A_0\).
 
-    Simlilarly, \(g\) bijects from \(B_0\) to \(A_1\), observing that every \(a \in A_1\) has at least one ancestor, so is equal to \(g\pqty{b}\) for some \(b \in B_0\).
+    Similarly, \(g\) bijects from \(B_0\) to \(A_1\), observing that every \(a \in A_1\) has at least one ancestor, so is equal to \(g\pqty{b}\) for some \(b \in B_0\).
 
     Similarly, \(f\) (or \(g\)) bijects from \(A_{\infty}\) to \(B{_{\infty}}\).
 
@@ -549,7 +549,7 @@ Our journey of this course ends here -- but there are two important and fundamen
     \begin{enumerate}
         \item It would be nice to say that for any two sets \(A\) and \(B\), either \(A\) injects into \(B\), or \(B\) injects into \(A\) -- this allows us to define the comparison of sizes on \emph{any} two sets, showing that our order is \textbf{total}. This is known as the \emph{Principle of Cardinal Comparability (PCC)}, and is equivalent to the \emph{Axiom of Choice (AC)}.
         
-        \item The \emph{Cotinuum Hypothesis (CH)} states that there is no set whose size lies between \(\NN\) and \(\RR\), i.e. any subset of \(\RR\) is either countable or bijects with \(\RR\).
+        \item The \emph{Continuum Hypothesis (CH)} states that there is no set whose size lies between \(\NN\) and \(\RR\), i.e. any subset of \(\RR\) is either countable or bijects with \(\RR\).
         
         This is proven to be independent of Zermelo--Fraenkel Set Theory, with or without Axiom of Choice, i.e. within ZF or ZFC.
     \end{enumerate}

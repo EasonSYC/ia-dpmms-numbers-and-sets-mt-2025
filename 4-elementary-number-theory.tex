@@ -89,7 +89,7 @@ Before we prove this, we introduce what is meant by the highest common factor.
     \]
 \end{example}
 
-This definition does not immediately lead to the fact that the greatest common divisor always exists -- if it does it must be the 'greatest' common factor, but it is not trivial that the 'greatest' common factor is always a multiple of every other common factor.
+This definition does not immediately lead to the fact that the greatest common divisor always exists -- if it does it must be the `greatest' common factor, but it is not trivial that the `greatest' common factor is always a multiple of every other common factor.
 
 We show by construction that in fact it must always exist, but we first introduce an important method.
 
@@ -383,7 +383,7 @@ We now prove Euclid's Lemma.
 \end{proof}
 
 \begin{remark}
-    There are 'arithmetical systems' (rings) permitting addition and multiplication in which factorisation is not unique. For example, consider the ring extension
+    There are `arithmetical systems' (rings) permitting addition and multiplication in which factorisation is not unique. For example, consider the ring extension
     \[
         \ZZ\bqty{\sqrt{-3}} = \set{x + y i \sqrt{3}}{x, y \in \ZZ}
     \]
@@ -549,12 +549,12 @@ We may now present another proof that there are infinitely many primes --- recal
     \]
 \end{example}
 
-Instead of a straight axis, we can view \(\ZZ_n\) as a circle, as in \autoref{fig:visuallisation-of-zn}.
+Instead of a straight axis, we can view \(\ZZ_n\) as a circle, as in \autoref{fig:visualisation-of-zn}.
 
 \begin{figure}[ht!]
     \centering
     \caption{Visualisation of \(\ZZ_N\)}
-    \label{fig:visuallisation-of-zn}
+    \label{fig:visualisation-of-zn}
 \end{figure}
 
 \begin{proposition}[Addition and Multiplication on \(\ZZ_n\)]
@@ -663,7 +663,7 @@ Similar to how we solve equations in integers, we can also solve equations in th
     \]
 \end{remark}
 
-We next ask the questsion on which numbers are invertible in modulo \(n\). This answer is straightforward if \(n\) is a prime.
+We next ask the question on which numbers are invertible in modulo \(n\). This answer is straightforward if \(n\) is a prime.
 
 \begin{proposition}[Integers Modulo \(p\) are Invertible]
     Let \(p\) be a prime. Then every \(a \nequiv 0 \pmod{p}\) is a unit modulo \(p\).
@@ -772,7 +772,7 @@ Similarly, we may solve \textbf{simultaneous congruences} in \(\ZZ_n\) as well.
     \end{align*}
 \end{example}
 
-What about the follwoing system?
+What about the following system?
 
 \begin{align*}
     x \equiv 1 \pmod{4} &\implies x \equiv 1, 5, 9, 13, \ldots \\
@@ -862,7 +862,7 @@ We investigate the behaviour of powers of an integer under modulo a prime \(p\).
     \end{enumerate}
 \end{examples}
 
-The following result(s) is (are) best motivited by (corollary of) Lagrange's Theorem in group theory (lots of results in elementary number theory involving congruences are), but we show this in an elementary way.
+The following result(s) is (are) best motivated by (corollary of) Lagrange's Theorem in group theory (lots of results in elementary number theory involving congruences are), but we show this in an elementary way.
 
 \begin{theorem}[Fermat's Little Theorem]
     Let \(p\) be a prime. Then \(a^p \equiv a \pmod{p}\), for all integers \(a \in \ZZ\).
@@ -876,7 +876,7 @@ The following result(s) is (are) best motivited by (corollary of) Lagrange's The
         ax \equiv ay \pmod{p} \iff x \equiv y \pmod{p}.
     \]
 
-    Hence, the numbers \(a, 2a, 3a, \ldots, \pqty{p - 1}a\) are pairwise distinct (incongruent) under modulo \(p\), and are all non-zero modulo \(p\).
+    Hence, the numbers \(a, 2a, 3a, \ldots, \pqty{p - 1}a\) are pairwise distinct (not congruent) under modulo \(p\), and are all non-zero modulo \(p\).
 
     Therefore, they must be \(1, 2, 3, \ldots, p - 1\), in some order.
 
@@ -948,7 +948,7 @@ This next result is less intuitive: we consider the value of \(\pqty{p - 1}!\) m
     \end{enumerate}
 \end{examples}
 
-We conjuecture that the result is always \(-1\). To prove this, we first introduce some lemmas.
+We conjecture that the result is always \(-1\). To prove this, we first introduce some lemmas.
 
 \begin{lemma}[Square Root of \(1\) is \(\pm 1\) modulo Prime]
     Let \(p\) be a prime. We have
@@ -1006,7 +1006,7 @@ Now we are ready to prove our result.
     \]
 \end{proof}
 
-As an example, in modulo \(11\), \(\pqty{2, 6}, \pqty{3, 4}, \pqty{5, 9}, \pqty{7, 8}\) are the pairs of inverses, and \(1, 10\) are the units whose inverse is theirself.
+As an example, in modulo \(11\), \(\pqty{2, 6}, \pqty{3, 4}, \pqty{5, 9}, \pqty{7, 8}\) are the pairs of inverses, and \(1, 10\) are the units whose inverse are themselves.
 
 The next question we ask, is when is \(-1\) a square modulo \(p\), if ever?
 
@@ -1060,7 +1060,7 @@ We look at Fermat's Little Theorem when \(a = 2\), showing
 
 In fact, if \(2^p \equiv 2 \pmod{p}\), then there is a good chance that \(p\) is prime. Otherwise, \(p\) is a \emph{pseudo-prime}. Since we have efficient ways to calculate powers (in logarithm time), this is an efficient way to find primes.
 
-Now we preceed from this and encrypt messages. We may encode messages as a sequence of numbers, e.g. encoding \(A\) as \(0\), \(B\) as \(1\), \dots, \(Z\) as \(25\). Our goal is to send messages in an encrypted form, in such a way that the intended receiver can decrypt them easily, but a third party cannot.
+Now we proceed from this and encrypt messages. We may encode messages as a sequence of numbers, e.g. encoding \(A\) as \(0\), \(B\) as \(1\), \dots, \(Z\) as \(25\). Our goal is to send messages in an encrypted form, in such a way that the intended receiver can decrypt them easily, but a third party cannot.
 
 \begin{definition}[RSA Scheme]
     The following procedure is defined to be the \emph{RSA Scheme}.
