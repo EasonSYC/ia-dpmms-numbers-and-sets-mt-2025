@@ -155,7 +155,7 @@ We now use this integer division to conduct an algorithm called \emph{Euclid's a
 
 Note that this algorithm terminates in \(n < b\) steps, since
 \[
-    b > r_! > r_2 > \cdots > r_n > 0.
+    b > r_1 > r_2 > \cdots > r_n > 0.
 \]
 
 \begin{theorem}[Euclid's Algorithm gives the Greatest Common Divisor]
@@ -308,7 +308,7 @@ so let \(x = 33 x'\) and \(y = 33 y'\), we have
 
     \(\impliedby\). Conversely, suppose \(h \divides c\). Then by the previous theorem, there exists \(x, y \in \ZZ\), such that \(h = ax + by\).
 
-    But then \(c = \frac{ch} \cdot h\) and \(\frac{c}{h} \in \ZZ\), and hence
+    But then \(c = \frac{c}{h} \cdot h\) and \(\frac{c}{h} \in \ZZ\), and hence
     \[
         c = \frac{c}{h} \cdot \pqty{ax + by} = a \cdot \pqty{x \cdot \frac{c}{h}} + b \cdot \pqty{y \cdot \frac{c}{h}}
     \]
@@ -918,7 +918,7 @@ We have a theorem closely related to this but modulo any general integer.
     \]
     and hence
     \[
-        a^{\phi \pqty{m}} \prod_{u \in \mathcal{U}} u \equiv \prod_{u \in \mathcal{U}} u \pmod{m}.
+        a^{\totient \pqty{m}} \prod_{u \in \mathcal{U}} u \equiv \prod_{u \in \mathcal{U}} u \pmod{m}.
     \]
 
     Since \(\mathcal{U}\) contain units, their products must be a unit as well modulo \(n\), in other words,
@@ -1018,7 +1018,7 @@ The next question we ask, is when is \(-1\) a square modulo \(p\), if ever?
     \(\impliedby\). Suppose \(p \equiv 1 \pmod{4}\). By Wilson's theorem, we have
     \begin{align*}
         -1 &\equiv \pqty{p - 1}! \\
-        &\equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{p - 1}{2} \cdot \pqty{p + 1}{2} \cdot \cdots \cdot \pqty{p - 3} \cdot \pqty{p - 2} \cdot \pqty{p - 1} \\
+        &\equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{p - 1}{2} \cdot \frac{p + 1}{2} \cdot \cdots \cdot \pqty{p - 3} \cdot \pqty{p - 2} \cdot \pqty{p - 1} \\
         &\equiv 1 \cdot 2 \cdot 3 \cdot \cdots \cdot \frac{p - 1}{2} \cdot \pqty{- \frac{p - 1}{2}} \cdot \cdots \cdot \pqty{-3} \cdot \pqty{-2} \cdot \pqty{-1} \\
         &\equiv \pqty{-1}^{\frac{p - 1}{2}} \cdot \pqty{\pqty{\frac{p - 1}{2}}!}^2 \pmod{p}.
     \end{align*}
