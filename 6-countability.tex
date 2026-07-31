@@ -124,7 +124,7 @@ Now we see some examples of sets that seem to be bigger than \(\NN\) -- but is i
     The set \(\NN \times \NN\) is countable.
 \end{theorem}
 
-\begin{proof}[by Construction]
+\begin{proof}[\proofname\ by Construction]
     Let \(a_1 = \pqty{1, 1}\) and \(a_n\) inductively as follows: if \(a_{n - 1} = \pqty{p, q}\), then we define
     \[
         a_n = \begin{cases}
@@ -144,7 +144,7 @@ Now we see some examples of sets that seem to be bigger than \(\NN\) -- but is i
     \label{fig:label-n-n-with-n}
 \end{figure}
 
-\begin{proof}[by Injection]
+\begin{proof}[\proofname\ by Injection]
     Define
     \[
         \function{f}{\NN \times \NN}{\NN}{\pqty{x, y}}{2^x 3^y,}
@@ -286,7 +286,7 @@ We can also investigate the size of power sets of sets.
     \(\powerset\pqty{\NN}\) is uncountable.
 \end{theorem}
 
-\begin{proof}[using Diagonal Argument]
+\begin{proof}[\proofname\ using Diagonal Argument]
     If \(\powerset\pqty{\NN}\) were countable, we could list it as
     \[
         S_1, S_2, S_3, \ldots.
@@ -306,7 +306,7 @@ We can also investigate the size of power sets of sets.
     Hence, \(S\) is not in our list, and \(\powerset\pqty{\NN}\) is uncountable.
 \end{proof}
 
-\begin{proof}[by Injection]
+\begin{proof}[\proofname\ by Injection]
     We define an injection
     \[
         \functiondomain{f}{\oointv{0}{1}}{\powerset\pqty{\NN}}.
@@ -363,7 +363,7 @@ The first proof using the diagonal argument gives an even stronger result.
     be a family of open pairwise disjoint intervals of \(\RR\). Then \(\mathcal{A}\) is countable.
 \end{proposition}
 
-\begin{proof}[by considering \(\QQ\)]
+\begin{proof}[\proofname\ by considering \(\QQ\)]
     Each interval \(A_i\) contains a rational, and \(\QQ\) is countable. Since the intervals are disjoint, we have an injection
     \[
         \function{f}{I}{\QQ}{i}{r}
@@ -371,7 +371,7 @@ The first proof using the diagonal argument gives an even stronger result.
     by choosing a rational \(r\) in each interval \(A_i\). Hence, \(I\) is countable.
 \end{proof}
 
-\begin{proof}[by using countable union of countable sets]
+\begin{proof}[\proofname\ by using countable union of countable sets]
     The set
     \[
         S_1 = \set{i \in I}{A_i \text{ has length} \geq 1}

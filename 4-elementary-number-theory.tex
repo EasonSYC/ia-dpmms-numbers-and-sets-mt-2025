@@ -40,7 +40,7 @@
     There are infinitely many primes.
 \end{theorem}
 
-\begin{proof}[(Euclid, 300 BC)]
+\begin{proof}[\proofname\ (Euclid, 300 BC)]
     Suppose for the sake of contradiction, that there are only finitely many primes, and let them be \(p_1, p_2, \ldots, p_k\).
 
     Consider \(N = p_1 p_2 \cdots p_k + 1\). \(N\) is not itself a prime. Then \(p_1 \notdivides N\), or otherwise,
@@ -211,7 +211,7 @@ This leads to the following lemma.
     We can write \(\gcd\pqty{a, b}\) as a linear combination of \(a\) and \(b\).
 \end{theorem}
 
-\begin{proof}[by reversing Euclid's Algorithm]
+\begin{proof}[\proofname\ by reversing Euclid's Algorithm]
     We run Euclid's Algorithm with input \(a, b\) to obtain an output \(r_n\). We have
     \[
         r_n = x r_{n - 1} + y r_{n - 2}
@@ -245,7 +245,7 @@ This leads to the following lemma.
     Euclid's Algorithm not only proves the existence of such \(x, y \in \ZZ\), but also gives a quick way to find them.
 \end{remark}
 
-\begin{proof}[by utilising well--ordering principle]
+\begin{proof}[\proofname\ by utilising well--ordering principle]
     Let \(h\) be the least positive linear combination of \(a\) and \(b\), i.e. the least positive integer of the form \(ax + by\) for some \(x, y \in \ZZ\). Such \(h\) exists by well--ordering principle.
 
     We aim to show that \(h = \gcd\pqty{a, b}\).
@@ -486,7 +486,7 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
 
 We may now present another proof that there are infinitely many primes --- recall that we did not use the fact that there are infinitely many primes in any part of the form.
 
-\begin{proof}[of infinitely may primes, Erd\"{o}s, 1930]
+\begin{proof}[\proofname\ of infinitely may primes, Erd\"{o}s, 1930]
     Let \(p_1, p_2, \ldots, p_k\) be all the primes. Since all numbers is uniquely expressed as a product of primes, consider
     \[
         p_1^{j_1} p_2^{j_2} \cdots p_k^{j_k}.
