@@ -56,7 +56,8 @@
 The previous proposition states the existence of a representation as a product of primes, but our proof does not give uniqueness. It is in fact unique, and the following lemma is useful.
 
 \begin{proposition}[Euclid's Lemma]
-    If \(p\) is prime and \(p \divides ab\), then \(p \divides a\) and \(p \divides b\).
+    \label{prop:euclids-lemma}%
+    If \(p\) is prime and \(p \divides ab\), then \(p \divides a\) or \(p \divides b\).
 \end{proposition}
 
 Before we prove this, we introduce what is meant by the highest common factor.
@@ -166,7 +167,7 @@ Note that this algorithm terminates in \(n < b\) steps, since
     We show that it satisfies the two defining properties of the greatest common divisor.
 
     \begin{enumerate}
-        \item We must have \(r_n \divides r_{n - 1}\), as \(r_{n + 1} = 0\) at step \(n + 1\). Therefore, \(r_N \divides r_{n - 2}\) by step \(n\).
+        \item We must have \(r_n \divides r_{n - 1}\), as \(r_{n + 1} = 0\) at step \(n + 1\). Therefore, \(r_n \divides r_{n - 2}\) by step \(n\).
         
         Hence, inductively, \(r_n \divides r_i\) for \(i = 1, 2, \ldots, n - 1\), and hence \(r_n \divides b\) by step 2, and \(r_n \divides a\) by step 1.
 
@@ -317,11 +318,7 @@ so let \(x = 33 x'\) and \(y = 33 y'\), we have
 
 We now prove Euclid's Lemma.
 
-\begin{proposition}[Euclid's Lemma]
-    If \(p\) is a prime and \(p \divides ab\), then \(p \divides a\) or \(p \divides b\).
-\end{proposition}
-
-\begin{proof}
+\begin{proof}[\proofname\ of \autoref{prop:euclids-lemma} (Euclid's Lemma)]
     Suppose that \(p \divides ab\) but \(p \notdivides a\). We want to prove that \(p \divides b\).
 
     Since \(p\) is prime and \(p \notdivides a\), we have \(\gcd\pqty{a, p} = 1\).
