@@ -4,7 +4,7 @@
 \subsection{Defining the Real Numbers}
 \label{sec:defining-real-numbers}
 
-Recall that we defined \(\NN\) using the Peano's Axioms, and we may obtain \(\ZZ\) from \(\NN\) by allowing for `subtraction'.
+Recall that we defined \(\NN\) using Peano's Axioms, and we may obtain \(\ZZ\) from \(\NN\) by allowing for `subtraction'.
 
 \begin{definition}[\(\ZZ\)]
     Formally, \(\ZZ\) is the set of equivalence classes of \(\NN \times \NN\) under the equivalence relation
@@ -41,7 +41,7 @@ Similarly, we may obtain \(\QQ\) from \(\ZZ\) by allowing for 'division'.
     \]
 \end{definition}
 
-Similarly, notational wise, we write \(\frac{a}{b}\) instead of \(\bqty{\pqty{a, b}}\), and we may similarly define \(+\) and \(\times\) by
+Similarly, as a matter of notation, we write \(\frac{a}{b}\) instead of \(\bqty{\pqty{a, b}}\), and we may similarly define \(+\) and \(\times\) by
 \[
     \pqty{a, b} + \pqty{c, d} = \pqty{ad + bc, bd}
 \]
@@ -56,7 +56,7 @@ In addition to this, we may define an \emph{ordering} on \(\QQ\), \(<\), which s
     \item if \(a < b\) and \(b < c\), then \(a < c\).
 \end{enumerate}
 
-This ordering is useful, in the sense that there is a rational number between any two rational numbers. If \(p, q \in \QQ\) with \(p < q\), w e have
+This ordering is useful, in the sense that there is a rational number between any two rational numbers. If \(p, q \in \QQ\) with \(p < q\), we have
 \[
     p < \frac{p + q}{2} < q
 \]
@@ -258,7 +258,7 @@ Clearly, \(1\) is an upper bound of \(S\). But is there an upper bound less than
     \]
 \end{definition}
 
-Note that if \(S\) is empty and bounded below, then
+Note that if \(S\) is non-empty and bounded below, then
 \[
     -S = \set{-y}{y \in S}
 \]
@@ -287,7 +287,7 @@ Now, we return to a previous example.
     \[
         0 < 1 - c \leq \frac{1}{n}
     \]
-    for all \(n \in \NN\), contradicting with the previous corollary.
+    for all \(n \in \NN\), contradicting the previous corollary.
 \end{example}
 
 Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least upper bound axiom.
@@ -304,7 +304,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 
     First we note that \(S\) is non-empty since \(1 \in S\), and it is bounded above by \(2\)
 
-    Hence, \(S\) has a supremum, and let \(c = \sup S\). We observe \(1 < c < 2\), ad we claim that \(c^2 = 2\).
+    Hence, \(S\) has a supremum, and let \(c = \sup S\). We observe \(1 \leq c \leq 2\), and claim that \(c^2 = 2\).
 
     Suppose that \(c^2 < 2\). For \(0 < t < 1\), we have
     \begin{align*}
@@ -396,7 +396,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 \end{proposition}
 
 \begin{proof}
-    Indeed, take \(c \in \QQ\) such that
+    Indeed, choose a non-zero \(c \in \QQ\) such that
     \[
         a \sqrt{2} < c < b \sqrt{2}
     \]
@@ -482,7 +482,7 @@ We may think of the absolute value \(\abs{a - b}\) as the \emph{distance} betwee
         \pqty{a_n}_{n = 1}^{\infty} \text{ converges to } l.
     \]
 
-    If there is a limit \(l\), but it is not specified, we may simply say the sequence converges; if such limit does not converge to any \(l \in \RR\), we say it \emph{diverges}.
+    If there is a limit \(l\), but it is not specified, we may simply say the sequence converges; if the sequence does not converge to any \(l \in \RR\), we say it \emph{diverges}.
 \end{notation}
 
 \begin{examples}
@@ -712,7 +712,7 @@ We can do limits in addition, if the limits of the separate sequences being summ
     \]
     and
     \[
-        \exists N \in \NN, \forall n \geq N: \abs{b_n - d} < \frac{\epsilon}{2}.
+        \exists M \in \NN, \forall n \geq M: \abs{b_n - d} < \frac{\epsilon}{2}.
     \]
 
     Let \(N' = \max\Bqty{N, M}\), then for all \(n \geq N'\), we have
@@ -1072,7 +1072,7 @@ This case is to be dealt carefully when dealing with reals by considering their 
     \]
     since \(q \geq 2\).
 
-    Hence, \(0 < x < 1\), contradicting with the fact that \(q! e \in \NN\).
+    Hence, \(0 < x < 1\), contradicting the fact that \(q! e \in \NN\).
 \end{proof}
 
 \begin{definition}[Algebraic and Transcendental Numbers]

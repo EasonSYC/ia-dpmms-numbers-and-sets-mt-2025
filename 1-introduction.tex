@@ -41,7 +41,7 @@ We also introduce some number systems.
     \end{itemize}
 \end{definition}
 
-Ancient Greeks view numbers as geometric objects, as in \autoref{fig:greek-viewpoint-numbers}.
+The ancient Greeks viewed numbers as geometric objects, as in \autoref{fig:greek-viewpoint-numbers}.
 
 \begin{figure}[ht!]
     \centering
@@ -54,7 +54,7 @@ However, from our perspective, to show that \(x = \sqrt{2}\) exists, we have to 
     \exists x \in \RR: x^2 = 2.
 \]
 
-\(x = \sqrt{2}\) is an example of an \emph{algebraic number}, since it is the root of some polynomial with integer coefficients. There are also non-algebraic numbers in \(\RR\) which are called \emph{transcendental}, e.g. \(\pi\) and \(e\). The existence of such number is not proved until 1844 (Liouville).
+\(x = \sqrt{2}\) is an example of an \emph{algebraic number}, since it is the root of some polynomial with integer coefficients. There are also non-algebraic numbers in \(\RR\) which are called \emph{transcendental}, e.g. \(\pi\) and \(e\). The existence of such numbers was not proved until 1844 (Liouville).
 
 \subsection{Proofs and Non-Proofs}
 \label{sec:proofs-non-proofs}
@@ -112,14 +112,14 @@ We now present a correct proof of `if \(n^2\) is even then \(n\) is even'.
 \begin{proof}
     Suppose on the contrary that \(n^2\) is even but \(n\) is not even. Then \(n\) is odd.
 
-    So \(n = 2k + 1\) for some integer \(n \geq 0\). Then
+    So \(n = 2k + 1\) for some integer \(k \geq 0\). Then
     \begin{align*}
         n^2 &= \pqty{2k + 1}^2 \\
         &= 4k^2 + 4k + 1 \\
         &= 4 \pqty{k^2 + k} + 1.
     \end{align*}
 
-    So \(n^2\) is odd, contradicting with the assumption that \(n^2\) is even.
+    So \(n^2\) is odd, contradicting the assumption that \(n^2\) is even.
 \end{proof}
 
 To show `if \(A\) then \(B\)', we showed that there is no case where \(A\) is true and \(B\) is false. This is called \emph{proof by contradiction}.
@@ -147,7 +147,7 @@ There are \textbf{2 assertions} in this claim:
 \begin{proof}
     \begin{enumerate}
         \item If \(x = 2\) or \(x = 3\), then \(x - 2 = 0\) or \(x - 3 = 0\), so \(\pqty{x - 2} \pqty{x - 3} = 0\), so \(x^2 - 5x + 6 = 0\).
-        \item If \(x^2 - 5x + 6 = 0\), then \(\pqty{x - 2} \pqty{x - 3} = 0\), so \(x - 2 = 0\) or \(x - 3 = 0\), so \(x - 2\) or \(x - 3\).
+        \item If \(x^2 - 5x + 6 = 0\), then \(\pqty{x - 2} \pqty{x - 3} = 0\), so \(x - 2 = 0\) or \(x - 3 = 0\), and hence \(x = 2\) or \(x = 3\).
     \end{enumerate}
 \end{proof}
 

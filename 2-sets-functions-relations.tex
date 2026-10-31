@@ -19,7 +19,7 @@
 \begin{definition}[Sets being Equal]
     Two sets are \emph{equal} if they have the same elements. In other words, two sets \(A = B\) if
     \[
-        \forall x: x \in A \iff x = B.
+        \forall x: x \in A \iff x \in B.
     \]
 \end{definition}
 
@@ -56,7 +56,7 @@ Note that \(A = B\) if and only if \(A \subseteq B\) and \(B \subseteq A\).
     \]
     and their \emph{intersection} is given by
     \[
-        A \cap B = \set{x}{X \in A \text{ and } x \in B}.
+        A \cap B = \set{x}{x \in A \text{ and } x \in B}.
     \]
 
     We say that \(A\) and \(B\) are \emph{disjoint} if \(A \cap B = \emptyset\).
@@ -306,7 +306,7 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a `rule' tha
 
     If \(X \subseteq A\), then \emph{the image of \(X\) under \(f\)} is
     \[
-        f\pqty{X} = \set{f\pqty{x}}{X \in X} = \set{b \in B}{\exists x \in X: f\pqty{x} = b}.
+        f\pqty{X} = \set{f\pqty{x}}{x \in X} = \set{b \in B}{\exists x \in X: f\pqty{x} = b}.
     \]
 
     If \(Y \subseteq B\), then \emph{the pre-image of \(Y\) under \(f\)} is
@@ -406,7 +406,7 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a `rule' tha
     \end{enumerate}
 \end{examples}
 
-If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\) is `hit' exactly one. That is, \(f\) pairs the elements of \(A\) and \(B\).
+If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\) is `hit' exactly once. That is, \(f\) pairs the elements of \(A\) and \(B\).
 
 \begin{definition}[Permutation]
     A \emph{permutation} of \(A\) is a bijection \(A \to A\).

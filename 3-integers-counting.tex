@@ -100,7 +100,11 @@ To see WPI implies SPI, we apply the former to the statement
 
 Another consequence of the above ordering of the natural numbers \(\NN\) is that it satisfies a special property called the \textbf{well--ordering principle} (WOP), which states that every non-empty subset of \(\NN\) has a minimal element. Equivalently, for any \(A \subseteq \NN\),
 \[
-    \pqty{\exists n \in A: P\pqty{n}} \implies \pqty{\exists n \in A: P\pqty{n} \land \pqty{\nexists m \in A, m < n: P\pqty{n}}}.
+    \pqty{\exists n \in A: P\pqty{n}} \implies \pqty{\exists n \in A: P\pqty{n} \land \pqty{\nexists m \in A, m < n: P\pqty{n}}},
+\]
+or equivalently,
+\[
+    \pqty{A \neq \emptyset} \implies \pqty{\exists n \in A: \pqty{\nexists m \in A, m < n}}.
 \]
 
 \begin{theorem}[SPI Implies WOP]
@@ -118,7 +122,7 @@ Another consequence of the above ordering of the natural numbers \(\NN\) is that
 
     Therefore, by the Strong Principle of Induction, \(Q\pqty{n}\) holds for all \(n \in \NN\).
 
-    Therefore, \(P\pqty{n}\) is false for all \(n \in \NN\), contradicting with the assumption that there is some \(n \in \NN\) such that \(P\pqty{n}\).
+    Therefore, \(P\pqty{n}\) is false for all \(n \in \NN\), contradicting the assumption that there is some \(n \in \NN\) such that \(P\pqty{n}\).
 \end{proof}
 
 However, the WOP (on its own) does not imply SPI --- this fails for certain \emph{ordinals}. However, in every proof using SPI, we may frame the proof by some modifications to WOP.

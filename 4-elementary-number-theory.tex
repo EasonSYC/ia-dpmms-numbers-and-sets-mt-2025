@@ -18,7 +18,7 @@
     A natural number \(n \geq 2\) is \emph{prime} if its only divisors are trivial. Otherwise, we say \(n\) is \emph{composite}.
 \end{definition}
 
-\begin{proposition}[Fundamental Theorem of Arithmetics, Part 1]
+\begin{proposition}[Fundamental Theorem of Arithmetic, Part 1]
     Every natural number \(\geq 2\) can be written as a product of primes.
 \end{proposition}
 
@@ -43,7 +43,7 @@
 \begin{proof}[\proofname\ (Euclid, 300 BC)]
     Suppose for the sake of contradiction, that there are only finitely many primes, and let them be \(p_1, p_2, \ldots, p_k\).
 
-    Consider \(N = p_1 p_2 \cdots p_k + 1\). \(N\) is not itself a prime. Then \(p_1 \notdivides N\), or otherwise,
+    Consider \(N = p_1 p_2 \cdots p_k + 1\). \(N\) is not itself a prime, since \(N > p_i\) for all \(i = 1, 2, \ldots, k\). Then \(p_1 \notdivides N\), or otherwise,
     \[
         p_1 \divides \pqty{N - p_1 p_2 \cdots p_k} = 1.
     \]
@@ -101,7 +101,7 @@ We show by construction that in fact it must always exist, but we first introduc
 \end{proposition}
 
 \begin{proof}
-    We show this by induction on \(n\). This is true for \(n = 1\).
+    We show this by induction on \(n\). For \(n = 1\), if \(k = 1\) take \(q = 1\), \(r = 0\); otherwise take \(q = 0\), \(r = 1\).
 
     Suppose \(n \geq 2\), and the statement holds for \(n - 1\), i.e.
     \[
@@ -263,7 +263,7 @@ This leads to the following lemma.
         &= a - q \cdot \pqty{xa + yb} \\
         &= \pqty{1 - qx} a - \pqty{qy} b
     \end{align*}
-    is a positive linear combination of \(a\) and \(b\), strictly smaller than \(h\), and contradicting with the fact that \(h\) is minimal.
+    is a positive linear combination of \(a\) and \(b\), strictly smaller than \(h\), contradicting the fact that \(h\) is minimal.
 
     To show the second property, notice that for any common divisor \(d \divides a\) and \(d \divides b\), we have \(d \divides ax + by\) for all \(x, y \in \ZZ\), and \(d \divides h\) in particular.
 \end{proof}
@@ -332,7 +332,7 @@ We now prove Euclid's Lemma.
     \[
         \pqty{xb} \cdot p + y \cdot \pqty{ab} = b,
     \]
-    and we have \(p \divides \pqty{xb} \cdot b\) and \(p \divides y \cdot \pqty{ab}\). Hence, \(p \divides b\).
+    and we have \(p \divides \pqty{xb} \cdot p\) and \(p \divides y \cdot \pqty{ab}\). Hence, \(p \divides b\).
 \end{proof}
 
 \begin{remarks}
@@ -413,11 +413,11 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
     \]  
 \end{definition}
 
-\begin{examples}[Applications of Fundamental Theorem of Arithmetics]
+\begin{examples}[Applications of the Fundamental Theorem of Arithmetic]
     \begin{enumerate}
-        \item What are the factors of \(n = 2^3 \cdot 3^7 \cdot 11\)? All number of the form \(2^a \cdot 3^b \cdot 11^c\) for \(0 \leq a \leq 3, 0 \leq b \leq 7\) and \(0 \leq c \leq 1\), and there must not be any others.
+        \item What are the factors of \(n = 2^3 \cdot 3^7 \cdot 11\)? All numbers of the form \(2^a \cdot 3^b \cdot 11^c\) for \(0 \leq a \leq 3, 0 \leq b \leq 7\) and \(0 \leq c \leq 1\), and there must not be any others.
         
-        For example, if \(7\) divides a factor of \(n\), then \(7\) divides \(n\), and hence we have a factorisation of \(n\) involving \(7\), contradicting with the uniqueness of the factorisation.
+        For example, if \(7\) divides a factor of \(n\), then \(7\) divides \(n\), and hence we have a factorisation of \(n\) involving \(7\), contradicting the uniqueness of the factorisation.
 
         More generally, the factors of
         \[
@@ -425,7 +425,7 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
         \]
         are \emph{precisely} the numbers of the form
         \[
-            p_1^{\beta_1} p_2^{\beta_2} \cdots p_2^{\beta_k}
+            p_1^{\beta_1} p_2^{\beta_2} \cdots p_k^{\beta_k}
         \]
         where \(0 \leq \beta_i \leq \alpha_i\) for all \(i = 1, 2, \ldots, k\).
 
@@ -697,7 +697,7 @@ The answer is similar modulo any integer \(n\).
 \begin{example}[Diophantine Equation]
     If a particular year's New Year's Day is a Monday, when is the time that a New Year's Day is a particular day of the week?
 
-    We put New Year's Day as Day 0, and note a wek has 7 days in it, while a year has 365.
+    We put New Year's Day as Day 0, and note a week has 7 days in it, while a year has 365.
 
     We want to solve for \(y\) in
     \[
@@ -725,7 +725,7 @@ Conversely, if \(d \divides b\), let \(n = d \cdot n'\), \(a = d \cdot a'\) and 
 
 Note that \(\gcd\pqty{a', n'} = 1\), so \(a' x \equiv b'\) has a unique solution from before.
 
-Therefore, if \(\gcd\pqty{a, n} = d > 1\), the congruence \(ax \equiv b \pmod{n}\) has \emph{no solution} unless \(d \divides b\), in which case the solution are exactly
+Therefore, if \(\gcd\pqty{a, n} = d > 1\), the congruence \(ax \equiv b \pmod{n}\) has \emph{no solution} unless \(d \divides b\), in which case the solutions are exactly
 \[
     \frac{a}{d} x \equiv \frac{b}{d} \pmod{\frac{n}{d}}.
 \]
@@ -736,7 +736,7 @@ Therefore, if \(\gcd\pqty{a, n} = d > 1\), the congruence \(ax \equiv b \pmod{n}
         
         We now explicitly show that there are no other solutions. Suppose \(x'\) is also a solution to \(7 x' \equiv 4 \pmod{30}\), then \(7x \equiv 7x' \pmod{30}\), and hence \(x \equiv x' \pmod{30}\) since \(7\) is a unit modulo \(30\).
 
-        Writing up, we can write this as
+        Writing this up, we can write it as
         \begin{align*}
             &\phantom{\iff} 7x \equiv 4 \pmod{30} \\
             &\iff 13 \cdot 7x \equiv 13 \cdot 4 \pmod{30} \\
@@ -1096,4 +1096,4 @@ Now we proceed from this and encrypt messages. We may encode messages as a seque
 
 In order to decrypt in this way, either \(n\) and \(d\) is needed, or \(n, e\) and \(\totient\pqty{n}\) is needed.
 
-This relies on computational complexity: finding \(\totient\pqty{n}\) is as difficult as finding the prime factors of \(n\), which is believed to be computationally hard. However, it is \emph{not known} if RSA can be broken without prime factorisation.
+This relies on computational complexity: finding \(\totient\pqty{n}\) is as difficult as finding the prime factors of \(n\), which is believed to be computationally hard. However, it is \emph{not known} whether RSA can be broken without prime factorisation.
