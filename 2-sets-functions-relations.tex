@@ -5,9 +5,9 @@
 \label{sec:sets}
 
 \begin{definition}[Set and Element (Informal)]
-    A \emph{set} is a collection of mathematical objects where the \emph{order} of the elements in the set does not matter, and the elements are only counted \emph{once}.
+    A \term{set} is a collection of mathematical objects where the \emph{order} of the elements in the set does not matter, and the elements are only counted \emph{once}.
 
-    We write \(x \in A\) if \(x\) is \emph{an element} of the set \(A\), and \(x \notin A\) if not.
+    We write \(x \in A\) if \(x\) is \term{an element} of the set \(A\), and \(x \notin A\) if not.
 \end{definition}
 
 \begin{example}[Examples of Sets]
@@ -17,18 +17,18 @@
 \end{example}
 
 \begin{definition}[Sets being Equal]
-    Two sets are \emph{equal} if they have the same elements. In other words, two sets \(A = B\) if
+    Two sets are \term{equal} if they have the same elements. In other words, two sets \(A = B\) if
     \[
         \forall x: x \in A \iff x \in B.
     \]
 \end{definition}
 
 \begin{definition}[Empty Set]
-    The only set with no elements is the \emph{empty set}, denoted as \(\emptyset\).
+    The only set with no elements is the \term{empty set}, denoted as \(\emptyset\).
 \end{definition}
 
 \begin{definition}[Subset, Proper Subset]
-    A set \(B\) is a \emph{subset} of \(A\), written as \(B \subseteq A\) or \(B \subset A\), if every element of \(B\) is an element of \(A\). \(B\) is a \emph{proper subset} of \(A\), if \(B \subseteq A\) and \(B \neq A\). This is denoted as \(B \subsetneq A\).
+    A set \(B\) is a \term{subset} of \(A\), written as \(B \subseteq A\) or \(B \subset A\), if every element of \(B\) is an element of \(A\). \(B\) is a \term{proper subset} of \(A\), if \(B \subseteq A\) and \(B \neq A\). This is denoted as \(B \subsetneq A\).
 \end{definition}
 
 Note that \(A = B\) if and only if \(A \subseteq B\) and \(B \subseteq A\).
@@ -50,16 +50,16 @@ Note that \(A = B\) if and only if \(A \subseteq B\) and \(B \subseteq A\).
 \end{example}
 
 \begin{definition}[Union, Intersection, Disjoint]
-    If \(A\) and \(B\) are sets, then their \emph{union} is given by
+    If \(A\) and \(B\) are sets, then their \term{union} is given by
     \[
         A \cup B = \set{x}{x \in A \text{ or } x \in B}
     \]
-    and their \emph{intersection} is given by
+    and their \term{intersection} is given by
     \[
         A \cap B = \set{x}{x \in A \text{ and } x \in B}.
     \]
 
-    We say that \(A\) and \(B\) are \emph{disjoint} if \(A \cap B = \emptyset\).
+    We say that \(A\) and \(B\) are \term{disjoint} if \(A \cap B = \emptyset\).
 \end{definition}
 
 Figure \autoref{fig:set-intersection-union} gives a visualisation of this definition.
@@ -93,7 +93,7 @@ Note that we can view set intersection as a special case of subset selection:
 \end{proposition}
 
 \begin{definition}[Set Difference]
-    The \emph{set difference} is given by
+    The \term{set difference} is given by
     \[
         A \setminus B = \set{x \in A}{x \notin B}.
     \]
@@ -151,7 +151,7 @@ We give an example to prove one of the previous laws using a commonly used techn
         \bigcup_{n = 1}^{\infty} A_n = A_1 \cup A_2 \cup A_3 \cup \ldots = \set{x}{\exists n \in \NN: x \in A_n}.
     \]
 
-    More generally, given an \emph{index set} \(I\) and a collection of sets \(A_i\) indexed by \(i \in I\), we write
+    More generally, given an \term{index set} \(I\) and a collection of sets \(A_i\) indexed by \(i \in I\), we write
     \[
         \bigcap_{i \in I} A_i = \set{x}{\forall i \in I: x \in A_i},
     \]
@@ -166,11 +166,11 @@ We give an example to prove one of the previous laws using a commonly used techn
 \end{remark}
 
 \begin{definition}[Cartesian Product]
-    Given sets \(A\) and \(B\), their \emph{Cartesian Product} \(A \times B\) is given by
+    Given sets \(A\) and \(B\), their \term{Cartesian Product} \(A \times B\) is given by
     \[
         A \times B = \set{\pqty{a, b}}{a \in A \land b \in B}
     \]
-    is the set of \emph{ordered pairs} \(\pqty{a, b}\) with \(a \in A\) and \(b \in B\).
+    is the set of \term{ordered pairs} \(\pqty{a, b}\) with \(a \in A\) and \(b \in B\).
 \end{definition}
 
 Note that we may define an ordered pair formally using set theory as
@@ -188,7 +188,7 @@ Similarly, we may extend the Cartesian product to triples, etc., e.g.
 \]
 
 \begin{definition}[Power Set]
-    For any set \(X\), we form the \emph{power set} \(\powerset\pqty{X}\) consisting of all subsets of \(X\):
+    For any set \(X\), we form the \term{power set} \(\powerset\pqty{X}\) consisting of all subsets of \(X\):
     \[
         \powerset\pqty{X} = \set{Y}{Y \subseteq X}
     \]
@@ -225,7 +225,7 @@ But we \emph{cannot} form \(\set{x}{P\pqty{x}}\) \emph{without} the starting set
     Then, if \(X \in X\), by definition, we have \(X \notin X\). However, if \(X \notin X\), by definition, we have \(X \in X\).
 \end{example}
 
-This also implies that there is \emph{no universal set} \(Y\) containing all mathematical objects: \(\forall x: x \in Y\). Otherwise, we may form the above set by subset selection
+This also implies that there is \term{no universal set} \(Y\) containing all mathematical objects: \(\forall x: x \in Y\). Otherwise, we may form the above set by subset selection
 \[
     X = \set{x \in Y}{x \notin x}.
 \]
@@ -238,13 +238,13 @@ Therefore, to guarantee that a set exists, it should be obtained from known sets
         \NN_0 = \NN \cup \Bqty{0} = \Bqty{0, 1, 2, 3, \ldots}.
     \]
 
-    Given \(n \in \NN_0\), we say a set \(A\) has \emph{size} \(n\) if we can write
+    Given \(n \in \NN_0\), we say a set \(A\) has \term{size} \(n\) if we can write
     \[
         A = \Bqty{a_1, a_2, \ldots, a_n}
     \]
     where the elements \(a_i\) are distinct.
 
-    We say a set is \emph{finite} if such \(n \in \NN_0\) exists, and otherwise we say the set is \emph{infinite}.
+    We say a set is \term{finite} if such \(n \in \NN_0\) exists, and otherwise we say the set is \term{infinite}.
 \end{definition}
 
 \subsection{Functions}
@@ -253,7 +253,7 @@ Therefore, to guarantee that a set exists, it should be obtained from known sets
 Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a `rule' that assigns to every \(x \in A\) to a unique element \(f\pqty{x} \in B\).
 
 \begin{definition}[Function]
-    A \emph{function} from \(A\) to \(B\) is a subset \(f \subseteq A \times B\) such that
+    A \term{function} from \(A\) to \(B\) is a subset \(f \subseteq A \times B\) such that
     \[
         \forall x \in A, \exists_1 y \in B: \pqty{x, y} \in f.
     \]
@@ -300,21 +300,21 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a `rule' tha
 \end{examples}
 
 \begin{definition}[Domain, Co-domain, Image, Pre-Image]
-    Given \(\functiondomain{f}{A}{B}\), we say \(A\) is the \emph{domain} of \(f\), and \(B\) is the \emph{co-domain} or \emph{range} of \(f\).
+    Given \(\functiondomain{f}{A}{B}\), we say \(A\) is the \term{domain} of \(f\), and \(B\) is the \term{co-domain} or \term{range} of \(f\).
 
-    If \(x \in A\), and \(f\pqty{x} = y\), then \(y\) is \emph{the image} of \(x\), and \(x\) is \emph{a pre-image} of \(y\).
+    If \(x \in A\), and \(f\pqty{x} = y\), then \(y\) is \term{the image} of \(x\), and \(x\) is \term{a pre-image} of \(y\).
 
-    If \(X \subseteq A\), then \emph{the image of \(X\) under \(f\)} is
+    If \(X \subseteq A\), then \term{the image of \(X\) under \(f\)} is
     \[
         f\pqty{X} = \set{f\pqty{x}}{x \in X} = \set{b \in B}{\exists x \in X: f\pqty{x} = b}.
     \]
 
-    If \(Y \subseteq B\), then \emph{the pre-image of \(Y\) under \(f\)} is
+    If \(Y \subseteq B\), then \term{the pre-image of \(Y\) under \(f\)} is
     \[
         f\inverse\pqty{Y} = \set{a \in A}{f\pqty{a} \in Y}.
     \]
 
-    The \emph{image} of the map \(f\) is
+    The \term{image} of the map \(f\) is
     \[
         \img f = f \pqty{A}
     \]
@@ -336,7 +336,7 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a `rule' tha
     Let \(\functiondomain{f}{A}{B}\).
     
     \begin{itemize}
-        \item \(f\) is \emph{injective} if distinct elements are mapped to distinct elements, i.e.,
+        \item \(f\) is \term{injective} if distinct elements are mapped to distinct elements, i.e.,
         \[
             \forall a, b \in A, a \neq b: f\pqty{a} \neq f\pqty{b}.
         \]
@@ -346,12 +346,12 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a `rule' tha
             \forall a, b \in A: f\pqty{a} = f\pqty{b} \implies a = b.
         \]
 
-        \item \(f\) is \emph{surjective} if \(\img \pqty{f} = B\). Equivalently, \(f\) is surjective if
+        \item \(f\) is \term{surjective} if \(\img \pqty{f} = B\). Equivalently, \(f\) is surjective if
         \[
             \forall b \in B \exists a \in A: f\pqty{a} = b.
         \]
 
-        \item \(f\) is \emph{bijective} if \(f\) is both injective and surjective.
+        \item \(f\) is \term{bijective} if \(f\) is both injective and surjective.
     \end{itemize}
 \end{definition}
 
@@ -409,7 +409,7 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a `rule' tha
 If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\) is `hit' exactly once. That is, \(f\) pairs the elements of \(A\) and \(B\).
 
 \begin{definition}[Permutation]
-    A \emph{permutation} of \(A\) is a bijection \(A \to A\).
+    A \term{permutation} of \(A\) is a bijection \(A \to A\).
 \end{definition}
 
 \begin{remark}
@@ -435,7 +435,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 \end{proposition}
 
 \begin{remark}
-    The first two points are extended to infinite sets using \emph{cardinality}. However, there are counterexamples of the other two points in the infinite case.
+    The first two points are extended to infinite sets using \term{cardinality}. However, there are counterexamples of the other two points in the infinite case.
 \end{remark}
 
 \begin{figure}[ht!]
@@ -501,7 +501,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
         \[
             \function{\identity_X}{X}{X}{x}{x}
         \]
-        is the \emph{identity function}.
+        is the \term{identity function}.
 
         \item A sequence of reals \(x_1, x_2, x_3, \ldots\) is a function
         \[
@@ -521,7 +521,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 \end{examples}
 
 \begin{definition}[Indicator Function]
-    Given a set \(X\) and \(A \subseteq X\), we have the \emph{indicator function} or \emph{characteristic function} of \(A\)
+    Given a set \(X\) and \(A \subseteq X\), we have the \term{indicator function} or \term{characteristic function} of \(A\)
     \[
         \function{\indicator_A = \characteristic_A}{X}{\Bqty{0, 1}}{x}{\begin{cases}1, & x \in A, \\ 0, & x \notin A\end{cases}.}
     \]
@@ -563,7 +563,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 \end{proof}
 
 \begin{definition}[Composition of Functions]
-    Given \(\functiondomain{f}{A}{B}\) and \(\functiondomain{g}{B}{C}\), the \emph{composition} is
+    Given \(\functiondomain{f}{A}{B}\) and \(\functiondomain{g}{B}{C}\), the \term{composition} is
     \[
         \function{g \circ f}{A}{C}{a}{g\pqty{f\pqty{a}}.}
     \]
@@ -646,12 +646,12 @@ We see from the above example that in general, \(\circ\) is not commutative.
 We now define what it means for a function to be reversible and the reverse of it.
 
 \begin{definition}[Invertibility, Inverse]
-    We say \(\functiondomain{f}{A}{B}\) is \emph{invertible} if there exists \(\functiondomain{g}{B}{A}\) such that
+    We say \(\functiondomain{f}{A}{B}\) is \term{invertible} if there exists \(\functiondomain{g}{B}{A}\) such that
     \[
         g \circ f = \identity_A, f \circ g = \identity_B.
     \]
 
-    \(g\) is called the \emph{inverse} of \(f\).
+    \(g\) is called the \term{inverse} of \(f\).
 \end{definition}
 
 \begin{example}[Inverse Functions on \(\RR \to \RR\)]
@@ -756,7 +756,7 @@ Next we investigate on the conditions that inverses exist.
 \label{sec:relations}
 
 \begin{definition}[Relation]
-    A \emph{relation} on a set \(X\) is a subset \(R \subseteq X \times X\). We write \(aRb\) for \(\pqty{a, b} \in R\).
+    A \term{relation} on a set \(X\) is a subset \(R \subseteq X \times X\). We write \(aRb\) for \(\pqty{a, b} \in R\).
 \end{definition}
 
 \begin{examples}[Examples of Relations on \(\NN\)]
@@ -774,9 +774,9 @@ There are three properties of a relation that are of special interest.
 \begin{definition}[Reflective, Symmetric, Transitive]
     A relation \(R\) on a set \(X\) is
     \begin{itemize}
-        \item \emph{reflexive}, if \(xRx\) for all \(x \in X\);
-        \item \emph{symmetric}, if \(xRy \implies yRx\) for all \(x, y \in X\);
-        \item \emph{transitive} if \(\pqty{aRb} \land \pqty{bRc} \implies aRc\) for all \(a, b, c \in X\).
+        \item \term{reflexive}, if \(xRx\) for all \(x \in X\);
+        \item \term{symmetric}, if \(xRy \implies yRx\) for all \(x, y \in X\);
+        \item \term{transitive} if \(\pqty{aRb} \land \pqty{bRc} \implies aRc\) for all \(a, b, c \in X\).
     \end{itemize}
 \end{definition}
 
@@ -798,7 +798,7 @@ There are three properties of a relation that are of special interest.
 \end{table}
 
 \begin{definition}[Equivalence Relation]
-    A relation \(R\) is an \emph{equivalence relation} if it is reflexive, symmetric and transitive. We write this as \(a \sim b\) for \(a R b\).
+    A relation \(R\) is an \term{equivalence relation} if it is reflexive, symmetric and transitive. We write this as \(a \sim b\) for \(a R b\).
 \end{definition}
 
 In the above examples, only 1 is an equivalence relation.
@@ -813,7 +813,7 @@ In the above examples, only 1 is an equivalence relation.
 We notice that we seem to be able to partition a set \(X\) based on an equivalence relation \(\sim\) on \(X\).
 
 \begin{definition}[Equivalence Class]
-    Let \(\sim\) be an equivalence relation on \(X\). The \emph{equivalence class} of a particular element \(x \in X\) is denoted by
+    Let \(\sim\) be an equivalence relation on \(X\). The \term{equivalence class} of a particular element \(x \in X\) is denoted by
     \[
         \bqty{x} = \set{y \in X}{y \sim x}.
     \]
@@ -827,7 +827,7 @@ We notice that we seem to be able to partition a set \(X\) based on an equivalen
 \end{example}
 
 \begin{definition}[Partition]
-    Given a set \(X\), a \emph{partition} of \(X\) is a collection of pairwise disjoint subsets of \(X\) whose union is \(X\). Equivalently, the intersection of two sets in the collection is either trivial (the empty set) or the whole set.
+    Given a set \(X\), a \term{partition} of \(X\) is a collection of pairwise disjoint subsets of \(X\) whose union is \(X\). Equivalently, the intersection of two sets in the collection is either trivial (the empty set) or the whole set.
 \end{definition}
 
 \begin{theorem}[Equivalence Relation Partitions into Equivalence Classes]
@@ -860,7 +860,7 @@ Note conversely, that given any partition of \(X\), there is an equivalence rela
 Now, we may be interested in the set of equivalence classes, since it is useful to restrict a set to a smaller part of it (but not in a subset way).
 
 \begin{definition}[Quotient, Quotient/Projection Map]
-    Given an equivalence relation \(R\) on a set \(X\), the \emph{quotient of \(X\) by \(R\)} is
+    Given an equivalence relation \(R\) on a set \(X\), the \term{quotient of \(X\) by \(R\)} is
     \[
         \flatfrac{X}{R} = \set{\bqty{x}}{x \in X}.
     \]
@@ -869,7 +869,7 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
     \[
         \function{q}{X}{\flatfrac{X}{R}}{x}{\bqty{x}}
     \]
-    is the \emph{quotient/projection map}.
+    is the \term{quotient/projection map}.
 \end{definition}
 
 \autoref{fig:quotient-map} visualises the quotient map and this shows that the quotient map is (by definition of the quotient) surjective.
@@ -910,7 +910,7 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
 \label{sec:binary-operations}
 
 \begin{definition}[Binary Operation]
-    A \emph{binary operation} \(\ast\) on a set \(A\) is a function
+    A \term{binary operation} \(\ast\) on a set \(A\) is a function
     \[
         \functiondomain{\ast}{A \times A}{A}.
     \]
@@ -927,15 +927,15 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
 \begin{definition}[Commutative, Associative]
     Let \(\ast\) be a binary operation on a set \(A\).
     \begin{itemize}
-        \item If for all \(x, y \in A\), we have \(x \ast y = y \ast x\), then we say \(\ast\) is \emph{commutative}.
-        \item If for all \(x, y, z \in A\), we have \(x \ast \pqty{y \ast z} = \pqty{x \ast y} \ast z\), then we say \(\ast\) is \emph{associative}.
+        \item If for all \(x, y \in A\), we have \(x \ast y = y \ast x\), then we say \(\ast\) is \term{commutative}.
+        \item If for all \(x, y, z \in A\), we have \(x \ast \pqty{y \ast z} = \pqty{x \ast y} \ast z\), then we say \(\ast\) is \term{associative}.
     \end{itemize}
 \end{definition}
 
 We can abstract another common property in arithmetic in binary relations.
 
 \begin{definition}[Distributive]
-    Let \(\ast\) and \(\odot\) be binary operations on \(A\). We say \emph{\(\ast\) is distributive over \(\odot\)} if for all \(x, y, z \in A\), we have
+    Let \(\ast\) and \(\odot\) be binary operations on \(A\). We say \term{\(\ast\) is distributive over \(\odot\)} if for all \(x, y, z \in A\), we have
     \begin{align*}
         x \ast \pqty{y \odot z} &= \pqty{x \ast y} \odot \pqty{x \ast z}, \\
         \pqty{y \odot z} \ast x &= \pqty{y \ast x} \odot \pqty{z \ast x}.
@@ -943,9 +943,9 @@ We can abstract another common property in arithmetic in binary relations.
 \end{definition}
 
 \begin{remark}
-    The first line is called \emph{left distributivity}, and the second line is \emph{right distributivity}.
+    The first line is called \term{left distributivity}, and the second line is \term{right distributivity}.
 \end{remark}
 
 \begin{example}[Distributivity]
-    Multiplication \(\times\) is \emph{distributive} over addition \(+\).
+    Multiplication \(\times\) is \term{distributive} over addition \(+\).
 \end{example}

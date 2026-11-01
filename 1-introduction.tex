@@ -7,11 +7,11 @@ The purpose of this course is to transition from high-school mathematics to univ
 We first build the basic ideas of the foundation of a logic system.
 
 \begin{definition}[Axioms, Statement, Proof]
-    Mathematicians start with agreed assumptions called \emph{axioms}. These are foundational to a system and could be interpreted as definitions of a system.
+    Mathematicians start with agreed assumptions called \term{axioms}. These are foundational to a system and could be interpreted as definitions of a system.
 
-    A \emph{statement} is a mathematical statement which could have a true/false value.
+    A \term{statement} is a mathematical statement which could have a true/false value.
 
-    A \emph{proof} is a sequence of true statements without logical gaps, establishing some conclusion.
+    A \term{proof} is a sequence of true statements without logical gaps, establishing some conclusion.
 \end{definition}
 
 We would like to prove statements because:
@@ -26,15 +26,15 @@ We also introduce some number systems.
 \begin{definition}[\(\NN\), \(\ZZ\), \(\QQ\) (Informally)]
     Informally,
     \begin{itemize}
-        \item \(\NN\) is the set of \emph{natural numbers}
+        \item \(\NN\) is the set of \term{natural numbers}
         \[
             \NN = \Bqty{1, 2, 3, \ldots}.
         \]
-        \item \(\ZZ\) is the set of \emph{integers}
+        \item \(\ZZ\) is the set of \term{integers}
         \[
             \ZZ = \Bqty{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots}.
         \]
-        \item \(\QQ\) is the set of \emph{rational numbers}, which are all fractions of the form \(\frac{a}{b}\) where \(a, b \in \ZZ\) and \(b \neq 0\). Equivalently,
+        \item \(\QQ\) is the set of \term{rational numbers}, which are all fractions of the form \(\frac{a}{b}\) where \(a, b \in \ZZ\) and \(b \neq 0\). Equivalently,
         \[
             \QQ = \set{\frac{a}{b}}{a, b \in \ZZ, b \neq 0}.
         \]
@@ -54,7 +54,7 @@ However, from our perspective, to show that \(x = \sqrt{2}\) exists, we have to 
     \exists x \in \RR: x^2 = 2.
 \]
 
-\(x = \sqrt{2}\) is an example of an \emph{algebraic number}, since it is the root of some polynomial with integer coefficients. There are also non-algebraic numbers in \(\RR\) which are called \emph{transcendental}, e.g. \(\pi\) and \(e\). The existence of such numbers was not proved until 1844 (Liouville).
+\(x = \sqrt{2}\) is an example of an \term{algebraic number}, since it is the root of some polynomial with integer coefficients. There are also non-algebraic numbers in \(\RR\) which are called \term{transcendental}, e.g. \(\pi\) and \(e\). The existence of such numbers was not proved until 1844 (Liouville).
 
 \subsection{Proofs and Non-Proofs}
 \label{sec:proofs-non-proofs}
@@ -84,14 +84,14 @@ In this section we give examples of proofs and examples of incorrect proofs.
     Hence, \(n^2 = \pqty{2k}^2 = 2 \pqty{2k^2}\) which is even.
 \end{proof}
 
-We did not show the statement itself -- we showed the \emph{converse} of the statement.
+We did not show the statement itself -- we showed the \term{converse} of the statement.
 
 \begin{definition}[Converse, Inverse, Contrapositive]
     For a statement `if \(A\) then \(B\)',
     \begin{itemize}
-        \item its \emph{converse} is `if \(B\) then \(A\)'
-        \item its \emph{inverse} is `if not \(A\) then not \(B\)';
-        \item its \emph{contrapositive} is `if not \(B\) then not \(A\)'.
+        \item its \term{converse} is `if \(B\) then \(A\)'
+        \item its \term{inverse} is `if not \(A\) then not \(B\)';
+        \item its \term{contrapositive} is `if not \(B\) then not \(A\)'.
     \end{itemize}
 \end{definition}
 
@@ -122,14 +122,14 @@ We now present a correct proof of `if \(n^2\) is even then \(n\) is even'.
     So \(n^2\) is odd, contradicting the assumption that \(n^2\) is even.
 \end{proof}
 
-To show `if \(A\) then \(B\)', we showed that there is no case where \(A\) is true and \(B\) is false. This is called \emph{proof by contradiction}.
+To show `if \(A\) then \(B\)', we showed that there is no case where \(A\) is true and \(B\) is false. This is called \term{proof by contradiction}.
 
 \begin{definition}[If, Only If, If and Only If]
-    We write \(A \implies B\) for `if \(A\) then \(B\)'. This is also `\(B\) \emph{if} \(A\)', or `\(A\) \emph{implies} \(B\)'.
+    We write \(A \implies B\) for `if \(A\) then \(B\)'. This is also `\(B\) \term{if} \(A\)', or `\(A\) \term{implies} \(B\)'.
 
-    We write \(A \impliedby B\) for `if \(B\) then \(A\)'. This is also `\(B\) \emph{only if} \(A\)', or `\(A\) \emph{is implied by} \(B\)'.
+    We write \(A \impliedby B\) for `if \(B\) then \(A\)'. This is also `\(B\) \term{only if} \(A\)', or `\(A\) \term{is implied by} \(B\)'.
 
-    We write \(A \iff B\) if both \(A \implies B\) and \(A \impliedby B\). This means `\(A\) \emph{if and only if} \(B\)', or `\(A\) \emph{is equivalent to} \(B\)'.
+    We write \(A \iff B\) if both \(A \implies B\) and \(A \impliedby B\). This means `\(A\) \term{if and only if} \(B\)', or `\(A\) \term{is equivalent to} \(B\)'.
 \end{definition}
 
 Some statements might implicitly be a two directional proof.
@@ -188,7 +188,7 @@ We do not know that there is a least positive real to start this proof. Every cl
 \label{sec:combining-claims}
 
 \begin{definition}[And, Or, Not]
-    If \(A\) and \(B\) are assertions, we can write \(A \land B\) for \(A\) \emph{and} \(B\), write \(A \lor B\) for \(A\) \emph{or} \(B\), and \(\lnot A\) for \emph{not} \(A\).
+    If \(A\) and \(B\) are assertions, we can write \(A \land B\) for \(A\) \term{and} \(B\), write \(A \lor B\) for \(A\) \term{or} \(B\), and \(\lnot A\) for \term{not} \(A\).
 \end{definition}
 
 The truth of these assertions depends on the truth of \(A\) and \(B\), as summarised in the
@@ -225,7 +225,7 @@ We notice the following.
 A claim may involve quantifiers.
 
 \begin{definition}[For All, There Exists]
-    \(\forall n\) means `\emph{for all} \(n\)'. \(\exists n\) means `\emph{there exists} \(n\)'.
+    \(\forall n\) means `\term{for all} \(n\)'. \(\exists n\) means `\term{there exists} \(n\)'.
 \end{definition}
 
 We may negate quantifiers, by swapping to the other quantifies and negating the statement behind.

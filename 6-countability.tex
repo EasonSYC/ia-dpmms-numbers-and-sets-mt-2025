@@ -11,13 +11,13 @@ but can we formalise this result?
 \label{sec:countable-sets}
 
 \begin{definition}[Countable]
-    A set \(X\) is \emph{countable}, if \(X\) satisfies one of the following two conditions:
+    A set \(X\) is \term{countable}, if \(X\) satisfies one of the following two conditions:
     \begin{itemize}
         \item \(X\) is finite; or
         \item there is a bijection \(X \to \NN\).
     \end{itemize}
 
-    The second case is called \emph{countably infinite}.
+    The second case is called \term{countably infinite}.
 \end{definition}
 
 A set \(X\) is countable if and only if we can list its elements one by one as
@@ -233,7 +233,7 @@ By induction, we have \(\ZZ^k\) and \(\NN^k\) is countable for any \(k \in \NN\)
 \label{sec:uncountable-sets}
 
 \begin{definition}[Uncountable Sets]
-    A set is \emph{uncountable} if it is not countable.
+    A set is \term{uncountable} if it is not countable.
 \end{definition}
 
 \begin{theorem}[\(\RR\) is uncountable]
@@ -262,7 +262,7 @@ By induction, we have \(\ZZ^k\) and \(\NN^k\) is countable for any \(k \in \NN\)
     This contradicts with that \(\RR\) is countable.
 \end{theorem}
 
-This is known as a \emph{diagonal argument} due to Cantor, 1870s. This shows that \(\oointv{0}{1}\) is uncountable, and by bijecting it with any interval linearly, we see any interval with positive length on \(\RR\) is uncountable.
+This is known as a \term{diagonal argument} due to Cantor, 1870s. This shows that \(\oointv{0}{1}\) is uncountable, and by bijecting it with any interval linearly, we see any interval with positive length on \(\RR\) is uncountable.
 
 \begin{corollary}[Transcendental Numbers are Uncountable]
     There are uncountably many transcendental numbers.
@@ -477,19 +477,19 @@ Next, we want to show that the order is \textbf{antisymmetric} -- i.e. if there 
 
     Similarly, for \(b \in B\), we write \(f\inverse\pqty{b}\) for the unique \(a \in A\) where \(f\pqty{a} = b\), if it exists.
 
-    We first define what it means for an \emph{ancestor sequence} -- which is illustrated in \autoref{fig:ancestor-sequence}.
+    We first define what it means for an \term{ancestor sequence} -- which is illustrated in \autoref{fig:ancestor-sequence}.
 
     For some \(a \in A\), we call
     \[
         g\inverse\pqty{a}, f\inverse \pqty{g\inverse \pqty{a}}, g\inverse \pqty{f\inverse \pqty{g\inverse \pqty{a}}}, \ldots
     \]
-    as the \emph{ancestor sequence} of \(a\), which might terminate.
+    as the \term{ancestor sequence} of \(a\), which might terminate.
 
     Similarly, for some \(b \in B\), we call
     \[
         f\inverse\pqty{b}, g\inverse \pqty{f\inverse \pqty{b}}, f\inverse \pqty{g\inverse \pqty{f\inverse \pqty{b}}}, \ldots
     \]
-    as the \emph{ancestor sequence} of \(b\), which might terminate.
+    as the \term{ancestor sequence} of \(b\), which might terminate.
 
     Let
     \begin{align*}
@@ -504,7 +504,7 @@ Next, we want to show that the order is \textbf{antisymmetric} -- i.e. if there 
         B_{\infty} &= \set{b \in B}{\text{ancestor sequence of } b \text{ does not terminate}},
     \end{align*}
 
-    \autoref{fig:ancestor-sequence-even-odd-infinite-length} visualises this \emph{partition} of \(A\) and \(B\).
+    \autoref{fig:ancestor-sequence-even-odd-infinite-length} visualises this \term{partition} of \(A\) and \(B\).
     
     Now, note that \(f\) bijects from \(A_0\) to \(B_1\), observing that every \(b \in B_1\) has at least one ancestor, so is equal to \(f\pqty{a}\) for some \(a \in A_0\).
 
@@ -547,9 +547,9 @@ Our journey of this course ends here -- but there are two important and fundamen
 
 \begin{remarks}
     \begin{enumerate}
-        \item It would be nice to say that for any two sets \(A\) and \(B\), either \(A\) injects into \(B\), or \(B\) injects into \(A\) -- this allows us to define the comparison of sizes on \emph{any} two sets, showing that our order is \textbf{total}. This is known as the \emph{Principle of Cardinal Comparability (PCC)}, and is equivalent to the \emph{Axiom of Choice (AC)}.
+        \item It would be nice to say that for any two sets \(A\) and \(B\), either \(A\) injects into \(B\), or \(B\) injects into \(A\) -- this allows us to define the comparison of sizes on \emph{any} two sets, showing that our order is \textbf{total}. This is known as the \term{Principle of Cardinal Comparability (PCC)}, and is equivalent to the \term{Axiom of Choice (AC)}.
         
-        \item The \emph{Continuum Hypothesis (CH)} states that there is no set whose size lies between \(\NN\) and \(\RR\), i.e. any subset of \(\RR\) is either countable or bijects with \(\RR\).
+        \item The \term{Continuum Hypothesis (CH)} states that there is no set whose size lies between \(\NN\) and \(\RR\), i.e. any subset of \(\RR\) is either countable or bijects with \(\RR\).
         
         This is proven to be independent of Zermelo--Fraenkel Set Theory, with or without Axiom of Choice, i.e. within ZF or ZFC.
     \end{enumerate}

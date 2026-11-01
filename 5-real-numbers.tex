@@ -50,7 +50,7 @@ and
     \pqty{a, b} \times \pqty{c, d} = \pqty{a \times c, b \times d}.
 \]
 
-In addition to this, we may define an \emph{ordering} on \(\QQ\), \(<\), which satisfy the following properties, that
+In addition to this, we may define an \term{ordering} on \(\QQ\), \(<\), which satisfy the following properties, that
 \begin{enumerate}
     \item if \(a, b \in \QQ\), then precisely one of \(a < b, a = b, a > b\) holds;
     \item if \(a < b\) and \(b < c\), then \(a < c\).
@@ -60,7 +60,7 @@ This ordering is useful, in the sense that there is a rational number between an
 \[
     p < \frac{p + q}{2} < q
 \]
-so \(\QQ\) is \emph{densely ordered}.
+so \(\QQ\) is \term{densely ordered}.
 
 However, this does not ensure that all the gaps are filled in.
 
@@ -120,10 +120,10 @@ Similarly, the set
 \]
 has no smallest element.
 
-The \textbf{crucial point} is not about the \emph{maximum/minimum} of a set -- it is about a \emph{least upper bound} -- which is the "gap". (And luckily, all the "gaps".)
+The \textbf{crucial point} is not about the \term{maximum/minimum} of a set -- it is about a \term{least upper bound} -- which is the "gap". (And luckily, all the "gaps".)
 
 \begin{definition}[\(\RR\)]
-    The \emph{real numbers} \(\RR\) are a set with elements \(0, 1 \in \RR\) where \(0 \neq 1\), equipped with operations \(+\) and \(\times\), and an ordering \(<\) satisfying the following axioms:
+    The \term{real numbers} \(\RR\) are a set with elements \(0, 1 \in \RR\) where \(0 \neq 1\), equipped with operations \(+\) and \(\times\), and an ordering \(<\) satisfying the following axioms:
     \begin{enumerate}
         \item \(\pqty{\RR, +, 0}\) is an abelian group: \(+\) is commutative and associative with identity \(0\), and inverses exist under \(+\);
         \item \(\pqty{\RR\multiplicative, \times, 1}\) is an abelian group: \(\times\) is commutative and associative with identity \(1\), and inverses exist under \(\times\) for non-zero elements;
@@ -134,16 +134,16 @@ The \textbf{crucial point} is not about the \emph{maximum/minimum} of a set -- i
         and \(\pqty{\RR, +, \times}\) form a field;
         \item \(\pqty{\RR, <}\) is a totally ordered field: for all \(a, b\), exactly one of \(a < b\), \(a = b\) and \(a > b\) holds; for all \(a, b, c\), if \(a < b\) and \(b < c\), then \(a < c\);
         \item the ordering preserve arithmetic: for all \(a, b, c\), if \(a < b\), then \(a + c < b + c\), and \(ac < bc\) for \(c > 0\);
-        \item given any set \(S\) of reals that is non-empty and bounded above, \(S\) has a \emph{least upper bound}.
+        \item given any set \(S\) of reals that is non-empty and bounded above, \(S\) has a \term{least upper bound}.
     \end{enumerate}
 
-    The final axiom is known as the \emph{least upper bound axiom.}
+    The final axiom is known as the \term{least upper bound axiom}.
 \end{definition}
 
 \begin{definition}[Least Upper Bound]
-    We say a set \(S\) is \emph{bounded above} if there is some \(x \in \RR\), such that \(x \geq y\) for all \(y \in S\). Such an element \(x\) is called an \emph{upper bound of \(S\)}.
+    We say a set \(S\) is \term{bounded above} if there is some \(x \in \RR\), such that \(x \geq y\) for all \(y \in S\). Such an element \(x\) is called an \term{upper bound of \(S\)}.
 
-    We say \(x\) is \emph{the least upper bound} for \(S\), if \(x\) is an upper bound for \(S\), and any other upper bound \(x'\) satisfies \(x' \geq x\).
+    We say \(x\) is \term{the least upper bound} for \(S\), if \(x\) is an upper bound for \(S\), and any other upper bound \(x'\) satisfies \(x' \geq x\).
 
     We denote this as \(x = \LUB\pqty{S}\), \(x = \supremum\pqty{S}\), or most commonly,
     \[
@@ -151,7 +151,7 @@ The \textbf{crucial point} is not about the \emph{maximum/minimum} of a set -- i
     \]
 \end{definition}
 
-Note that we defined \(\RR\) -- but its existence is not immediately obvious from the definition. This can be seen from a technique called \emph{Dedekind Cuts}.
+Note that we defined \(\RR\) -- but its existence is not immediately obvious from the definition. This can be seen from a technique called \term{Dedekind Cuts}.
 
 \begin{remarks}
     \begin{enumerate}
@@ -248,9 +248,9 @@ Clearly, \(1\) is an upper bound of \(S\). But is there an upper bound less than
 \end{proof}
 
 \begin{definition}[Greatest Lower Bound]
-    A set \(S\) is said to be \emph{bounded below}, if there exists \(x\), such that for all \(y \in S\), we have \(x \leq y\). Such an \(x\) is called a \emph{lower bound} for \(S\).
+    A set \(S\) is said to be \term{bounded below}, if there exists \(x\), such that for all \(y \in S\), we have \(x \leq y\). Such an \(x\) is called a \term{lower bound} for \(S\).
 
-    We say \(x\) is the \emph{greatest lower bound} for \(S\), if \(x\) is a lower bound for \(S\), and any other lower bound \(x'\) satisfies \(x' \leq x\).
+    We say \(x\) is the \term{greatest lower bound} for \(S\), if \(x\) is a lower bound for \(S\), and any other lower bound \(x'\) satisfies \(x' \leq x\).
 
     We denote this as \(x = \GLB \pqty{S}\), \(x = \infimum\pqty{S}\), or most commonly,
     \[
@@ -338,7 +338,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 \end{remark}
 
 \begin{definition}[Irrational Numbers]
-    A real that is not rational is \emph{irrational}.
+    A real that is not rational is \term{irrational}.
 \end{definition}
 
 \begin{examples}[Examples of Irrationals]
@@ -353,7 +353,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 \end{examples}
 
 \begin{proposition}[\(\QQ\) is dense in \(\RR\)]
-    The rationals are \emph{dense} in the reals. Formally,
+    The rationals are \term{dense} in the reals. Formally,
     \[
         \forall a, b \in \RR, a < b, \exists c \in \QQ: a < c < b.
     \]
@@ -389,7 +389,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 \end{proof}
 
 \begin{proposition}[\(\RR \setminus \QQ\) is dense in \(\RR\)]
-    The irrationals are \emph{dense} in the reals. Formally,
+    The irrationals are \term{dense} in the reals. Formally,
     \[
         \forall a, b \in \RR, a < b, \exists c \in \RR \setminus \QQ: a < c < b.
     \]
@@ -410,7 +410,7 @@ Now we show that the gaps we found in \(\QQ\) beforehand is filled by the least 
 \label{sec:sequences}
 
 \begin{definition}[Sequence]
-    A \emph{sequence} is an enumerated collection of objects in which repetitions are allowed and order matters.
+    A \term{sequence} is an enumerated collection of objects in which repetitions are allowed and order matters.
 
     We write the sequence as
     \[
@@ -438,7 +438,7 @@ to tend to \(1\).
 We want the sequence to get to, and stay within \(\epsilon\) of \(l\).
 
 \begin{definition}[Limit of a Sequence]
-    We say the sequence \(a_1, a_2, a_3, \ldots\) tends to a \emph{limit} \(l \in \RR\), as \(n\) tends to infinity, if
+    We say the sequence \(a_1, a_2, a_3, \ldots\) tends to a \term{limit} \(l \in \RR\), as \(n\) tends to infinity, if
     \[
         \forall \epsilon > 0, \exists N \in \NN, \forall n \geq N: l - \epsilon < a_n < l + \epsilon.
     \]
@@ -456,7 +456,7 @@ We want the sequence to get to, and stay within \(\epsilon\) of \(l\).
     \]
 \end{definition}
 
-We may think of the absolute value \(\abs{a - b}\) as the \emph{distance} between \(a\) and \(b\) on the real number line, for example,
+We may think of the absolute value \(\abs{a - b}\) as the \term{distance} between \(a\) and \(b\) on the real number line, for example,
 \[
     \abs{2 - 9} = \abs{9 - 2} = 7.
 \]
@@ -482,7 +482,7 @@ We may think of the absolute value \(\abs{a - b}\) as the \emph{distance} betwee
         \pqty{a_n}_{n = 1}^{\infty} \text{ converges to } l.
     \]
 
-    If there is a limit \(l\), but it is not specified, we may simply say the sequence converges; if the sequence does not converge to any \(l \in \RR\), we say it \emph{diverges}.
+    If there is a limit \(l\), but it is not specified, we may simply say the sequence converges; if the sequence does not converge to any \(l \in \RR\), we say it \term{diverges}.
 \end{notation}
 
 \begin{examples}
@@ -511,7 +511,7 @@ We may think of the absolute value \(\abs{a - b}\) as the \emph{distance} betwee
 
         Hence, \(a_n \to 0\) as \(n \to \infty\).
 
-        \item Consider the sequence \(a_n = 1 - \frac{1}{2^n}\). Note that it can also be thought of as a \emph{series}
+        \item Consider the sequence \(a_n = 1 - \frac{1}{2^n}\). Note that it can also be thought of as a \term{series}
         \[
             \frac{1}{2}, \frac{1}{2} + \frac{1}{4}, \frac{1}{2} + \frac{1}{4} + \frac{1}{8}, \ldots.  
         \]
@@ -585,14 +585,14 @@ So far, we implicitly assumed that if a limit exists, then it is unique.
     which gives a contradiction.
 \end{proof}
 
-However, we would like to study more generally on the sequences that converge. An important technique is putting \emph{bounds} on the sequence.
+However, we would like to study more generally on the sequences that converge. An important technique is putting \term{bounds} on the sequence.
 
 \begin{definition}[Bounded Sequence]
-    A sequence \(\pqty{a_n}_{n = 1}^{\infty}\) is \emph{bounded above}, if there exists a real number \(U\), such that \(a_n < U\) for all \(n \in \NN\).
+    A sequence \(\pqty{a_n}_{n = 1}^{\infty}\) is \term{bounded above}, if there exists a real number \(U\), such that \(a_n < U\) for all \(n \in \NN\).
 
-    Similarly, it is \emph{bounded below}, if there exists a real number \(L\), such that \(a_n > L\) for all \(n \in \NN\).
+    Similarly, it is \term{bounded below}, if there exists a real number \(L\), such that \(a_n > L\) for all \(n \in \NN\).
 
-    It is \emph{bounded} if it is both bounded above and below. Alternatively, we may define it to be \emph{bounded} if there exists a real number \(B\), such that \(\abs{a_n} < B\) for all \(n \in \NN\).
+    It is \term{bounded} if it is both bounded above and below. Alternatively, we may define it to be \term{bounded} if there exists a real number \(B\), such that \(\abs{a_n} < B\) for all \(n \in \NN\).
 \end{definition}
 
 We see the two definitions of bounded are equivalent. Indeed, if \(\abs{a_n} < B\) for some \(B \in \RR\), then let \(U = B\) and \(L = -B\), then it is both bounded above and below. If such \(U, L \in \RR\) exists, then let \(B = \max\Bqty{\abs{U}, \abs{L}}\).
@@ -615,11 +615,11 @@ We see the two definitions of bounded are equivalent. Indeed, if \(\abs{a_n} < B
 \end{proof}
 
 \begin{definition}[Monotonic]
-    A sequence \(\pqty{a_n}_{n = 1}^{\infty}\) is \emph{increasing} if \(a_{n + 1} \geq a_n\) for all \(n \in \NN\).
+    A sequence \(\pqty{a_n}_{n = 1}^{\infty}\) is \term{increasing} if \(a_{n + 1} \geq a_n\) for all \(n \in \NN\).
 
-    Similarly, it is \emph{decreasing} if \(a_{n + 1} \leq a_n\) for all \(n \in \NN\).
+    Similarly, it is \term{decreasing} if \(a_{n + 1} \leq a_n\) for all \(n \in \NN\).
 
-    It is \emph{monotonic} if it is increasing or if it is decreasing.
+    It is \term{monotonic} if it is increasing or if it is decreasing.
 \end{definition}
 
 This leads to the following theorem.
@@ -743,7 +743,7 @@ We aim to formalise the study of infinite sums in this section.
     \[
         s_k = \sum_{n = 1}^{k} a_n
     \]
-    is the \(k\)-th \emph{partial sum} of the \emph{series} whose \(n\)-th term is \(a_n\).
+    is the \(k\)-th \term{partial sum} of the \term{series} whose \(n\)-th term is \(a_n\).
 
     We write
     \[
@@ -754,7 +754,7 @@ We aim to formalise the study of infinite sums in this section.
 
 \begin{examples}[Examples of Series]
     \begin{enumerate}
-        \item The series whose \(n\)-th term is \(a_n = r^n\) for some constant \(\abs{r} < 1\) is known as the \emph{geometric series}.
+        \item The series whose \(n\)-th term is \(a_n = r^n\) for some constant \(\abs{r} < 1\) is known as the \term{geometric series}.
         
         We have
         \begin{align*}
@@ -769,7 +769,7 @@ We aim to formalise the study of infinite sums in this section.
             \sum_{n = 1}^{\infty} r^n = \frac{r}{1 - r}.
         \]
 
-        \item The series whose \(n\)-th term is \(a_n = \frac{1}{n}\) is known as the \emph{harmonic series}.
+        \item The series whose \(n\)-th term is \(a_n = \frac{1}{n}\) is known as the \term{harmonic series}.
         
         We have
         \begin{align*}
@@ -842,7 +842,7 @@ We next study a particular type of sequences in the reals -- the \textbf{decimal
 \end{proof}
 
 \begin{definition}[Decimal Expansion]
-    We say that \(0.d_1 d_2 d_3 \ldots\) is a \emph{decimal expansion} of \(x\).
+    We say that \(0.d_1 d_2 d_3 \ldots\) is a \term{decimal expansion} of \(x\).
 \end{definition}
 
 The next question to ask, is if the decimal expansions are correspondent to the reals in \(\ccintv{0}{1}\) in some way.
@@ -939,7 +939,7 @@ and anything similar terminating in this. Indeed, these are the only ones.
 This case is to be dealt carefully when dealing with reals by considering their decimal expansions.
 
 \begin{definition}[Periodic Decimals]
-    A decimal expansion is \emph{periodic} if after a finite number of terms, it repeats in blocks of a fixed length. Equivalently, a decimal expansion \(0.d_1 d_2 d_3 \ldots\) is periodic if
+    A decimal expansion is \term{periodic} if after a finite number of terms, it repeats in blocks of a fixed length. Equivalently, a decimal expansion \(0.d_1 d_2 d_3 \ldots\) is periodic if
     \[
         \exists l, k \in \NN, \forall n > l: d_{n + k} = d_n.
     \]
@@ -1076,9 +1076,9 @@ This case is to be dealt carefully when dealing with reals by considering their 
 \end{proof}
 
 \begin{definition}[Algebraic and Transcendental Numbers]
-    We say a real number is \emph{algebraic} if it is a root of a non-zero polynomial with integer coefficients. (Or rational coefficients).
+    We say a real number is \term{algebraic} if it is a root of a non-zero polynomial with integer coefficients. (Or rational coefficients).
 
-    A real number is \emph{transcendental} if it is not algebraic.
+    A real number is \term{transcendental} if it is not algebraic.
 \end{definition}
 
 \begin{examples}[Examples of Algebraic Numbers]
@@ -1209,7 +1209,7 @@ We utilise these two facts to show that the Liouville number is transcendental.
 We define such numbers into existence.
 
 \begin{definition}[Complex Numbers, \(\CC\)]
-    The \emph{complex numbers} \(\CC\) consists of \(\RR^2 = \set{\pqty{a, b}}{a, b \in \RR}\) together with operation \(+\) and \(\times\):
+    The \term{complex numbers} \(\CC\) consists of \(\RR^2 = \set{\pqty{a, b}}{a, b \in \RR}\) together with operation \(+\) and \(\times\):
     \begin{align*}
         \pqty{a, b} + \pqty{c, d} &= \pqty{a + c, b + d}, \\
         \pqty{a, b} \times \pqty{c, d} &= \pqty{ac - bd, ad + bc}.
@@ -1252,6 +1252,6 @@ uniquely.
             \pqty{a + ib} \cdot \frac{a - ib}{a^2 + b^2} = 1.
         \]
 
-        \item Every non-constant polynomial with complex coefficients has a root in \(\CC\). This is known as the \emph{fundamental theorem of algebra}.
+        \item Every non-constant polynomial with complex coefficients has a root in \(\CC\). This is known as the \term{Fundamental Theorem of Algebra}.
     \end{enumerate}
 \end{remarks}

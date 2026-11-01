@@ -5,17 +5,17 @@
 \label{sec:primes-and-divisibility}
 
 \begin{definition}[Divisors]
-    Given \(a, b \in \ZZ\), we say \emph{\(a\) divides \(b\)} if there exists \(c \in \ZZ\) such that \(b = ac\).
+    Given \(a, b \in \ZZ\), we say \term{\(a\) divides \(b\)} if there exists \(c \in \ZZ\) such that \(b = ac\).
 
-    Equivalently, we might also say \emph{\(a\) is a divisor of \(b\)}, \emph{\(a\) is a factor of \(b\)}, or \emph{\(b\) is a multiple of \(a\)}. We denote \(a \divides b\).
+    Equivalently, we might also say \term{\(a\) is a divisor of \(b\)}, \term{\(a\) is a factor of \(b\)}, or \term{\(b\) is a multiple of \(a\)}. We denote \(a \divides b\).
 \end{definition}
 
 \begin{definition}[Proper Factors]
-    For any \(b \in \ZZ\), \(\pqty{\pm 1}\) and \(\pqty{\pm b}\) are always factors of \(b\). We call those the \emph{trivial factors} of \(b\), and the rest \emph{proper/non-trivial factors}.
+    For any \(b \in \ZZ\), \(\pqty{\pm 1}\) and \(\pqty{\pm b}\) are always factors of \(b\). We call those the \term{trivial factors} of \(b\), and the rest \term{proper/non-trivial factors}.
 \end{definition}
 
 \begin{definition}[Prime, Composite]
-    A natural number \(n \geq 2\) is \emph{prime} if its only divisors are trivial. Otherwise, we say \(n\) is \emph{composite}.
+    A natural number \(n \geq 2\) is \term{prime} if its only divisors are trivial. Otherwise, we say \(n\) is \term{composite}.
 \end{definition}
 
 \begin{proposition}[Fundamental Theorem of Arithmetic, Part 1]
@@ -63,7 +63,7 @@ The previous proposition states the existence of a representation as a product o
 Before we prove this, we introduce what is meant by the highest common factor.
 
 \begin{definition}[Highest Common Factor/Greatest Common Divisor]
-    Given \(a, b \in \NN\), we say a number \(c \in \NN\) is the \emph{highest common factor} (hcf) or \emph{greatest common divisor} (gcd) of \(a\) and \(b\) if:
+    Given \(a, b \in \NN\), we say a number \(c \in \NN\) is the \term{highest common factor} (hcf) or \term{greatest common divisor} (gcd) of \(a\) and \(b\) if:
     \begin{enumerate}
         \item \(c \divides a\) and \(c \divides b\) (i.e. \(c\) is a common divisor of \(a\) and \(b\)); and
         \item \(d \divides a\) and \(d \divides b\) implies \(d \divides c\) (i.e. every common divisor of \(a\) and \(b\) divides \(c\)).
@@ -97,7 +97,7 @@ We show by construction that in fact it must always exist, but we first introduc
 \begin{proposition}[Division Algorithm]
     Let \(n, k \in \NN\), then we can write \(n = qk + r\) for some \(q, r \in \ZZ\), with \(0 \leq r \leq k - 1\).
     
-    Such \(q\) is called the \emph{quotient} and \(r\) is called the \emph{remainder}.
+    Such \(q\) is called the \term{quotient} and \(r\) is called the \term{remainder}.
 \end{proposition}
 
 \begin{proof}
@@ -134,7 +134,7 @@ We show by construction that in fact it must always exist, but we first introduc
     and hence since \(\pqty{q - q'}k\) is a multiple of \(k\), we must have \(r - r' = 0\), and \(q - q' = 0\).
 \end{remark}
 
-We now use this integer division to conduct an algorithm called \emph{Euclid's algorithm}, as in \autoref{tab:euclids-algorithm}.
+We now use this integer division to conduct an algorithm called \term{Euclid's algorithm}, as in \autoref{tab:euclids-algorithm}.
 
 \begin{table}
     \centering
@@ -189,7 +189,7 @@ Note that this algorithm terminates in \(n < b\) steps, since
 \end{example}
 
 \begin{definition}[Coprime]
-    When \(\gcd\pqty{a, b} = 1\), we say \(a\) and \(b\) are \emph{coprime}.
+    When \(\gcd\pqty{a, b} = 1\), we say \(a\) and \(b\) are \term{coprime}.
 \end{definition}
 
 Notice that we may reverse Euclid's algorithm. For example, in the previous example,
@@ -401,7 +401,7 @@ We now prove Euclid's Lemma.
 We may now apply the fundamental theorem of arithmetics to some useful applications.
 
 \begin{definition}[Least Common Multiple]
-    Given \(a, b \in \NN\), we say a number \(c \in \NN\) is the \emph{least common multiple} (lcm) of \(a\) and \(b\) if:
+    Given \(a, b \in \NN\), we say a number \(c \in \NN\) is the \term{least common multiple} (lcm) of \(a\) and \(b\) if:
     \begin{enumerate}
         \item \(a \divides c\) and \(b \divides c\) (i.e. \(c\) is a common multiple of \(a\) and \(b\)); and
         \item \(a \divides m\) and \(b \divides m\) implies \(c \divides m\) (i.e. every common multiple of \(a\) and \(b\) is a multiple of \(c\)).
@@ -511,7 +511,7 @@ We may now present another proof that there are infinitely many primes --- recal
         p_k < 4^k.
     \]
 
-    In fact, a much tighter bound is given by the \emph{prime number theorem}, stating
+    In fact, a much tighter bound is given by the \term{prime number theorem}, stating
     \[
         p_k \sim k \log k.
     \]
@@ -521,7 +521,7 @@ We may now present another proof that there are infinitely many primes --- recal
 \label{sec:modular-arithmetic}
 
 \begin{definition}[Integers Modulo \(n\)]
-    Let \(n \geq 2\) be a natural number. Then, the \emph{integers modulo \(n\)}, denoted \(\ZZ_{n}\) or \(\flatfrac{\ZZ}{n\ZZ}\), consists of the integers with the two integers being the same if they differ by a multiple of \(n\).
+    Let \(n \geq 2\) be a natural number. Then, the \term{integers modulo \(n\)}, denoted \(\ZZ_{n}\) or \(\flatfrac{\ZZ}{n\ZZ}\), consists of the integers with the two integers being the same if they differ by a multiple of \(n\).
 
     Formally, if \(x\) and \(y\) are the same in \(\ZZ_n\), we write
     \[
@@ -610,9 +610,9 @@ Similar to how we solve equations in integers, we can also solve equations in th
 \end{example}
 
 \begin{definition}[Inverses Modulo \(n\)]
-    Given \(a, b \in \ZZ\), we say \(b\) is \emph{an inverse of \(a\) modulo \(n\)} if \(ab \equiv 1 \pmod{n}\).
+    Given \(a, b \in \ZZ\), we say \(b\) is \term{an inverse of \(a\) modulo \(n\)} if \(ab \equiv 1 \pmod{n}\).
 
-    We say that \emph{\(a\) is invertible modulo \(n\)} or that \emph{\(a\) is a unit modulo \(n\)}, if it has an inverse.
+    We say that \term{\(a\) is invertible modulo \(n\)} or that \term{\(a\) is a unit modulo \(n\)}, if it has an inverse.
 \end{definition}
 
 \begin{example}[Inverses Modulo \(10\)]
@@ -819,9 +819,9 @@ Here, \(4\) and \(6\) are not coprime, and there are not any solutions.
 \end{remark}
 
 \begin{definition}[Euler Totient Function]
-    We denote by \(\totient\pqty{m}\) the number of integers \(a\) with \(1 \leq a \leq m\), such that \(\gcd\pqty{a, m} = 1\). In other words, \(\totient\pqty{m}\) is \emph{the number of units modulo \(m\)}.
+    We denote by \(\totient\pqty{m}\) the number of integers \(a\) with \(1 \leq a \leq m\), such that \(\gcd\pqty{a, m} = 1\). In other words, \(\totient\pqty{m}\) is \term{the number of units modulo \(m\)}.
     
-    This is known as the \emph{Euler Totient Function}.
+    This is known as the \term{Euler Totient Function}.
 
     Note that we define \(\totient\pqty{1} = 1\).
 \end{definition}
@@ -1060,16 +1060,16 @@ In fact, if \(2^p \equiv 2 \pmod{p}\), then there is a good chance that \(p\) is
 Now we proceed from this and encrypt messages. We may encode messages as a sequence of numbers, e.g. encoding \(A\) as \(0\), \(B\) as \(1\), \dots, \(Z\) as \(25\). Our goal is to send messages in an encrypted form, in such a way that the intended receiver can decrypt them easily, but a third party cannot.
 
 \begin{definition}[RSA Scheme]
-    The following procedure is defined to be the \emph{RSA Scheme}.
+    The following procedure is defined to be the \term{RSA Scheme}.
 
     The receiver:
     \begin{itemize}
         \item think of two \emph{very large primes} \(p\) and \(q\);
-        \item let \(n = pq\); pick an \emph{encoding exponent} \(e\) coprime to
+        \item let \(n = pq\); pick an \term{encoding exponent} \(e\) coprime to
         \[
             \totient \pqty{n} = \pqty{p - 1} \pqty{q - 1};
         \]
-        \item publish the pair \(\pqty{n, e}\) as the \emph{encryption scheme}.
+        \item publish the pair \(\pqty{n, e}\) as the \term{encryption scheme}.
     \end{itemize}
 
     The sender:
@@ -1080,7 +1080,7 @@ Now we proceed from this and encrypt messages. We may encode messages as a seque
 
     To decrypt the message:
     \begin{itemize}
-        \item the \emph{decoding exponent} \(d\) is calculated such that
+        \item the \term{decoding exponent} \(d\) is calculated such that
         \[
             ed \equiv 1 \pmod{\totient\pqty{n}};
         \]

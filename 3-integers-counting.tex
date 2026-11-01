@@ -7,14 +7,14 @@
 We first provide the axiomatic definition of the natural numbers \(\NN\).
 
 \begin{definition}[The Natural Numbers, \(\NN\)]
-    The \emph{natural numbers} \(\NN\) is a set containing a special element \(1 \in \NN\), together with a \emph{successor function} (intuitively, \(+ 1\)) \(\functiondomain{s}{\NN}{\NN}\), such that:
+    The \term{natural numbers} \(\NN\) is a set containing a special element \(1 \in \NN\), together with a \term{successor function} (intuitively, \(+ 1\)) \(\functiondomain{s}{\NN}{\NN}\), such that:
     \begin{enumerate}
         \item For all \(n \in \NN\), \(s \pqty{n} \neq 1\). (\(1\) is not the successor of any element.)
         \item For all \(m, n \in \NN\), if \(s\pqty{m} = s\pqty{n}\), then \(m = n\). (The successor function is injective.)
         \item Let \(A \subseteq \NN\) such that \(1 \in A\), and if \(n \in A\) then \(s\pqty{n} \in A\). Then \(A = \NN\).
     \end{enumerate}
 
-    These are the \emph{Peano Axioms}, and specifically (iii) is the \emph{Axiom of Induction}.
+    These are the \term{Peano Axioms}, and specifically (iii) is the \term{Axiom of Induction}.
 \end{definition}
 
 We can now write \(2 = s\pqty{1}, 3 = s\pqty{2}\), etc.
@@ -51,7 +51,7 @@ We may show by induction that these operations satisfy the usual rules of arithm
 \end{example}
 
 \begin{definition}[Ordering on \(\NN\)]
-    We may define an \emph{ordering} on \(\NN\) as follows: for any \(m, n \in \NN\), if there is some \(k \in \NN\) such that \(m + k = n\), then \(m < n\).
+    We may define an \term{ordering} on \(\NN\) as follows: for any \(m, n \in \NN\), if there is some \(k \in \NN\) such that \(m + k = n\), then \(m < n\).
 \end{definition}
 
 We may check from first principles (i.e. by induction) that our usual rules of ordering holds.
@@ -125,7 +125,7 @@ or equivalently,
     Therefore, \(P\pqty{n}\) is false for all \(n \in \NN\), contradicting the assumption that there is some \(n \in \NN\) such that \(P\pqty{n}\).
 \end{proof}
 
-However, the WOP (on its own) does not imply SPI --- this fails for certain \emph{ordinals}. However, in every proof using SPI, we may frame the proof by some modifications to WOP.
+However, the WOP (on its own) does not imply SPI --- this fails for certain \term{ordinals}. However, in every proof using SPI, we may frame the proof by some modifications to WOP.
 
 \begin{claim}[Fundamental Theorem of Arithmetic]
     Any natural number \(> 1\) can be written as a product of primes.
@@ -147,7 +147,7 @@ However, the WOP (on its own) does not imply SPI --- this fails for certain \emp
 \subsection{Counting Subsets}
 \label{sec:counting-subsets}
 
-Recall a set \(A\) has \emph{size \(n\)} if we can write
+Recall a set \(A\) has \term{size \(n\)} if we can write
 \[
     A = \Bqty{a_1, a_2, \ldots, a_n}
 \]
@@ -156,7 +156,7 @@ with the elements \(a_i\) being distinct. We denote
     \abs{A} = \size{A} = n.
 \]
 
-We say \(A\) is \emph{finite} if there is some \(n \in \NN_0\) such that \(\abs{A} = n\), and \emph{infinite} otherwise.
+We say \(A\) is \term{finite} if there is some \(n \in \NN_0\) such that \(\abs{A} = n\), and \term{infinite} otherwise.
 
 We now conduct counting on the subsets of finite sets, and those with a particular size.
 
@@ -188,7 +188,7 @@ This proposition is telling us that if \(\abs{A} = n\), then
 \]
 
 \begin{definition}[Binomial Coefficient]
-    Given some \(n \in \NN_0\), and \(0 \leq k \leq n\), the \emph{binomial coefficient}
+    Given some \(n \in \NN_0\), and \(0 \leq k \leq n\), the \term{binomial coefficient}
     \[
         \binom{n}{k} = n \text{ choose } k
     \]
@@ -235,7 +235,7 @@ This is since the subsets of \(\Bqty{1, 2, \ldots, n}\) with size \(k\) consists
     \item those with \(n\) not chosen, remaining \(k\) to choose in \(\Bqty{1, 2, \ldots, n - 1}\), giving \(\binom{n - 1}{k}\) of those.
 \end{itemize}
 
-In this way, we obtain the \emph{Pascal's Triangle}, as in \autoref{fig:pascals-triangle}.
+In this way, we obtain the \term{Pascal's Triangle}, as in \autoref{fig:pascals-triangle}.
 
 \begin{figure}[ht!]
     \centering
