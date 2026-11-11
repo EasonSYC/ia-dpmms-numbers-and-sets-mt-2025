@@ -217,7 +217,7 @@ We give some examples on the idea of the least upper bound.
 
 Now we want to find the least upper bound of
 \[
-    S = \Bqty{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
+    S = \set{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
 \]
 
 Clearly, \(1\) is an upper bound of \(S\). But is there an upper bound less than 1?
@@ -280,7 +280,7 @@ Now, we return to a previous example.
 \begin{example}
     We want to find the least upper bound of
     \[
-        S = \Bqty{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
+        S = \set{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \ldots} = \set{1 - \frac{1}{n}}{n \in \NN}.
     \]
 
     We claim \(\sup \pqty{S} = 1\), and suppose on the contrary that \(c < 1\) is an upper bound for \(S\). Then \(1 - \frac{1}{n} \leq c\), for all \(n \in \NN\), so
@@ -595,7 +595,7 @@ However, we would like to study more generally on the sequences that converge. A
     It is \term{bounded} if it is both bounded above and below. Alternatively, we may define it to be \term{bounded} if there exists a real number \(B\), such that \(\abs{a_n} < B\) for all \(n \in \NN\).
 \end{definition}
 
-We see the two definitions of bounded are equivalent. Indeed, if \(\abs{a_n} < B\) for some \(B \in \RR\), then let \(U = B\) and \(L = -B\), then it is both bounded above and below. If such \(U, L \in \RR\) exists, then let \(B = \max\Bqty{\abs{U}, \abs{L}}\).
+We see the two definitions of bounded are equivalent. Indeed, if \(\abs{a_n} < B\) for some \(B \in \RR\), then let \(U = B\) and \(L = -B\), then it is both bounded above and below. If such \(U, L \in \RR\) exists, then let \(B = \max\set{\abs{U}, \abs{L}}\).
 
 \begin{proposition}[Convergent Sequences are Bounded]
     A convergent sequence is bounded.
@@ -609,7 +609,7 @@ We see the two definitions of bounded are equivalent. Indeed, if \(\abs{a_n} < B
 
     Hence,
     \[
-        \abs{a_n} \leq \max\Bqty{\abs{a_1}, \abs{a_2}, \ldots, \abs{a_{N - 1}}, \abs{l} + 1}
+        \abs{a_n} \leq \max\set{\abs{a_1}, \abs{a_2}, \ldots, \abs{a_{N - 1}}, \abs{l} + 1}
     \]
     for all \(n \in \NN\).
 \end{proof}
@@ -715,7 +715,7 @@ We can do limits in addition, if the limits of the separate sequences being summ
         \exists M \in \NN, \forall n \geq M: \abs{b_n - d} < \frac{\epsilon}{2}.
     \]
 
-    Let \(N' = \max\Bqty{N, M}\), then for all \(n \geq N'\), we have
+    Let \(N' = \max\set{N, M}\), then for all \(n \geq N'\), we have
     \begin{align*}
         \abs{\pqty{a_n + b_n} - \pqty{c + d}} &= \abs{\pqty{a_n - c} + \pqty{b_n - d}} \\
         &\leq \abs{a_n - c} + \abs{b_n - d} \\
@@ -823,7 +823,7 @@ From the previous examples, we see that series whose terms are positive are of p
 We next study a particular type of sequences in the reals -- the \textbf{decimal expansions}.
 
 \begin{proposition}[Decimal Expansions Converge]
-    Let \(\pqty{d_n}_{n = 1}^{\infty}\) be a sequence with terms \(d_n \in \Bqty{0, 1, 2, \ldots, 9}\). Then
+    Let \(\pqty{d_n}_{n = 1}^{\infty}\) be a sequence with terms \(d_n \in \set{0, 1, 2, \ldots, 9}\). Then
     \[
         \sum_{n = 1}^{\infty} \frac{d_n}{10^n}
     \]
@@ -975,7 +975,7 @@ This case is to be dealt carefully when dealing with reals by considering their 
 
     Then, we have
     \[
-        10^{\max\Bqty{a, b}} x = \frac{t}{q} = n + \frac{c}{q}
+        10^{\max\set{a, b}} x = \frac{t}{q} = n + \frac{c}{q}
     \]
     for some \(n, c \in \ZZ\), satisfying \(0 \leq c < q\).
 
@@ -1243,7 +1243,7 @@ uniquely.
 
 \begin{remarks}
     \begin{enumerate}
-        \item \(\CC\) obeys all the usual rules of arithmetic, meaning in particular that \(\CC\) is a field. Specifically, for any \(z \in \CC \setminus \Bqty{0}\), then there is some \(w \in \CC\) with \(zw = 1\). Indeed, let \(z = a + ib\), note that
+        \item \(\CC\) obeys all the usual rules of arithmetic, meaning in particular that \(\CC\) is a field. Specifically, for any \(z \in \CC \setminus \set{0}\), then there is some \(w \in \CC\) with \(zw = 1\). Indeed, let \(z = a + ib\), note that
         \[
             \pqty{a + ib} \pqty{a - ib} = a^2 + b^2
         \]

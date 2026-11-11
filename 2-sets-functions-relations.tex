@@ -11,9 +11,9 @@
 \end{definition}
 
 \begin{example}[Examples of Sets]
-    \(\RR\), \(\NN\), \(\Bqty{1, 5, 9}\), \(\ocintv{-2}{3}\) are all examples of sets.
+    \(\RR\), \(\NN\), \(\set{1, 5, 9}\), \(\ocintv{-2}{3}\) are all examples of sets.
     
-    We have \(\Bqty{1, 3, 7} = \Bqty{1, 7, 3}\) and \(\Bqty{3, 4, 4, 8} = \Bqty{3, 4, 8}\).
+    We have \(\set{1, 3, 7} = \set{1, 7, 3}\) and \(\set{3, 4, 4, 8} = \set{3, 4, 8}\).
 \end{example}
 
 \begin{definition}[Sets being Equal]
@@ -44,7 +44,7 @@ Note that \(A = B\) if and only if \(A \subseteq B\) and \(B \subseteq A\).
 \begin{example}[Subset of Primes in \(\NN\)]
     The set
     \[
-        \Bqty{2, 3, 5, 7, 11, \ldots} = \set{n \in \NN}{n \text{ is prime}} \subsetneq \NN
+        \set{2, 3, 5, 7, 11, \ldots} = \set{n \in \NN}{n \text{ is prime}} \subsetneq \NN
     \]
     is a proper subset of \(\NN\).
 \end{example}
@@ -175,7 +175,7 @@ We give an example to prove one of the previous laws using a commonly used techn
 
 Note that we may define an ordered pair formally using set theory as
 \[
-    \pqty{a, b} = \Bqty{\Bqty{a}, \Bqty{a, b}},
+    \pqty{a, b} = \set{\set{a}, \set{a, b}},
 \]
 and extend this to ordered triples, etc., as well by a recursive definition:
 \[
@@ -195,9 +195,9 @@ Similarly, we may extend the Cartesian product to triples, etc., e.g.
 \end{definition}
 
 \begin{example}[Power Set]
-    If \(X = \Bqty{1, 2}\), we have
+    If \(X = \set{1, 2}\), we have
     \[
-        \powerset\pqty{X} = \Bqty{\emptyset, \Bqty{1}, \Bqty{2}, \Bqty{1, 2}}.
+        \powerset\pqty{X} = \set{\emptyset, \set{1}, \set{2}, \set{1, 2}}.
     \]
 \end{example}
 
@@ -215,11 +215,11 @@ But we \emph{cannot} form \(\set{x}{P\pqty{x}}\) \emph{without} the starting set
     \]  
     were a set. For example,
     \[
-        \Bqty{2} \in \Bqty{\Bqty{2}, \Bqty{1, 2, 3}}
+        \set{2} \in \set{\set{2}, \set{1, 2, 3}}
     \]
     but
     \[
-        \Bqty{2} \notin \Bqty{2}.
+        \set{2} \notin \set{2}.
     \]
 
     Then, if \(X \in X\), by definition, we have \(X \notin X\). However, if \(X \notin X\), by definition, we have \(X \in X\).
@@ -235,12 +235,12 @@ Therefore, to guarantee that a set exists, it should be obtained from known sets
 \begin{definition}[Finite/Infinite Set, Size of a Set]
     We let
     \[
-        \NN_0 = \NN \cup \Bqty{0} = \Bqty{0, 1, 2, 3, \ldots}.
+        \NN_0 = \NN \cup \set{0} = \set{0, 1, 2, 3, \ldots}.
     \]
 
     Given \(n \in \NN_0\), we say a set \(A\) has \term{size} \(n\) if we can write
     \[
-        A = \Bqty{a_1, a_2, \ldots, a_n}
+        A = \set{a_1, a_2, \ldots, a_n}
     \]
     where the elements \(a_i\) are distinct.
 
@@ -396,13 +396,13 @@ Given sets \(A\) and \(B\), a function \(f\) from \(A\) to \(B\) is a `rule' tha
     We refer to \autoref{fig:injective-surjective-examples}.
 
     \begin{enumerate}
-        \item Let \(\functiondomain{f_1}{\Bqty{1, 2, 3, 4, 5}}{\Bqty{1, 2, 3, 4}}\) be given by the first map. \(f_1\) is neither injective nor surjective.
+        \item Let \(\functiondomain{f_1}{\set{1, 2, 3, 4, 5}}{\set{1, 2, 3, 4}}\) be given by the first map. \(f_1\) is neither injective nor surjective.
 
-        \item Let \(\functiondomain{f_2}{\Bqty{1, 2, 3}}{\Bqty{1, 2, 3}}\) be given by the second map. \(f_2\) is both injective and surjective, hence bijective.
+        \item Let \(\functiondomain{f_2}{\set{1, 2, 3}}{\set{1, 2, 3}}\) be given by the second map. \(f_2\) is both injective and surjective, hence bijective.
 
-        \item Let \(\functiondomain{f_3}{\Bqty{1, 2, 3}}{\Bqty{1, 2, 3, 4}}\) be given by the third map. \(f_3\) is injective but not surjective.
+        \item Let \(\functiondomain{f_3}{\set{1, 2, 3}}{\set{1, 2, 3, 4}}\) be given by the third map. \(f_3\) is injective but not surjective.
 
-        \item Let \(\functiondomain{f_4}{\Bqty{1, 2, 3, 4}}{\Bqty{1, 2, 3}}\) be given by the fourth map. \(f_4\) is surjective but not injective.
+        \item Let \(\functiondomain{f_4}{\set{1, 2, 3, 4}}{\set{1, 2, 3}}\) be given by the fourth map. \(f_4\) is surjective but not injective.
     \end{enumerate}
 \end{examples}
 
@@ -459,7 +459,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
     \end{tikzcd}
     \qquad
     \begin{tikzcd}[cramped, row sep = tiny, column sep = small]
-          & \NN \arrow[rr, "h"]    & & \NN \setminus \Bqty{1} \\
+          & \NN \arrow[rr, "h"]    & & \NN \setminus \set{1} \\
         1 & \bullet \arrow[rr]    & & \bullet & 2 \\
         2 & \bullet \arrow[rr]    & & \bullet & 3 \\
         3 & \bullet \arrow[rr]    & & \bullet & 4 \\
@@ -489,9 +489,9 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 
         \item The function
         \[
-            \function{h}{\NN}{\NN \setminus \Bqty{1}}{x}{x + 1}
+            \function{h}{\NN}{\NN \setminus \set{1}}{x}{x + 1}
         \]
-        is bijective, and \(\NN \setminus \Bqty{1} \subsetneq \NN\).
+        is bijective, and \(\NN \setminus \set{1} \subsetneq \NN\).
     \end{enumerate}
 \end{examples}
 
@@ -515,7 +515,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 
         \item A set \(X\) has size \(n\) if and only if there is a bijection
         \[
-            \function{f}{\Bqty{1, 2, \ldots, n}}{X = \Bqty{a_1, a_2, \ldots, a_n}}{i}{a_i}.
+            \function{f}{\set{1, 2, \ldots, n}}{X = \set{a_1, a_2, \ldots, a_n}}{i}{a_i}.
         \]
     \end{enumerate}
 \end{examples}
@@ -523,7 +523,7 @@ If a function \(\functiondomain{f}{A}{B}\) is bijective, then everything in \(B\
 \begin{definition}[Indicator Function]
     Given a set \(X\) and \(A \subseteq X\), we have the \term{indicator function} or \term{characteristic function} of \(A\)
     \[
-        \function{\indicator_A = \characteristic_A}{X}{\Bqty{0, 1}}{x}{\begin{cases}1, & x \in A, \\ 0, & x \notin A\end{cases}.}
+        \function{\indicator_A = \characteristic_A}{X}{\set{0, 1}}{x}{\begin{cases}1, & x \in A, \\ 0, & x \notin A\end{cases}.}
     \]
 \end{definition}
 
@@ -884,7 +884,7 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
     \begin{enumerate}
         \item In Example 1 above, we have
         \[
-            \flatfrac{X}{R} = \Bqty{\bqty{0}, \bqty{1}, \ldots, \bqty{9}}
+            \flatfrac{X}{R} = \set{\bqty{0}, \bqty{1}, \ldots, \bqty{9}}
         \]
         and \(\abs{\flatfrac{X}{R}} = 10\).
 
@@ -895,7 +895,7 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
 
         Note that
         \[
-            \bqty{\pqty{1, 2}} = \Bqty{\pqty{1, 2}, \pqty{2, 4}, \pqty{3, 6}, \ldots},
+            \bqty{\pqty{1, 2}} = \set{\pqty{1, 2}, \pqty{2, 4}, \pqty{3, 6}, \ldots},
         \]
         so we may regard \(\ZZ \times \NN / R\) as a copy of \(\QQ\) by identifying \(\bqty{\pqty{a, b}}\) with \(\frac{a}{b} \in \QQ\).
 
@@ -920,7 +920,7 @@ Now, we may be interested in the set of equivalence classes, since it is useful 
     \begin{enumerate}
         \item \(+\) and \(\cdot\) are binary operations on \(\NN, \ZZ, \ldots\).
         \item \(-\) is a binary operation on \(\ZZ, \QQ, \ldots\).
-        \item \(\div\) is a binary operation on \(\QQ \setminus \Bqty{0} = \QQ\multiplicative, \RR\multiplicative, \ldots\).
+        \item \(\div\) is a binary operation on \(\QQ \setminus \set{0} = \QQ\multiplicative, \RR\multiplicative, \ldots\).
     \end{enumerate}
 \end{examples}
 

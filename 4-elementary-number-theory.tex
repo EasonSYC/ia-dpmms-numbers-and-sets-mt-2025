@@ -441,7 +441,7 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
         \]
         for \(\alpha_i, \beta_i \geq 0\), is
         \[
-            p_1^{\min\Bqty{\alpha_1, \beta_1}} p_2^{\min\Bqty{\alpha_2, \beta_2}} \cdots p_k^{\min\Bqty{\alpha_k, \beta_k}}.
+            p_1^{\min\set{\alpha_1, \beta_1}} p_2^{\min\set{\alpha_2, \beta_2}} \cdots p_k^{\min\set{\alpha_k, \beta_k}}.
         \]
 
         \item What are the common multiples of the two previous numbers? They are all numbers of the form
@@ -462,7 +462,7 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
         \]
         for \(\alpha_i, \beta_i \geq 0\), is
         \[
-            p_1^{\max\Bqty{\alpha_1, \beta_1}} p_2^{\max\Bqty{\alpha_2, \beta_2}} \cdots p_k^{\max\Bqty{\alpha_k, \beta_k}}.
+            p_1^{\max\set{\alpha_1, \beta_1}} p_2^{\max\set{\alpha_2, \beta_2}} \cdots p_k^{\max\set{\alpha_k, \beta_k}}.
         \]
     \end{enumerate}
 \end{examples}
@@ -477,7 +477,7 @@ We may now apply the fundamental theorem of arithmetics to some useful applicati
 \begin{proof}
     This is immediate from the previous example and using the fact that
     \[
-        \min\Bqty{a, b} + \max\Bqty{a, b} = a + b.
+        \min\set{a, b} + \max\set{a, b} = a + b.
     \]
 \end{proof}
 
@@ -902,7 +902,7 @@ We have a theorem closely related to this but modulo any general integer.
     \]
     be the \(\totient\pqty{m}\) units in \(\ZZ_{m}\). Let them be
     \[
-        \mathcal{U} = \Bqty{u_1, u_2, \ldots, u_{\totient\pqty{m}}}.
+        \mathcal{U} = \set{u_1, u_2, \ldots, u_{\totient\pqty{m}}}.
     \]
 
     Similarly, for any \(a\) where \(\gcd\pqty{a, m} = 1\), we have

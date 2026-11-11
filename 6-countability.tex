@@ -22,7 +22,7 @@ but can we formalise this result?
 
 A set \(X\) is countable if and only if we can list its elements one by one as
 \[
-    X = \Bqty{x_1, x_2, x_3, \ldots}
+    X = \set{x_1, x_2, x_3, \ldots}
 \]
 and this list might terminate.
 
@@ -32,7 +32,7 @@ and this list might terminate.
         \item \(\NN\) is countable.
         \item \(\ZZ\) is countable, by listing the elements by
         \[
-        \ZZ = \Bqty{0, 1, -1, 2, -2, \ldots}.
+        \ZZ = \set{0, 1, -1, 2, -2, \ldots}.
         \]
 
         The bijection is given by
@@ -54,11 +54,11 @@ Countable sets are, in a sense, the `smaller' sets in the infinite class. Intuit
 \begin{proof}
     Let \(S \subseteq \NN\) be non-empty (the empty set is clearly countable). By well--ordering principle, let \(s_1 \in S\) be the least element.
 
-    If \(S \setminus \Bqty{s_1} \neq \emptyset\), we take \(s_2\) as the least element of \(S \setminus \Bqty{s_1}\).
+    If \(S \setminus \set{s_1} \neq \emptyset\), we take \(s_2\) as the least element of \(S \setminus \set{s_1}\).
 
     If at some point this process ends, then
     \[
-        S = \Bqty{s_1, s_2, \ldots, s_m}
+        S = \set{s_1, s_2, \ldots, s_m}
     \]
     is finite and hence countable; if it does not terminate, then the map
     \[
@@ -97,12 +97,12 @@ Countable sets are, in a sense, the `smaller' sets in the infinite class. Intuit
 
         \item (iii) \(\implies\) (ii), we suppose that \(X \neq \emptyset\) and \(\functiondomain{f}{\NN}{X}\) is surjective. Let \(\functiondomain{g}{X}{W}\) be defined by
         \[
-            \functionmap{g}{a}{\min f\inverse\pqty{\Bqty{a}}}.
+            \functionmap{g}{a}{\min f\inverse\pqty{\set{a}}}.
         \]
 
         This is well-defined, since
         \[
-            \emptyset \neq f\inverse\pqty{\Bqty{a}} \subseteq \NN
+            \emptyset \neq f\inverse\pqty{\set{a}} \subseteq \NN
         \]
         and such minima exists by well--ordering principle.
     \end{itemize}
@@ -312,7 +312,7 @@ We can also investigate the size of power sets of sets.
         \functiondomain{f}{\oointv{0}{1}}{\powerset\pqty{\NN}}.
     \]
 
-    Let \(x \in \oointv{0}{1}\) be \(x = 0.x_1 x_2 x_3 \ldots\) in binary for \(x_i \in \Bqty{0, 1}\), and using the expansion not ending in an infinite string of \(1\)s (ensuring the map defined using infinite decimals is well-defined). Define
+    Let \(x \in \oointv{0}{1}\) be \(x = 0.x_1 x_2 x_3 \ldots\) in binary for \(x_i \in \set{0, 1}\), and using the expansion not ending in an infinite string of \(1\)s (ensuring the map defined using infinite decimals is well-defined). Define
     \[
         \functionmap{f}{x}{\set{n \in \NN}{x_n = 1}}.
     \]
